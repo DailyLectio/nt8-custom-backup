@@ -11,22 +11,30 @@ if ([string]::IsNullOrWhiteSpace($RepoPath)) {
 }
 
 $preferredLogRoot = Join-Path $env:LOCALAPPDATA "NT8GitBackup"
-$logRoot = $preferredLogRoot
+$script:logRoot = $preferredLogRoot
 try {
-    New-Item -ItemType Directory -Path $logRoot -Force | Out-Null
+    New-Item -ItemType Directory -Path $script:logRoot -Force | Out-Null
 }
 catch {
-    $logRoot = Join-Path $RepoPath ".nt8-backup-logs"
-    New-Item -ItemType Directory -Path $logRoot -Force | Out-Null
+    $script:logRoot = Join-Path $RepoPath ".nt8-backup-logs"
+    New-Item -ItemType Directory -Path $script:logRoot -Force | Out-Null
 }
 
-$logFile = Join-Path $logRoot "nt8-autobackup.log"
+$script:logFile = Join-Path $script:logRoot "nt8-autobackup.log"
 
 function Write-BackupLog {
     param([string]$Message)
 
     $line = "{0} {1}" -f (Get-Date -Format "yyyy-MM-dd HH:mm:ss"), $Message
-    Add-Content -Path $logFile -Value $line
+    try {
+        Add-Content -Path $script:logFile -Value $line
+    }
+    catch {
+        $script:logRoot = Join-Path $RepoPath ".nt8-backup-logs"
+        New-Item -ItemType Directory -Path $script:logRoot -Force | Out-Null
+        $script:logFile = Join-Path $script:logRoot "nt8-autobackup.log"
+        Add-Content -Path $script:logFile -Value $line
+    }
     Write-Output $line
 }
 
