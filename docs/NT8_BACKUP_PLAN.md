@@ -3,8 +3,10 @@
 ## Current State
 
 - The live NT8 folder already has a Git repository initialized.
-- No Git commits exist yet.
-- No GitHub remote is connected yet.
+- The repo is connected to `https://github.com/DailyLectio/nt8-custom-backup.git`.
+- `main` is tracking `origin/main`.
+- A Windows scheduled task named `NT8 GitHub Auto Backup` is registered to run
+  every 15 minutes.
 - The most important backup scope is code plus templates, not the entire
   NinjaTrader platform folder.
 
@@ -19,11 +21,23 @@ leaving the working files where NT8 can still find them.
 
 Primary source:
 
+- `bin/Custom/Indicators/**/*.cs`
+- `bin/Custom/Indicators/**/*.xaml`
+- `bin/Custom/Indicators/**/*.resx`
+- `bin/Custom/Strategies/**/*.cs`
 - `bin/Custom/**/*.cs`
 - `bin/Custom/**/*.xaml`
 - `bin/Custom/**/*.resx`
 - `bin/Custom/*.csproj`
 - `bin/Custom/NinjaTrader.Custom.xml`
+
+Confirmed NT8 custom folders:
+
+- `C:\Users\Valued Customer\Documents\NinjaTrader 8\bin\Custom\Indicators`
+- `C:\Users\Valued Customer\Documents\NinjaTrader 8\bin\Custom\Strategies`
+
+As of the latest audit, Git is tracking 197 files under `bin/Custom/Indicators`
+and 98 files under `bin/Custom/Strategies`.
 
 Templates and strategy settings:
 
