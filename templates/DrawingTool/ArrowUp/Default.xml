@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <ArrowUp xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <IsAutoScale>false</IsAutoScale>
+    <MaxValue>-1.7976931348623157E+308</MaxValue>
+    <MinValue>1.7976931348623157E+308</MinValue>
+    <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+    <GlobalLastSeenSerialize>0</GlobalLastSeenSerialize>
+    <GlobalWorkspace>ES CHART START</GlobalWorkspace>
+    <IsLocked>false</IsLocked>
+    <PanelIndex>1</PanelIndex>
+    <ZOrderType>Normal</ZOrderType>
+    <Anchor>
+      <SlotIndex>1625.7055862246473</SlotIndex>
+      <DisplayName>Anchor</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-12-01T09:58:31.675</Time>
+      <Price>25.747170505606984</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </Anchor>
+    <Size>ExtraLarge</Size>
+    <AreaBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</AreaBrushSerialize>
+    <OutlineBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</OutlineBrushSerialize>
+    <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.ArrowUp</FullTypeName>
+    <IsGlobalDrawingObjectDefault>false</IsGlobalDrawingObjectDefault>
+    <IsOwnerVisible>true</IsOwnerVisible>
+  </ArrowUp>
+</NinjaTrader>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <RegionHighlightY xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <IsAutoScale>false</IsAutoScale>
+    <MaxValue>-1.7976931348623157E+308</MaxValue>
+    <MinValue>1.7976931348623157E+308</MinValue>
+    <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+    <GlobalLastSeenSerialize>0</GlobalLastSeenSerialize>
+    <GlobalWorkspace>Core Playbook Trading Charts</GlobalWorkspace>
+    <IsLocked>false</IsLocked>
+    <PanelIndex>0</PanelIndex>
+    <ZOrderType>Normal</ZOrderType>
+    <AnchorLineStroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFA9A9A9&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Dash</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>1</Width>
+    </AnchorLineStroke>
+    <AreaBrushSerialize>&lt;SolidColorBrush Color="#FF4B0082" Opacity="0.25" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</AreaBrushSerialize>
+    <AreaOpacity>25</AreaOpacity>
+    <EndAnchor>
+      <SlotIndex>146.05978858495047</SlotIndex>
+      <DisplayName>End</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-06-29T22:31:47.619</Time>
+      <Price>6236.1696904471291</Price>
+      <IsXPropertiesVisible>false</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </EndAnchor>
+    <OutlineStroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFA8072&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Solid</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>4</Width>
+    </OutlineStroke>
+    <StartAnchor>
+      <SlotIndex>146.05978858495047</SlotIndex>
+      <DisplayName>Start</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-06-29T22:31:47.619</Time>
+      <Price>6249.3512520759768</Price>
+      <IsXPropertiesVisible>false</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </StartAnchor>
+    <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.RegionHighlightY</FullTypeName>
+    <IsGlobalDrawingObjectDefault>true</IsGlobalDrawingObjectDefault>
+    <IsOwnerVisible>true</IsOwnerVisible>
+  </RegionHighlightY>
+</NinjaTrader>

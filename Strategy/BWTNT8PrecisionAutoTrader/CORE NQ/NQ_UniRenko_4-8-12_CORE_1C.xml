@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StrategyTemplate>
+  <StrategyType>NinjaTrader.NinjaScript.Strategies.BWTNT8PrecisionAutoTrader</StrategyType>
+  <Strategy>
+    <BWTNT8PrecisionAutoTrader xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>20200321</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>12</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>4</Value>
+        <Value2>28</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <From>2024-04-03T00:00:00</From>
+      <Panel>-1</Panel>
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2024-04-10T00:00:00</To>
+      <Calculate>OnBarClose</Calculate>
+      <Displacement>0</Displacement>
+      <IsAutoScale>true</IsAutoScale>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <Lines />
+      <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
+      <Name>BWTNT8PrecisionAutoTrader</Name>
+      <Plots />
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <BarsPeriodParameter>
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">0</Max>
+        <Min xsi:type="xsd:int">0</Min>
+        <Name />
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0</ValueSerializable>
+      </BarsPeriodParameter>
+      <BarsRequiredToTrade>3</BarsRequiredToTrade>
+      <Category>NinjaScript</Category>
+      <ConnectionLossHandling>KeepRunning</ConnectionLossHandling>
+      <DaysToLoad>5</DaysToLoad>
+      <DefaultQuantity>4</DefaultQuantity>
+      <DisconnectDelaySeconds>300</DisconnectDelaySeconds>
+      <EntriesPerDirection>1</EntriesPerDirection>
+      <EntryHandling>AllEntries</EntryHandling>
+      <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
+      <IncludeCommission>true</IncludeCommission>
+      <InstrumentOrInstrumentList>NQ JUN24 (BWT UniRenko T4 R28 O12)</InstrumentOrInstrumentList>
+      <IsAggregated>false</IsAggregated>
+      <IsExitOnSessionCloseStrategy>false</IsExitOnSessionCloseStrategy>
+      <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
+      <IsOptimizeDataSeries>false</IsOptimizeDataSeries>
+      <IsStableSession>true</IsStableSession>
+      <IsTickReplay>false</IsTickReplay>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <IsWaitUntilFlat>false</IsWaitUntilFlat>
+      <NumberRestartAttempts>2</NumberRestartAttempts>
+      <OptimizationPeriod>10</OptimizationPeriod>
+      <OrderFillResolution>Standard</OrderFillResolution>
+      <OrderFillResolutionType>Tick</OrderFillResolutionType>
+      <OrderFillResolutionValue>1</OrderFillResolutionValue>
+      <RestartsWithinMinutes>3</RestartsWithinMinutes>
+      <SetOrderQuantity>Strategy</SetOrderQuantity>
+      <Slippage>0</Slippage>
+      <StartBehavior>WaitUntilFlat</StartBehavior>
+      <StopTargetHandling>PerEntryExecution</StopTargetHandling>
+      <SupportsOptimizationGraph>true</SupportsOptimizationGraph>
+      <TestPeriod>28</TestPeriod>
+      <TradingHoursSerializable />
+      <Gtd>1800-01-01T00:00:00</Gtd>
+      <Template />
+      <TimeInForce>Gtc</TimeInForce>
+      <DrawOnPricePanel>false</DrawOnPricePanel>
+      <ZOrder>-2147483648</ZOrder>
+      <indicator>
+        <IsVisible>true</IsVisible>
+        <AreLinesConfigurable>true</AreLinesConfigurable>
+        <ArePlotsConfigurable>true</ArePlotsConfigurable>
+        <BarsToLoad>0</BarsToLoad>
+        <DisplayInDataBox>true</DisplayInDataBox>
+        <From>2099-12-01T00:00:00</From>
+        <Panel>0</Panel>
+        <ScaleJustification>Right</ScaleJustification>
+        <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+        <To>1800-01-01T00:00:00</To>
+        <Calculate>OnBarClose</Calculate>
+        <Displacement>0</Displacement>
+        <IsAutoScale>true</IsAutoScale>
+        <IsDataSeriesRequired>true</IsDataSeriesRequired>
+        <IsOverlay>false</IsOverlay>
+        <Lines />
+        <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+        <Name>Indicator</Name>
+        <Plots />
+        <SelectedValueSeries>0</SelectedValueSeries>
+        <InputPlot>0</InputPlot>
+        <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+        <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+        <DrawVerticalGridLines>true</DrawVerticalGridLines>
+        <DrawOnPricePanel>true</DrawOnPricePanel>
+        <PaintPriceMarkers>true</PaintPriceMarkers>
+        <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+        <IndicatorId>1747</IndicatorId>
+        <MaxSerialized>0</MaxSerialized>
+        <MinSerialized>0</MinSerialized>
+        <ZOrder>-2147483648</ZOrder>
+      </indicator>
+      <IsRaiseErrorOnAllOrderRejects>false</IsRaiseErrorOnAllOrderRejects>
+      <IsRealtimeErrorHandling>IgnoreAllErrors</IsRealtimeErrorHandling>
+      <IsTracingMode>false</IsTracingMode>
+      <IsTracingDailyLimits>false</IsTracingDailyLimits>
+      <IsTracingModeRealtimeOnly>true</IsTracingModeRealtimeOnly>
+      <IsTracingOpenFileOnError>false</IsTracingOpenFileOnError>
+      <IsTracingAccountEvents>false</IsTracingAccountEvents>
+      <IsTracingTrailingStopsEvents>false</IsTracingTrailingStopsEvents>
+      <IsSimplePrintMode>true</IsSimplePrintMode>
+      <IsOrdeActiveConcDict>false</IsOrdeActiveConcDict>
+      <IsOrderCancelStopsOnly>true</IsOrderCancelStopsOnly>
+      <IsOrderCancelInspectEachOrDoBatchCancel>true</IsOrderCancelInspectEachOrDoBatchCancel>
+      <IsPositionCloseModeLimit>false</IsPositionCloseModeLimit>
+      <PositionCloseModeTicksOffset>3</PositionCloseModeTicksOffset>
+      <IsTradeWorkFlowMonitorOn>true</IsTradeWorkFlowMonitorOn>
+      <IsRealtimeTradingUseQueue>false</IsRealtimeTradingUseQueue>
+      <IsUseSignalQFallbackForSignals>false</IsUseSignalQFallbackForSignals>
+      <TradeSignalExpiryInterval>3</TradeSignalExpiryInterval>
+      <TradeWorkFlowTimeOut>10</TradeWorkFlowTimeOut>
+      <TradeWorkFlowTimerInterval>3</TradeWorkFlowTimerInterval>
+      <TradeWorkFlowRetryAlarm>5</TradeWorkFlowRetryAlarm>
+      <TEQTimerInterval>5</TEQTimerInterval>
+      <IsUnableToCorrectErrorShutDown>false</IsUnableToCorrectErrorShutDown>
+      <IsStrategyUnSafeMode>false</IsStrategyUnSafeMode>
+      <IsOnStrategyTradeWorkFlowStateEntryRejectionError>true</IsOnStrategyTradeWorkFlowStateEntryRejectionError>
+      <IsFlattenOnTransition>true</IsFlattenOnTransition>
+      <IsPlayBackHandleOnOrderUpdate>false</IsPlayBackHandleOnOrderUpdate>
+      <IsRealtimeTradingOnly>false</IsRealtimeTradingOnly>
+      <IsSubmitTargetsAndConfirm>false</IsSubmitTargetsAndConfirm>
+      <IsShowOrderLabels>false</IsShowOrderLabels>
+      <IsShowAccountNameInNinjaBuddy>false</IsShowAccountNameInNinjaBuddy>
+      <IsShowQuantitySelectorsInNinjaBuddy>false</IsShowQuantitySelectorsInNinjaBuddy>
+      <IsInfoBoxMatchEquityCurveColor>false</IsInfoBoxMatchEquityCurveColor>
+      <IsLoggingPerformanceToServer>false</IsLoggingPerformanceToServer>
+      <SendTemplateSettingsToServer>true</SendTemplateSettingsToServer>
+      <TemplateVersionNumber>0</TemplateVersionNumber>
+      <TrailStopManagementEnabled>true</TrailStopManagementEnabled>
+      <TemplateName>NQ_UniRenko_4-8-12_CORE_1C.xml</TemplateName>
+      <IsShowConfigurationAsPanel>true</IsShowConfigurationAsPanel>
+      <ShowMain>true</ShowMain>
+      <BWT3LineModuleOnOff>0</BWT3LineModuleOnOff>
+      <BWT3LineBreakEntryPeriod>3</BWT3LineBreakEntryPeriod>
+      <BWT3LineBreakEntryShowSignalPlots>false</BWT3LineBreakEntryShowSignalPlots>
+      <BWT3LineBreakEntryShowTriggerLines>true</BWT3LineBreakEntryShowTriggerLines>
+      <BWT3LineSignalLookBack>0</BWT3LineSignalLookBack>
+      <BBOBreakoutModuleOnOff>0</BBOBreakoutModuleOnOff>
+      <BBOBreakoutLookBack>1</BBOBreakoutLookBack>
+      <BWTPrecisionTrendEntryLookBack>7</BWTPrecisionTrendEntryLookBack>
+      <BWTPrecisionTrendEntryMAType>0</BWTPrecisionTrendEntryMAType>
+      <BWTPrecisionTrendEntryMultiplier>1.4</BWTPrecisionTrendEntryMultiplier>
+      <BWTPrecisionTrendEntryPaintBar>false</BWTPrecisionTrendEntryPaintBar>
+      <BWTPrecisionTrendEntryPeriod>14</BWTPrecisionTrendEntryPeriod>
+      <BWTPrecisionTrendEntryShowArrowMarker>true</BWTPrecisionTrendEntryShowArrowMarker>
+      <BWTPrecisionTrendEntryShowPrice>false</BWTPrecisionTrendEntryShowPrice>
+      <BWTPrecisionTrendEntryShowPriceDot>true</BWTPrecisionTrendEntryShowPriceDot>
+      <BWTPrecisionTrendEntryShowSignalPlots>false</BWTPrecisionTrendEntryShowSignalPlots>
+      <BWTPrecisionTrendEntrySmooth>1</BWTPrecisionTrendEntrySmooth>
+      <BWTVolatilityStopModuleOnOff>1</BWTVolatilityStopModuleOnOff>
+      <EquityCurveColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF87CEFA&lt;/SolidColorBrush&gt;</EquityCurveColorSerialize>
+      <ShowPl>true</ShowPl>
+      <StratCanTrade>true</StratCanTrade>
+      <StratCanTradeLong>true</StratCanTradeLong>
+      <StratCanTradeShort>false</StratCanTradeShort>
+      <TradeManagementEnabled>true</TradeManagementEnabled>
+      <ShowBWTTradeManager>true</ShowBWTTradeManager>
+      <PrecisionTrendFilterMode>0</PrecisionTrendFilterMode>
+      <PrecisionTrendFilterModeHTF>0</PrecisionTrendFilterModeHTF>
+      <TimeSessionFilterMode>0</TimeSessionFilterMode>
+      <TradeDirection>Both</TradeDirection>
+      <TradeFilterMode>1</TradeFilterMode>
+      <TradingDaysFilterMode>0</TradingDaysFilterMode>
+      <PrecisionMAFilterMode>1</PrecisionMAFilterMode>
+      <PrecisionAIMAFilterMode>0</PrecisionAIMAFilterMode>
+      <SessionOpenDailyFilterMode>0</SessionOpenDailyFilterMode>
+      <SessionOpenWeeklyFilterMode>0</SessionOpenWeeklyFilterMode>
+      <PriceZoneFilterMode>0</PriceZoneFilterMode>
+      <UseNewsFiltering>false</UseNewsFiltering>
+      <BWTStepMABiasFilter>0</BWTStepMABiasFilter>
+      <NewsDisableBefore>5</NewsDisableBefore>
+      <NewsDisableAfter>5</NewsDisableAfter>
+      <UseNewsBackgroundColor>false</UseNewsBackgroundColor>
+      <BackColorNewsSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFD3D3D3&lt;/SolidColorBrush&gt;</BackColorNewsSerializable>
+      <BWTStepMAMALength>6</BWTStepMAMALength>
+      <BWTStepMAStepSize>11</BWTStepMAStepSize>
+      <BWTStepMAMAType>SMA</BWTStepMAMAType>
+      <BWTStepMASensitivity>0.4</BWTStepMASensitivity>
+      <BWTStepMAFilterDisplay>false</BWTStepMAFilterDisplay>
+      <BWTStepMAColorBars>true</BWTStepMAColorBars>
+      <BWTStepMAColorMode>3</BWTStepMAColorMode>
+      <BWTStepMAHighLow>false</BWTStepMAHighLow>
+      <BWTPrecisionMAP1MAType>SMA</BWTPrecisionMAP1MAType>
+      <BWTPrecisionMAP2Length>6</BWTPrecisionMAP2Length>
+      <BWTPrecisionMAP3AMAFast>2</BWTPrecisionMAP3AMAFast>
+      <BWTPrecisionMAP4AMASlow>30</BWTPrecisionMAP4AMASlow>
+      <BWTPrecisionMAP5ShowDots>true</BWTPrecisionMAP5ShowDots>
+      <ShowPrecisionMAFilterOnChart>true</ShowPrecisionMAFilterOnChart>
+      <BWTPrecisionAIMALength>18</BWTPrecisionAIMALength>
+      <BWTPrecisionAIMAPhase>50</BWTPrecisionAIMAPhase>
+      <BWTPrecisionAIMAVector>2</BWTPrecisionAIMAVector>
+      <BWTPrecisionAIMAPowerShowDots>true</BWTPrecisionAIMAPowerShowDots>
+      <ShowPrecisionAIMAFilterOnChart>false</ShowPrecisionAIMAFilterOnChart>
+      <SessionBeginHours>6</SessionBeginHours>
+      <SessionBeginMinutes>32</SessionBeginMinutes>
+      <SessionBeginSeconds>0</SessionBeginSeconds>
+      <SessionEndHours>15</SessionEndHours>
+      <SessionEndMinutes>40</SessionEndMinutes>
+      <SessionEndSeconds>0</SessionEndSeconds>
+      <SessionDaysFriday>1</SessionDaysFriday>
+      <SessionDaysMonday>1</SessionDaysMonday>
+      <SessionDaysSunday>1</SessionDaysSunday>
+      <SessionDaysSaturday>0</SessionDaysSaturday>
+      <SessionDaysThursday>1</SessionDaysThursday>
+      <SessionDaysTuesday>1</SessionDaysTuesday>
+      <SessionDaysWednesday>1</SessionDaysWednesday>
+      <ShowDailySessionOpenOnChart>false</ShowDailySessionOpenOnChart>
+      <DailySessionOpenTime />
+      <DailySessionOpenTimeString>PT6H30M</DailySessionOpenTimeString>
+      <DailySessionTickOffset>5</DailySessionTickOffset>
+      <DailyORBColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008000&lt;/SolidColorBrush&gt;</DailyORBColorSerialize>
+      <ShowWeeklySessionOpenOnChart>false</ShowWeeklySessionOpenOnChart>
+      <WeeklySessionOpenTime />
+      <ParabolicEntryFilterDisplay>false</ParabolicEntryFilterDisplay>
+      <BWTParabolicEntryFilterMode>0</BWTParabolicEntryFilterMode>
+      <ParabolicEntryFilterSensitivity>2</ParabolicEntryFilterSensitivity>
+      <ParabolicEntryFilterAccel>0</ParabolicEntryFilterAccel>
+      <ParabolicEntryConfirmDownColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</ParabolicEntryConfirmDownColorSerialize>
+      <ParabolicEntryConfirmUpColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFF0F8FF&lt;/SolidColorBrush&gt;</ParabolicEntryConfirmUpColorSerialize>
+      <ParabolicEntryBuyStopColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFD700&lt;/SolidColorBrush&gt;</ParabolicEntryBuyStopColorSerialize>
+      <ParabolicEntrySellStopColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFD700&lt;/SolidColorBrush&gt;</ParabolicEntrySellStopColorSerialize>
+      <ParabolicEntryBuyLineColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</ParabolicEntryBuyLineColorSerialize>
+      <ParabolicEntrySellLineColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</ParabolicEntrySellLineColorSerialize>
+      <WeeklySessionOpenTimeString>PT9H30M</WeeklySessionOpenTimeString>
+      <WeeklySessionTickOffset>5</WeeklySessionTickOffset>
+      <WeeklyORBColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF0000FF&lt;/SolidColorBrush&gt;</WeeklyORBColorSerialize>
+      <TradeExitMode>1</TradeExitMode>
+      <BWTPrecisionTrendExitMode>0</BWTPrecisionTrendExitMode>
+      <TimeExitMode>1</TimeExitMode>
+      <TradeExitModeORBDaily>0</TradeExitModeORBDaily>
+      <TradeExitModeORBWeekly>0</TradeExitModeORBWeekly>
+      <ParabolicExitFilterDisplay>false</ParabolicExitFilterDisplay>
+      <BWTParabolicExitMode>0</BWTParabolicExitMode>
+      <ParabolicExitSensitivity>2</ParabolicExitSensitivity>
+      <ParabolicExitAccel>0</ParabolicExitAccel>
+      <ParabolicExiType>Ticks</ParabolicExiType>
+      <BWTParabolicExitModeBarsSinceEntry>10</BWTParabolicExitModeBarsSinceEntry>
+      <BWTParabolicExitTicksOffset>0</BWTParabolicExitTicksOffset>
+      <ParabolicExitConfirmDownColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</ParabolicExitConfirmDownColorSerialize>
+      <ParabolicExitConfirmUpColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFF0F8FF&lt;/SolidColorBrush&gt;</ParabolicExitConfirmUpColorSerialize>
+      <ParabolicExitBuyStopColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</ParabolicExitBuyStopColorSerialize>
+      <ParabolicExitSellStopColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7CFC00&lt;/SolidColorBrush&gt;</ParabolicExitSellStopColorSerialize>
+      <ParabolicExitBuyLineColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</ParabolicExitBuyLineColorSerialize>
+      <ParabolicExitSellLineColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</ParabolicExitSellLineColorSerialize>
+      <DominantChartForExit>TradingChart</DominantChartForExit>
+      <ExitTimeWindow>4</ExitTimeWindow>
+      <ExitTimeHours>0</ExitTimeHours>
+      <ExitTimeMinutes>45</ExitTimeMinutes>
+      <ExitTimeSeconds>0</ExitTimeSeconds>
+      <SessionEndFriday>11</SessionEndFriday>
+      <SessionEndFridayMinutes>59</SessionEndFridayMinutes>
+      <SessionEndFridaySeconds>0</SessionEndFridaySeconds>
+      <MTFBarsPeriod>
+        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>0</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>120</Value>
+        <Value2>0</Value2>
+      </MTFBarsPeriod>
+      <BWTPrecisionTrendHTFMultiplier>1.4</BWTPrecisionTrendHTFMultiplier>
+      <BWTPrecisionTrendHTFPeriod>14</BWTPrecisionTrendHTFPeriod>
+      <BWTPrecisionTrendHTFSmooth>1</BWTPrecisionTrendHTFSmooth>
+      <BWTPrecisionTrendHTFMAType>0</BWTPrecisionTrendHTFMAType>
+      <BackColorDnSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFE4E1&lt;/SolidColorBrush&gt;</BackColorDnSerialize>
+      <BackOpacity>0.5</BackOpacity>
+      <BackColorUpSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8FBC8F&lt;/SolidColorBrush&gt;</BackColorUpSerialize>
+      <PrecisionTrendFilterUseBackgroundColor>false</PrecisionTrendFilterUseBackgroundColor>
+      <POrderType>Limit</POrderType>
+      <PLimitPriceMode>Close</PLimitPriceMode>
+      <LimitOffset>1</LimitOffset>
+      <LimitOffsetBars>0</LimitOffsetBars>
+      <LimitOrderCancel>true</LimitOrderCancel>
+      <OCOBreakoutOffset>2</OCOBreakoutOffset>
+      <NumberOfBarToCancelLimitOrder>7</NumberOfBarToCancelLimitOrder>
+      <PstopLoss>15</PstopLoss>
+      <StopLossCalcMode>0</StopLossCalcMode>
+      <BeLevel>10</BeLevel>
+      <BeOffset>0</BeOffset>
+      <CoreStopPercentage>40</CoreStopPercentage>
+      <CoreStopUseHotZone>true</CoreStopUseHotZone>
+      <BeUse>false</BeUse>
+      <PTrailingStopType>VolatilityStop</PTrailingStopType>
+      <PTrailingStopType2>VolatilityStop</PTrailingStopType2>
+      <PTrailingStopType3>VolatilityStop</PTrailingStopType3>
+      <TrailingStopOffset>30</TrailingStopOffset>
+      <TrailingStopOffset2>6</TrailingStopOffset2>
+      <TrailingStopOffset3>1</TrailingStopOffset3>
+      <TrailingStopTrigger1>10</TrailingStopTrigger1>
+      <TrailingStopTrigger2>100</TrailingStopTrigger2>
+      <TrailingStopTrigger3>150</TrailingStopTrigger3>
+      <TrailStopDistance1>0</TrailStopDistance1>
+      <TrailStopDistance2>1</TrailStopDistance2>
+      <TrailStopDistance3>0</TrailStopDistance3>
+      <UseTrailStopReset1>true</UseTrailStopReset1>
+      <UseTrailStopReset2>true</UseTrailStopReset2>
+      <Target1Qnt>1</Target1Qnt>
+      <Target2Qnt>0</Target2Qnt>
+      <Target3Qnt>0</Target3Qnt>
+      <Target4Qnt>0</Target4Qnt>
+      <TargetCalcMode>2</TargetCalcMode>
+      <ProfitTarget1>20</ProfitTarget1>
+      <ProfitTarget2>40</ProfitTarget2>
+      <ProfitTarget3>60</ProfitTarget3>
+      <ProfitTarget4>80</ProfitTarget4>
+      <ProfitTarget1Core>1</ProfitTarget1Core>
+      <ProfitTarget1CoreUseHotZone>true</ProfitTarget1CoreUseHotZone>
+      <ProfitTarget1CoreOffset>-3</ProfitTarget1CoreOffset>
+      <ProfitTarget2Core>2</ProfitTarget2Core>
+      <ProfitTarget2CoreUseHotZone>true</ProfitTarget2CoreUseHotZone>
+      <ProfitTarget2CoreOffset>-5</ProfitTarget2CoreOffset>
+      <ProfitTarget3Core>3</ProfitTarget3Core>
+      <ProfitTarget3CoreUseHotZone>true</ProfitTarget3CoreUseHotZone>
+      <ProfitTarget3CoreOffset>-3</ProfitTarget3CoreOffset>
+      <ProfitTarget4Core>4</ProfitTarget4Core>
+      <ProfitTarget4CoreUseHotZone>false</ProfitTarget4CoreUseHotZone>
+      <ProfitTarget4CoreOffset>-4</ProfitTarget4CoreOffset>
+      <TradingLimitsOn>true</TradingLimitsOn>
+      <PDailyProfit>1000</PDailyProfit>
+      <PDailyLoss>500</PDailyLoss>
+      <MaxWinners>0</MaxWinners>
+      <MaxLosers>3</MaxLosers>
+      <BackColorDailyLimitSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackColorDailyLimitSerialize>
+      <OrderGraphics>false</OrderGraphics>
+      <TradeColorDownSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFA07A&lt;/SolidColorBrush&gt;</TradeColorDownSerialize>
+      <TradeColorExitSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</TradeColorExitSerialize>
+    </BWTNT8PrecisionAutoTrader>
+  </Strategy>
+</StrategyTemplate>

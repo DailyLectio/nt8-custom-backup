@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <GoGoRotationHUD_WPF>
+    <GoGoRotationHUD_WPF xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnEachTick</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>8</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>4</Value>
+        <Value2>16</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnEachTick</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <From>2025-11-07T00:00:00</From>
+      <IsAutoScale>false</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
+      <Name> </Name>
+      <Panel>-1</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2025-11-17T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>true</PaintPriceMarkers>
+      <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>true</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>13906</IndicatorId>
+      <InstrumentDeserialized>NQ DEC25 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>30428</ZOrder>
+      <ShowTrend>true</ShowTrend>
+      <ShowRotation>true</ShowRotation>
+      <TrendPosition>BottomRight</TrendPosition>
+      <RotationPosition>BottomLeft</RotationPosition>
+      <FontSize>11</FontSize>
+      <TileOpacity>80</TileOpacity>
+      <GoSound />
+      <GreenMin>75</GreenMin>
+      <YellowMin>50</YellowMin>
+      <AlertCooldownSec>90</AlertCooldownSec>
+      <RVolLen>50</RVolLen>
+      <TrendAdxLen>14</TrendAdxLen>
+      <TrendChopLen>14</TrendChopLen>
+      <UDLen>20</UDLen>
+      <EmaFastLen>7</EmaFastLen>
+      <EmaSlowLen>21</EmaSlowLen>
+      <RequireTrendAdxGate>true</RequireTrendAdxGate>
+      <TrendAdxGate>20</TrendAdxGate>
+      <w_RVol>1.35</w_RVol>
+      <w_UD>2</w_UD>
+      <w_ADXsl>1</w_ADXsl>
+      <w_CHOP>0.6</w_CHOP>
+      <w_EMA>0.9</w_EMA>
+      <RotAdxLen>14</RotAdxLen>
+      <RotChopLen>14</RotChopLen>
+      <RotChopMin>60</RotChopMin>
+      <RotAdxMax>20</RotAdxMax>
+      <RegrWin>60</RegrWin>
+      <UseManualVA>false</UseManualVA>
+      <ManualVAH>0</ManualVAH>
+      <ManualVAL>0</ManualVAL>
+      <ManualPOC>0</ManualPOC>
+      <VAProxyK>1.35</VAProxyK>
+      <VAProxyLen>120</VAProxyLen>
+      <IBStartStr>09:30</IBStartStr>
+      <IBEndStr>10:00</IBEndStr>
+    </GoGoRotationHUD_WPF>
+  </GoGoRotationHUD_WPF>
+</NinjaTrader>

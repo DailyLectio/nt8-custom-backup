@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <Rectangle xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <IsAutoScale>true</IsAutoScale>
+    <MaxValue>-1.7976931348623157E+308</MaxValue>
+    <MinValue>1.7976931348623157E+308</MinValue>
+    <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+    <GlobalLastSeenSerialize>0</GlobalLastSeenSerialize>
+    <GlobalWorkspace>Core Playbook Trading Charts</GlobalWorkspace>
+    <IsLocked>false</IsLocked>
+    <PanelIndex>0</PanelIndex>
+    <ZOrderType>Normal</ZOrderType>
+    <AreaBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008B8B&lt;/SolidColorBrush&gt;</AreaBrushSerialize>
+    <AreaOpacity>40</AreaOpacity>
+    <OutlineStroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF6495ED&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Solid</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>5</Width>
+    </OutlineStroke>
+    <EndAnchor>
+      <SlotIndex>226</SlotIndex>
+      <DisplayName>End</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-06-27T15:30:00</Time>
+      <Price>6174.6475177249613</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </EndAnchor>
+    <MiddleAnchor>
+      <SlotIndex>226</SlotIndex>
+      <DisplayName>Middle</DisplayName>
+      <IsBrowsable>false</IsBrowsable>
+      <Time>2025-06-27T15:30:00</Time>
+      <Price>6174.6475177249613</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </MiddleAnchor>
+    <StartAnchor>
+      <SlotIndex>146</SlotIndex>
+      <DisplayName>Start</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-06-25T22:30:00</Time>
+      <Price>6199.6251053201859</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </StartAnchor>
+    <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.Rectangle</FullTypeName>
+    <IsGlobalDrawingObjectDefault>false</IsGlobalDrawingObjectDefault>
+    <IsOwnerVisible>true</IsOwnerVisible>
+  </Rectangle>
+</NinjaTrader>

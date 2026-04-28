@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <BarsPeriodType_Volumetric>
+    <BarsProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <BarsPeriod>
+        <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Range</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>8</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>1</Value>
+        <Value2>0</Value2>
+      </BarsPeriod>
+      <RangeType>Days</RangeType>
+      <BarsBack>50</BarsBack>
+      <DaysBack>3</DaysBack>
+      <From>2025-10-23T00:00:00</From>
+      <IsStableSession>true</IsStableSession>
+      <IsTickReplay>false</IsTickReplay>
+      <To>2026-03-24T00:00:00</To>
+      <TradingHoursSerializable></TradingHoursSerializable>
+      <AutoScale>true</AutoScale>
+      <CenterPriceOnScale>false</CenterPriceOnScale>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <Label></Label>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <PriceMarker>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFB0E0E6&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <IsVisible>true</IsVisible>
+      </PriceMarker>
+      <ShowGlobalDrawObjects>true</ShowGlobalDrawObjects>
+      <ScaleJustification>Right</ScaleJustification>
+      <TradingHoursVisibility>AllSessions</TradingHoursVisibility>
+      <TradingHoursBreakPenSerialize>&lt;Pen Brush="#FFC0C0C0" Thickness="1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="1" Dashes="2 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</TradingHoursBreakPenSerialize>
+      <LongExecutionBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</LongExecutionBrushSerialize>
+      <PlotExecutions>DoNotPlot</PlotExecutions>
+      <MarkerSize>8</MarkerSize>
+      <PositionPenLoserSerialize>&lt;Pen Brush="#FFFF00FF" Thickness="4" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="0" Dashes="0 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</PositionPenLoserSerialize>
+      <PositionPenWinnerSerialize>&lt;Pen Brush="#FFADFF2F" Thickness="4" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="0" Dashes="0 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</PositionPenWinnerSerialize>
+      <ShortExecutionBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</ShortExecutionBrushSerialize>
+      <BarsSeriesId>52a45fcff34b422c94af1b8950056f89</BarsSeriesId>
+      <Id>711b7a810bea4dc2a5703e097a79b47a</Id>
+      <IsLinked>true</IsLinked>
+      <IsPrimarySeries>true</IsPrimarySeries>
+      <ZOrder>0</ZOrder>
+    </BarsProperties>
+    <ChartStyles>
+      <VolumetricStyle>
+        <VolumetricStyle xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <IsVisible>true</IsVisible>
+          <ChartStyleTypeSerialize>8</ChartStyleTypeSerialize>
+          <DownBrushSerialize>DEFAULT</DownBrushSerialize>
+          <UpBrushSerialize>DEFAULT</UpBrushSerialize>
+          <StrokeSerialize>DEFAULT</StrokeSerialize>
+          <Stroke2Serialize>DEFAULT</Stroke2Serialize>
+          <VolumetricChartStyleType>BidAsk</VolumetricChartStyleType>
+          <CenterOpenClose>false</CenterOpenClose>
+          <ShowAsProfile>true</ShowAsProfile>
+          <ShowVolumeProfile>true</ShowVolumeProfile>
+          <GradientsDepthSlots>20</GradientsDepthSlots>
+          <SizeDisplayFilter>0</SizeDisplayFilter>
+          <ShowImbalance>true</ShowImbalance>
+          <ImbalanceRatio>1.5</ImbalanceRatio>
+          <ImbalanceMode>Diagonal</ImbalanceMode>
+          <MinDelta>10</MinDelta>
+          <ColorDominantSide>false</ColorDominantSide>
+          <DojiBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</DojiBrushSerialize>
+          <BoxGrid>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush Color="#FF808080" Opacity="0.5" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>50</Opacity>
+            <Width>1</Width>
+          </BoxGrid>
+          <BoxOutline>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>1</Width>
+          </BoxOutline>
+          <PositiveStrengthBrushBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF32CD32&lt;/SolidColorBrush&gt;</PositiveStrengthBrushBrushSerialize>
+          <NegativeStrengthBrushBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</NegativeStrengthBrushBrushSerialize>
+          <ImbalanceBuyBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FFFF&lt;/SolidColorBrush&gt;</ImbalanceBuyBrushSerialize>
+          <ImbalanceSellBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</ImbalanceSellBrushSerialize>
+          <ShowMaximum>true</ShowMaximum>
+          <MaxBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</MaxBrushSerialize>
+          <VolBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF6495ED&lt;/SolidColorBrush&gt;</VolBrushSerialize>
+          <HideText>false</HideText>
+          <TextBrushSerialize>DEFAULT</TextBrushSerialize>
+          <ShowBarStatistics>true</ShowBarStatistics>
+          <ShowTrades>true</ShowTrades>
+          <ShowVolume>true</ShowVolume>
+          <ShowBuyVol>false</ShowBuyVol>
+          <ShowSellVol>false</ShowSellVol>
+          <ShowDeltaBar>true</ShowDeltaBar>
+          <ShowDeltaPercent>false</ShowDeltaPercent>
+          <ShowDeltaCumulative>true</ShowDeltaCumulative>
+          <ShowMinDelta>true</ShowMinDelta>
+          <ShowMaxDelta>true</ShowMaxDelta>
+          <ShowDeltaDelta>false</ShowDeltaDelta>
+          <ShowDeltaSh>false</ShowDeltaSh>
+          <ShowDeltaSl>false</ShowDeltaSl>
+          <StatGrid>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>1</Width>
+          </StatGrid>
+          <BaseBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFACD&lt;/SolidColorBrush&gt;</BaseBrushSerialize>
+        </VolumetricStyle>
+      </VolumetricStyle>
+    </ChartStyles>
+  </BarsPeriodType_Volumetric>
+</NinjaTrader>

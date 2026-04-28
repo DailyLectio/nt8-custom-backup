@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <BarsPeriodType_HeikenAshi>
+    <BarsProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <BarsPeriod>
+        <BarsPeriodTypeSerialize>9</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>1</Value>
+        <Value2>1</Value2>
+      </BarsPeriod>
+      <RangeType>Days</RangeType>
+      <BarsBack>50</BarsBack>
+      <DaysBack>3</DaysBack>
+      <From>2026-03-19T00:00:00</From>
+      <IsStableSession>true</IsStableSession>
+      <IsTickReplay>false</IsTickReplay>
+      <To>2026-04-10T00:00:00</To>
+      <TradingHoursSerializable></TradingHoursSerializable>
+      <AutoScale>true</AutoScale>
+      <CenterPriceOnScale>false</CenterPriceOnScale>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <Label></Label>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <PriceMarker>
+        <BackgroundSerialize>DEFAULT</BackgroundSerialize>
+        <IsVisible>true</IsVisible>
+      </PriceMarker>
+      <ShowGlobalDrawObjects>true</ShowGlobalDrawObjects>
+      <ScaleJustification>Right</ScaleJustification>
+      <TradingHoursVisibility>AllSessions</TradingHoursVisibility>
+      <TradingHoursBreakPenSerialize>&lt;Pen Brush="#FFC0C0C0" Thickness="1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="1" Dashes="2 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</TradingHoursBreakPenSerialize>
+      <LongExecutionBrushSerialize>DEFAULT</LongExecutionBrushSerialize>
+      <PlotExecutions>TextAndMarker</PlotExecutions>
+      <MarkerSize>8</MarkerSize>
+      <PositionPenLoserSerialize>&lt;Pen Brush="#FFFFFF00" Thickness="5" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</PositionPenLoserSerialize>
+      <PositionPenWinnerSerialize>&lt;Pen Brush="#FF1E90FF" Thickness="5" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</PositionPenWinnerSerialize>
+      <ShortExecutionBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</ShortExecutionBrushSerialize>
+      <BarsSeriesId>6eaa90b400c44bdb8a96310aea44f6af</BarsSeriesId>
+      <Id>b709af792e3d4f18adcc25aab30d9f21</Id>
+      <IsLinked>true</IsLinked>
+      <IsPrimarySeries>true</IsPrimarySeries>
+      <ZOrder>1</ZOrder>
+    </BarsProperties>
+    <ChartStyles>
+      <CandleStyle>
+        <CandleStyle xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <IsVisible>true</IsVisible>
+          <ChartStyleTypeSerialize>1</ChartStyleTypeSerialize>
+          <DownBrushSerialize>DEFAULT</DownBrushSerialize>
+          <UpBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFF0&lt;/SolidColorBrush&gt;</UpBrushSerialize>
+          <StrokeSerialize>&lt;Pen Brush="#00FFFFFF" Thickness="1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</StrokeSerialize>
+          <Stroke2Serialize>DEFAULT</Stroke2Serialize>
+        </CandleStyle>
+      </CandleStyle>
+    </ChartStyles>
+  </BarsPeriodType_HeikenAshi>
+</NinjaTrader>

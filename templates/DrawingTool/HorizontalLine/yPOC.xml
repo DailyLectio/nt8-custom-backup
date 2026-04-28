@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <HorizontalLine xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <IsAutoScale>false</IsAutoScale>
+    <MaxValue>-1.7976931348623157E+308</MaxValue>
+    <MinValue>1.7976931348623157E+308</MinValue>
+    <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+    <GlobalLastSeenSerialize>638865397591206234</GlobalLastSeenSerialize>
+    <GlobalWorkspace>MES &amp; MNQ simple light</GlobalWorkspace>
+    <IsLocked>true</IsLocked>
+    <PanelIndex>0</PanelIndex>
+    <ZOrderType>Normal</ZOrderType>
+    <EndAnchor>
+      <SlotIndex>0</SlotIndex>
+      <DisplayName>End</DisplayName>
+      <IsBrowsable>false</IsBrowsable>
+      <Time>2025-06-16T09:24:15</Time>
+      <Price>6154.2559392141256</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </EndAnchor>
+    <StartAnchor>
+      <SlotIndex>8920.9985620961452</SlotIndex>
+      <DisplayName>Anchor</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2026-03-09T08:05:32.036</Time>
+      <Price>6658</Price>
+      <IsXPropertiesVisible>false</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </StartAnchor>
+    <Stroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFACD&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Dash</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>4</Width>
+    </Stroke>
+    <IsPriceMarkerVisible>true</IsPriceMarkerVisible>
+    <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.HorizontalLine</FullTypeName>
+    <IsGlobalDrawingObjectDefault>true</IsGlobalDrawingObjectDefault>
+    <IsOwnerVisible>true</IsOwnerVisible>
+  </HorizontalLine>
+</NinjaTrader>

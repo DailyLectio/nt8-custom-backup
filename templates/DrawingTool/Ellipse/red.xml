@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <Ellipse xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <IsAutoScale>false</IsAutoScale>
+    <MaxValue>-1.7976931348623157E+308</MaxValue>
+    <MinValue>1.7976931348623157E+308</MinValue>
+    <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+    <GlobalLastSeenSerialize>0</GlobalLastSeenSerialize>
+    <GlobalWorkspace>ES CHART START</GlobalWorkspace>
+    <IsLocked>false</IsLocked>
+    <PanelIndex>2</PanelIndex>
+    <ZOrderType>Normal</ZOrderType>
+    <AreaBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</AreaBrushSerialize>
+    <AreaOpacity>40</AreaOpacity>
+    <OutlineStroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Solid</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>2</Width>
+    </OutlineStroke>
+    <EndAnchor>
+      <SlotIndex>2562.0000766371613</SlotIndex>
+      <DisplayName>End</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-11-19T12:01:36.429</Time>
+      <Price>61</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </EndAnchor>
+    <MiddleAnchor>
+      <SlotIndex>2547.1675006146879</SlotIndex>
+      <DisplayName>Middle</DisplayName>
+      <IsBrowsable>false</IsBrowsable>
+      <Time>2025-11-19T11:45:31.148</Time>
+      <Price>68</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </MiddleAnchor>
+    <StartAnchor>
+      <SlotIndex>2545.4547540321742</SlotIndex>
+      <DisplayName>Start</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-11-19T11:44:06.763</Time>
+      <Price>73</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </StartAnchor>
+    <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.Ellipse</FullTypeName>
+    <IsGlobalDrawingObjectDefault>false</IsGlobalDrawingObjectDefault>
+    <IsOwnerVisible>true</IsOwnerVisible>
+  </Ellipse>
+</NinjaTrader>

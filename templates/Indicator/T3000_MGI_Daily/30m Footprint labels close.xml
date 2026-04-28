@@ -1,0 +1,2051 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <T3000_MGI_Daily>
+    <T3000_MGI_Daily xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnBarClose</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>false</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>30</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>1</Value>
+        <Value2>0</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnEachTick</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <From>2026-03-05T00:00:00</From>
+      <IsAutoScale>false</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name />
+      <Panel>-1</Panel>
+      <Plots>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4682B4&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ONH</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4682B4&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ONL</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4682B4&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ONMid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON A0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON B0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON A1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON B1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON A2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON B2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON A3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON B3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF3CB371&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ORH</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF3CB371&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ORL</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDC143C&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ORMid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>OR A0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>OR B0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>OR A1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>OR B1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>OR A2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>OR B2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>OR A3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>OR B3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF228B22&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IBH</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF228B22&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IBL</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IBMid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IB A0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IB B0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IB A1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IB B1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IB A2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IB B2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IB A3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>IB B3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH PDO</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH PDH</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH PDL</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF7F50&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH PDC</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH PDMid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH A0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH B0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH A1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH B1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH A2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH B2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH A3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH B3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH PDO</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH PDH</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH PDL</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH PDC</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH PDMid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH A0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH B0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH A1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH B1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH A2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH B2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH A3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH B3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VAH</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VAL</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VPOC</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VAMid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VA A0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VA B0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VA A1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VA B1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VA A2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VA B2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VA A3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ON VA B3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VAH</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VAL</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VPOC</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VAMid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VA A0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VA B0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VA A1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VA B1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VA A2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VA B2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VA A3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VA B3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VAH</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VAL</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VPOC</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VAMid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VA A0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VA B0</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VA A1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VA B1</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VA A2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VA B2</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VA A3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>DashDotDot</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VA B3</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFC0C0C0&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH Open</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH High</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH Low</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH Mid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH Open</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH High</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH Low</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH Mid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH VAH</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH VAL</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH VPOC</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH VAMid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH VAH</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH VAL</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH VPOC</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH VAMid</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>2</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>RTH VWAP</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>2</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>ETH VWAP</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>2</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PRTH VWAP</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>2</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>PETH VWAP</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7CFC00&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>Half Gap</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+      </Plots>
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2026-03-10T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>false</PaintPriceMarkers>
+      <DrawHorizontalGridLines>false</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>false</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>247</IndicatorId>
+      <InstrumentDeserialized>ES MAR26 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>100000</ZOrder>
+      <isPremiumPackage>false</isPremiumPackage>
+      <Input_EnabledFeatures />
+      <Input_CalculateType>OnEachTick</Input_CalculateType>
+      <Input_AntialiasMode>Aliased</Input_AntialiasMode>
+      <Input_Show_ON>true</Input_Show_ON>
+      <Input_Show_ON_VA>false</Input_Show_ON_VA>
+      <Input_Show_OR>true</Input_Show_OR>
+      <Input_Show_IB>true</Input_Show_IB>
+      <Input_Show_Current_RTH>true</Input_Show_Current_RTH>
+      <Input_Show_Current_ETH>false</Input_Show_Current_ETH>
+      <Input_Show_Current_RTH_VA>false</Input_Show_Current_RTH_VA>
+      <Input_Show_Current_ETH_VA>false</Input_Show_Current_ETH_VA>
+      <Input_Show_Prior_RTH>true</Input_Show_Prior_RTH>
+      <Input_Show_Prior_ETH>false</Input_Show_Prior_ETH>
+      <Input_Show_Prior_RTH_VA>false</Input_Show_Prior_RTH_VA>
+      <Input_Show_Prior_ETH_VA>false</Input_Show_Prior_ETH_VA>
+      <Input_Show_VWAP>false</Input_Show_VWAP>
+      <Input_Show_HalfGap>true</Input_Show_HalfGap>
+      <Input_MarketSessionName>Indexes</Input_MarketSessionName>
+      <Input_RTH_StartTime>2026-03-09T09:30:00</Input_RTH_StartTime>
+      <Input_RTH_EndTime>2026-03-09T16:00:00</Input_RTH_EndTime>
+      <Input_TradingHoursString>CME US Index Futures RTH</Input_TradingHoursString>
+      <Input_OR_Duration>Thirty_Minutes</Input_OR_Duration>
+      <Input_Show_OR_DurationLabel>true</Input_Show_OR_DurationLabel>
+      <Input_VA_Percent>70</Input_VA_Percent>
+      <Input_VA_TicksPerLevel>One</Input_VA_TicksPerLevel>
+      <Input_RemoveOldRegionHighlights>false</Input_RemoveOldRegionHighlights>
+      <Input_RegionHighlightCollection00>
+        <Show>false</Show>
+        <HighlightOpacity>10</HighlightOpacity>
+        <HighlightLocation>Inside</HighlightLocation>
+      </Input_RegionHighlightCollection00>
+      <Input_RegionHighlightCollection00_ShowHighlight>false</Input_RegionHighlightCollection00_ShowHighlight>
+      <Input_RegionHighlightCollection00_Brush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4682B4&lt;/SolidColorBrush&gt;</Input_RegionHighlightCollection00_Brush_Serializable>
+      <Input_RegionHighlightCollection00_HighlightOpacity>10</Input_RegionHighlightCollection00_HighlightOpacity>
+      <Input_RegionHighlightCollection00_RegionHighlightLocation>Inside</Input_RegionHighlightCollection00_RegionHighlightLocation>
+      <Input_RegionHighlightCollection05>
+        <Show>false</Show>
+        <HighlightOpacity>10</HighlightOpacity>
+        <HighlightLocation>Inside</HighlightLocation>
+      </Input_RegionHighlightCollection05>
+      <Input_RegionHighlightCollection05_ShowHighlight>false</Input_RegionHighlightCollection05_ShowHighlight>
+      <Input_RegionHighlightCollection05_Brush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00BFFF&lt;/SolidColorBrush&gt;</Input_RegionHighlightCollection05_Brush_Serializable>
+      <Input_RegionHighlightCollection05_HighlightOpacity>10</Input_RegionHighlightCollection05_HighlightOpacity>
+      <Input_RegionHighlightCollection05_RegionHighlightLocation>Inside</Input_RegionHighlightCollection05_RegionHighlightLocation>
+      <Input_RegionHighlightCollection01>
+        <Show>false</Show>
+        <HighlightOpacity>10</HighlightOpacity>
+        <HighlightLocation>Inside</HighlightLocation>
+      </Input_RegionHighlightCollection01>
+      <Input_RegionHighlightCollection01_ShowHighlight>false</Input_RegionHighlightCollection01_ShowHighlight>
+      <Input_RegionHighlightCollection01_Brush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</Input_RegionHighlightCollection01_Brush_Serializable>
+      <Input_RegionHighlightCollection01_HighlightOpacity>10</Input_RegionHighlightCollection01_HighlightOpacity>
+      <Input_RegionHighlightCollection01_RegionHighlightLocation>Inside</Input_RegionHighlightCollection01_RegionHighlightLocation>
+      <Input_RegionHighlightCollection02>
+        <Show>false</Show>
+        <HighlightOpacity>10</HighlightOpacity>
+        <HighlightLocation>Inside</HighlightLocation>
+      </Input_RegionHighlightCollection02>
+      <Input_RegionHighlightCollection02_ShowHighlight>false</Input_RegionHighlightCollection02_ShowHighlight>
+      <Input_RegionHighlightCollection02_Brush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF228B22&lt;/SolidColorBrush&gt;</Input_RegionHighlightCollection02_Brush_Serializable>
+      <Input_RegionHighlightCollection02_HighlightOpacity>10</Input_RegionHighlightCollection02_HighlightOpacity>
+      <Input_RegionHighlightCollection02_RegionHighlightLocation>Inside</Input_RegionHighlightCollection02_RegionHighlightLocation>
+      <Input_RegionHighlightCollection03>
+        <Show>false</Show>
+        <HighlightOpacity>5</HighlightOpacity>
+        <HighlightLocation>Inside</HighlightLocation>
+      </Input_RegionHighlightCollection03>
+      <Input_RegionHighlightCollection03_ShowHighlight>false</Input_RegionHighlightCollection03_ShowHighlight>
+      <Input_RegionHighlightCollection03_Brush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</Input_RegionHighlightCollection03_Brush_Serializable>
+      <Input_RegionHighlightCollection03_HighlightOpacity>5</Input_RegionHighlightCollection03_HighlightOpacity>
+      <Input_RegionHighlightCollection03_RegionHighlightLocation>Inside</Input_RegionHighlightCollection03_RegionHighlightLocation>
+      <Input_RegionHighlightCollection04>
+        <Show>false</Show>
+        <HighlightOpacity>5</HighlightOpacity>
+        <HighlightLocation>Inside</HighlightLocation>
+      </Input_RegionHighlightCollection04>
+      <Input_RegionHighlightCollection04_ShowHighlight>false</Input_RegionHighlightCollection04_ShowHighlight>
+      <Input_RegionHighlightCollection04_Brush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFA8072&lt;/SolidColorBrush&gt;</Input_RegionHighlightCollection04_Brush_Serializable>
+      <Input_RegionHighlightCollection04_HighlightOpacity>5</Input_RegionHighlightCollection04_HighlightOpacity>
+      <Input_RegionHighlightCollection04_RegionHighlightLocation>Inside</Input_RegionHighlightCollection04_RegionHighlightLocation>
+      <Input_RegionHighlightCollection06>
+        <Show>false</Show>
+        <HighlightOpacity>10</HighlightOpacity>
+        <HighlightLocation>Inside</HighlightLocation>
+      </Input_RegionHighlightCollection06>
+      <Input_RegionHighlightCollection06_ShowHighlight>false</Input_RegionHighlightCollection06_ShowHighlight>
+      <Input_RegionHighlightCollection06_Brush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF556B2F&lt;/SolidColorBrush&gt;</Input_RegionHighlightCollection06_Brush_Serializable>
+      <Input_RegionHighlightCollection06_HighlightOpacity>10</Input_RegionHighlightCollection06_HighlightOpacity>
+      <Input_RegionHighlightCollection06_RegionHighlightLocation>Inside</Input_RegionHighlightCollection06_RegionHighlightLocation>
+      <Input_RegionHighlightCollection07>
+        <Show>false</Show>
+        <HighlightOpacity>10</HighlightOpacity>
+        <HighlightLocation>Inside</HighlightLocation>
+      </Input_RegionHighlightCollection07>
+      <Input_RegionHighlightCollection07_ShowHighlight>false</Input_RegionHighlightCollection07_ShowHighlight>
+      <Input_RegionHighlightCollection07_Brush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF87CEFA&lt;/SolidColorBrush&gt;</Input_RegionHighlightCollection07_Brush_Serializable>
+      <Input_RegionHighlightCollection07_HighlightOpacity>10</Input_RegionHighlightCollection07_HighlightOpacity>
+      <Input_RegionHighlightCollection07_RegionHighlightLocation>Inside</Input_RegionHighlightCollection07_RegionHighlightLocation>
+      <Input_HighlightOvernightSession>false</Input_HighlightOvernightSession>
+      <Input_OvernightSessionBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000080&lt;/SolidColorBrush&gt;</Input_OvernightSessionBrush_Serializable>
+      <Input_OvernightSessionOpacity>10</Input_OvernightSessionOpacity>
+      <Input_HighlightRTHtSession>false</Input_HighlightRTHtSession>
+      <Input_RTHSessionBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</Input_RTHSessionBrush_Serializable>
+      <Input_RTHSessionOpacity>10</Input_RTHSessionOpacity>
+      <Input_MarkRTHSessionStart>true</Input_MarkRTHSessionStart>
+      <Input_RTHSessionStartStroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF006400&lt;/SolidColorBrush&gt;</BrushSerialize>
+        <DashStyleHelper>Dash</DashStyleHelper>
+        <Opacity>100</Opacity>
+        <Width>1</Width>
+      </Input_RTHSessionStartStroke>
+      <Input_MarkNewWeekStart>true</Input_MarkNewWeekStart>
+      <Input_NewWeekStartStroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF1E90FF&lt;/SolidColorBrush&gt;</BrushSerialize>
+        <DashStyleHelper>Dash</DashStyleHelper>
+        <Opacity>100</Opacity>
+        <Width>2</Width>
+      </Input_NewWeekStartStroke>
+      <Input_PlotAppearanceDisplayMode>PlotEdge</Input_PlotAppearanceDisplayMode>
+      <Input_PlotAppearanceRemoveOldValues>false</Input_PlotAppearanceRemoveOldValues>
+      <Input_PlotAppearanceLineWidth>100</Input_PlotAppearanceLineWidth>
+      <Input_PlotAppearanceEdgeOffset>0</Input_PlotAppearanceEdgeOffset>
+      <Input_PlotAppearanceShowLabels>true</Input_PlotAppearanceShowLabels>
+      <Input_PlotAppearanceShowPrices>true</Input_PlotAppearanceShowPrices>
+      <Input_PlotAppearanceLabelMatchChart>true</Input_PlotAppearanceLabelMatchChart>
+      <Input_PlotAppearanceLabelFont>
+        <Bold>false</Bold>
+        <FamilySerialize>Verdana</FamilySerialize>
+        <Italic>false</Italic>
+        <Size>12</Size>
+      </Input_PlotAppearanceLabelFont>
+      <Input_PlotAppearanceLabelDistance>2</Input_PlotAppearanceLabelDistance>
+      <Input_PlotAppearanceReverseLabel>false</Input_PlotAppearanceReverseLabel>
+      <Input_PlotAppearanceShowLabelOutline>false</Input_PlotAppearanceShowLabelOutline>
+      <Input_PlotAppearanceLabelOutlineDashStyle>Solid</Input_PlotAppearanceLabelOutlineDashStyle>
+      <Input_PlotAppearanceLabelOutlineWidth>1</Input_PlotAppearanceLabelOutlineWidth>
+      <Input_Plot0000_Show>true</Input_Plot0000_Show>
+      <Input_Plot0000_Name>ONH</Input_Plot0000_Name>
+      <Input_Plot0000_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4682B4&lt;/SolidColorBrush&gt;</Input_Plot0000_PrimaryBrush_Serializable>
+      <Input_Plot0000_DashStyle>Solid</Input_Plot0000_DashStyle>
+      <Input_Plot0000_PlotStyle>Line</Input_Plot0000_PlotStyle>
+      <Input_Plot0000_AutoWidth>false</Input_Plot0000_AutoWidth>
+      <Input_Plot0000_Width>1</Input_Plot0000_Width>
+      <Input_Plot0001_Show>true</Input_Plot0001_Show>
+      <Input_Plot0001_Name>ONL</Input_Plot0001_Name>
+      <Input_Plot0001_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4682B4&lt;/SolidColorBrush&gt;</Input_Plot0001_PrimaryBrush_Serializable>
+      <Input_Plot0001_DashStyle>Solid</Input_Plot0001_DashStyle>
+      <Input_Plot0001_PlotStyle>Line</Input_Plot0001_PlotStyle>
+      <Input_Plot0001_AutoWidth>false</Input_Plot0001_AutoWidth>
+      <Input_Plot0001_Width>1</Input_Plot0001_Width>
+      <Input_Plot0002_Show>true</Input_Plot0002_Show>
+      <Input_Plot0002_Name>ONMid</Input_Plot0002_Name>
+      <Input_Plot0002_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4682B4&lt;/SolidColorBrush&gt;</Input_Plot0002_PrimaryBrush_Serializable>
+      <Input_Plot0002_DashStyle>Dash</Input_Plot0002_DashStyle>
+      <Input_Plot0002_PlotStyle>Line</Input_Plot0002_PlotStyle>
+      <Input_Plot0002_AutoWidth>false</Input_Plot0002_AutoWidth>
+      <Input_Plot0002_Width>1</Input_Plot0002_Width>
+      <Input_Value00_ExtCount>Zero</Input_Value00_ExtCount>
+      <Input_Value00_ExtName>ON</Input_Value00_ExtName>
+      <Input_Value00_ExtAboveString>A</Input_Value00_ExtAboveString>
+      <Input_Value00_ExtBelowString>B</Input_Value00_ExtBelowString>
+      <Input_Value00_ExtMultiplier>0.5</Input_Value00_ExtMultiplier>
+      <Input_Value00_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4169E1&lt;/SolidColorBrush&gt;</Input_Value00_PrimaryBrush_Serializable>
+      <Input_Value00_SecondaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8B0000&lt;/SolidColorBrush&gt;</Input_Value00_SecondaryBrush_Serializable>
+      <Input_Value00_DashStyle>DashDotDot</Input_Value00_DashStyle>
+      <Input_Value00_PlotStyle>Line</Input_Value00_PlotStyle>
+      <Input_Value00_AutoWidth>false</Input_Value00_AutoWidth>
+      <Input_Value00_Width>1</Input_Value00_Width>
+      <Input_Plot0100_Show>true</Input_Plot0100_Show>
+      <Input_Plot0100_Name>ORH</Input_Plot0100_Name>
+      <Input_Plot0100_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF3CB371&lt;/SolidColorBrush&gt;</Input_Plot0100_PrimaryBrush_Serializable>
+      <Input_Plot0100_DashStyle>Solid</Input_Plot0100_DashStyle>
+      <Input_Plot0100_PlotStyle>Line</Input_Plot0100_PlotStyle>
+      <Input_Plot0100_AutoWidth>false</Input_Plot0100_AutoWidth>
+      <Input_Plot0100_Width>1</Input_Plot0100_Width>
+      <Input_Plot0101_Show>true</Input_Plot0101_Show>
+      <Input_Plot0101_Name>ORL</Input_Plot0101_Name>
+      <Input_Plot0101_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF3CB371&lt;/SolidColorBrush&gt;</Input_Plot0101_PrimaryBrush_Serializable>
+      <Input_Plot0101_DashStyle>Solid</Input_Plot0101_DashStyle>
+      <Input_Plot0101_PlotStyle>Line</Input_Plot0101_PlotStyle>
+      <Input_Plot0101_AutoWidth>false</Input_Plot0101_AutoWidth>
+      <Input_Plot0101_Width>1</Input_Plot0101_Width>
+      <Input_Plot0102_Show>true</Input_Plot0102_Show>
+      <Input_Plot0102_Name>ORMid</Input_Plot0102_Name>
+      <Input_Plot0102_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDC143C&lt;/SolidColorBrush&gt;</Input_Plot0102_PrimaryBrush_Serializable>
+      <Input_Plot0102_DashStyle>Dash</Input_Plot0102_DashStyle>
+      <Input_Plot0102_PlotStyle>Line</Input_Plot0102_PlotStyle>
+      <Input_Plot0102_AutoWidth>false</Input_Plot0102_AutoWidth>
+      <Input_Plot0102_Width>1</Input_Plot0102_Width>
+      <Input_Value01_ExtCount>Zero</Input_Value01_ExtCount>
+      <Input_Value01_ExtName>OR</Input_Value01_ExtName>
+      <Input_Value01_ExtAboveString>A</Input_Value01_ExtAboveString>
+      <Input_Value01_ExtBelowString>B</Input_Value01_ExtBelowString>
+      <Input_Value01_ExtMultiplier>0.5</Input_Value01_ExtMultiplier>
+      <Input_Value01_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4169E1&lt;/SolidColorBrush&gt;</Input_Value01_PrimaryBrush_Serializable>
+      <Input_Value01_SecondaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8B0000&lt;/SolidColorBrush&gt;</Input_Value01_SecondaryBrush_Serializable>
+      <Input_Value01_DashStyle>DashDotDot</Input_Value01_DashStyle>
+      <Input_Value01_PlotStyle>Line</Input_Value01_PlotStyle>
+      <Input_Value01_AutoWidth>false</Input_Value01_AutoWidth>
+      <Input_Value01_Width>1</Input_Value01_Width>
+      <Input_Plot0200_Show>true</Input_Plot0200_Show>
+      <Input_Plot0200_Name>IBH</Input_Plot0200_Name>
+      <Input_Plot0200_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF228B22&lt;/SolidColorBrush&gt;</Input_Plot0200_PrimaryBrush_Serializable>
+      <Input_Plot0200_DashStyle>Solid</Input_Plot0200_DashStyle>
+      <Input_Plot0200_PlotStyle>Line</Input_Plot0200_PlotStyle>
+      <Input_Plot0200_AutoWidth>false</Input_Plot0200_AutoWidth>
+      <Input_Plot0200_Width>1</Input_Plot0200_Width>
+      <Input_Plot0201_Show>true</Input_Plot0201_Show>
+      <Input_Plot0201_Name>IBL</Input_Plot0201_Name>
+      <Input_Plot0201_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF228B22&lt;/SolidColorBrush&gt;</Input_Plot0201_PrimaryBrush_Serializable>
+      <Input_Plot0201_DashStyle>Solid</Input_Plot0201_DashStyle>
+      <Input_Plot0201_PlotStyle>Line</Input_Plot0201_PlotStyle>
+      <Input_Plot0201_AutoWidth>false</Input_Plot0201_AutoWidth>
+      <Input_Plot0201_Width>1</Input_Plot0201_Width>
+      <Input_Plot0202_Show>false</Input_Plot0202_Show>
+      <Input_Plot0202_Name>IBMid</Input_Plot0202_Name>
+      <Input_Plot0202_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF228B22&lt;/SolidColorBrush&gt;</Input_Plot0202_PrimaryBrush_Serializable>
+      <Input_Plot0202_DashStyle>Dash</Input_Plot0202_DashStyle>
+      <Input_Plot0202_PlotStyle>Line</Input_Plot0202_PlotStyle>
+      <Input_Plot0202_AutoWidth>false</Input_Plot0202_AutoWidth>
+      <Input_Plot0202_Width>1</Input_Plot0202_Width>
+      <Input_Value02_ExtCount>Zero</Input_Value02_ExtCount>
+      <Input_Value02_ExtName>IB</Input_Value02_ExtName>
+      <Input_Value02_ExtAboveString>A</Input_Value02_ExtAboveString>
+      <Input_Value02_ExtBelowString>B</Input_Value02_ExtBelowString>
+      <Input_Value02_ExtMultiplier>0.5</Input_Value02_ExtMultiplier>
+      <Input_Value02_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4169E1&lt;/SolidColorBrush&gt;</Input_Value02_PrimaryBrush_Serializable>
+      <Input_Value02_SecondaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8B0000&lt;/SolidColorBrush&gt;</Input_Value02_SecondaryBrush_Serializable>
+      <Input_Value02_DashStyle>DashDotDot</Input_Value02_DashStyle>
+      <Input_Value02_PlotStyle>Line</Input_Value02_PlotStyle>
+      <Input_Value02_AutoWidth>false</Input_Value02_AutoWidth>
+      <Input_Value02_Width>1</Input_Value02_Width>
+      <Input_Plot0300_Show>false</Input_Plot0300_Show>
+      <Input_Plot0300_Name>RTH PDO</Input_Plot0300_Name>
+      <Input_Plot0300_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</Input_Plot0300_PrimaryBrush_Serializable>
+      <Input_Plot0300_DashStyle>Dash</Input_Plot0300_DashStyle>
+      <Input_Plot0300_PlotStyle>Line</Input_Plot0300_PlotStyle>
+      <Input_Plot0300_AutoWidth>false</Input_Plot0300_AutoWidth>
+      <Input_Plot0300_Width>1</Input_Plot0300_Width>
+      <Input_Plot0301_Show>true</Input_Plot0301_Show>
+      <Input_Plot0301_Name>RTH PDH</Input_Plot0301_Name>
+      <Input_Plot0301_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</Input_Plot0301_PrimaryBrush_Serializable>
+      <Input_Plot0301_DashStyle>Solid</Input_Plot0301_DashStyle>
+      <Input_Plot0301_PlotStyle>Line</Input_Plot0301_PlotStyle>
+      <Input_Plot0301_AutoWidth>false</Input_Plot0301_AutoWidth>
+      <Input_Plot0301_Width>1</Input_Plot0301_Width>
+      <Input_Plot0302_Show>true</Input_Plot0302_Show>
+      <Input_Plot0302_Name>RTH PDL</Input_Plot0302_Name>
+      <Input_Plot0302_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</Input_Plot0302_PrimaryBrush_Serializable>
+      <Input_Plot0302_DashStyle>Solid</Input_Plot0302_DashStyle>
+      <Input_Plot0302_PlotStyle>Line</Input_Plot0302_PlotStyle>
+      <Input_Plot0302_AutoWidth>false</Input_Plot0302_AutoWidth>
+      <Input_Plot0302_Width>1</Input_Plot0302_Width>
+      <Input_Plot0303_Show>true</Input_Plot0303_Show>
+      <Input_Plot0303_Name>RTH PDC</Input_Plot0303_Name>
+      <Input_Plot0303_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF7F50&lt;/SolidColorBrush&gt;</Input_Plot0303_PrimaryBrush_Serializable>
+      <Input_Plot0303_DashStyle>Solid</Input_Plot0303_DashStyle>
+      <Input_Plot0303_PlotStyle>Line</Input_Plot0303_PlotStyle>
+      <Input_Plot0303_AutoWidth>false</Input_Plot0303_AutoWidth>
+      <Input_Plot0303_Width>1</Input_Plot0303_Width>
+      <Input_Plot0304_Show>false</Input_Plot0304_Show>
+      <Input_Plot0304_Name>RTH PDMid</Input_Plot0304_Name>
+      <Input_Plot0304_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</Input_Plot0304_PrimaryBrush_Serializable>
+      <Input_Plot0304_DashStyle>Dash</Input_Plot0304_DashStyle>
+      <Input_Plot0304_PlotStyle>Line</Input_Plot0304_PlotStyle>
+      <Input_Plot0304_AutoWidth>false</Input_Plot0304_AutoWidth>
+      <Input_Plot0304_Width>1</Input_Plot0304_Width>
+      <Input_Value03_ExtCount>Zero</Input_Value03_ExtCount>
+      <Input_Value03_ExtName>PRTH</Input_Value03_ExtName>
+      <Input_Value03_ExtAboveString>A</Input_Value03_ExtAboveString>
+      <Input_Value03_ExtBelowString>B</Input_Value03_ExtBelowString>
+      <Input_Value03_ExtMultiplier>0.5</Input_Value03_ExtMultiplier>
+      <Input_Value03_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4169E1&lt;/SolidColorBrush&gt;</Input_Value03_PrimaryBrush_Serializable>
+      <Input_Value03_SecondaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8B0000&lt;/SolidColorBrush&gt;</Input_Value03_SecondaryBrush_Serializable>
+      <Input_Value03_DashStyle>DashDotDot</Input_Value03_DashStyle>
+      <Input_Value03_PlotStyle>Line</Input_Value03_PlotStyle>
+      <Input_Value03_AutoWidth>false</Input_Value03_AutoWidth>
+      <Input_Value03_Width>1</Input_Value03_Width>
+      <Input_Plot0400_Show>false</Input_Plot0400_Show>
+      <Input_Plot0400_Name>ETH PDO</Input_Plot0400_Name>
+      <Input_Plot0400_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF708090&lt;/SolidColorBrush&gt;</Input_Plot0400_PrimaryBrush_Serializable>
+      <Input_Plot0400_DashStyle>Dash</Input_Plot0400_DashStyle>
+      <Input_Plot0400_PlotStyle>Line</Input_Plot0400_PlotStyle>
+      <Input_Plot0400_AutoWidth>false</Input_Plot0400_AutoWidth>
+      <Input_Plot0400_Width>1</Input_Plot0400_Width>
+      <Input_Plot0401_Show>true</Input_Plot0401_Show>
+      <Input_Plot0401_Name>ETH PDH</Input_Plot0401_Name>
+      <Input_Plot0401_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFA8072&lt;/SolidColorBrush&gt;</Input_Plot0401_PrimaryBrush_Serializable>
+      <Input_Plot0401_DashStyle>Solid</Input_Plot0401_DashStyle>
+      <Input_Plot0401_PlotStyle>Line</Input_Plot0401_PlotStyle>
+      <Input_Plot0401_AutoWidth>false</Input_Plot0401_AutoWidth>
+      <Input_Plot0401_Width>1</Input_Plot0401_Width>
+      <Input_Plot0402_Show>true</Input_Plot0402_Show>
+      <Input_Plot0402_Name>ETH PDL</Input_Plot0402_Name>
+      <Input_Plot0402_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFA8072&lt;/SolidColorBrush&gt;</Input_Plot0402_PrimaryBrush_Serializable>
+      <Input_Plot0402_DashStyle>Solid</Input_Plot0402_DashStyle>
+      <Input_Plot0402_PlotStyle>Line</Input_Plot0402_PlotStyle>
+      <Input_Plot0402_AutoWidth>false</Input_Plot0402_AutoWidth>
+      <Input_Plot0402_Width>1</Input_Plot0402_Width>
+      <Input_Plot0403_Show>false</Input_Plot0403_Show>
+      <Input_Plot0403_Name>ETH PDC</Input_Plot0403_Name>
+      <Input_Plot0403_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</Input_Plot0403_PrimaryBrush_Serializable>
+      <Input_Plot0403_DashStyle>Solid</Input_Plot0403_DashStyle>
+      <Input_Plot0403_PlotStyle>Line</Input_Plot0403_PlotStyle>
+      <Input_Plot0403_AutoWidth>false</Input_Plot0403_AutoWidth>
+      <Input_Plot0403_Width>1</Input_Plot0403_Width>
+      <Input_Plot0404_Show>false</Input_Plot0404_Show>
+      <Input_Plot0404_Name>ETH PDMid</Input_Plot0404_Name>
+      <Input_Plot0404_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFA8072&lt;/SolidColorBrush&gt;</Input_Plot0404_PrimaryBrush_Serializable>
+      <Input_Plot0404_DashStyle>Dash</Input_Plot0404_DashStyle>
+      <Input_Plot0404_PlotStyle>Line</Input_Plot0404_PlotStyle>
+      <Input_Plot0404_AutoWidth>false</Input_Plot0404_AutoWidth>
+      <Input_Plot0404_Width>1</Input_Plot0404_Width>
+      <Input_Value04_ExtCount>Zero</Input_Value04_ExtCount>
+      <Input_Value04_ExtName>PETH</Input_Value04_ExtName>
+      <Input_Value04_ExtAboveString>A</Input_Value04_ExtAboveString>
+      <Input_Value04_ExtBelowString>B</Input_Value04_ExtBelowString>
+      <Input_Value04_ExtMultiplier>0.5</Input_Value04_ExtMultiplier>
+      <Input_Value04_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4169E1&lt;/SolidColorBrush&gt;</Input_Value04_PrimaryBrush_Serializable>
+      <Input_Value04_SecondaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8B0000&lt;/SolidColorBrush&gt;</Input_Value04_SecondaryBrush_Serializable>
+      <Input_Value04_DashStyle>DashDotDot</Input_Value04_DashStyle>
+      <Input_Value04_PlotStyle>Line</Input_Value04_PlotStyle>
+      <Input_Value04_AutoWidth>false</Input_Value04_AutoWidth>
+      <Input_Value04_Width>1</Input_Value04_Width>
+      <Input_Plot0500_Show>true</Input_Plot0500_Show>
+      <Input_Plot0500_Name>ON VAH</Input_Plot0500_Name>
+      <Input_Plot0500_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00BFFF&lt;/SolidColorBrush&gt;</Input_Plot0500_PrimaryBrush_Serializable>
+      <Input_Plot0500_DashStyle>Solid</Input_Plot0500_DashStyle>
+      <Input_Plot0500_PlotStyle>Line</Input_Plot0500_PlotStyle>
+      <Input_Plot0500_AutoWidth>false</Input_Plot0500_AutoWidth>
+      <Input_Plot0500_Width>1</Input_Plot0500_Width>
+      <Input_Plot0501_Show>true</Input_Plot0501_Show>
+      <Input_Plot0501_Name>ON VAL</Input_Plot0501_Name>
+      <Input_Plot0501_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00BFFF&lt;/SolidColorBrush&gt;</Input_Plot0501_PrimaryBrush_Serializable>
+      <Input_Plot0501_DashStyle>Solid</Input_Plot0501_DashStyle>
+      <Input_Plot0501_PlotStyle>Line</Input_Plot0501_PlotStyle>
+      <Input_Plot0501_AutoWidth>false</Input_Plot0501_AutoWidth>
+      <Input_Plot0501_Width>1</Input_Plot0501_Width>
+      <Input_Plot0502_Show>true</Input_Plot0502_Show>
+      <Input_Plot0502_Name>ON VPOC</Input_Plot0502_Name>
+      <Input_Plot0502_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFD700&lt;/SolidColorBrush&gt;</Input_Plot0502_PrimaryBrush_Serializable>
+      <Input_Plot0502_DashStyle>Solid</Input_Plot0502_DashStyle>
+      <Input_Plot0502_PlotStyle>Line</Input_Plot0502_PlotStyle>
+      <Input_Plot0502_AutoWidth>false</Input_Plot0502_AutoWidth>
+      <Input_Plot0502_Width>1</Input_Plot0502_Width>
+      <Input_Plot0503_Show>false</Input_Plot0503_Show>
+      <Input_Plot0503_Name>ON VAMid</Input_Plot0503_Name>
+      <Input_Plot0503_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00BFFF&lt;/SolidColorBrush&gt;</Input_Plot0503_PrimaryBrush_Serializable>
+      <Input_Plot0503_DashStyle>Dash</Input_Plot0503_DashStyle>
+      <Input_Plot0503_PlotStyle>Line</Input_Plot0503_PlotStyle>
+      <Input_Plot0503_AutoWidth>false</Input_Plot0503_AutoWidth>
+      <Input_Plot0503_Width>1</Input_Plot0503_Width>
+      <Input_Value05_ExtCount>Zero</Input_Value05_ExtCount>
+      <Input_Value05_ExtName>ON VA</Input_Value05_ExtName>
+      <Input_Value05_ExtAboveString>A</Input_Value05_ExtAboveString>
+      <Input_Value05_ExtBelowString>B</Input_Value05_ExtBelowString>
+      <Input_Value05_ExtMultiplier>0.5</Input_Value05_ExtMultiplier>
+      <Input_Value05_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4169E1&lt;/SolidColorBrush&gt;</Input_Value05_PrimaryBrush_Serializable>
+      <Input_Value05_SecondaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8B0000&lt;/SolidColorBrush&gt;</Input_Value05_SecondaryBrush_Serializable>
+      <Input_Value05_DashStyle>DashDotDot</Input_Value05_DashStyle>
+      <Input_Value05_PlotStyle>Line</Input_Value05_PlotStyle>
+      <Input_Value05_AutoWidth>false</Input_Value05_AutoWidth>
+      <Input_Value05_Width>1</Input_Value05_Width>
+      <Input_Plot0600_Show>true</Input_Plot0600_Show>
+      <Input_Plot0600_Name>PRTH VAH</Input_Plot0600_Name>
+      <Input_Plot0600_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF556B2F&lt;/SolidColorBrush&gt;</Input_Plot0600_PrimaryBrush_Serializable>
+      <Input_Plot0600_DashStyle>Solid</Input_Plot0600_DashStyle>
+      <Input_Plot0600_PlotStyle>Line</Input_Plot0600_PlotStyle>
+      <Input_Plot0600_AutoWidth>false</Input_Plot0600_AutoWidth>
+      <Input_Plot0600_Width>1</Input_Plot0600_Width>
+      <Input_Plot0601_Show>true</Input_Plot0601_Show>
+      <Input_Plot0601_Name>PRTH VAL</Input_Plot0601_Name>
+      <Input_Plot0601_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF556B2F&lt;/SolidColorBrush&gt;</Input_Plot0601_PrimaryBrush_Serializable>
+      <Input_Plot0601_DashStyle>Solid</Input_Plot0601_DashStyle>
+      <Input_Plot0601_PlotStyle>Line</Input_Plot0601_PlotStyle>
+      <Input_Plot0601_AutoWidth>false</Input_Plot0601_AutoWidth>
+      <Input_Plot0601_Width>1</Input_Plot0601_Width>
+      <Input_Plot0602_Show>true</Input_Plot0602_Show>
+      <Input_Plot0602_Name>PRTH VPOC</Input_Plot0602_Name>
+      <Input_Plot0602_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFADFF2F&lt;/SolidColorBrush&gt;</Input_Plot0602_PrimaryBrush_Serializable>
+      <Input_Plot0602_DashStyle>Solid</Input_Plot0602_DashStyle>
+      <Input_Plot0602_PlotStyle>Line</Input_Plot0602_PlotStyle>
+      <Input_Plot0602_AutoWidth>false</Input_Plot0602_AutoWidth>
+      <Input_Plot0602_Width>1</Input_Plot0602_Width>
+      <Input_Plot0603_Show>false</Input_Plot0603_Show>
+      <Input_Plot0603_Name>PRTH VAMid</Input_Plot0603_Name>
+      <Input_Plot0603_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF556B2F&lt;/SolidColorBrush&gt;</Input_Plot0603_PrimaryBrush_Serializable>
+      <Input_Plot0603_DashStyle>Dash</Input_Plot0603_DashStyle>
+      <Input_Plot0603_PlotStyle>Line</Input_Plot0603_PlotStyle>
+      <Input_Plot0603_AutoWidth>false</Input_Plot0603_AutoWidth>
+      <Input_Plot0603_Width>1</Input_Plot0603_Width>
+      <Input_Value06_ExtCount>Zero</Input_Value06_ExtCount>
+      <Input_Value06_ExtName>PRTH VA</Input_Value06_ExtName>
+      <Input_Value06_ExtAboveString>A</Input_Value06_ExtAboveString>
+      <Input_Value06_ExtBelowString>B</Input_Value06_ExtBelowString>
+      <Input_Value06_ExtMultiplier>0.5</Input_Value06_ExtMultiplier>
+      <Input_Value06_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4169E1&lt;/SolidColorBrush&gt;</Input_Value06_PrimaryBrush_Serializable>
+      <Input_Value06_SecondaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8B0000&lt;/SolidColorBrush&gt;</Input_Value06_SecondaryBrush_Serializable>
+      <Input_Value06_DashStyle>DashDotDot</Input_Value06_DashStyle>
+      <Input_Value06_PlotStyle>Line</Input_Value06_PlotStyle>
+      <Input_Value06_AutoWidth>false</Input_Value06_AutoWidth>
+      <Input_Value06_Width>1</Input_Value06_Width>
+      <Input_Plot0700_Show>true</Input_Plot0700_Show>
+      <Input_Plot0700_Name>PETH VAH</Input_Plot0700_Name>
+      <Input_Plot0700_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF87CEFA&lt;/SolidColorBrush&gt;</Input_Plot0700_PrimaryBrush_Serializable>
+      <Input_Plot0700_DashStyle>Solid</Input_Plot0700_DashStyle>
+      <Input_Plot0700_PlotStyle>Line</Input_Plot0700_PlotStyle>
+      <Input_Plot0700_AutoWidth>false</Input_Plot0700_AutoWidth>
+      <Input_Plot0700_Width>1</Input_Plot0700_Width>
+      <Input_Plot0701_Show>true</Input_Plot0701_Show>
+      <Input_Plot0701_Name>PETH VAL</Input_Plot0701_Name>
+      <Input_Plot0701_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF87CEFA&lt;/SolidColorBrush&gt;</Input_Plot0701_PrimaryBrush_Serializable>
+      <Input_Plot0701_DashStyle>Solid</Input_Plot0701_DashStyle>
+      <Input_Plot0701_PlotStyle>Line</Input_Plot0701_PlotStyle>
+      <Input_Plot0701_AutoWidth>false</Input_Plot0701_AutoWidth>
+      <Input_Plot0701_Width>1</Input_Plot0701_Width>
+      <Input_Plot0702_Show>true</Input_Plot0702_Show>
+      <Input_Plot0702_Name>PETH VPOC</Input_Plot0702_Name>
+      <Input_Plot0702_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFD700&lt;/SolidColorBrush&gt;</Input_Plot0702_PrimaryBrush_Serializable>
+      <Input_Plot0702_DashStyle>Solid</Input_Plot0702_DashStyle>
+      <Input_Plot0702_PlotStyle>Line</Input_Plot0702_PlotStyle>
+      <Input_Plot0702_AutoWidth>false</Input_Plot0702_AutoWidth>
+      <Input_Plot0702_Width>1</Input_Plot0702_Width>
+      <Input_Plot0703_Show>false</Input_Plot0703_Show>
+      <Input_Plot0703_Name>PETH VAMid</Input_Plot0703_Name>
+      <Input_Plot0703_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF87CEFA&lt;/SolidColorBrush&gt;</Input_Plot0703_PrimaryBrush_Serializable>
+      <Input_Plot0703_DashStyle>Dash</Input_Plot0703_DashStyle>
+      <Input_Plot0703_PlotStyle>Line</Input_Plot0703_PlotStyle>
+      <Input_Plot0703_AutoWidth>false</Input_Plot0703_AutoWidth>
+      <Input_Plot0703_Width>1</Input_Plot0703_Width>
+      <Input_Value07_ExtCount>Zero</Input_Value07_ExtCount>
+      <Input_Value07_ExtName>PETH VA</Input_Value07_ExtName>
+      <Input_Value07_ExtAboveString>A</Input_Value07_ExtAboveString>
+      <Input_Value07_ExtBelowString>B</Input_Value07_ExtBelowString>
+      <Input_Value07_ExtMultiplier>0.5</Input_Value07_ExtMultiplier>
+      <Input_Value07_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4169E1&lt;/SolidColorBrush&gt;</Input_Value07_PrimaryBrush_Serializable>
+      <Input_Value07_SecondaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8B0000&lt;/SolidColorBrush&gt;</Input_Value07_SecondaryBrush_Serializable>
+      <Input_Value07_DashStyle>DashDotDot</Input_Value07_DashStyle>
+      <Input_Value07_PlotStyle>Line</Input_Value07_PlotStyle>
+      <Input_Value07_AutoWidth>false</Input_Value07_AutoWidth>
+      <Input_Value07_Width>1</Input_Value07_Width>
+      <Input_Plot0800_Show>true</Input_Plot0800_Show>
+      <Input_Plot0800_Name>RTH Open</Input_Plot0800_Name>
+      <Input_Plot0800_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFC0C0C0&lt;/SolidColorBrush&gt;</Input_Plot0800_PrimaryBrush_Serializable>
+      <Input_Plot0800_DashStyle>Dash</Input_Plot0800_DashStyle>
+      <Input_Plot0800_PlotStyle>Line</Input_Plot0800_PlotStyle>
+      <Input_Plot0800_AutoWidth>false</Input_Plot0800_AutoWidth>
+      <Input_Plot0800_Width>1</Input_Plot0800_Width>
+      <Input_Plot0800_DisplayMode>Developing</Input_Plot0800_DisplayMode>
+      <Input_Plot0801_Show>false</Input_Plot0801_Show>
+      <Input_Plot0801_Name>RTH High</Input_Plot0801_Name>
+      <Input_Plot0801_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</Input_Plot0801_PrimaryBrush_Serializable>
+      <Input_Plot0801_DashStyle>Solid</Input_Plot0801_DashStyle>
+      <Input_Plot0801_PlotStyle>Line</Input_Plot0801_PlotStyle>
+      <Input_Plot0801_AutoWidth>false</Input_Plot0801_AutoWidth>
+      <Input_Plot0801_Width>1</Input_Plot0801_Width>
+      <Input_Plot0801_DisplayMode>Current</Input_Plot0801_DisplayMode>
+      <Input_Plot0802_Show>false</Input_Plot0802_Show>
+      <Input_Plot0802_Name>RTH Low</Input_Plot0802_Name>
+      <Input_Plot0802_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</Input_Plot0802_PrimaryBrush_Serializable>
+      <Input_Plot0802_DashStyle>Solid</Input_Plot0802_DashStyle>
+      <Input_Plot0802_PlotStyle>Line</Input_Plot0802_PlotStyle>
+      <Input_Plot0802_AutoWidth>false</Input_Plot0802_AutoWidth>
+      <Input_Plot0802_Width>1</Input_Plot0802_Width>
+      <Input_Plot0802_DisplayMode>Current</Input_Plot0802_DisplayMode>
+      <Input_Plot0803_Show>true</Input_Plot0803_Show>
+      <Input_Plot0803_Name>RTH Mid</Input_Plot0803_Name>
+      <Input_Plot0803_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</Input_Plot0803_PrimaryBrush_Serializable>
+      <Input_Plot0803_DashStyle>Dash</Input_Plot0803_DashStyle>
+      <Input_Plot0803_PlotStyle>Line</Input_Plot0803_PlotStyle>
+      <Input_Plot0803_AutoWidth>false</Input_Plot0803_AutoWidth>
+      <Input_Plot0803_Width>1</Input_Plot0803_Width>
+      <Input_Plot0803_DisplayMode>Developing</Input_Plot0803_DisplayMode>
+      <Input_Plot0900_Show>true</Input_Plot0900_Show>
+      <Input_Plot0900_Name>ETH Open</Input_Plot0900_Name>
+      <Input_Plot0900_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF708090&lt;/SolidColorBrush&gt;</Input_Plot0900_PrimaryBrush_Serializable>
+      <Input_Plot0900_DashStyle>Dash</Input_Plot0900_DashStyle>
+      <Input_Plot0900_PlotStyle>Line</Input_Plot0900_PlotStyle>
+      <Input_Plot0900_AutoWidth>false</Input_Plot0900_AutoWidth>
+      <Input_Plot0900_Width>1</Input_Plot0900_Width>
+      <Input_Plot0900_DisplayMode>Developing</Input_Plot0900_DisplayMode>
+      <Input_Plot0901_Show>false</Input_Plot0901_Show>
+      <Input_Plot0901_Name>ETH High</Input_Plot0901_Name>
+      <Input_Plot0901_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</Input_Plot0901_PrimaryBrush_Serializable>
+      <Input_Plot0901_DashStyle>Solid</Input_Plot0901_DashStyle>
+      <Input_Plot0901_PlotStyle>Line</Input_Plot0901_PlotStyle>
+      <Input_Plot0901_AutoWidth>false</Input_Plot0901_AutoWidth>
+      <Input_Plot0901_Width>1</Input_Plot0901_Width>
+      <Input_Plot0901_DisplayMode>Current</Input_Plot0901_DisplayMode>
+      <Input_Plot0902_Show>false</Input_Plot0902_Show>
+      <Input_Plot0902_Name>ETH Low</Input_Plot0902_Name>
+      <Input_Plot0902_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</Input_Plot0902_PrimaryBrush_Serializable>
+      <Input_Plot0902_DashStyle>Solid</Input_Plot0902_DashStyle>
+      <Input_Plot0902_PlotStyle>Line</Input_Plot0902_PlotStyle>
+      <Input_Plot0902_AutoWidth>false</Input_Plot0902_AutoWidth>
+      <Input_Plot0902_Width>1</Input_Plot0902_Width>
+      <Input_Plot0902_DisplayMode>Current</Input_Plot0902_DisplayMode>
+      <Input_Plot0903_Show>true</Input_Plot0903_Show>
+      <Input_Plot0903_Name>ETH Mid</Input_Plot0903_Name>
+      <Input_Plot0903_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</Input_Plot0903_PrimaryBrush_Serializable>
+      <Input_Plot0903_DashStyle>Dash</Input_Plot0903_DashStyle>
+      <Input_Plot0903_PlotStyle>Line</Input_Plot0903_PlotStyle>
+      <Input_Plot0903_AutoWidth>false</Input_Plot0903_AutoWidth>
+      <Input_Plot0903_Width>1</Input_Plot0903_Width>
+      <Input_Plot0903_DisplayMode>Developing</Input_Plot0903_DisplayMode>
+      <Input_Plot1000_Show>true</Input_Plot1000_Show>
+      <Input_Plot1000_Name>RTH VAH</Input_Plot1000_Name>
+      <Input_Plot1000_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7FFFD4&lt;/SolidColorBrush&gt;</Input_Plot1000_PrimaryBrush_Serializable>
+      <Input_Plot1000_DashStyle>Solid</Input_Plot1000_DashStyle>
+      <Input_Plot1000_PlotStyle>Line</Input_Plot1000_PlotStyle>
+      <Input_Plot1000_AutoWidth>false</Input_Plot1000_AutoWidth>
+      <Input_Plot1000_Width>1</Input_Plot1000_Width>
+      <Input_Plot1000_DisplayMode>Current</Input_Plot1000_DisplayMode>
+      <Input_Plot1001_Show>true</Input_Plot1001_Show>
+      <Input_Plot1001_Name>RTH VAL</Input_Plot1001_Name>
+      <Input_Plot1001_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7FFFD4&lt;/SolidColorBrush&gt;</Input_Plot1001_PrimaryBrush_Serializable>
+      <Input_Plot1001_DashStyle>Solid</Input_Plot1001_DashStyle>
+      <Input_Plot1001_PlotStyle>Line</Input_Plot1001_PlotStyle>
+      <Input_Plot1001_AutoWidth>false</Input_Plot1001_AutoWidth>
+      <Input_Plot1001_Width>1</Input_Plot1001_Width>
+      <Input_Plot1001_DisplayMode>Current</Input_Plot1001_DisplayMode>
+      <Input_Plot1002_Show>true</Input_Plot1002_Show>
+      <Input_Plot1002_Name>RTH VPOC</Input_Plot1002_Name>
+      <Input_Plot1002_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</Input_Plot1002_PrimaryBrush_Serializable>
+      <Input_Plot1002_DashStyle>Solid</Input_Plot1002_DashStyle>
+      <Input_Plot1002_PlotStyle>Line</Input_Plot1002_PlotStyle>
+      <Input_Plot1002_AutoWidth>false</Input_Plot1002_AutoWidth>
+      <Input_Plot1002_Width>1</Input_Plot1002_Width>
+      <Input_Plot1002_DisplayMode>Current</Input_Plot1002_DisplayMode>
+      <Input_Plot1003_Show>false</Input_Plot1003_Show>
+      <Input_Plot1003_Name>RTH VAMid</Input_Plot1003_Name>
+      <Input_Plot1003_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7FFFD4&lt;/SolidColorBrush&gt;</Input_Plot1003_PrimaryBrush_Serializable>
+      <Input_Plot1003_DashStyle>Dash</Input_Plot1003_DashStyle>
+      <Input_Plot1003_PlotStyle>Line</Input_Plot1003_PlotStyle>
+      <Input_Plot1003_AutoWidth>false</Input_Plot1003_AutoWidth>
+      <Input_Plot1003_Width>1</Input_Plot1003_Width>
+      <Input_Plot1003_DisplayMode>Current</Input_Plot1003_DisplayMode>
+      <Input_Plot1100_Show>true</Input_Plot1100_Show>
+      <Input_Plot1100_Name>ETH VAH</Input_Plot1100_Name>
+      <Input_Plot1100_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF6495ED&lt;/SolidColorBrush&gt;</Input_Plot1100_PrimaryBrush_Serializable>
+      <Input_Plot1100_DashStyle>Solid</Input_Plot1100_DashStyle>
+      <Input_Plot1100_PlotStyle>Line</Input_Plot1100_PlotStyle>
+      <Input_Plot1100_AutoWidth>false</Input_Plot1100_AutoWidth>
+      <Input_Plot1100_Width>1</Input_Plot1100_Width>
+      <Input_Plot1100_DisplayMode>Current</Input_Plot1100_DisplayMode>
+      <Input_Plot1101_Show>true</Input_Plot1101_Show>
+      <Input_Plot1101_Name>ETH VAL</Input_Plot1101_Name>
+      <Input_Plot1101_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF6495ED&lt;/SolidColorBrush&gt;</Input_Plot1101_PrimaryBrush_Serializable>
+      <Input_Plot1101_DashStyle>Solid</Input_Plot1101_DashStyle>
+      <Input_Plot1101_PlotStyle>Line</Input_Plot1101_PlotStyle>
+      <Input_Plot1101_AutoWidth>false</Input_Plot1101_AutoWidth>
+      <Input_Plot1101_Width>1</Input_Plot1101_Width>
+      <Input_Plot1101_DisplayMode>Current</Input_Plot1101_DisplayMode>
+      <Input_Plot1102_Show>true</Input_Plot1102_Show>
+      <Input_Plot1102_Name>ETH VPOC</Input_Plot1102_Name>
+      <Input_Plot1102_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDAA520&lt;/SolidColorBrush&gt;</Input_Plot1102_PrimaryBrush_Serializable>
+      <Input_Plot1102_DashStyle>Solid</Input_Plot1102_DashStyle>
+      <Input_Plot1102_PlotStyle>Line</Input_Plot1102_PlotStyle>
+      <Input_Plot1102_AutoWidth>false</Input_Plot1102_AutoWidth>
+      <Input_Plot1102_Width>1</Input_Plot1102_Width>
+      <Input_Plot1102_DisplayMode>Current</Input_Plot1102_DisplayMode>
+      <Input_Plot1103_Show>false</Input_Plot1103_Show>
+      <Input_Plot1103_Name>ETH VAMid</Input_Plot1103_Name>
+      <Input_Plot1103_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF6495ED&lt;/SolidColorBrush&gt;</Input_Plot1103_PrimaryBrush_Serializable>
+      <Input_Plot1103_DashStyle>Dash</Input_Plot1103_DashStyle>
+      <Input_Plot1103_PlotStyle>Line</Input_Plot1103_PlotStyle>
+      <Input_Plot1103_AutoWidth>false</Input_Plot1103_AutoWidth>
+      <Input_Plot1103_Width>1</Input_Plot1103_Width>
+      <Input_Plot1103_DisplayMode>Current</Input_Plot1103_DisplayMode>
+      <Input_Plot1200_Show>true</Input_Plot1200_Show>
+      <Input_Plot1200_Name>RTH VWAP</Input_Plot1200_Name>
+      <Input_Plot1200_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008080&lt;/SolidColorBrush&gt;</Input_Plot1200_PrimaryBrush_Serializable>
+      <Input_Plot1200_DashStyle>Solid</Input_Plot1200_DashStyle>
+      <Input_Plot1200_PlotStyle>Line</Input_Plot1200_PlotStyle>
+      <Input_Plot1200_AutoWidth>false</Input_Plot1200_AutoWidth>
+      <Input_Plot1200_Width>2</Input_Plot1200_Width>
+      <Input_Plot1201_Show>true</Input_Plot1201_Show>
+      <Input_Plot1201_Name>ETH VWAP</Input_Plot1201_Name>
+      <Input_Plot1201_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFD2691E&lt;/SolidColorBrush&gt;</Input_Plot1201_PrimaryBrush_Serializable>
+      <Input_Plot1201_DashStyle>Solid</Input_Plot1201_DashStyle>
+      <Input_Plot1201_PlotStyle>Line</Input_Plot1201_PlotStyle>
+      <Input_Plot1201_AutoWidth>false</Input_Plot1201_AutoWidth>
+      <Input_Plot1201_Width>2</Input_Plot1201_Width>
+      <Input_Plot1202_Show>false</Input_Plot1202_Show>
+      <Input_Plot1202_Name>PRTH VWAP</Input_Plot1202_Name>
+      <Input_Plot1202_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008080&lt;/SolidColorBrush&gt;</Input_Plot1202_PrimaryBrush_Serializable>
+      <Input_Plot1202_DashStyle>Dash</Input_Plot1202_DashStyle>
+      <Input_Plot1202_PlotStyle>Line</Input_Plot1202_PlotStyle>
+      <Input_Plot1202_AutoWidth>false</Input_Plot1202_AutoWidth>
+      <Input_Plot1202_Width>2</Input_Plot1202_Width>
+      <Input_Plot1203_Show>false</Input_Plot1203_Show>
+      <Input_Plot1203_Name>PETH VWAP</Input_Plot1203_Name>
+      <Input_Plot1203_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFD2691E&lt;/SolidColorBrush&gt;</Input_Plot1203_PrimaryBrush_Serializable>
+      <Input_Plot1203_DashStyle>Dash</Input_Plot1203_DashStyle>
+      <Input_Plot1203_PlotStyle>Line</Input_Plot1203_PlotStyle>
+      <Input_Plot1203_AutoWidth>false</Input_Plot1203_AutoWidth>
+      <Input_Plot1203_Width>2</Input_Plot1203_Width>
+      <Input_Plot1300_Show>true</Input_Plot1300_Show>
+      <Input_Plot1300_Name>Half Gap</Input_Plot1300_Name>
+      <Input_Plot1300_PrimaryBrush_Serializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7CFC00&lt;/SolidColorBrush&gt;</Input_Plot1300_PrimaryBrush_Serializable>
+      <Input_Plot1300_DashStyle>Solid</Input_Plot1300_DashStyle>
+      <Input_Plot1300_PlotStyle>Line</Input_Plot1300_PlotStyle>
+      <Input_Plot1300_AutoWidth>false</Input_Plot1300_AutoWidth>
+      <Input_Plot1300_Width>1</Input_Plot1300_Width>
+    </T3000_MGI_Daily>
+  </T3000_MGI_Daily>
+</NinjaTrader>

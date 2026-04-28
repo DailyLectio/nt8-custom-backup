@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StrategyTemplate>
+  <StrategyType>NinjaTrader.NinjaScript.Strategies.BWTNT8PrecisionAutoTrader</StrategyType>
+  <Strategy><BWTNT8PrecisionAutoTrader/>
+  </Strategy>
+</StrategyTemplate>

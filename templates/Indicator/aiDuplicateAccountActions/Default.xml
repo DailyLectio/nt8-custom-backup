@@ -1,0 +1,3465 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <aiDuplicateAccountActions>
+    <aiDuplicateAccountActions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnBarClose</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>false</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>5</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>1</Value>
+        <Value2>1</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnBarClose</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>false</DisplayInDataBox>
+      <From>2026-02-20T00:00:00</From>
+      <IsAutoScale>false</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name>aiDuplicateAccountActions</Name>
+      <Panel>-1</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2026-02-25T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>true</PaintPriceMarkers>
+      <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>true</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>191</IndicatorId>
+      <InstrumentDeserialized>ES MAR26 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>1</ZOrder>
+      <SelectedColumn>Account</SelectedColumn>
+      <ChartTraderNeedsDisabled>false</ChartTraderNeedsDisabled>
+      <WindowPrivacyAccounts>true</WindowPrivacyAccounts>
+      <WindowPrivacyCurrency>true</WindowPrivacyCurrency>
+      <Currency2Privacy>None</Currency2Privacy>
+      <RejectedOrderHandling>true</RejectedOrderHandling>
+      <CheckBeforeSubmitting>true</CheckBeforeSubmitting>
+      <RejectedSubmit>Market</RejectedSubmit>
+      <RejectedSubmitOff>0</RejectedSubmitOff>
+      <MatchStopLimit>true</MatchStopLimit>
+      <ResubmitMaster>true</ResubmitMaster>
+      <LimitOrderSyncFeatures2>true</LimitOrderSyncFeatures2>
+      <SyncEntryDetectionLimit>true</SyncEntryDetectionLimit>
+      <SyncEntryDetectionMIT>true</SyncEntryDetectionMIT>
+      <SyncEntryDetectionStop>true</SyncEntryDetectionStop>
+      <SyncEntryDetectionStopLimit>true</SyncEntryDetectionStopLimit>
+      <SyncMoveTicks>1</SyncMoveTicks>
+      <FontSizeTopRow2>2</FontSizeTopRow2>
+      <ExitShieldFeaturesEnabled>true</ExitShieldFeaturesEnabled>
+      <ExitShieldButtonEnabled>true</ExitShieldButtonEnabled>
+      <ExitShieldStopLoss>true</ExitShieldStopLoss>
+      <ExitShieldProfitTarget>true</ExitShieldProfitTarget>
+      <UseOriginalLocation>true</UseOriginalLocation>
+      <ExitShieldMessages>true</ExitShieldMessages>
+      <ExitShieldIsEnabled>false</ExitShieldIsEnabled>
+      <HideAccountsIsEnabled>false</HideAccountsIsEnabled>
+      <SpecialAction1Enabled>true</SpecialAction1Enabled>
+      <SpecialAction2Enabled>true</SpecialAction2Enabled>
+      <CopierIsEnabled>false</CopierIsEnabled>
+      <SelectedAscending>true</SelectedAscending>
+      <AllInstruments>true</AllInstruments>
+      <IsCrossEnabled>false</IsCrossEnabled>
+      <IsXEnabled>false</IsXEnabled>
+      <IsATMSelectEnabled>true</IsATMSelectEnabled>
+      <IsFadeEnabled>false</IsFadeEnabled>
+      <IsBuildMode>true</IsBuildMode>
+      <IsXColumnEnabled>true</IsXColumnEnabled>
+      <MultiplierMode>Multiplier</MultiplierMode>
+      <LastMultiplierMode>Multiplier</LastMultiplierMode>
+      <IsATMColumnEnabled>true</IsATMColumnEnabled>
+      <TheCopierMode>Executions</TheCopierMode>
+      <IsCrossColumnEnabled>true</IsCrossColumnEnabled>
+      <FDAXMini>FDXM</FDAXMini>
+      <FDAXMicro>FDXS</FDAXMicro>
+      <IsFadeColumnEnabled>false</IsFadeColumnEnabled>
+      <SetNewOrderToManual>true</SetNewOrderToManual>
+      <ShowStatusMessages>true</ShowStatusMessages>
+      <FontSizeTopRow3>0</FontSizeTopRow3>
+      <ForceAllSelectedAccountsToTop>false</ForceAllSelectedAccountsToTop>
+      <CloseButtonLocation>Left</CloseButtonLocation>
+      <ShowHideButton>true</ShowHideButton>
+      <CloseButtonEnabled>true</CloseButtonEnabled>
+      <CancelButtonEnabled>true</CancelButtonEnabled>
+      <OneTrade2All>false</OneTrade2All>
+      <OneTradeEvalEnabled>true</OneTradeEvalEnabled>
+      <OneTradePAEnabled>true</OneTradePAEnabled>
+      <OneTradeShow>Totals</OneTradeShow>
+      <HideExtraAccountsOnLock>true</HideExtraAccountsOnLock>
+      <LockAccountsOnLock>true</LockAccountsOnLock>
+      <LockHideAccountsOnLock>true</LockHideAccountsOnLock>
+      <RithmicEnabled>false</RithmicEnabled>
+      <Rithmic1Seconds>2.2</Rithmic1Seconds>
+      <AutomaticRithmicSync>true</AutomaticRithmicSync>
+      <Rithmic2Seconds>5</Rithmic2Seconds>
+      <RithmicButton>RITHMIC</RithmicButton>
+      <RefreshButtonBVVS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFB8860B&lt;/SolidColorBrush&gt;</RefreshButtonBVVS>
+      <AreButtonsSeperated>false</AreButtonsSeperated>
+      <KeyboardEnabled>true</KeyboardEnabled>
+      <KeyScrollUp>NumPad8</KeyScrollUp>
+      <KeyScrollDn>NumPad2</KeyScrollDn>
+      <UseNumberForMultiplier>true</UseNumberForMultiplier>
+      <ShowFlattenEverything>true</ShowFlattenEverything>
+      <FLString>FLATTEN</FLString>
+      <FlattenButtonBS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</FlattenButtonBS>
+      <ShowFEMessage>true</ShowFEMessage>
+      <PrivacyEnabled>false</PrivacyEnabled>
+      <AccountPrivacy1 />
+      <AccountReplace1 />
+      <AccountPrivacy2 />
+      <AccountReplace2 />
+      <AccountPrivacy3 />
+      <AccountReplace3 />
+      <AccountPrivacy4 />
+      <AccountReplace4 />
+      <AccountPrivacy5 />
+      <AccountReplace5 />
+      <AccountPrivacy6 />
+      <AccountReplace6 />
+      <AccountPrivacy7 />
+      <AccountReplace7 />
+      <AccountPrivacy8 />
+      <AccountReplace8 />
+      <AccountPrivacy9 />
+      <AccountReplace9 />
+      <AccountPrivacy10 />
+      <AccountReplace10 />
+      <AccountPrivacy11 />
+      <AccountReplace11 />
+      <AccountPrivacy12 />
+      <AccountReplace12 />
+      <AlphaFutures2Coupon />
+      <APEXCoupon>DVUDKBFF</APEXCoupon>
+      <BluSkyCoupon />
+      <BulenoxCoupon />
+      <DayTradersCoupon />
+      <EliteTraderFundingCoupon />
+      <FundedFamilyFuturesCoupon />
+      <FundedFuturesNetworkCoupon />
+      <FundedNextCoupon />
+      <FundingTicks />
+      <LeeLooCoupon />
+      <TheLegendsTradingCoupon />
+      <LifeUpTradingCoupon />
+      <LucidTradingCoupon />
+      <MyFundedFuturesCoupon />
+      <PhidiasCoupon />
+      <PurdiaCoupon />
+      <TakeProfitTraderCoupon />
+      <TickTickCoupon />
+      <TopStepCoupon />
+      <TradeDayCoupon />
+      <TradeFundrrCoupon />
+      <TradeifyCoupon />
+      <ShowDiscountLinks>true</ShowDiscountLinks>
+      <Actions2HideColumnEnabled>false</Actions2HideColumnEnabled>
+      <ActionsButtonLocation>Left</ActionsButtonLocation>
+      <TextFont3>
+        <Bold>true</Bold>
+        <FamilySerialize>Calibri</FamilySerialize>
+        <Italic>false</Italic>
+        <Size>12</Size>
+      </TextFont3>
+      <CompDNColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFE0FFFF&lt;/SolidColorBrush&gt;</CompDNColorS>
+      <CompMinOpacity>20</CompMinOpacity>
+      <CompMinOpacityH>50</CompMinOpacityH>
+      <BackMasterAAccountColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF1E90FF&lt;/SolidColorBrush&gt;</BackMasterAAccountColorS>
+      <BackSlaveAccountColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF87CEEB&lt;/SolidColorBrush&gt;</BackSlaveAccountColorS>
+      <CompMinOpacityHAcc>50</CompMinOpacityHAcc>
+      <BackBuyColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF7F&lt;/SolidColorBrush&gt;</BackBuyColorS>
+      <BackSellColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BackSellColorS>
+      <BackBuyColor3S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF7F&lt;/SolidColorBrush&gt;</BackBuyColor3S>
+      <BackSellColor3S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BackSellColor3S>
+      <CompPOSOpacity>40</CompPOSOpacity>
+      <pConnectedOnS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF32CD32&lt;/SolidColorBrush&gt;</pConnectedOnS>
+      <pConnectedOffS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</pConnectedOffS>
+      <ConnectedLostS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</ConnectedLostS>
+      <pConnectedOtherS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFD700&lt;/SolidColorBrush&gt;</pConnectedOtherS>
+      <AccountStatusEnabled>true</AccountStatusEnabled>
+      <AccountCFundedS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008B8B&lt;/SolidColorBrush&gt;</AccountCFundedS>
+      <pAccountEvaluationS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDDA0DD&lt;/SolidColorBrush&gt;</pAccountEvaluationS>
+      <AccountConfiguredSimS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFA500&lt;/SolidColorBrush&gt;</AccountConfiguredSimS>
+      <HighlightHoverCells>true</HighlightHoverCells>
+      <HighlightAmount>20</HighlightAmount>
+      <HighlightHoverButtons>true</HighlightHoverButtons>
+      <ButtonHighlightO>40</ButtonHighlightO>
+      <LeftRightPad>8</LeftRightPad>
+      <TopBottomPad>5</TopBottomPad>
+      <AffiliateLinkDone1>true</AffiliateLinkDone1>
+      <AffiliateLinkDone2>false</AffiliateLinkDone2>
+      <FirstLoadIsDone>true</FirstLoadIsDone>
+      <IsCopyBasicFunctionsEnabled>true</IsCopyBasicFunctionsEnabled>
+      <IsRiskFunctionsEnabled>true</IsRiskFunctionsEnabled>
+      <IsCopyBasicFunctionsPermission>true</IsCopyBasicFunctionsPermission>
+      <IsRiskFunctionsPermission>true</IsRiskFunctionsPermission>
+      <IsCopyBasicFunctionsChecked>true</IsCopyBasicFunctionsChecked>
+      <IsRiskFunctionsChecked>true</IsRiskFunctionsChecked>
+      <ColumnFromFund>true</ColumnFromFund>
+      <IsEvalCloseEnabled>true</IsEvalCloseEnabled>
+      <DisableFundedFollowers>true</DisableFundedFollowers>
+      <DollarsExceedFunded>50</DollarsExceedFunded>
+      <PAFundedAmouont>300</PAFundedAmouont>
+      <ColumnAutoLiquidate>true</ColumnAutoLiquidate>
+      <ColumnRemaining>true</ColumnRemaining>
+      <ColumnDDType>true</ColumnDDType>
+      <FillFundedCells>true</FillFundedCells>
+      <PercentWarning1>75</PercentWarning1>
+      <PercentWarning2>50</PercentWarning2>
+      <TrailingGoodColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</TrailingGoodColorS>
+      <TrailingWarningColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</TrailingWarningColorS>
+      <TrailingBadColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFA500&lt;/SolidColorBrush&gt;</TrailingBadColorS>
+      <TrailingBlownColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</TrailingBlownColorS>
+      <IsFundedColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF32CD32&lt;/SolidColorBrush&gt;</IsFundedColorS>
+      <IsLossColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</IsLossColorS>
+      <HighlightRowForGoalLossHit>true</HighlightRowForGoalLossHit>
+      <ColumnDailyGoal>true</ColumnDailyGoal>
+      <ColumnDailyLoss>true</ColumnDailyLoss>
+      <ColumnProfitRequested>false</ColumnProfitRequested>
+      <ShowPercentOnGoalLoss>false</ShowPercentOnGoalLoss>
+      <OnMasterGoalHitCloseFollowers>true</OnMasterGoalHitCloseFollowers>
+      <DisableGoalFollowers>true</DisableGoalFollowers>
+      <DailyGoalLossBuffer>50</DailyGoalLossBuffer>
+      <AdjustmentDollars>50</AdjustmentDollars>
+      <SimulatedAccountsEnabled>true</SimulatedAccountsEnabled>
+      <DailyGoalDisplayMode>Update</DailyGoalDisplayMode>
+      <DailyLossDisplayMode>Update</DailyLossDisplayMode>
+      <SelectedLanguage>Default</SelectedLanguage>
+      <ShowFollowerColumnButtons>true</ShowFollowerColumnButtons>
+      <CopierButtonOn2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF32CD32&lt;/SolidColorBrush&gt;</CopierButtonOn2S>
+      <LockButtonOnS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</LockButtonOnS>
+      <AreaBrushSerialize>&lt;SolidColorBrush Color="#FF808080" Opacity="0.25" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</AreaBrushSerialize>
+      <AreaOpacity>25</AreaOpacity>
+      <FontSizeTopRow>2</FontSizeTopRow>
+      <FontSizeB>0</FontSizeB>
+      <ThisMasterAccount>SimTrinity HUD Uni</ThisMasterAccount>
+      <ColumnAudioE>true</ColumnAudioE>
+      <ColumnEMAE>true</ColumnEMAE>
+      <ColumnTimeStatusE>true</ColumnTimeStatusE>
+      <ColumnTrendStatusE>true</ColumnTrendStatusE>
+      <ColumnLastE>true</ColumnLastE>
+      <ColumnEntryE>true</ColumnEntryE>
+      <ColumnStopE>true</ColumnStopE>
+      <ColumnT1E>true</ColumnT1E>
+      <ColumnT2E>true</ColumnT2E>
+      <ColumnT3E>true</ColumnT3E>
+      <ShowAllPriceColE>true</ShowAllPriceColE>
+      <ShowAvgPrice>false</ShowAvgPrice>
+      <UnRealized2Column>true</UnRealized2Column>
+      <Realized2Column>true</Realized2Column>
+      <GrossRealized2Column>true</GrossRealized2Column>
+      <CashValueColumn>false</CashValueColumn>
+      <NetLiquidationColumn>true</NetLiquidationColumn>
+      <QtyColumn2>true</QtyColumn2>
+      <CommissionsColumn>true</CommissionsColumn>
+      <TotalPNLColumn>true</TotalPNLColumn>
+      <AlertLogEnabled>true</AlertLogEnabled>
+      <AudioEnabled>false</AudioEnabled>
+      <WAVFileName>Alert2.wav</WAVFileName>
+      <ArrowUpFBrushS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008000&lt;/SolidColorBrush&gt;</ArrowUpFBrushS>
+      <WAVFileName2>Alert2.wav</WAVFileName2>
+      <ArrowDownFBrushS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</ArrowDownFBrushS>
+      <SpeechEnabled>true</SpeechEnabled>
+      <ThisIndyName>BOT</ThisIndyName>
+      <VoiceMode>Name</VoiceMode>
+      <PreviousVersionName>25. 10. 23. 1</PreviousVersionName>
+      <ShowTotalRows>true</ShowTotalRows>
+      <Total1Name2>PA-APEX</Total1Name2>
+      <Total2Name2>APEX</Total2Name2>
+      <Total3Name2 />
+      <Total5Name2 />
+      <Total6Name2 />
+      <Total7Name2 />
+      <Total1Filter>PA-APEX</Total1Filter>
+      <Total2Filter>APEX</Total2Filter>
+      <Total3Filter />
+      <Total5Filter />
+      <Total6Filter />
+      <Total7Filter />
+      <ShowGrandTotal>true</ShowGrandTotal>
+      <Total4Name2>Total</Total4Name2>
+      <DisableOnStart>true</DisableOnStart>
+      <DisableOnNewSession>true</DisableOnNewSession>
+      <DisableInActiveWorkspace>false</DisableInActiveWorkspace>
+      <CopierMode>Executions</CopierMode>
+      <ShowAccountsMain>All</ShowAccountsMain>
+      <AccountFilter />
+      <ShowAccounts>All</ShowAccounts>
+      <AccountsSimEnabled>true</AccountsSimEnabled>
+      <AccountsLiveEnabled>true</AccountsLiveEnabled>
+      <AllAccountData>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string>APEX7678400000159|Slave|1|Yes|No|No|No|No|Default</string>
+        <string>APEX7678400000160|Slave|1|Yes|No|No|No|No|Default</string>
+        <string>APEX7678400000161|Slave|1|Yes|No|No|No|No|Default</string>
+        <string>APEX7678400000162|Slave|1|Yes|No|No|No|No|Default</string>
+        <string>APEX7678400000163|None|1|No|No|No|No|No|Default</string>
+        <string>DEMO1419193|None|1|No|No|Yes|No|No|Default</string>
+        <string>Sim1|None|1|No|No|No|No|No|Default</string>
+        <string>Sim101|None|1|No|No|No|No|No|Default</string>
+        <string>Sim2|None|1|No|No|No|No|No|Default</string>
+        <string>Sim3|None|1|No|No|No|No|No|Default</string>
+        <string>Sim4|None|1|No|No|No|No|No|Default</string>
+        <string>Sim5|None|1|No|No|No|No|No|Default</string>
+        <string>SimADX_Momo_Scalper|None|1|No|No|No|No|No|Default</string>
+        <string>SimAuto Momo Bank + Run|None|1|No|No|No|No|No|Default</string>
+        <string>SimGu5|None|1|No|No|No|No|No|Default</string>
+        <string>SimMomo_OG1|None|1|No|No|No|No|No|Default</string>
+        <string>SimMomo_OG2|None|1|No|No|No|No|No|Default</string>
+        <string>SimTrinity 002|None|1|No|No|No|No|No|Default</string>
+        <string>SimTrinity Canary 1mHA|None|1|No|No|No|No|No|Default</string>
+        <string>SimTrinity Canary Uni|None|1|No|No|No|No|No|Default</string>
+        <string>SimTrinity HUD HA|None|1|No|No|No|No|No|Default</string>
+        <string>SimTrinity HUD Uni|None|1|No|No|No|No|No|Default</string>
+        <string>SimTrinity001|None|1|No|No|No|No|No|Default</string>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </AllAccountData>
+      <AllAccountCashValue>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string>APEX7678400000159|48374.6</string>
+        <string>APEX7678400000160|49945.66</string>
+        <string>APEX7678400000161|100445.78</string>
+        <string>APEX7678400000162|101024.38</string>
+        <string>APEX7678400000163|100665.18</string>
+        <string>DEMO1419193|22521.73</string>
+        <string>Sim1|94095.86</string>
+        <string>Sim101|46850.1</string>
+        <string>Sim2|105319.56</string>
+        <string>Sim3|88959.74</string>
+        <string>Sim4|94509.8</string>
+        <string>Sim5|98748.54</string>
+        <string>Sim6|104427.74</string>
+        <string>SimADX_Momo_Scalper|100000</string>
+        <string>SimAlms|52318.68</string>
+        <string>SimAuto Momo Bank + Run|99954.1</string>
+        <string>SimCore strategy 2|10710.44</string>
+        <string>SimCoreStrategy 1|10695.68</string>
+        <string>SimEDGE|50604.3</string>
+        <string>SimGu5|48257.6</string>
+        <string>SimMomo_OG1|99161.7</string>
+        <string>SimMomo_OG2|99880.24</string>
+        <string>SimPine1|99669.68</string>
+        <string>SimTrinity 002|100000</string>
+        <string>SimTrinity Canary 1mHA|99814.7</string>
+        <string>SimTrinity Canary Uni|99780.5</string>
+        <string>SimTrinity HUD HA|100095.5</string>
+        <string>SimTrinity HUD Uni|99525.82</string>
+        <string>SimTrinity001|104267.08</string>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </AllAccountCashValue>
+      <AllAccountNetLiquidation>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string>APEX7678400000159|48374.6</string>
+        <string>APEX7678400000160|49945.66</string>
+        <string>APEX7678400000161|100445.78</string>
+        <string>APEX7678400000162|101024.38</string>
+        <string>APEX7678400000163|100665.18</string>
+        <string>DEMO1419193|22521.73</string>
+        <string>Sim1|94095.86</string>
+        <string>Sim101|46850.1</string>
+        <string>Sim2|105319.56</string>
+        <string>Sim3|88959.74</string>
+        <string>Sim4|94509.8</string>
+        <string>Sim5|98748.54</string>
+        <string>Sim6|104427.74</string>
+        <string>SimADX_Momo_Scalper|100000</string>
+        <string>SimAlms|52318.68</string>
+        <string>SimAuto Momo Bank + Run|99954.1</string>
+        <string>SimCore strategy 2|10710.44</string>
+        <string>SimCoreStrategy 1|10695.68</string>
+        <string>SimEDGE|50604.3</string>
+        <string>SimGu5|48257.6</string>
+        <string>SimMomo_OG1|99161.7</string>
+        <string>SimMomo_OG2|99880.24</string>
+        <string>SimPine1|99669.68</string>
+        <string>SimTrinity 002|100000</string>
+        <string>SimTrinity Canary 1mHA|99814.7</string>
+        <string>SimTrinity Canary Uni|99780.5</string>
+        <string>SimTrinity HUD HA|100095.5</string>
+        <string>SimTrinity HUD Uni|99525.82</string>
+        <string>SimTrinity001|104267.08</string>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </AllAccountNetLiquidation>
+      <AllAccountBeginningV>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string>1089999|0</string>
+        <string>APEX7678400000104|50000</string>
+        <string>APEX7678400000137|50000</string>
+        <string>APEX7678400000138|150000</string>
+        <string>APEX7678400000139|150000</string>
+        <string>APEX7678400000140|150000</string>
+        <string>APEX7678400000147|50000</string>
+        <string>APEX7678400000148|50000</string>
+        <string>APEX7678400000149|100000</string>
+        <string>APEX7678400000150|50000</string>
+        <string>APEX7678400000151|50000</string>
+        <string>APEX7678400000153|100000</string>
+        <string>APEX7678400000154|100000</string>
+        <string>APEX7678400000155|50000</string>
+        <string>APEX7678400000158|50000</string>
+        <string>APEX7678400000159|50000</string>
+        <string>APEX7678400000160|50000</string>
+        <string>APEX7678400000161|100000</string>
+        <string>APEX7678400000162|100000</string>
+        <string>APEX7678400000163|100000</string>
+        <string>APEX-76784-152|100000</string>
+        <string>DEMO1419193|10000</string>
+        <string>PAAPEX767840000007|50000</string>
+        <string>Sim1|100000</string>
+        <string>Sim101|50000</string>
+        <string>Sim1m EMA VWAP v1|10000</string>
+        <string>Sim1m EMA VWAP v2|10000</string>
+        <string>Sim2|100000</string>
+        <string>Sim3|100000</string>
+        <string>Sim4|100000</string>
+        <string>Sim5|100000</string>
+        <string>Sim6|100000</string>
+        <string>SimADX_Momo_Scalper|100000</string>
+        <string>SimAlms|50000</string>
+        <string>SimAuto Momo Bank + Run|100000</string>
+        <string>SimCore strategy 2|10000</string>
+        <string>SimCoreStrategy 1|10000</string>
+        <string>SimEDGE|50000</string>
+        <string>SimGu5|50000</string>
+        <string>SimMomo_OG1|100000</string>
+        <string>SimMomo_OG2|100000</string>
+        <string>SimPine1|100000</string>
+        <string>SimTrinity 002|100000</string>
+        <string>SimTrinity Canary 1mHA|100000</string>
+        <string>SimTrinity Canary Uni|100000</string>
+        <string>SimTrinity HUD HA|100000</string>
+        <string>SimTrinity HUD Uni|100000</string>
+        <string>SimTrinity001|100000</string>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </AllAccountBeginningV>
+      <AllAccountAutoLiquidate>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string>APEX7678400000159|50000</string>
+        <string>APEX7678400000160|50272.36</string>
+        <string>APEX7678400000161|103117.48</string>
+        <string>APEX7678400000162|103688.58</string>
+        <string>APEX7678400000163|100665.18</string>
+        <string>DEMO1419193|22521.73</string>
+        <string>Sim1|101626.08</string>
+        <string>Sim101|50000</string>
+        <string>Sim1m EMA VWAP v1|10000</string>
+        <string>Sim1m EMA VWAP v2|10596.68</string>
+        <string>Sim2|105319.56</string>
+        <string>Sim3|100000</string>
+        <string>Sim4|101956.42</string>
+        <string>Sim5|100184.46</string>
+        <string>Sim6|105601.48</string>
+        <string>SimADX_Momo_Scalper|100000</string>
+        <string>SimAlms|52318.68</string>
+        <string>SimAuto Momo Bank + Run|100000</string>
+        <string>SimCore strategy 2|10864.24</string>
+        <string>SimCoreStrategy 1|10695.68</string>
+        <string>SimEDGE|51728.8</string>
+        <string>SimGu5|50000</string>
+        <string>SimMomo_OG1|100000</string>
+        <string>SimMomo_OG2|100025.54</string>
+        <string>SimPine1|100000</string>
+        <string>SimTrinity 002|100000</string>
+        <string>SimTrinity Canary 1mHA|100000</string>
+        <string>SimTrinity Canary Uni|100000</string>
+        <string>SimTrinity HUD HA|100095.5</string>
+        <string>SimTrinity HUD Uni|101374.88</string>
+        <string>SimTrinity001|105056.41</string>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </AllAccountAutoLiquidate>
+      <AllAccountDailyGoal>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </AllAccountDailyGoal>
+      <AllAccountDailyLoss>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </AllAccountDailyLoss>
+      <AllAccountPayouts>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </AllAccountPayouts>
+      <CustomTrailingDrawdown>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </CustomTrailingDrawdown>
+      <CustomProfitGoal>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </CustomProfitGoal>
+      <CustomTrailType>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </CustomTrailType>
+      <CustomFundedOrNot>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </CustomFundedOrNot>
+      <CustomConnectionMainStatus>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string>1089999|2</string>
+        <string>APEX7678400000137|2</string>
+        <string>APEX7678400000138|2</string>
+        <string>APEX7678400000139|2</string>
+        <string>APEX7678400000140|2</string>
+        <string>APEX7678400000147|2</string>
+        <string>APEX7678400000148|2</string>
+        <string>APEX7678400000149|2</string>
+        <string>APEX7678400000150|2</string>
+        <string>APEX7678400000151|2</string>
+        <string>APEX7678400000153|2</string>
+        <string>APEX7678400000154|2</string>
+        <string>APEX7678400000155|2</string>
+        <string>APEX7678400000158|2</string>
+        <string>APEX7678400000159|1</string>
+        <string>APEX7678400000160|1</string>
+        <string>APEX7678400000161|1</string>
+        <string>APEX7678400000162|1</string>
+        <string>APEX7678400000163|1</string>
+        <string>APEX-76784-152|2</string>
+        <string>DEMO1419193|2</string>
+        <string>PAAPEX767840000007|2</string>
+        <string>Playback101|2</string>
+        <string>Sim1|1</string>
+        <string>Sim2|1</string>
+        <string>Sim3|1</string>
+        <string>Sim4|1</string>
+        <string>Sim5|1</string>
+        <string>Sim6|1</string>
+        <string>SimADX_Momo_Scalper|1</string>
+        <string>SimAlms|1</string>
+        <string>SimAuto Momo Bank + Run|1</string>
+        <string>SimCore strategy 2|1</string>
+        <string>SimCoreStrategy 1|1</string>
+        <string>SimEDGE|1</string>
+        <string>SimGu5|1</string>
+        <string>SimMomo_OG1|1</string>
+        <string>SimMomo_OG2|1</string>
+        <string>SimPine1|1</string>
+        <string>SimTrinity 002|1</string>
+        <string>SimTrinity Canary 1mHA|1</string>
+        <string>SimTrinity Canary Uni|1</string>
+        <string>SimTrinity HUD HA|1</string>
+        <string>SimTrinity HUD Uni|1</string>
+        <string>SimTrinity001|1</string>
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+        <string />
+      </CustomConnectionMainStatus>
+      <OldColumnDailyLoss>false</OldColumnDailyLoss>
+      <EnableTradingViewDetections>false</EnableTradingViewDetections>
+      <TradingViewExitDetection>Bracket</TradingViewExitDetection>
+      <MatchStopLossPrices>true</MatchStopLossPrices>
+      <GoogleSheetsUrl>https://docs.google.com/spreadsheets/d/e/2PACX-1vRhhQJJfuDr2D5J5J6hCsAGh9_2Z0_ZdN1-G0FgAfHsivVPq0VKyq2ZFZM0iBe10OVPA64p1f95mE8o/pub?output=csv</GoogleSheetsUrl>
+      <CachedCSVData>PropFirmName,Pattern1,Pattern2,Funded,Start,TrailThre,TrailType,Profit,MaxPayout,Consistency,Extra1,Extra2,Priority
+Alpha Futures,AF,,FALSE,50000,2000,Trailing,3000,0,,,,10
+Alpha Futures,AF,,FALSE,100000,4000,Trailing,6000,0,,,,10
+Alpha Futures,AF,,FALSE,150000,6000,Trailing,9000,0,,,,10
+Alpha Futures,AFZEROEV,,FALSE,50000,2000,Trailing,3000,0,,,,10
+Alpha Futures,AFZEROEV,,FALSE,100000,4000,Trailing,6000,0,,,,10
+Alpha Futures,AFZEROQA,,TRUE,50000,2000,Trailing,3000,0,,,,1
+Alpha Futures,AFZEROQA,,TRUE,100000,4000,Trailing,6000,0,,,,1
+APEX Trader Funding,PA-APEX,PAAPEX,TRUE,10000,1000,Trailing,1000,1000,30,,,1
+APEX Trader Funding,PA-APEX,PAAPEX,TRUE,25000,1500,Trailing,1500,1500,30,,,1
+APEX Trader Funding,PA-APEX,PAAPEX,TRUE,50000,2500,Trailing,3000,2000,30,,,1
+APEX Trader Funding,PA-APEX,PAAPEX,TRUE,75000,2750,Trailing,4250,2250,30,,,1
+APEX Trader Funding,PA-APEX,PAAPEX,TRUE,100000,3000,Trailing,6000,2500,30,,,1
+APEX Trader Funding,PA-APEX,PAAPEX,TRUE,150000,5000,Trailing,9000,2750,30,,,1
+APEX Trader Funding,PA-APEX,PAAPEX,TRUE,200000,5000,Trailing,9000,3000,30,,,1
+APEX Trader Funding,PA-APEX,PAAPEX,TRUE,250000,6500,Trailing,15000,3000,30,,,1
+APEX Trader Funding,PA-APEX,PAAPEX,TRUE,300000,7500,Trailing,20000,3500,30,,,1
+APEX Trader Funding,APEX,,FALSE,10000,1000,Trailing,1000,1000,30,,,10
+APEX Trader Funding,APEX,,FALSE,25000,1500,Trailing,1500,1500,30,,,10
+APEX Trader Funding,APEX,,FALSE,50000,2500,Trailing,3000,2000,30,,,10
+APEX Trader Funding,APEX,,FALSE,75000,2750,Trailing,4250,2250,30,,,10
+APEX Trader Funding,APEX,,FALSE,100000,3000,Trailing,6000,2500,30,,,10
+APEX Trader Funding,APEX,,FALSE,150000,5000,Trailing,9000,2750,30,,,10
+APEX Trader Funding,APEX,,FALSE,200000,5000,Trailing,9000,3000,30,,,10
+APEX Trader Funding,APEX,,FALSE,250000,6500,Trailing,15000,3000,30,,,10
+APEX Trader Funding,APEX,,FALSE,300000,7500,Trailing,20000,3500,30,,,10
+BluSky Trading Company,BLULIVE,,TRUE,25000,1200,Trailing,1500,0,,,,1
+BluSky Trading Company,BLULIVE,,TRUE,50000,2500,Trailing,3000,0,,,,1
+BluSky Trading Company,BLULIVE,,TRUE,100000,2500,Trailing,6000,0,,,,1
+BluSky Trading Company,BLULIVE,,TRUE,200000,2000,Trailing,6000,0,,,,1
+BluSky Trading Company,BLULIVE,,TRUE,300000,5000,Trailing,20000,0,,,,1
+BluSky Trading Company,BLU,,FALSE,25000,1200,Trailing,1500,0,,,,10
+BluSky Trading Company,BLU,,FALSE,50000,2500,Trailing,3000,0,,,,10
+BluSky Trading Company,BLU,,FALSE,100000,2500,Trailing,6000,0,,,,10
+BluSky Trading Company,BLU,,FALSE,200000,2000,Trailing,6000,0,,,,10
+BluSky Trading Company,BLU,,FALSE,300000,5000,Trailing,20000,0,,,,10
+Bulenox,BX-M,,TRUE,10000,1000,Trailing,1000,0,,,,1
+Bulenox,BX-M,,TRUE,25000,1500,Trailing,1500,0,,,,1
+Bulenox,BX-M,,TRUE,50000,2500,Trailing,3000,0,,,,1
+Bulenox,BX-M,,TRUE,75000,2750,Trailing,4250,0,,,,1
+Bulenox,BX-M,,TRUE,100000,3000,Trailing,6000,0,,,,1
+Bulenox,BX-M,,TRUE,150000,4500,Trailing,9000,0,,,,1
+Bulenox,BX-M,,TRUE,200000,5000,Trailing,9000,0,,,,1
+Bulenox,BX-M,,TRUE,250000,5500,Trailing,15000,0,,,,1
+Bulenox,BX-M,,TRUE,300000,7500,Trailing,20000,0,,,,1
+Bulenox,BX,,FALSE,10000,1000,Trailing,1000,0,,,,10
+Bulenox,BX,,FALSE,25000,1500,Trailing,1500,0,,,,10
+Bulenox,BX,,FALSE,50000,2500,Trailing,3000,0,,,,10
+Bulenox,BX,,FALSE,75000,2750,Trailing,4250,0,,,,10
+Bulenox,BX,,FALSE,100000,3000,Trailing,6000,0,,,,10
+Bulenox,BX,,FALSE,150000,4500,Trailing,9000,0,,,,10
+Bulenox,BX,,FALSE,200000,5000,Trailing,9000,0,,,,10
+Bulenox,BX,,FALSE,250000,5500,Trailing,15000,0,,,,10
+Bulenox,BX,,FALSE,300000,7500,Trailing,20000,0,,,,10
+#DayTraders,PRO-DT-,,TRUE,150000,4500,Trailing,8500,0,,,,1
+#DayTraders,DT-,,FALSE,150000,4500,Trailing,8500,0,,,,5
+Elite Trader Funding,EVALONESTEPETF,,TRUE,10000,1000,Trailing,1250,0,,,,1
+Elite Trader Funding,EVALONESTEPETF,,TRUE,50000,2000,Trailing,3000,0,,,,1
+Elite Trader Funding,EVALONESTEPETF,,TRUE,75000,2500,Trailing,4500,0,,,,1
+Elite Trader Funding,DHETF,,FALSE,100000,3500,Trailing,5000,0,,,,1
+Elite Trader Funding,STATIC,,FALSE,100000,625,Static,2000,0,,,,1
+Elite Trader Funding,STATIC,,FALSE,150000,1250,Static,4000,0,,,,1
+Elite Trader Funding,ELITE,ETF,TRUE,10000,1000,Trailing,1250,0,,,,2
+Elite Trader Funding,ELITE,ETF,TRUE,50000,2000,Trailing,3000,0,,,,2
+Elite Trader Funding,ELITE,ETF,TRUE,75000,2500,Trailing,4500,0,,,,2
+Elite Trader Funding,ETF,,FALSE,10000,1000,Trailing,1250,0,,,,10
+Elite Trader Funding,ETF,,FALSE,50000,2000,Trailing,3000,0,,,,10
+Elite Trader Funding,ETF,,FALSE,75000,2500,Trailing,4500,0,,,,10
+Funded Futures Family,FFFFUNDED,,TRUE,10000,1000,Trailing,1000,0,,,,1
+Funded Futures Family,FFFFUNDED,,TRUE,25000,1500,Trailing,1500,0,,,,1
+Funded Futures Family,FFFFUNDED,,TRUE,50000,2500,Trailing,3000,0,,,,1
+Funded Futures Family,FFFFUNDED,,TRUE,75000,2750,Trailing,4250,0,,,,1
+Funded Futures Family,FFFFUNDED,,TRUE,100000,3000,Trailing,6000,0,,,,1
+Funded Futures Family,FFFFUNDED,,TRUE,150000,5000,Trailing,9000,0,,,,1
+Funded Futures Family,FFFFUNDED,,TRUE,200000,5000,Trailing,9000,0,,,,1
+Funded Futures Family,FFFFUNDED,,TRUE,250000,6500,Trailing,15000,0,,,,1
+Funded Futures Family,FFFFUNDED,,TRUE,300000,7500,Trailing,20000,0,,,,1
+Funded Futures Family,FFF,,FALSE,10000,1000,Trailing,1000,0,,,,10
+Funded Futures Family,FFF,,FALSE,25000,1500,Trailing,1500,0,,,,10
+Funded Futures Family,FFF,,FALSE,50000,2500,Trailing,3000,0,,,,10
+Funded Futures Family,FFF,,FALSE,75000,2750,Trailing,4250,0,,,,10
+Funded Futures Family,FFF,,FALSE,100000,3000,Trailing,6000,0,,,,10
+Funded Futures Family,FFF,,FALSE,150000,5000,Trailing,9000,0,,,,10
+Funded Futures Family,FFF,,FALSE,200000,5000,Trailing,9000,0,,,,10
+Funded Futures Family,FFF,,FALSE,250000,6500,Trailing,15000,0,,,,10
+Funded Futures Family,FFF,,FALSE,300000,7500,Trailing,20000,0,,,,10
+Funded Futures Network,FFNX,,TRUE,25000,1500,Trailing,2000,0,,,,1
+Funded Futures Network,FFNX,,TRUE,50000,2000,Trailing,3000,0,,,,1
+Funded Futures Network,FFNX,,TRUE,100000,3600,Trailing,6000,0,,,,1
+Funded Futures Network,FFNX,,TRUE,250000,6000,Trailing,15000,0,,,,1
+Funded Futures Network,FFN,,FALSE,25000,1500,Trailing,2000,0,,,,10
+Funded Futures Network,FFN,,FALSE,50000,2000,Trailing,3000,0,,,,10
+Funded Futures Network,FFN,,FALSE,100000,3600,Trailing,6000,0,,,,10
+Funded Futures Network,FFN,,FALSE,250000,6000,Trailing,15000,0,,,,10
+FundedNext,FNFTFA,,TRUE,10000,1000,Trailing,1000,0,,,,1
+FundedNext,FNFTFA,,TRUE,25000,1500,Trailing,1500,0,,,,1
+FundedNext,FNFTFA,,TRUE,50000,2500,Trailing,3000,0,,,,1
+FundedNext,FNFTFA,,TRUE,75000,2750,Trailing,4250,0,,,,1
+FundedNext,FNFTFA,,TRUE,100000,3000,Trailing,6000,0,,,,1
+FundedNext,FNFTFA,,TRUE,150000,5000,Trailing,9000,0,,,,1
+FundedNext,FNFTFA,,TRUE,200000,5000,Trailing,9000,0,,,,1
+FundedNext,FNFTFA,,TRUE,250000,6500,Trailing,15000,0,,,,1
+FundedNext,FNFTFA,,TRUE,300000,7500,Trailing,20000,0,,,,1
+FundedNext,FNFTCH,,FALSE,10000,1000,Trailing,1000,0,,,,5
+FundedNext,FNFTCH,,FALSE,25000,1500,Trailing,1500,0,,,,5
+FundedNext,FNFTCH,,FALSE,50000,2500,Trailing,3000,0,,,,5
+FundedNext,FNFTCH,,FALSE,75000,2750,Trailing,4250,0,,,,5
+FundedNext,FNFTCH,,FALSE,100000,3000,Trailing,6000,0,,,,5
+FundedNext,FNFTCH,,FALSE,150000,5000,Trailing,9000,0,,,,5
+FundedNext,FNFTCH,,FALSE,200000,5000,Trailing,9000,0,,,,5
+FundedNext,FNFTCH,,FALSE,250000,6500,Trailing,15000,0,,,,5
+FundedNext,FNFTCH,,FALSE,300000,7500,Trailing,20000,0,,,,5
+FundingTicks,FTONE,,FALSE,25000,750,EOD,2000,0,,,,1
+FundingTicks,FTONE,,FALSE,50000,1500,EOD,4000,0,,,,1
+FundingTicks,FTPROPLUS,FTZEROM,FALSE,25000,1000,EOD,1500,0,,,,2
+FundingTicks,FTPROPLUS,FTZEROM,FALSE,50000,2000,EOD,2500,0,,,,2
+FundingTicks,FTONEM,,TRUE,25000,750,EOD,2000,0,,,,1
+FundingTicks,FTONEM,,TRUE,50000,1500,EOD,4000,0,,,,1
+FundingTicks,FTPROPLUSM,,TRUE,25000,1000,EOD,1500,0,,,,1
+FundingTicks,FTPROPLUSM,,TRUE,50000,2000,EOD,2500,0,,,,1
+FundingTicks,FTZEROM,,TRUE,25000,1000,EOD,1500,0,,,,1
+FundingTicks,FTZEROM,,TRUE,50000,2000,EOD,2500,0,,,,1
+Leeloo Trading,PA-LL,,TRUE,10000,1000,Trailing,1000,0,,,,1
+Leeloo Trading,PA-LL,,TRUE,25000,1500,Trailing,1500,0,,,,1
+Leeloo Trading,PA-LL,,TRUE,50000,2500,Trailing,3000,0,,,,1
+Leeloo Trading,PA-LL,,TRUE,75000,2750,Trailing,4250,0,,,,1
+Leeloo Trading,PA-LL,,TRUE,100000,3000,Trailing,6000,0,,,,1
+Leeloo Trading,PA-LL,,TRUE,150000,5000,Trailing,9000,0,,,,1
+Leeloo Trading,PA-LL,,TRUE,200000,5000,Trailing,9000,0,,,,1
+Leeloo Trading,PA-LL,,TRUE,250000,6500,Trailing,15000,0,,,,1
+Leeloo Trading,PA-LL,,TRUE,300000,7500,Trailing,20000,0,,,,1
+Leeloo Trading,LB-LL,LE-LL,FALSE,10000,1000,Trailing,1000,0,,,,5
+Leeloo Trading,LB-LL,LE-LL,FALSE,25000,1500,Trailing,1500,0,,,,5
+Leeloo Trading,LB-LL,LE-LL,FALSE,50000,2500,Trailing,3000,0,,,,5
+Leeloo Trading,LB-LL,LE-LL,FALSE,75000,2750,Trailing,4250,0,,,,5
+Leeloo Trading,LB-LL,LE-LL,FALSE,100000,3000,Trailing,6000,0,,,,5
+Leeloo Trading,LB-LL,LE-LL,FALSE,150000,5000,Trailing,9000,0,,,,5
+Leeloo Trading,LB-LL,LE-LL,FALSE,200000,5000,Trailing,9000,0,,,,5
+Leeloo Trading,LB-LL,LE-LL,FALSE,250000,6500,Trailing,15000,0,,,,5
+Leeloo Trading,LB-LL,LE-LL,FALSE,300000,7500,Trailing,20000,0,,,,5
+Leeloo Trading,WK-LL,,FALSE,10000,1000,Trailing,1000,0,,,,5
+Leeloo Trading,WK-LL,,FALSE,25000,1500,Trailing,1500,0,,,,5
+Leeloo Trading,WK-LL,,FALSE,50000,2500,Trailing,3000,0,,,,5
+Leeloo Trading,WK-LL,,FALSE,75000,2750,Trailing,4250,0,,,,5
+Leeloo Trading,WK-LL,,FALSE,100000,3000,Trailing,6000,0,,,,5
+Leeloo Trading,WK-LL,,FALSE,150000,5000,Trailing,9000,0,,,,5
+Leeloo Trading,WK-LL,,FALSE,200000,5000,Trailing,9000,0,,,,5
+Leeloo Trading,WK-LL,,FALSE,250000,6500,Trailing,15000,0,,,,5
+Leeloo Trading,WK-LL,,FALSE,300000,7500,Trailing,20000,0,,,,5
+Leeloo Trading,LL,,FALSE,10000,1000,Trailing,1000,0,,,,15
+Leeloo Trading,LL,,FALSE,25000,1500,Trailing,1500,0,,,,15
+Leeloo Trading,LL,,FALSE,50000,2500,Trailing,3000,0,,,,15
+Leeloo Trading,LL,,FALSE,75000,2750,Trailing,4250,0,,,,15
+Leeloo Trading,LL,,FALSE,100000,3000,Trailing,6000,0,,,,15
+Leeloo Trading,LL,,FALSE,150000,5000,Trailing,9000,0,,,,15
+Leeloo Trading,LL,,FALSE,200000,5000,Trailing,9000,0,,,,15
+Leeloo Trading,LL,,FALSE,250000,6500,Trailing,15000,0,,,,15
+Leeloo Trading,LL,,FALSE,300000,7500,Trailing,20000,0,,,,15
+Legends Trading,LTAT,,FALSE,50000,2000,Trailing,3000,0,,,,1
+Legends Trading,LTAT,,FALSE,150000,4000,Trailing,9000,0,,,,1
+Legends Trading,LTAT,,FALSE,250000,4500,Trailing,15000,0,,,,1
+LifeUpTrading,LUTBARW,LUTEXRW,TRUE,50000,2000,Trailing,3000,0,,,,1
+LifeUpTrading,LUTBARW,LUTEXRW,TRUE,100000,3500,Trailing,6000,0,,,,1
+LifeUpTrading,LUTBARW,LUTEXRW,TRUE,150000,5000,Trailing,9000,0,,,,1
+LifeUpTrading,LUTBARW,LUTEXRW,TRUE,300000,7500,Trailing,19000,0,,,,1
+LifeUpTrading,LUTBACH,LUTEXCH,FALSE,50000,2000,Trailing,3000,0,,,,1
+LifeUpTrading,LUTBACH,LUTEXCH,FALSE,100000,3500,Trailing,6000,0,,,,1
+LifeUpTrading,LUTBACH,LUTEXCH,FALSE,150000,5000,Trailing,9000,0,,,,1
+LifeUpTrading,LUTBACH,LUTEXCH,FALSE,300000,7500,Trailing,19000,0,,,,1
+Lucid Trading,LTE,,FALSE,25000,1000,EOD,1250,0,,LucidPro,,1
+Lucid Trading,LTE,,FALSE,50000,2000,EOD,3000,0,,LucidPro,,1
+Lucid Trading,LTE,,FALSE,100000,3000,EOD,6000,0,,LucidPro,,1
+Lucid Trading,LTE,,FALSE,150000,4500,EOD,9000,0,,LucidPro,,1
+Lucid Trading,LTF,,FALSE,25000,1000,EOD,1250,0,,LucidPro,,1
+Lucid Trading,LTF,,TRUE,50000,2000,EOD,3000,0,,LucidPro,,1
+Lucid Trading,LTF,,TRUE,100000,3000,EOD,6000,0,,LucidPro,,1
+Lucid Trading,LTF,,TRUE,150000,4500,EOD,9000,0,,LucidPro,,1
+Lucid Trading,LFE,,FALSE,25000,1000,EOD,1250,0,,LucidFlex,,1
+Lucid Trading,LFE,,FALSE,50000,2000,EOD,3000,0,,LucidFlex,,1
+Lucid Trading,LFE,,FALSE,100000,3000,EOD,6000,0,,LucidFlex,,1
+Lucid Trading,LFE,,FALSE,150000,4500,EOD,9000,0,,LucidFlex,,1
+Lucid Trading,LFF,,TRUE,25000,1000,EOD,1250,0,,LucidFlex,,1
+Lucid Trading,LFF,,TRUE,50000,2000,EOD,3000,0,,LucidFlex,,1
+Lucid Trading,LFF,,TRUE,100000,3000,EOD,6000,0,,LucidFlex,,1
+Lucid Trading,LFF,,TRUE,150000,4500,EOD,9000,0,,LucidFlex,,1
+Lucid Trading,LTD,,TRUE,25000,1000,EOD,0,0,,LucidDirect,,1
+Lucid Trading,LTD,,TRUE,50000,2000,EOD,0,0,,LucidDirect,,1
+Lucid Trading,LTD,,TRUE,150000,6000,EOD,0,0,,LucidDirect,,1
+Lucid Trading,LucidPro,,TRUE,50000,2000,EOD,3000,0,,LucidPro,,1
+Lucid Trading,LucidPro,,TRUE,100000,4000,EOD,6000,0,,LucidPro,,1
+Lucid Trading,LucidPro,,TRUE,150000,6000,EOD,9000,0,,LucidPro,,1
+Lucid Trading,LucidDirect,,TRUE,50000,2000,EOD,3000,0,,LucidDirect,,2
+Lucid Trading,LucidDirect,,TRUE,150000,6000,EOD,9000,0,,LucidDirect,,2
+MyFundedFutures,MFFUSFEX,,TRUE,50000,2000,EOD,4000,0,,,,1
+MyFundedFutures,MFFUSFEX,,TRUE,100000,3000,EOD,8000,0,,,,1
+MyFundedFutures,MFFUSFEX,,TRUE,150000,4500,EOD,12000,0,,,,1
+MyFundedFutures,MFFUEVEX,,FALSE,50000,2000,EOD,4000,0,,,,1
+MyFundedFutures,MFFUEVEX,,FALSE,100000,3000,EOD,8000,0,,,,1
+MyFundedFutures,MFFUEVEX,,FALSE,150000,4500,EOD,12000,0,,,,1
+MyFundedFutures,MFFUSF,MFFUSFST,TRUE,50000,2500,EOD,3000,0,,,,2
+MyFundedFutures,MFFUSF,MFFUSFST,TRUE,100000,3500,EOD,6000,0,,,,2
+MyFundedFutures,MFFUSF,MFFUSFST,TRUE,250000,6000,EOD,15000,0,,,,2
+MyFundedFutures,MFFULIVEST,,TRUE,50000,2500,EOD,3000,0,,,,2
+MyFundedFutures,MFFULIVEST,,TRUE,100000,3500,EOD,6000,0,,,,2
+MyFundedFutures,MFFULIVEST,,TRUE,250000,6000,EOD,15000,0,,,,2
+MyFundedFutures,MFFUEVCORE,MFFUEVST,FALSE,50000,2000,EOD,3000,0,,,,5
+MyFundedFutures,MFFUEVCORE,MFFUEVST,FALSE,100000,3000,EOD,6000,0,,,,5
+MyFundedFutures,MFFUEVCORE,MFFUEVST,FALSE,250000,4500,EOD,9000,0,,,,5
+MyFundedFutures,MFFUEVRPD,,FALSE,25000,1000,EOD,1500,0,,Rapid,,5
+MyFundedFutures,MFFUEVRPD,,FALSE,50000,2000,EOD,3000,0,,Rapid,,5
+MyFundedFutures,MFFUEVRPD,,FALSE,100000,3000,EOD,6000,0,,Rapid,,5
+MyFundedFutures,MFFUEVRPD,,FALSE,150000,4500,EOD,9000,0,,Rapid,,5
+Phidias Propfirm,PP-CASH-F,,TRUE,50000,2500,Trailing,4000,0,,,,1
+Phidias Propfirm,PP-F,,FALSE,50000,2500,Trailing,4000,0,,,,5
+Purdia Capital,PUR,,FALSE,25000,2000,Trailing,2000,0,,,,1
+Purdia Capital,PUR,,FALSE,50000,2500,Trailing,3000,0,,,,1
+Purdia Capital,PUR,,FALSE,100000,3000,Trailing,6000,0,,,,1
+Take Profit Trader,TAKEPROFITPRO,TPPRO,TRUE,25000,1500,Trailing,1500,0,,,,1
+Take Profit Trader,TAKEPROFITPRO,TPPRO,TRUE,50000,2000,Trailing,3000,0,,,,1
+Take Profit Trader,TAKEPROFITPRO,TPPRO,TRUE,75000,2500,Trailing,4500,0,,,,1
+Take Profit Trader,TAKEPROFITPRO,TPPRO,TRUE,100000,3000,Trailing,6000,0,,,,1
+Take Profit Trader,TAKEPROFITPRO,TPPRO,TRUE,150000,4500,Trailing,9000,0,,,,1
+Take Profit Trader,TAKEPROFIT,TPT,FALSE,25000,1500,EOD,1500,0,,,,5
+Take Profit Trader,TAKEPROFIT,TPT,FALSE,50000,2000,EOD,3000,0,,,,5
+Take Profit Trader,TAKEPROFIT,TPT,FALSE,75000,2500,EOD,4500,0,,,,5
+Take Profit Trader,TAKEPROFIT,TPT,FALSE,100000,3000,EOD,6000,0,,,,5
+Take Profit Trader,TAKEPROFIT,TPT,FALSE,150000,4500,EOD,9000,0,,,,5
+TickTickTrader,TTTD,,TRUE,50000,2000,Trailing,1000,0,,,,1
+TickTickTrader,TTTD,,TRUE,100000,5000,Trailing,2000,0,,,,1
+TickTickTrader,TTTD,,TRUE,150000,7500,Trailing,3000,0,,,,1
+TickTickTrader,TTTD,,TRUE,250000,12500,Trailing,5000,0,,,,1
+TickTickTrader,TTT,,FALSE,100000,3500,Trailing,5000,0,,,,10
+#TopStep,S1Jan,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Feb,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Mar,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Apr,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1May,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Jun,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Jul,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Aug,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Sep,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Oct,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Nov,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Dec,,FALSE,50000,2000,Static,3000,0,,,,1
+#TopStep,S1Jan,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Feb,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Mar,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Apr,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1May,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Jun,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Jul,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Aug,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Sep,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Oct,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Nov,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Dec,,FALSE,100000,3000,Static,6000,0,,,,1
+#TopStep,S1Jan,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1Feb,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1Mar,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1Apr,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1May,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1Jun,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1Jul,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1Aug,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1Sep,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1Oct,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1Nov,,FALSE,150000,4500,Static,9000,0,,,,1
+#TopStep,S1Dec,,FALSE,150000,4500,Static,9000,0,,,,1
+TradeDay,TDFUNDEDR,,TRUE,50000,2000,Trailing,3000,0,,,,1
+TradeDay,TDFUNDEDR,,TRUE,100000,3000,Trailing,6000,0,,,,1
+TradeDay,TDFUNDEDR,,TRUE,150000,4000,Trailing,9000,0,,,,1
+TradeDay,ELTDE,,FALSE,50000,2000,Trailing,3000,0,,,,1
+TradeDay,ELTDE,,FALSE,100000,3000,Trailing,6000,0,,,,1
+TradeDay,ELTDE,,FALSE,150000,4000,Trailing,9000,0,,,,1
+TradeFundrr,TFRRP,,FALSE,10000,600,Trailing,1000,0,,,,1
+TradeFundrr,TFRRP,,FALSE,25000,1500,Trailing,2500,0,,,,1
+TradeFundrr,TFRRP,,FALSE,50000,3000,Trailing,5000,0,,,,1
+TradeFundrr,TFRRP,,FALSE,75000,4500,Trailing,7500,0,,,,1
+TradeFundrr,TFRRP,,FALSE,100000,6000,Trailing,10000,0,,,,1
+TradeFundrr,TFRRP,,FALSE,150000,9000,Trailing,15000,0,,,,1
+TradeFundrr,TFRRP,,FALSE,200000,12000,Trailing,20000,0,,,,1
+TradeFundrr,TFRRP,,FALSE,250000,15000,Trailing,25000,0,,,,1
+TradeFundrr,TFRRP,,FALSE,300000,18000,Trailing,30000,0,,,,1
+Tradeify,FTDFYA,FTDYFA,TRUE,50000,2000,Trailing,3000,0,,,,1
+Tradeify,FTDFYA,FTDYFA,TRUE,100000,3000,Trailing,6000,0,,,,1
+Tradeify,FTDFYA,FTDYFA,TRUE,150000,4500,Trailing,9000,0,,,,1
+Tradeify,TDFYA,,FALSE,50000,2000,Trailing,3000,0,,,,5
+Tradeify,TDFYA,,FALSE,100000,3000,Trailing,6000,0,,,,5
+Tradeify,TDFYA,,FALSE,150000,4500,Trailing,9000,0,,,,5
+Tradeify,FTDFYG,FTDYFG,TRUE,50000,2000,EOD,3000,0,,,,1
+Tradeify,FTDFYG,FTDYFG,TRUE,100000,3500,EOD,6000,0,,,,1
+Tradeify,FTDFYG,FTDYFG,TRUE,150000,5000,EOD,9000,0,,,,1
+Tradeify,TDFYG,,FALSE,50000,2000,EOD,3000,0,,,,5
+Tradeify,TDFYG,,FALSE,100000,3500,EOD,6000,0,,,,5
+Tradeify,TDFYG,,FALSE,150000,5000,EOD,9000,0,,,,5
+Tradeify,FTDFYL,FTDYSFX,TRUE,25000,1000,EOD,0,0,,,,5
+Tradeify,FTDFYL,FTDYSFX,TRUE,50000,2000,EOD,0,0,,,,5
+Tradeify,FTDFYL,FTDYSFX,TRUE,100000,4000,EOD,0,0,,,,5
+Tradeify,FTDFYL,FTDYSFX,TRUE,150000,6000,EOD,0,0,,,,5</CachedCSVData>
+      <LastLoadTimestamp>2026-02-25T14:50:11.6514249-05:00</LastLoadTimestamp>
+      <LoadedPropFirmsList>21 Prop Firms Loaded (260)
+
+Alpha Futures (7)
+APEX Trader Funding (18)
+BluSky Trading Company (10)
+Bulenox (18)
+Elite Trader Funding (12)
+Funded Futures Family (18)
+Funded Futures Network (8)
+FundedNext (18)
+FundingTicks (10)
+Leeloo Trading (36)
+Legends Trading (3)
+LifeUpTrading (8)
+Lucid Trading (24)
+MyFundedFutures (19)
+Phidias Propfirm (2)
+Purdia Capital (3)
+Take Profit Trader (10)
+TickTickTrader (5)
+TradeDay (6)
+TradeFundrr (9)
+Tradeify (16)</LoadedPropFirmsList>
+      <ForceReloadFromSheets>false</ForceReloadFromSheets>
+      <CacheDurationDays>2</CacheDurationDays>
+    </aiDuplicateAccountActions>
+  </aiDuplicateAccountActions>
+</NinjaTrader>

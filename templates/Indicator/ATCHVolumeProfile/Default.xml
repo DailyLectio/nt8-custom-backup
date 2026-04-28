@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <ATCHVolumeProfile>
+    <ATCHVolumeProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnEachTick</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>30</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>1</Value>
+        <Value2>0</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnEachTick</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>false</DisplayInDataBox>
+      <From>2025-06-28T00:00:00</From>
+      <IsAutoScale>true</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name>ATCHVolumeProfileK2Zz3SpWaVuDRWAzrBMc9qlRZiY93zojBGjai0H3CzY=</Name>
+      <Panel>-1</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2025-07-01T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>false</PaintPriceMarkers>
+      <DrawHorizontalGridLines>false</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>false</DrawVerticalGridLines>
+      <DrawOnPricePanel>false</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>1808</IndicatorId>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>30253</ZOrder>
+      <UseOrderFlowData>true</UseOrderFlowData>
+      <VolumeProfileAlign>Left</VolumeProfileAlign>
+      <WidthPercentage>90</WidthPercentage>
+      <VolumeProfilePeriod>Bars</VolumeProfilePeriod>
+      <ProfileBarsPeriod>1</ProfileBarsPeriod>
+      <CurrentTimeZone>EST</CurrentTimeZone>
+      <SessionInterval>09:30-16:00</SessionInterval>
+      <TickPerLevel>1</TickPerLevel>
+      <ValueAreaPercent>68</ValueAreaPercent>
+      <AutoMergeProfiles>false</AutoMergeProfiles>
+      <ProfileBodyOpacity>40</ProfileBodyOpacity>
+      <ValueAreaOpacity>60</ValueAreaOpacity>
+      <ProfileBodyBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFD3D3D3&lt;/SolidColorBrush&gt;</ProfileBodyBrushSerialize>
+      <POCBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDAA520&lt;/SolidColorBrush&gt;</POCBrushSerialize>
+      <VABrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF6495ED&lt;/SolidColorBrush&gt;</VABrushSerialize>
+      <ShowPOC>true</ShowPOC>
+      <ShowValueArea>true</ShowValueArea>
+      <ShowLabels>true</ShowLabels>
+      <FontSize>10</FontSize>
+    </ATCHVolumeProfile>
+  </ATCHVolumeProfile>
+</NinjaTrader>

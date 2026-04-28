@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <StopStrategy xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <AutoBreakEvenPlus>0</AutoBreakEvenPlus>
+    <AutoBreakEvenProfitTrigger>48</AutoBreakEvenProfitTrigger>
+    <AutoTrailSteps>
+      <AutoTrailStep>
+        <Frequency>1</Frequency>
+        <ProfitTrigger>24</ProfitTrigger>
+        <StopLoss>48</StopLoss>
+      </AutoTrailStep>
+      <AutoTrailStep>
+        <Frequency>1</Frequency>
+        <ProfitTrigger>36</ProfitTrigger>
+        <StopLoss>36</StopLoss>
+      </AutoTrailStep>
+      <AutoTrailStep>
+        <Frequency>1</Frequency>
+        <ProfitTrigger>37</ProfitTrigger>
+        <StopLoss>24</StopLoss>
+      </AutoTrailStep>
+    </AutoTrailSteps>
+    <IsSimStopEnabled>false</IsSimStopEnabled>
+    <VolumeTrigger>1</VolumeTrigger>
+    <Template>12pt ATR 3step STOP</Template>
+  </StopStrategy>
+</NinjaTrader>

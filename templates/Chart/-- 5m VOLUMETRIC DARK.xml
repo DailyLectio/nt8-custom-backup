@@ -1,0 +1,3068 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <NTTabPage>
+    <InstrumentLink>0</InstrumentLink>
+    <IntervalLink>0</IntervalLink>
+    <ChartTraderVisibility>Collapsed</ChartTraderVisibility>
+    <SeriesCount>1</SeriesCount>
+    <DataSeries>
+      <BarsProperties>
+        <BarsProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <BarsPeriod>
+            <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
+            <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+            <BaseBarsPeriodValue>5</BaseBarsPeriodValue>
+            <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+            <MarketDataType>Last</MarketDataType>
+            <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+            <ReversalType>Tick</ReversalType>
+            <Value>1</Value>
+            <Value2>0</Value2>
+          </BarsPeriod>
+          <RangeType>Days</RangeType>
+          <BarsBack>50</BarsBack>
+          <DaysBack>4</DaysBack>
+          <From>2025-10-23T00:00:00</From>
+          <IsStableSession>true</IsStableSession>
+          <To>2099-12-01T00:00:00</To>
+          <TradingHoursSerializable>CME US Index Futures ETH</TradingHoursSerializable>
+          <AutoScale>true</AutoScale>
+          <CenterPriceOnScale>false</CenterPriceOnScale>
+          <DisplayInDataBox>true</DisplayInDataBox>
+          <Label>MES JUN26</Label>
+          <MaxSerialized>0</MaxSerialized>
+          <MinSerialized>0</MinSerialized>
+          <Panel>0</Panel>
+          <PriceMarker>
+            <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFB0E0E6&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+            <IsVisible>true</IsVisible>
+          </PriceMarker>
+          <ShowGlobalDrawObjects>true</ShowGlobalDrawObjects>
+          <ScaleJustification>Right</ScaleJustification>
+          <TradingHoursVisibility>AllSessions</TradingHoursVisibility>
+          <TradingHoursBreakPenSerialize>&lt;Pen Brush="#FFC0C0C0" Thickness="1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="1" Dashes="2 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</TradingHoursBreakPenSerialize>
+          <LongExecutionBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</LongExecutionBrushSerialize>
+          <PlotExecutions>DoNotPlot</PlotExecutions>
+          <MarkerSize>8</MarkerSize>
+          <PositionPenLoserSerialize>&lt;Pen Brush="#FFFF00FF" Thickness="4" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="0" Dashes="0 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</PositionPenLoserSerialize>
+          <PositionPenWinnerSerialize>&lt;Pen Brush="#FFADFF2F" Thickness="4" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="0" Dashes="0 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</PositionPenWinnerSerialize>
+          <ShortExecutionBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</ShortExecutionBrushSerialize>
+          <BarsSeriesId>5be53d76d39d45018a27ab1b1d9d4e83</BarsSeriesId>
+          <Id>553f6922a266474483e9a3d11fcb6fab</Id>
+          <Instrument>MES JUN26</Instrument>
+          <IsLinked>true</IsLinked>
+          <IsPrimarySeries>true</IsPrimarySeries>
+          <ZOrder>0</ZOrder>
+        </BarsProperties>
+        <ChartStyles>
+          <ChartStyle>
+            <VolumetricStyle>
+              <VolumetricStyle xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                <IsVisible>true</IsVisible>
+                <BarWidth>22.027171410678097</BarWidth>
+                <ChartStyleTypeSerialize>8</ChartStyleTypeSerialize>
+                <DownBrushSerialize>DEFAULT</DownBrushSerialize>
+                <UpBrushSerialize>DEFAULT</UpBrushSerialize>
+                <StrokeSerialize>DEFAULT</StrokeSerialize>
+                <Stroke2Serialize>DEFAULT</Stroke2Serialize>
+                <VolumetricChartStyleType>BidAsk</VolumetricChartStyleType>
+                <CenterOpenClose>true</CenterOpenClose>
+                <ShowAsProfile>true</ShowAsProfile>
+                <ShowVolumeProfile>true</ShowVolumeProfile>
+                <GradientsDepthSlots>20</GradientsDepthSlots>
+                <SizeDisplayFilter>0</SizeDisplayFilter>
+                <ShowImbalance>true</ShowImbalance>
+                <ImbalanceRatio>3</ImbalanceRatio>
+                <ImbalanceMode>Diagonal</ImbalanceMode>
+                <MinDelta>20</MinDelta>
+                <ColorDominantSide>false</ColorDominantSide>
+                <DojiBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</DojiBrushSerialize>
+                <BoxGrid>
+                  <IsOpacityVisible>true</IsOpacityVisible>
+                  <BrushSerialize>&lt;SolidColorBrush Color="#FF808080" Opacity="0.5" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
+                  <DashStyleHelper>Solid</DashStyleHelper>
+                  <Opacity>50</Opacity>
+                  <Width>1</Width>
+                </BoxGrid>
+                <BoxOutline>
+                  <IsOpacityVisible>true</IsOpacityVisible>
+                  <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</BrushSerialize>
+                  <DashStyleHelper>Solid</DashStyleHelper>
+                  <Opacity>100</Opacity>
+                  <Width>1</Width>
+                </BoxOutline>
+                <PositiveStrengthBrushBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF32CD32&lt;/SolidColorBrush&gt;</PositiveStrengthBrushBrushSerialize>
+                <NegativeStrengthBrushBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</NegativeStrengthBrushBrushSerialize>
+                <ImbalanceBuyBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FFFF&lt;/SolidColorBrush&gt;</ImbalanceBuyBrushSerialize>
+                <ImbalanceSellBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</ImbalanceSellBrushSerialize>
+                <ShowMaximum>true</ShowMaximum>
+                <MaxBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</MaxBrushSerialize>
+                <VolBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF6495ED&lt;/SolidColorBrush&gt;</VolBrushSerialize>
+                <HideText>false</HideText>
+                <TextBrushSerialize>DEFAULT</TextBrushSerialize>
+                <ShowBarStatistics>true</ShowBarStatistics>
+                <ShowTrades>false</ShowTrades>
+                <ShowVolume>true</ShowVolume>
+                <ShowBuyVol>false</ShowBuyVol>
+                <ShowSellVol>false</ShowSellVol>
+                <ShowDeltaBar>true</ShowDeltaBar>
+                <ShowDeltaPercent>false</ShowDeltaPercent>
+                <ShowDeltaCumulative>true</ShowDeltaCumulative>
+                <ShowMinDelta>true</ShowMinDelta>
+                <ShowMaxDelta>true</ShowMaxDelta>
+                <ShowDeltaDelta>false</ShowDeltaDelta>
+                <ShowDeltaSh>false</ShowDeltaSh>
+                <ShowDeltaSl>false</ShowDeltaSl>
+                <StatGrid>
+                  <IsOpacityVisible>true</IsOpacityVisible>
+                  <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</BrushSerialize>
+                  <DashStyleHelper>Solid</DashStyleHelper>
+                  <Opacity>100</Opacity>
+                  <Width>1</Width>
+                </StatGrid>
+                <BaseBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</BaseBrushSerialize>
+              </VolumetricStyle>
+            </VolumetricStyle>
+          </ChartStyle>
+        </ChartStyles>
+      </BarsProperties>
+    </DataSeries>
+    <Indicators>
+      <Indicator BarsIndex="0" Instrument="MES JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.OrderFlowSetupScanner" Panel="-1" DisplayName="OrderFlowSetupScanner(False,30,90,10,7,True,True,True,True,True,True,True,True,True,3,13,2,100,2,30,95,True,002.wav,None,Alert1.wav,003.wav,004.wav,Alert2.wav,001.wav,Alert1.wav,3,BottomRight,80,90,85)">
+        <OrderFlowSetupScanner xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <IsVisible>true</IsVisible>
+          <calculate2>OnBarClose</calculate2>
+          <AreLinesConfigurable>true</AreLinesConfigurable>
+          <ArePlotsConfigurable>true</ArePlotsConfigurable>
+          <BarsPeriodSerializable>
+            <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
+            <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+            <BaseBarsPeriodValue>5</BaseBarsPeriodValue>
+            <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+            <MarketDataType>Last</MarketDataType>
+            <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+            <ReversalType>Tick</ReversalType>
+            <Value>1</Value>
+            <Value2>0</Value2>
+          </BarsPeriodSerializable>
+          <BarsToLoad>0</BarsToLoad>
+          <Calculate>OnBarClose</Calculate>
+          <Displacement>0</Displacement>
+          <DisplayInDataBox>true</DisplayInDataBox>
+          <From>2026-03-14T00:00:00</From>
+          <IsAutoScale>true</IsAutoScale>
+          <Lines />
+          <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+          <Name />
+          <Panel>-1</Panel>
+          <Plots />
+          <ScaleJustification>Right</ScaleJustification>
+          <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+          <To>2026-03-18T00:00:00</To>
+          <IsDataSeriesRequired>true</IsDataSeriesRequired>
+          <IsOverlay>true</IsOverlay>
+          <SelectedValueSeries>0</SelectedValueSeries>
+          <InputPlot>0</InputPlot>
+          <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+          <PaintPriceMarkers>true</PaintPriceMarkers>
+          <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+          <DrawVerticalGridLines>true</DrawVerticalGridLines>
+          <DrawOnPricePanel>true</DrawOnPricePanel>
+          <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+          <IndicatorId>128</IndicatorId>
+          <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
+          <MaxSerialized>0</MaxSerialized>
+          <MinSerialized>0</MinSerialized>
+          <ZOrder>100017</ZOrder>
+          <LookbackN>13</LookbackN>
+          <EdgeTolTicks>7</EdgeTolTicks>
+          <ImbalanceRatio>3</ImbalanceRatio>
+          <MinImbalanceDelta>100</MinImbalanceDelta>
+          <StackedLevels>3</StackedLevels>
+          <OppStackedLevels>2</OppStackedLevels>
+          <VolHiPctl>85</VolHiPctl>
+          <VolExtremePctl>90</VolExtremePctl>
+          <RangeTightPctl>30</RangeTightPctl>
+          <SeenExtremePctl>95</SeenExtremePctl>
+          <DeltaExtremeLoPctl>10</DeltaExtremeLoPctl>
+          <DeltaExtremeHiPctl>90</DeltaExtremeHiPctl>
+          <EnableAlerts>true</EnableAlerts>
+          <AlertRearmSeconds>30</AlertRearmSeconds>
+          <MinBarsBetweenSameSignal>2</MinBarsBetweenSameSignal>
+          <ShowDashboardTable>true</ShowDashboardTable>
+          <TableLocation>BottomRight</TableLocation>
+          <TableOpacity>80</TableOpacity>
+          <AddHTF30mContext>false</AddHTF30mContext>
+          <EnableSIB>true</EnableSIB>
+          <EnableABS>true</EnableABS>
+          <EnableDD>true</EnableDD>
+          <EnableDEIA>true</EnableDEIA>
+          <EnableEEMDF>true</EnableEEMDF>
+          <EnableTF>true</EnableTF>
+          <EnablePAR>true</EnablePAR>
+          <EnableDEB>true</EnableDEB>
+          <SoundSIB>001.wav</SoundSIB>
+          <SoundABS>002.wav</SoundABS>
+          <SoundDD>None</SoundDD>
+          <SoundDEIA>003.wav</SoundDEIA>
+          <SoundEEMDF>004.wav</SoundEEMDF>
+          <SoundTF>Alert1.wav</SoundTF>
+          <SoundPAR>Alert2.wav</SoundPAR>
+          <SoundDEB>Alert1.wav</SoundDEB>
+        </OrderFlowSetupScanner>
+        <Input>
+          <PriceType>Close</PriceType>
+        </Input>
+      </Indicator>
+      <Indicator BarsIndex="0" Instrument="MES JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.OneTimeFramingOutline" Panel="-1" DisplayName="OneTimeFramingOutline(False,True,False,Dark,0,Alert1.wav)">
+        <OneTimeFramingOutline xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <IsVisible>true</IsVisible>
+          <calculate2>OnEachTick</calculate2>
+          <AreLinesConfigurable>true</AreLinesConfigurable>
+          <ArePlotsConfigurable>true</ArePlotsConfigurable>
+          <BarsPeriodSerializable>
+            <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
+            <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+            <BaseBarsPeriodValue>5</BaseBarsPeriodValue>
+            <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+            <MarketDataType>Last</MarketDataType>
+            <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+            <ReversalType>Tick</ReversalType>
+            <Value>1</Value>
+            <Value2>0</Value2>
+          </BarsPeriodSerializable>
+          <BarsToLoad>0</BarsToLoad>
+          <Calculate>OnEachTick</Calculate>
+          <Displacement>0</Displacement>
+          <DisplayInDataBox>true</DisplayInDataBox>
+          <From>2026-03-14T00:00:00</From>
+          <IsAutoScale>true</IsAutoScale>
+          <Lines />
+          <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+          <Name />
+          <Panel>-1</Panel>
+          <Plots />
+          <ScaleJustification>Right</ScaleJustification>
+          <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+          <To>2026-03-18T00:00:00</To>
+          <IsDataSeriesRequired>true</IsDataSeriesRequired>
+          <IsOverlay>true</IsOverlay>
+          <SelectedValueSeries>0</SelectedValueSeries>
+          <InputPlot>0</InputPlot>
+          <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+          <PaintPriceMarkers>true</PaintPriceMarkers>
+          <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+          <DrawVerticalGridLines>true</DrawVerticalGridLines>
+          <DrawOnPricePanel>true</DrawOnPricePanel>
+          <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+          <IndicatorId>131</IndicatorId>
+          <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
+          <MaxSerialized>0</MaxSerialized>
+          <MinSerialized>0</MinSerialized>
+          <ZOrder>31126</ZOrder>
+          <Preset>Dark</Preset>
+          <ColorIntrabar>true</ColorIntrabar>
+          <ColorEntireCandle>false</ColorEntireCandle>
+          <EnableAlerts>false</EnableAlerts>
+          <RearmSeconds>0</RearmSeconds>
+          <SoundFile>Alert1.wav</SoundFile>
+          <CustomBrokeHigh>#FFFFFF00</CustomBrokeHigh>
+          <CustomBrokeLow>#FF800080</CustomBrokeLow>
+          <CustomBrokeBoth>#FF00FFFF</CustomBrokeBoth>
+          <DarkBrokeHigh>#FF00FF00</DarkBrokeHigh>
+          <DarkBrokeLow>#FFFF0000</DarkBrokeLow>
+          <DarkBrokeBoth>#FF00FFFF</DarkBrokeBoth>
+          <LightBrokeHigh>#FF32CD32</LightBrokeHigh>
+          <LightBrokeLow>#FFFF0000</LightBrokeLow>
+          <LightBrokeBoth>#FFDAA520</LightBrokeBoth>
+        </OneTimeFramingOutline>
+        <Input>
+          <PriceType>Close</PriceType>
+        </Input>
+      </Indicator>
+      <Indicator BarsIndex="0" Instrument="MES JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.BWTCoreLevels" Panel="-1" DisplayName="BWT Core Levels(NinjaTrader.Gui.Tools.SimpleFont)">
+        <BWTCoreLevels xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <IsVisible>true</IsVisible>
+          <calculate2>OnBarClose</calculate2>
+          <AreLinesConfigurable>true</AreLinesConfigurable>
+          <ArePlotsConfigurable>true</ArePlotsConfigurable>
+          <BarsPeriodSerializable>
+            <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
+            <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+            <BaseBarsPeriodValue>5</BaseBarsPeriodValue>
+            <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+            <MarketDataType>Last</MarketDataType>
+            <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+            <ReversalType>Tick</ReversalType>
+            <Value>1</Value>
+            <Value2>0</Value2>
+          </BarsPeriodSerializable>
+          <BarsToLoad>0</BarsToLoad>
+          <Calculate>OnBarClose</Calculate>
+          <Displacement>0</Displacement>
+          <DisplayInDataBox>true</DisplayInDataBox>
+          <From>2026-03-14T00:00:00</From>
+          <IsAutoScale>false</IsAutoScale>
+          <Lines />
+          <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+          <Name>BWT Core Levels</Name>
+          <Panel>-1</Panel>
+          <Plots>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>ExtendedHigh</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>HiMid2</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>ExpectedHigh</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>ExpectedHighHotZone</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>4</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>HiMid1</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>HiMid1HotZone</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFD700&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Dot</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>3</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>POC</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>LowMid1HotZone</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>4</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>LowMid1</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>ExpectedLowHotZone</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>ExpectedLow</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>LowMid2</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>ExtendedLow</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF2E8B57&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>Session1</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF1E90FF&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>Session2</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>ExtremeHigh</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>HiMid3</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>LowMid3</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>ExtremeLow</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF9400D3&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>EuroSession1</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7B68EE&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>EuroSession2</Name>
+              <PlotStyle>Line</PlotStyle>
+            </Plot>
+          </Plots>
+          <ScaleJustification>Right</ScaleJustification>
+          <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+          <To>2026-03-18T00:00:00</To>
+          <IsDataSeriesRequired>true</IsDataSeriesRequired>
+          <IsOverlay>true</IsOverlay>
+          <SelectedValueSeries>0</SelectedValueSeries>
+          <InputPlot>0</InputPlot>
+          <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+          <PaintPriceMarkers>true</PaintPriceMarkers>
+          <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+          <DrawVerticalGridLines>true</DrawVerticalGridLines>
+          <DrawOnPricePanel>true</DrawOnPricePanel>
+          <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+          <IndicatorId>134</IndicatorId>
+          <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
+          <MaxSerialized>0</MaxSerialized>
+          <MinSerialized>0</MinSerialized>
+          <ZOrder>30431</ZOrder>
+          <BuyZoneColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF87CEEB&lt;/SolidColorBrush&gt;</BuyZoneColorSerialize>
+          <SellZoneColorSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF4500&lt;/SolidColorBrush&gt;</SellZoneColorSerialize>
+          <RangeColorOpacity>60</RangeColorOpacity>
+          <DrawColors>true</DrawColors>
+          <TextFont>
+            <Bold>false</Bold>
+            <FamilySerialize>Calibri</FamilySerialize>
+            <Italic>false</Italic>
+            <Size>15</Size>
+          </TextFont>
+          <BuyPercentage>67</BuyPercentage>
+          <Sellpercentage>67</Sellpercentage>
+          <ShowExtremeLevels>true</ShowExtremeLevels>
+          <ShowEuropeanCORE>true</ShowEuropeanCORE>
+          <IncludePreviousDayLastHour>true</IncludePreviousDayLastHour>
+          <IgnoreEuropeanSession2>true</IgnoreEuropeanSession2>
+        </BWTCoreLevels>
+        <Input>
+          <PriceType>Close</PriceType>
+        </Input>
+      </Indicator>
+      <Indicator BarsIndex="0" Instrument="MES JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.BWTPriceActionSwing" Panel="-1" DisplayName="BWT Price Action Swing(50,True,True,True,True,True,10,NinjaTrader.Gui.Tools.SimpleFont,20,5)">
+        <BWTPriceActionSwing xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <IsVisible>true</IsVisible>
+          <calculate2>OnBarClose</calculate2>
+          <AreLinesConfigurable>true</AreLinesConfigurable>
+          <ArePlotsConfigurable>true</ArePlotsConfigurable>
+          <BarsPeriodSerializable>
+            <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
+            <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+            <BaseBarsPeriodValue>5</BaseBarsPeriodValue>
+            <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+            <MarketDataType>Last</MarketDataType>
+            <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+            <ReversalType>Tick</ReversalType>
+            <Value>1</Value>
+            <Value2>0</Value2>
+          </BarsPeriodSerializable>
+          <BarsToLoad>0</BarsToLoad>
+          <Calculate>OnBarClose</Calculate>
+          <Displacement>0</Displacement>
+          <DisplayInDataBox>false</DisplayInDataBox>
+          <From>2026-03-14T00:00:00</From>
+          <IsAutoScale>true</IsAutoScale>
+          <Lines />
+          <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+          <Name>BWT Price Action Swing</Name>
+          <Panel>-1</Panel>
+          <Plots>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>DoubleBottom</Name>
+              <PlotStyle>Dot</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>LowerLow</Name>
+              <PlotStyle>Dot</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>HigherLow</Name>
+              <PlotStyle>Dot</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>DoubleTop</Name>
+              <PlotStyle>Dot</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>LowerHigh</Name>
+              <PlotStyle>Dot</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>HigherHigh</Name>
+              <PlotStyle>Dot</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>GannSwing</Name>
+              <PlotStyle>Square</PlotStyle>
+            </Plot>
+          </Plots>
+          <ScaleJustification>Right</ScaleJustification>
+          <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+          <To>2026-03-18T00:00:00</To>
+          <IsDataSeriesRequired>true</IsDataSeriesRequired>
+          <IsOverlay>true</IsOverlay>
+          <SelectedValueSeries>0</SelectedValueSeries>
+          <InputPlot>0</InputPlot>
+          <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+          <PaintPriceMarkers>true</PaintPriceMarkers>
+          <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+          <DrawVerticalGridLines>true</DrawVerticalGridLines>
+          <DrawOnPricePanel>true</DrawOnPricePanel>
+          <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+          <IndicatorId>137</IndicatorId>
+          <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
+          <MaxSerialized>0</MaxSerialized>
+          <MinSerialized>0</MinSerialized>
+          <ZOrder>30197</ZOrder>
+          <SwingSize>10</SwingSize>
+          <DtbStrength>50</DtbStrength>
+          <TextFont>
+            <Bold>true</Bold>
+            <FamilySerialize>Calibri</FamilySerialize>
+            <Italic>false</Italic>
+            <Size>10</Size>
+          </TextFont>
+          <TextColorHigherHighSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</TextColorHigherHighSerializable>
+          <TextColorLowerHighSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</TextColorLowerHighSerializable>
+          <TextColorDoubleTopSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</TextColorDoubleTopSerializable>
+          <TextColorHigherLowSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</TextColorHigherLowSerializable>
+          <TextColorLowerLowSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</TextColorLowerLowSerializable>
+          <TextColorDoubleBottomSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</TextColorDoubleBottomSerializable>
+          <TextOffsetLabel>20</TextOffsetLabel>
+          <enableKeltnerRule>true</enableKeltnerRule>
+          <showTrendChangeLine>true</showTrendChangeLine>
+          <trendChangeLineWidth>5</trendChangeLineWidth>
+          <showCurrentSwing>true</showCurrentSwing>
+          <showLastCurrentSwing>true</showLastCurrentSwing>
+          <enableKeltnerMarker>true</enableKeltnerMarker>
+          <keltnerTrendColorUpLineSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FFFF&lt;/SolidColorBrush&gt;</keltnerTrendColorUpLineSerializable>
+          <keltnerTrendColorDnLineSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</keltnerTrendColorDnLineSerializable>
+        </BWTPriceActionSwing>
+        <Input>
+          <PriceType>Close</PriceType>
+        </Input>
+      </Indicator>
+    </Indicators>
+    <CrosshairType>GlobalNoTimeScroll</CrosshairType>
+    <StayInDrawMode>False</StayInDrawMode>
+    <Properties>
+      <ChartControlProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <AlwaysOnTop>false</AlwaysOnTop>
+        <AreTabsVisible>true</AreTabsVisible>
+        <AllowSelectionDragging>true</AllowSelectionDragging>
+        <AreDrawingToolsHidden>false</AreDrawingToolsHidden>
+        <EquidistantBarSpacing>true</EquidistantBarSpacing>
+        <LabelFont>
+          <Bold>true</Bold>
+          <FamilySerialize>Calibri</FamilySerialize>
+          <Italic>false</Italic>
+          <Size>12</Size>
+        </LabelFont>
+        <BarDistance>183.559769</BarDistance>
+        <BarMarginRightUser>5</BarMarginRightUser>
+        <ChartTraderVisibility>Collapsed</ChartTraderVisibility>
+        <ShowDateRange>true</ShowDateRange>
+        <ShowScrollBar>true</ShowScrollBar>
+        <ShowSelectedDrawingMarkers>true</ShowSelectedDrawingMarkers>
+        <SnapMode>Bar</SnapMode>
+        <TabName>5m VOL</TabName>
+        <LoadBackgroundImage>false</LoadBackgroundImage>
+        <BackgroundImageStretch>Fill</BackgroundImageStretch>
+        <ChartBackgroundSerialize>DEFAULT</ChartBackgroundSerialize>
+        <ChartTextSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFF5F5F5&lt;/SolidColorBrush&gt;</ChartTextSerialize>
+        <CrosshairLabelBackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF696969&lt;/SolidColorBrush&gt;</CrosshairLabelBackgroundSerialize>
+        <InactivePriceMarkersBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</InactivePriceMarkersBrushSerialize>
+        <SelectedMarkerBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF0000CD&lt;/SolidColorBrush&gt;</SelectedMarkerBrushSerialize>
+        <AreHGridLinesVisible>true</AreHGridLinesVisible>
+        <AreVGridLinesVisible>true</AreVGridLinesVisible>
+        <AxisPenSerialize>&lt;Pen Brush="#FF696969" Thickness="1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</AxisPenSerialize>
+        <CrosshairPen>&lt;Pen Brush="#FF696969" Thickness="1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</CrosshairPen>
+        <CrosshairIsLocked>false</CrosshairIsLocked>
+        <CrosshairCrosshairType>GlobalNoTimeScroll</CrosshairCrosshairType>
+        <CrosshairDrawCursorOnly>false</CrosshairDrawCursorOnly>
+        <GridLineHPenSerialize>&lt;Pen Thickness="1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.Brush&gt;
+    &lt;SolidColorBrush Color="#00FFFFFF" Opacity="0.4" /&gt;
+  &lt;/Pen.Brush&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</GridLineHPenSerialize>
+        <GridLineVPenSerialize>&lt;Pen Thickness="1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.Brush&gt;
+    &lt;SolidColorBrush Color="#00FFFFFF" Opacity="0.4" /&gt;
+  &lt;/Pen.Brush&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</GridLineVPenSerialize>
+        <PanelSplitterPenSerialize>&lt;Pen Brush="#FFD3D3D3" Thickness="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="0" Dashes="0 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</PanelSplitterPenSerialize>
+        <StartTime>2025-01-01T18:00:00</StartTime>
+        <EndTime>2025-01-01T17:00:00</EndTime>
+        <TimeHighBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8A2BE2&lt;/SolidColorBrush&gt;</TimeHighBrushSerialize>
+        <Opacity>10</Opacity>
+        <IsVisible>true</IsVisible>
+      </ChartControlProperties>
+    </Properties>
+    <ChartPanels>
+      <ChartPanel>
+        <Height>908</Height>
+        <HoldChartTraderOrders>false</HoldChartTraderOrders>
+        <IsMaximized>false</IsMaximized>
+        <Right>
+          <ChartScaleProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <YAxisRangeType>Fixed</YAxisRangeType>
+            <AutoScaleDateRangeType>ScreenDateRange</AutoScaleDateRangeType>
+            <HorizontalGridlinesCalculation>Automatic</HorizontalGridlinesCalculation>
+            <HorizontalGridlinesIntervalType>Points</HorizontalGridlinesIntervalType>
+            <HorizontalGridlinesInterval>0</HorizontalGridlinesInterval>
+            <AutoScaleMarginType>Percent</AutoScaleMarginType>
+            <AutoScaleMarginLower>6</AutoScaleMarginLower>
+            <AutoScaleMarginUpper>6</AutoScaleMarginUpper>
+            <YAxisScalingType>Linear</YAxisScalingType>
+            <FixedScaleMaxSerialize>6722.6216482986838</FixedScaleMaxSerialize>
+            <FixedScaleMinSerialize>6694.5972076582257</FixedScaleMinSerialize>
+            <IsInverted>false</IsInverted>
+          </ChartScaleProperties>
+        </Right>
+        <Left>
+          <ChartScaleProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <YAxisRangeType>Automatic</YAxisRangeType>
+            <AutoScaleDateRangeType>ScreenDateRange</AutoScaleDateRangeType>
+            <HorizontalGridlinesCalculation>Automatic</HorizontalGridlinesCalculation>
+            <HorizontalGridlinesIntervalType>Points</HorizontalGridlinesIntervalType>
+            <HorizontalGridlinesInterval>0</HorizontalGridlinesInterval>
+            <AutoScaleMarginType>Percent</AutoScaleMarginType>
+            <AutoScaleMarginLower>6</AutoScaleMarginLower>
+            <AutoScaleMarginUpper>6</AutoScaleMarginUpper>
+            <YAxisScalingType>Linear</YAxisScalingType>
+            <FixedScaleMaxSerialize>0</FixedScaleMaxSerialize>
+            <FixedScaleMinSerialize>0</FixedScaleMinSerialize>
+            <IsInverted>false</IsInverted>
+          </ChartScaleProperties>
+        </Left>
+        <Overlay>
+          <ChartScaleProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+            <YAxisRangeType>Automatic</YAxisRangeType>
+            <AutoScaleDateRangeType>ScreenDateRange</AutoScaleDateRangeType>
+            <HorizontalGridlinesCalculation>Automatic</HorizontalGridlinesCalculation>
+            <HorizontalGridlinesIntervalType>Points</HorizontalGridlinesIntervalType>
+            <HorizontalGridlinesInterval>0</HorizontalGridlinesInterval>
+            <AutoScaleMarginType>Percent</AutoScaleMarginType>
+            <AutoScaleMarginLower>6</AutoScaleMarginLower>
+            <AutoScaleMarginUpper>6</AutoScaleMarginUpper>
+            <YAxisScalingType>Linear</YAxisScalingType>
+            <FixedScaleMaxSerialize>0</FixedScaleMaxSerialize>
+            <FixedScaleMinSerialize>0</FixedScaleMinSerialize>
+            <IsInverted>false</IsInverted>
+          </ChartScaleProperties>
+        </Overlay>
+      </ChartPanel>
+    </ChartPanels>
+    <ChartAlerts>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <IsSetEnabled>false</IsSetEnabled>
+                <OffsetValue>4</OffsetValue>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>ExpectedLow</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>3156e95502b342dcbac2bd6d587c2acd</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>R4</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>HiMid1</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>78e1b1f9a1fd42d29d83754e78526a2b</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>B2</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>LowMid1</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>a11665fdb9be442e987abdbe07c2eaef</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>R2</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>LowMid1HotZone</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>4ed588679c964fbc88f421f3f1ca6b0c</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>R1</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>HiMid1HotZone</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>bb4f261a2a1e47109c1461fb9da39431</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>B1</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>ExpectedHighHotZone</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>e33efdc8bc9d4d47b9c1b62b52adf501</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>B3</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>ExpectedHigh</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>1b09c118677a49669b04bfc669f95444</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>B4</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>LowMid1HotZone</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>6acd9ff141184d2bae01250705e02bec</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>R1</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>ExpectedLowHotZone</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>7057727d9a2840479423defe81a20cb2</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>R3</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>LowMid2</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>b2e72a78887a48899d34593e67d2652c</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>R5</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>HiMid2</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>ddf8b90c0a9f4d9e988e07e34db0ff60</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>B5</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>ExtendedHigh</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>78a2cc329c73437da9eea1a843a8342e</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>B6</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>ExtendedLow</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>620c97b3f677493796a64bb929b6d7c0</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>R6</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>HiMid3</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>dd8449647553404dbc84042664e9ace9</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>B7</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>LowMid3</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>b5414816b05e449988196c4747786fda</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>R7</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>ExtremeLow</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>378d49394f7d494ba76ad9c0ccb3991b</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>R8</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>4</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>ExtremeHigh</IndicatorPlot>
+              <TickOffset>4</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>95c78f711aea46ca8019c9b7da27f3a0</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>B8</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+      <Alert xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <IsVisible>true</IsVisible>
+        <Actions>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Play a sound</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>PlaySound</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+          <AlertAction>
+            <IsExpanded>false</IsExpanded>
+            <IsSelected>false</IsSelected>
+            <Name>Show a pop up dialog</Name>
+            <OffsetType>Arithmetic</OffsetType>
+            <IsStaticValue>false</IsStaticValue>
+            <Value>0</Value>
+            <IsOffsetEnabled>false</IsOffsetEnabled>
+            <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+            <Action>ShowMessage</Action>
+            <AtmStrategy>None</AtmStrategy>
+            <HostType>Chart</HostType>
+            <LimitPrice>1</LimitPrice>
+            <OrderInstrument>@INSTRUMENT</OrderInstrument>
+            <OrderAccountSerialize />
+            <OrderTimeInForce>Day</OrderTimeInForce>
+            <OrderAction>Buy</OrderAction>
+            <OrderQuantity>1</OrderQuantity>
+            <OrderType>Market</OrderType>
+            <Message>@MESSAGE</Message>
+            <ShareMessage>@MESSAGE</ShareMessage>
+            <ShareScreenshotType>None</ShareScreenshotType>
+            <SoundLocation>C:\Program Files\NinjaTrader 8\sounds\Alert1.wav</SoundLocation>
+            <StopPrice>1</StopPrice>
+          </AlertAction>
+        </Actions>
+        <ApplyTo>All</ApplyTo>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <Conditions>
+          <AlertCondition>
+            <LeftItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>MES JUN26 (5 Min Volumetric)</Name>
+              <OffsetType>Arithmetic</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <TickOffset>0</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>DataSeries</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>0</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </LeftItem>
+            <Lookback>1</Lookback>
+            <Operator>Equals</Operator>
+            <RightItem xsi:type="ChartAlertConditionItem">
+              <IsExpanded>false</IsExpanded>
+              <IsSelected>false</IsSelected>
+              <Name>BWT Core Levels</Name>
+              <Offset>
+                <OffsetOperator>Add</OffsetOperator>
+                <OffsetType>Ticks</OffsetType>
+                <OffsetValue>2</OffsetValue>
+                <IsSetEnabled>false</IsSetEnabled>
+              </Offset>
+              <OffsetType>Ticks</OffsetType>
+              <IsStaticValue>false</IsStaticValue>
+              <Value>0</Value>
+              <IsOffsetEnabled>false</IsOffsetEnabled>
+              <ShouldOnlyDisplayName>false</ShouldOnlyDisplayName>
+              <BarsAgo>0</BarsAgo>
+              <IndicatorPlot>POC</IndicatorPlot>
+              <TickOffset>2</TickOffset>
+              <TimeValue>0001-01-01T00:00:00</TimeValue>
+              <Type>Indicator</Type>
+              <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>2</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingPanelIndex>0</UnderlyingPanelIndex>
+              <ValueType>Close</ValueType>
+            </RightItem>
+          </AlertCondition>
+        </Conditions>
+        <ConditionsOperator>All</ConditionsOperator>
+        <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
+        <Id>488fe2def5b44fefa2fa2e85093de13f</Id>
+        <IsEnabled>true</IsEnabled>
+        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <Message>@NAME triggered</Message>
+        <Name>POC</Name>
+        <Priority>Medium</Priority>
+        <RearmSeconds>1</RearmSeconds>
+        <RearmType>OnBarClose</RearmType>
+      </Alert>
+    </ChartAlerts>
+  </NTTabPage>
+  <ChartTrader>
+    <Properties>
+      <ChartTraderProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <AtmStrategySelectionMode>SelectActiveAtmStrategyOnOrderSubmission</AtmStrategySelectionMode>
+        <AutoScale>true</AutoScale>
+        <OrderDisplayBarLength>25</OrderDisplayBarLength>
+        <PnLDisplayUnit>Currency</PnLDisplayUnit>
+        <QuantityModificationForStocks>IncreaseQuantity</QuantityModificationForStocks>
+        <ScaleQuantity>0</ScaleQuantity>
+        <ShowRealizedPnLWhenFlat>false</ShowRealizedPnLWhenFlat>
+        <SimulatedOrderVolumeTrigger>0</SimulatedOrderVolumeTrigger>
+        <StopLimitOffsetEnabled>false</StopLimitOffsetEnabled>
+        <StopLimitOffsetValue>0</StopLimitOffsetValue>
+        <ActionButtonsBackgroundSerialize>&lt;LinearGradientBrush StartPoint="0.5,-0.05" EndPoint="0.5,0.66" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;LinearGradientBrush.GradientStops&gt;
+    &lt;GradientStop Color="#FF2D2D2F" /&gt;
+    &lt;GradientStop Color="#FF2D2D2F" Offset="1" /&gt;
+  &lt;/LinearGradientBrush.GradientStops&gt;
+&lt;/LinearGradientBrush&gt;</ActionButtonsBackgroundSerialize>
+        <BuyButtonsBackgroundSerialize>&lt;LinearGradientBrush StartPoint="0.5,-0.05" EndPoint="0.5,0.66" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;LinearGradientBrush.GradientStops&gt;
+    &lt;GradientStop Color="#FF2D2D2F" /&gt;
+    &lt;GradientStop Color="#FF2D2D2F" Offset="1" /&gt;
+  &lt;/LinearGradientBrush.GradientStops&gt;
+&lt;/LinearGradientBrush&gt;</BuyButtonsBackgroundSerialize>
+        <SellButtonsBackgroundSerialize>&lt;LinearGradientBrush StartPoint="0.5,-0.05" EndPoint="0.5,0.66" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;LinearGradientBrush.GradientStops&gt;
+    &lt;GradientStop Color="#FF2D2D2F" /&gt;
+    &lt;GradientStop Color="#FF2D2D2F" Offset="1" /&gt;
+  &lt;/LinearGradientBrush.GradientStops&gt;
+&lt;/LinearGradientBrush&gt;</SellButtonsBackgroundSerialize>
+        <LimitSerialize>&lt;Pen Brush="#FF00FFFF" Thickness="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</LimitSerialize>
+        <MitSerialize>&lt;Pen Brush="#FF00FF7F" Thickness="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</MitSerialize>
+        <PositionEntryPriceSerialize>&lt;Pen Brush="#FFDEB887" Thickness="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</PositionEntryPriceSerialize>
+        <ProfitTargetSerialize>&lt;Pen Brush="#FF00FF00" Thickness="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</ProfitTargetSerialize>
+        <StopLimitSerialize>&lt;Pen Brush="#FFEE82EE" Thickness="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</StopLimitSerialize>
+        <StopLossSerialize>&lt;Pen Brush="#FFFF0000" Thickness="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</StopLossSerialize>
+        <StopMarketSerialize>&lt;Pen Brush="#FFFFC0CB" Thickness="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</StopMarketSerialize>
+      </ChartTraderProperties>
+    </Properties>
+    <Account>PRO</Account>
+    <ATM></ATM>
+    <Instrument>MES JUN26</Instrument>
+    <Quantity>1</Quantity>
+    <TIF>Day</TIF>
+  </ChartTrader>
+</NinjaTrader>

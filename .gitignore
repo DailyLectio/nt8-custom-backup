@@ -1,0 +1,88 @@
+# Ignore everything by default. This repo is a curated NT8 backup, not a full
+# copy of the live platform folder.
+*
+
+# Repo documentation and automation helpers
+!.gitignore
+!.gitattributes
+!README.md
+!docs/
+!docs/**
+!tools/
+!tools/**
+
+# NinjaScript source and project metadata
+!bin/
+!bin/Custom/
+!bin/Custom/**/
+!bin/Custom/**/*.cs
+!bin/Custom/**/*.xaml
+!bin/Custom/**/*.resx
+!bin/Custom/*.csproj
+!bin/Custom/NinjaTrader.Custom.xml
+
+# Loose recovered/manual source files kept at the NT8 folder root
+!/*.cs
+!/HMM_Watchdog.py
+
+# NT8 templates: strategies, indicators, ATMs, charts, stops, risk, etc.
+!templates/
+!templates/**/
+!templates/**/*.xml
+!templates/**/*.cs
+
+# Recovered template exports worth preserving
+!RECOVERED_TEMPLATES/
+!RECOVERED_TEMPLATES/**/
+!RECOVERED_TEMPLATES/**/*.xml
+
+# Standalone strategy packs/templates outside NT8's normal templates folder
+!Strategy/
+!Strategy/**/
+!Strategy/**/*.xml
+!Strategy/**/*.cs
+!Strategy/**/*.txt
+
+# Explicitly keep noisy/generated or sensitive platform state out of GitHub
+.nt8-backup-logs/
+Config.xml
+UI.xml
+db/
+cache/
+tmp/
+log/
+trace/
+workspaces/
+strategyanalyzerlogs/
+StrategyLogs/
+EBWebView/
+import/
+incoming/
+outgoing/
+export/
+GlobexBiasExports/
+T3000/
+
+# Market/live data and reports
+*.csv
+*.log
+*.tmp
+*.cache
+Live_*_Data.txt
+Session_Snapshot.csv
+TB_Tag.csv
+IndicatorTypes_Report.txt
+CoreLevels_Introspection.txt
+
+# Build/binary artifacts
+bin/Custom/bin/
+bin/Custom/obj/
+bin/Custom/ExportNinjaScript/
+*.dll
+*.pdb
+*.zip
+*.bak
+
+# Windows clutter
+[Dd]esktop.ini
+Thumbs.db

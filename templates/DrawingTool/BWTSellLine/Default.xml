@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <BWTSellLine xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <IsAutoScale>false</IsAutoScale>
+    <MaxValue>-1.7976931348623157E+308</MaxValue>
+    <MinValue>1.7976931348623157E+308</MinValue>
+    <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+    <GlobalLastSeenSerialize>0</GlobalLastSeenSerialize>
+    <IsLocked>false</IsLocked>
+    <PanelIndex>0</PanelIndex>
+    <ZOrderType>Normal</ZOrderType>
+    <StartAnchor>
+      <SlotIndex>-1.7976931348623157E+308</SlotIndex>
+      <DisplayName>Start</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>1800-01-01T00:00:01</Time>
+      <Price>0</Price>
+    </StartAnchor>
+    <EndAnchor>
+      <SlotIndex>-1.7976931348623157E+308</SlotIndex>
+      <DisplayName>End</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>1800-01-01T00:00:01</Time>
+      <Price>0</Price>
+    </EndAnchor>
+    <Stroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Solid</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>1</Width>
+    </Stroke>
+    <ExtendStart>false</ExtendStart>
+    <ExtendEnd>true</ExtendEnd>
+    <ShowLabels>false</ShowLabels>
+    <LineStartPoint>
+      <X>0</X>
+      <Y>0</Y>
+    </LineStartPoint>
+    <LineEndPoint>
+      <X>0</X>
+      <Y>0</Y>
+    </LineEndPoint>
+    <MinPoint>
+      <X>0</X>
+      <Y>0</Y>
+    </MinPoint>
+    <MaxPoint>
+      <X>0</X>
+      <Y>0</Y>
+    </MaxPoint>
+    <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.BWTSellLine</FullTypeName>
+    <IsGlobalDrawingObjectDefault>false</IsGlobalDrawingObjectDefault>
+    <IsOwnerVisible>true</IsOwnerVisible>
+  </BWTSellLine>
+</NinjaTrader>

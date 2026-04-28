@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StrategyTemplate>
+  <StrategyType>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy</StrategyType>
+  <Strategy>
+    <MomentumSlopeStrategy xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnPriceChange</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>9</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>1</Value>
+        <Value2>1</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnPriceChange</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <From>2025-12-15T16:07:18</From>
+      <IsAutoScale>true</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name>Momemntum 0015..1.10.2.1</Name>
+      <Panel>-1</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2025-12-26T16:07:18</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <Gtd>1800-01-01T00:00:00</Gtd>
+      <Template />
+      <TimeInForce>Gtc</TimeInForce>
+      <BacktestCommissionTemplate>NinjaTrader Brokerage Lifetime</BacktestCommissionTemplate>
+      <BarsPeriodParameter>
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">1</Max>
+        <Min xsi:type="xsd:int">1</Min>
+        <Name>	</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>1</ValueSerializable>
+      </BarsPeriodParameter>
+      <BarsRequiredToTrade>20</BarsRequiredToTrade>
+      <Category>Backtest</Category>
+      <ConnectionLossHandling>StopStrategy</ConnectionLossHandling>
+      <DaysToLoad>5</DaysToLoad>
+      <DefaultQuantity>1</DefaultQuantity>
+      <DisconnectDelaySeconds>10</DisconnectDelaySeconds>
+      <EntriesPerDirection>2</EntriesPerDirection>
+      <EntryHandling>AllEntries</EntryHandling>
+      <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
+      <IncludeCommission>true</IncludeCommission>
+      <InstrumentOrInstrumentList>NQ MAR26</InstrumentOrInstrumentList>
+      <IsAggregated>false</IsAggregated>
+      <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
+      <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
+      <IsOptimizeDataSeries>false</IsOptimizeDataSeries>
+      <IsStableSession>true</IsStableSession>
+      <IsTickReplay>false</IsTickReplay>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <IsWaitUntilFlat>false</IsWaitUntilFlat>
+      <NumberRestartAttempts>4</NumberRestartAttempts>
+      <OptimizationPeriod>10</OptimizationPeriod>
+      <OrderFillResolution>Standard</OrderFillResolution>
+      <OrderFillResolutionType>Tick</OrderFillResolutionType>
+      <OrderFillResolutionValue>1</OrderFillResolutionValue>
+      <RestartsWithinMinutes>5</RestartsWithinMinutes>
+      <SetOrderQuantity>Strategy</SetOrderQuantity>
+      <Slippage>2</Slippage>
+      <StartBehavior>WaitUntilFlat</StartBehavior>
+      <StopTargetHandling>PerEntryExecution</StopTargetHandling>
+      <SupportsOptimizationGraph>true</SupportsOptimizationGraph>
+      <TestPeriod>28</TestPeriod>
+      <TradingHoursSerializable>CME US Index Futures ETH</TradingHoursSerializable>
+      <DrawOnPricePanel>false</DrawOnPricePanel>
+      <ZOrder>-2147483648</ZOrder>
+      <Contracts>1</Contracts>
+      <Preset>Candle_1m</Preset>
+      <ApplyPresetDefaults>true</ApplyPresetDefaults>
+      <SideAnchor>EMA</SideAnchor>
+      <AnchorEmaPeriod>50</AnchorEmaPeriod>
+      <RequireLongsAboveAnchor>false</RequireLongsAboveAnchor>
+      <RequireShortsBelowAnchor>false</RequireShortsBelowAnchor>
+      <CiPeriod>14</CiPeriod>
+      <AdxPeriod>14</AdxPeriod>
+      <UseDiCrossEntry>true</UseDiCrossEntry>
+      <UseAdxEntryThreshold>true</UseAdxEntryThreshold>
+      <AdxEntryThreshold>18</AdxEntryThreshold>
+      <UseCiEntryThreshold>false</UseCiEntryThreshold>
+      <CiEntryThreshold>60</CiEntryThreshold>
+      <UseSlopeGateOnEntry>true</UseSlopeGateOnEntry>
+      <CiSlopeBarsEntry>1</CiSlopeBarsEntry>
+      <AdxSlopeBarsEntry>10</AdxSlopeBarsEntry>
+      <CiDecreaseMinEntry>2</CiDecreaseMinEntry>
+      <AdxIncreaseMinEntry>1</AdxIncreaseMinEntry>
+      <SlopeExit>Hysteresis</SlopeExit>
+      <MinHoldBars>1</MinHoldBars>
+      <CiSlopeBarsExit>5</CiSlopeBarsExit>
+      <AdxSlopeBarsExit>5</AdxSlopeBarsExit>
+      <CiRiseMinExit>2</CiRiseMinExit>
+      <AdxDropMinExit>2</AdxDropMinExit>
+      <HystWindow>5</HystWindow>
+      <HystConsecutive>2</HystConsecutive>
+      <HystCiRisePerBar>0.5</HystCiRisePerBar>
+      <HystAdxDropPerBar>0.5</HystAdxDropPerBar>
+      <AtrStopMult>0.75</AtrStopMult>
+      <AtrStopLen>14</AtrStopLen>
+      <MinStopTicks>2</MinStopTicks>
+      <RiskReward>1.5</RiskReward>
+      <EnableDailyGuards>false</EnableDailyGuards>
+      <DailyProfitTarget>1000</DailyProfitTarget>
+      <DailyLossLimit>500</DailyLossLimit>
+      <MaxWins>7</MaxWins>
+      <MaxLosses>3</MaxLosses>
+      <FlattenOnTrigger>true</FlattenOnTrigger>
+      <ResetOnNewSession>true</ResetOnNewSession>
+      <GuardsIgnoreHistorical>true</GuardsIgnoreHistorical>
+      <EnableTimeFilter>true</EnableTimeFilter>
+      <StartTime1>80000</StartTime1>
+      <EndTime1>160000</EndTime1>
+      <UseBlock1>true</UseBlock1>
+      <Block1Start>95700</Block1Start>
+      <Block1End>100600</Block1End>
+      <UseBlock2>false</UseBlock2>
+      <Block2Start>102800</Block2Start>
+      <Block2End>103500</Block2End>
+      <FlattenNearEnd>true</FlattenNearEnd>
+      <FlattenBufferSeconds>300</FlattenBufferSeconds>
+    </MomentumSlopeStrategy>
+  </Strategy>
+</StrategyTemplate>

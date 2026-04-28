@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <RiskReward xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <IsAutoScale>false</IsAutoScale>
+    <MaxValue>-1.7976931348623157E+308</MaxValue>
+    <MinValue>1.7976931348623157E+308</MinValue>
+    <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+    <GlobalLastSeenSerialize>0</GlobalLastSeenSerialize>
+    <GlobalWorkspace>Strategy Test Lab</GlobalWorkspace>
+    <IsLocked>false</IsLocked>
+    <PanelIndex>0</PanelIndex>
+    <ZOrderType>Normal</ZOrderType>
+    <EntryAnchor>
+      <SlotIndex>2274</SlotIndex>
+      <DisplayName>Entry anchor</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-09-24T18:50:23.549</Time>
+      <Price>24723.5</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </EntryAnchor>
+    <RiskAnchor>
+      <SlotIndex>2273</SlotIndex>
+      <DisplayName>Risk anchor</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-09-24T18:47:44.549</Time>
+      <Price>24731.25</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </RiskAnchor>
+    <RewardAnchor>
+      <SlotIndex>2274</SlotIndex>
+      <DisplayName>Reward anchor</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-09-24T18:50:23.549</Time>
+      <Price>24708</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>true</IsYPropertyVisible>
+    </RewardAnchor>
+    <Ratio>1.5</Ratio>
+    <AnchorLineStroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush Color="#FFA9A9A9" Opacity="0.5" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
+      <DashStyleHelper>Solid</DashStyleHelper>
+      <Opacity>50</Opacity>
+      <Width>1</Width>
+    </AnchorLineStroke>
+    <EntryLineStroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDAA520&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Solid</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>2</Width>
+    </EntryLineStroke>
+    <StopLineStroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDC143C&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Solid</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>2</Width>
+    </StopLineStroke>
+    <TargetLineStroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF2E8B57&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Solid</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>2</Width>
+    </TargetLineStroke>
+    <IsExtendedLinesRight>false</IsExtendedLinesRight>
+    <IsExtendedLinesLeft>false</IsExtendedLinesLeft>
+    <TextAlignment>InsideLeft</TextAlignment>
+    <DisplayUnit>Price</DisplayUnit>
+    <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.RiskReward</FullTypeName>
+    <IsGlobalDrawingObjectDefault>false</IsGlobalDrawingObjectDefault>
+    <IsOwnerVisible>true</IsOwnerVisible>
+  </RiskReward>
+</NinjaTrader>

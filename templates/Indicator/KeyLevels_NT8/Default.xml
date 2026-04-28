@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <KeyLevels_NT8>
+    <KeyLevels_NT8 xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnBarClose</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>10</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>5</Value>
+        <Value2>15</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnBarClose</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>false</DisplayInDataBox>
+      <From>2026-02-07T00:00:00</From>
+      <IsAutoScale>true</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name />
+      <Panel>-1</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2026-03-04T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>true</PaintPriceMarkers>
+      <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>true</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>1478</IndicatorId>
+      <InstrumentDeserialized>MES MAR26 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>30778</ZOrder>
+      <RthStart>930</RthStart>
+      <RthEnd>1600</RthEnd>
+      <OrMinutes>60</OrMinutes>
+      <PlotTodayHL>true</PlotTodayHL>
+      <PlotYesterdayHL>true</PlotYesterdayHL>
+      <PlotYesterdayClose>true</PlotYesterdayClose>
+      <PlotTodayOpen>true</PlotTodayOpen>
+      <PlotPremarketHL>true</PlotPremarketHL>
+      <PlotOpeningRange>true</PlotOpeningRange>
+      <PlotVwapToday>true</PlotVwapToday>
+      <PlotVwapYesterday>false</PlotVwapYesterday>
+      <Ma1TypeIdx>1</Ma1TypeIdx>
+      <Ma1Length>24</Ma1Length>
+      <Ma2TypeIdx>1</Ma2TypeIdx>
+      <Ma2Length>35</Ma2Length>
+      <ProximityPercent>0</ProximityPercent>
+      <TruncateLeftBars>0</TruncateLeftBars>
+      <ShowLabels>true</ShowLabels>
+      <LabelBarsRight>10</LabelBarsRight>
+      <Custom1Enabled>false</Custom1Enabled>
+      <Custom1Price>25861.25</Custom1Price>
+      <Custom2Enabled>false</Custom2Enabled>
+      <Custom2Price>25597</Custom2Price>
+    </KeyLevels_NT8>
+  </KeyLevels_NT8>
+</NinjaTrader>

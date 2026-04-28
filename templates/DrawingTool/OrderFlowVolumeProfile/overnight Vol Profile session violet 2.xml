@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <OrderFlowVolumeProfile xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <IsAutoScale>true</IsAutoScale>
+    <MaxValue>-1.7976931348623157E+308</MaxValue>
+    <MinValue>1.7976931348623157E+308</MinValue>
+    <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+    <GlobalLastSeenSerialize>0</GlobalLastSeenSerialize>
+    <GlobalWorkspace>- Deja Trade CLEAN</GlobalWorkspace>
+    <IsLocked>false</IsLocked>
+    <PanelIndex>0</PanelIndex>
+    <ZOrderType>Normal</ZOrderType>
+    <StartAnchor>
+      <SlotIndex>1013</SlotIndex>
+      <DisplayName>Start Time</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-08-07T09:30:00</Time>
+      <Price>6394.875</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>false</IsYPropertyVisible>
+    </StartAnchor>
+    <EndAnchor>
+      <SlotIndex>1033</SlotIndex>
+      <DisplayName>End Time</DisplayName>
+      <IsBrowsable>true</IsBrowsable>
+      <Time>2025-08-07T11:10:00</Time>
+      <Price>6394.875</Price>
+      <IsXPropertiesVisible>true</IsXPropertiesVisible>
+      <IsYPropertyVisible>false</IsYPropertyVisible>
+    </EndAnchor>
+    <ColorAskSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFF8F8FF&lt;/SolidColorBrush&gt;</ColorAskSerialize>
+    <ColorBidSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFF8F8FF&lt;/SolidColorBrush&gt;</ColorBidSerialize>
+    <ColorBarOutlineSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8A2BE2&lt;/SolidColorBrush&gt;</ColorBarOutlineSerialize>
+    <DeltaType>BidAsk</DeltaType>
+    <ColorByTime>false</ColorByTime>
+    <ColorHighHeatSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</ColorHighHeatSerialize>
+    <ColorLowHeatSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</ColorLowHeatSerialize>
+    <ColorPocSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</ColorPocSerialize>
+    <ColorProfileSummarySerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF006400&lt;/SolidColorBrush&gt;</ColorProfileSummarySerialize>
+    <ColorVolumeDataSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFA52A2A&lt;/SolidColorBrush&gt;</ColorVolumeDataSerialize>
+    <DisplayMode>Delta</DisplayMode>
+    <DrawMode>Letters</DrawMode>
+    <LabelFont>
+      <Bold>false</Bold>
+      <FamilySerialize>Arial</FamilySerialize>
+      <Italic>false</Italic>
+      <Size>11</Size>
+    </LabelFont>
+    <PocLine>
+      <IsOpacityVisible>false</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Dash</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>3</Width>
+      <IsVisible>true</IsVisible>
+      <IsLabelVisible>true</IsLabelVisible>
+    </PocLine>
+    <ProfileAlignment>Right</ProfileAlignment>
+    <ProfileOpacity>40</ProfileOpacity>
+    <ProfileType>Volume</ProfileType>
+    <RangeLine>
+      <IsOpacityVisible>false</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFF0F8FF&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Dash</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>3</Width>
+      <IsVisible>true</IsVisible>
+      <IsLabelVisible>true</IsLabelVisible>
+    </RangeLine>
+    <ShowPoc>true</ShowPoc>
+    <ShowVa>true</ShowVa>
+    <ShowVolumeData>true</ShowVolumeData>
+    <ShowProfileSummary>true</ShowProfileSummary>
+    <SummaryDisplayUnit>Ticks</SummaryDisplayUnit>
+    <TicksPerLevel>1</TicksPerLevel>
+    <VaLine>
+      <IsOpacityVisible>false</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF9932CC&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Dash</DashStyleHelper>
+      <Opacity>100</Opacity>
+      <Width>3</Width>
+      <IsVisible>true</IsVisible>
+      <IsLabelVisible>true</IsLabelVisible>
+    </VaLine>
+    <AnchorLineStroke>
+      <IsOpacityVisible>true</IsOpacityVisible>
+      <BrushSerialize>&lt;SolidColorBrush Color="#FF6495ED" Opacity="0.40000000596046448" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
+      <DashStyleHelper>Solid</DashStyleHelper>
+      <Opacity>40</Opacity>
+      <Width>1</Width>
+    </AnchorLineStroke>
+    <Resolution>Tick</Resolution>
+    <ValueArea>68</ValueArea>
+    <ValueAreaOpacity>60</ValueAreaOpacity>
+    <Tpo01>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00CED1&lt;/SolidColorBrush&gt;</Tpo01>
+    <Tpo02>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8A2BE2&lt;/SolidColorBrush&gt;</Tpo02>
+    <Tpo03>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF8A2BE2&lt;/SolidColorBrush&gt;</Tpo03>
+    <Tpo04>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</Tpo04>
+    <Tpo05>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF48D1CC&lt;/SolidColorBrush&gt;</Tpo05>
+    <Tpo06>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF48D1CC&lt;/SolidColorBrush&gt;</Tpo06>
+    <Tpo07>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF48D1CC&lt;/SolidColorBrush&gt;</Tpo07>
+    <Tpo08>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF48D1CC&lt;/SolidColorBrush&gt;</Tpo08>
+    <Tpo09>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF3CB371&lt;/SolidColorBrush&gt;</Tpo09>
+    <Tpo10>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF3CB371&lt;/SolidColorBrush&gt;</Tpo10>
+    <Tpo11>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF3CB371&lt;/SolidColorBrush&gt;</Tpo11>
+    <Tpo12>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF3CB371&lt;/SolidColorBrush&gt;</Tpo12>
+    <Tpo13>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7CFC00&lt;/SolidColorBrush&gt;</Tpo13>
+    <Tpo14>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7CFC00&lt;/SolidColorBrush&gt;</Tpo14>
+    <Tpo15>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7CFC00&lt;/SolidColorBrush&gt;</Tpo15>
+    <Tpo16>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7CFC00&lt;/SolidColorBrush&gt;</Tpo16>
+    <Tpo17>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</Tpo17>
+    <Tpo18>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</Tpo18>
+    <Tpo19>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</Tpo19>
+    <Tpo20>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</Tpo20>
+    <Tpo21>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF0000FF&lt;/SolidColorBrush&gt;</Tpo21>
+    <Tpo22>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF0000FF&lt;/SolidColorBrush&gt;</Tpo22>
+    <Tpo23>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF0000FF&lt;/SolidColorBrush&gt;</Tpo23>
+    <Tpo24>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF0000FF&lt;/SolidColorBrush&gt;</Tpo24>
+    <Tpo25>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</Tpo25>
+    <Tpo26>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</Tpo26>
+    <Tpo27>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</Tpo27>
+    <Tpo28>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</Tpo28>
+    <Tpo29>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</Tpo29>
+    <Tpo30>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</Tpo30>
+    <Tpo31>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</Tpo31>
+    <Tpo32>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</Tpo32>
+    <Tpo33>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</Tpo33>
+    <Tpo34>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</Tpo34>
+    <Tpo35>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</Tpo35>
+    <Tpo36>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF808080&lt;/SolidColorBrush&gt;</Tpo36>
+    <Tpo37>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCD853F&lt;/SolidColorBrush&gt;</Tpo37>
+    <Tpo38>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCD853F&lt;/SolidColorBrush&gt;</Tpo38>
+    <Tpo39>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCD853F&lt;/SolidColorBrush&gt;</Tpo39>
+    <Tpo40>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCD853F&lt;/SolidColorBrush&gt;</Tpo40>
+    <Tpo41>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008080&lt;/SolidColorBrush&gt;</Tpo41>
+    <Tpo42>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008080&lt;/SolidColorBrush&gt;</Tpo42>
+    <Tpo43>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008080&lt;/SolidColorBrush&gt;</Tpo43>
+    <Tpo44>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008080&lt;/SolidColorBrush&gt;</Tpo44>
+    <Tpo45>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF800000&lt;/SolidColorBrush&gt;</Tpo45>
+    <Tpo46>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF800000&lt;/SolidColorBrush&gt;</Tpo46>
+    <Tpo47>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF800000&lt;/SolidColorBrush&gt;</Tpo47>
+    <Tpo48>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF800000&lt;/SolidColorBrush&gt;</Tpo48>
+    <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.OrderFlowVolumeProfile</FullTypeName>
+    <IsGlobalDrawingObjectDefault>false</IsGlobalDrawingObjectDefault>
+    <IsOwnerVisible>true</IsOwnerVisible>
+  </OrderFlowVolumeProfile>
+</NinjaTrader>

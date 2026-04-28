@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <GlobalDrawingTools>
+    <RegionHighlightY xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <IsAutoScale>false</IsAutoScale>
+      <MaxValue>-1.7976931348623157E+308</MaxValue>
+      <MinValue>1.7976931348623157E+308</MinValue>
+      <ZOrder>1</ZOrder>
+      <AttachedTo>
+        <InstrumentSerialize>CL AUG25</InstrumentSerialize>
+      </AttachedTo>
+      <ScaleJustification>Right</ScaleJustification>
+      <DrawingState>Normal</DrawingState>
+      <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+      <GlobalLastSeenSerialize>639129961333729488</GlobalLastSeenSerialize>
+      <GlobalWorkspace>- CL Oil Liquity Trading</GlobalWorkspace>
+      <Id>35163f37404e426a8e8cb630b4e828d6</Id>
+      <IsLocked>false</IsLocked>
+      <PanelIndex>0</PanelIndex>
+      <Tag>@Region highlight y 85</Tag>
+      <ZOrderType>Normal</ZOrderType>
+      <AnchorLineStroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFA9A9A9&lt;/SolidColorBrush&gt;</BrushSerialize>
+        <DashStyleHelper>Dash</DashStyleHelper>
+        <Opacity>100</Opacity>
+        <Width>1</Width>
+      </AnchorLineStroke>
+      <AreaBrushSerialize>&lt;SolidColorBrush Color="#FF2F4F4F" Opacity="0.25" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</AreaBrushSerialize>
+      <AreaOpacity>25</AreaOpacity>
+      <EndAnchor>
+        <SlotIndex>75.0768486742381</SlotIndex>
+        <DisplayName>End</DisplayName>
+        <IsBrowsable>true</IsBrowsable>
+        <Time>2025-07-08T08:32:18.327</Time>
+        <Price>65.76216158397753</Price>
+        <IsXPropertiesVisible>false</IsXPropertiesVisible>
+        <IsYPropertyVisible>true</IsYPropertyVisible>
+      </EndAnchor>
+      <OutlineStroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+        <DashStyleHelper>Solid</DashStyleHelper>
+        <Opacity>100</Opacity>
+        <Width>1</Width>
+      </OutlineStroke>
+      <StartAnchor>
+        <SlotIndex>75.0768486742381</SlotIndex>
+        <DisplayName>Start</DisplayName>
+        <IsBrowsable>true</IsBrowsable>
+        <Time>2025-07-08T08:32:18.327</Time>
+        <Price>65.8075659332414</Price>
+        <IsXPropertiesVisible>false</IsXPropertiesVisible>
+        <IsYPropertyVisible>true</IsYPropertyVisible>
+      </StartAnchor>
+      <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.RegionHighlightY</FullTypeName>
+      <IsGlobalDrawingObjectDefault>true</IsGlobalDrawingObjectDefault>
+      <IsOwnerVisible>true</IsOwnerVisible>
+    </RegionHighlightY>
+    <RegionHighlightY xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <IsAutoScale>false</IsAutoScale>
+      <MaxValue>-1.7976931348623157E+308</MaxValue>
+      <MinValue>1.7976931348623157E+308</MinValue>
+      <ZOrder>30274</ZOrder>
+      <AttachedTo>
+        <InstrumentSerialize>CL AUG25</InstrumentSerialize>
+      </AttachedTo>
+      <ScaleJustification>Right</ScaleJustification>
+      <DrawingState>Normal</DrawingState>
+      <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+      <GlobalLastSeenSerialize>639129961333729488</GlobalLastSeenSerialize>
+      <GlobalWorkspace>- CL Oil Liquity Trading</GlobalWorkspace>
+      <Id>595dfdfb05f84980839d0c2f4d18a13b</Id>
+      <IsLocked>false</IsLocked>
+      <PanelIndex>0</PanelIndex>
+      <Tag>@Region highlight y 88</Tag>
+      <ZOrderType>Normal</ZOrderType>
+      <AnchorLineStroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFA9A9A9&lt;/SolidColorBrush&gt;</BrushSerialize>
+        <DashStyleHelper>Dash</DashStyleHelper>
+        <Opacity>100</Opacity>
+        <Width>1</Width>
+      </AnchorLineStroke>
+      <AreaBrushSerialize>&lt;SolidColorBrush Color="#FFFF4500" Opacity="0.25" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</AreaBrushSerialize>
+      <AreaOpacity>50</AreaOpacity>
+      <EndAnchor>
+        <SlotIndex>0</SlotIndex>
+        <DisplayName>End</DisplayName>
+        <IsBrowsable>true</IsBrowsable>
+        <Time>2025-07-01T01:11:02.36</Time>
+        <Price>65.194732062042277</Price>
+        <IsXPropertiesVisible>false</IsXPropertiesVisible>
+        <IsYPropertyVisible>true</IsYPropertyVisible>
+      </EndAnchor>
+      <OutlineStroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush Color="#FFFFFFFF" Opacity="0.60000002384185791" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
+        <DashStyleHelper>Solid</DashStyleHelper>
+        <Opacity>60</Opacity>
+        <Width>1</Width>
+      </OutlineStroke>
+      <StartAnchor>
+        <SlotIndex>0</SlotIndex>
+        <DisplayName>Start</DisplayName>
+        <IsBrowsable>true</IsBrowsable>
+        <Time>2025-07-01T01:11:02.36</Time>
+        <Price>65.247703802850125</Price>
+        <IsXPropertiesVisible>false</IsXPropertiesVisible>
+        <IsYPropertyVisible>true</IsYPropertyVisible>
+      </StartAnchor>
+      <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.RegionHighlightY</FullTypeName>
+      <IsGlobalDrawingObjectDefault>true</IsGlobalDrawingObjectDefault>
+      <IsOwnerVisible>true</IsOwnerVisible>
+    </RegionHighlightY>
+    <HorizontalLine xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <IsAutoScale>false</IsAutoScale>
+      <MaxValue>-1.7976931348623157E+308</MaxValue>
+      <MinValue>1.7976931348623157E+308</MinValue>
+      <ZOrder>-2147483648</ZOrder>
+      <AttachedTo>
+        <InstrumentSerialize>CL AUG25</InstrumentSerialize>
+      </AttachedTo>
+      <ScaleJustification>Right</ScaleJustification>
+      <DrawingState>Normal</DrawingState>
+      <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+      <GlobalLastSeenSerialize>639129961333729488</GlobalLastSeenSerialize>
+      <GlobalWorkspace>- CL Oil Liquity Trading</GlobalWorkspace>
+      <Id>95f5dc9596bc44ad88e6069300e19760</Id>
+      <IsLocked>false</IsLocked>
+      <PanelIndex>0</PanelIndex>
+      <Tag>@Horizontal Line 18863</Tag>
+      <ZOrderType>Normal</ZOrderType>
+      <EndAnchor>
+        <SlotIndex>9155</SlotIndex>
+        <DisplayName>End</DisplayName>
+        <IsBrowsable>false</IsBrowsable>
+        <Time>2025-06-16T09:24:15</Time>
+        <Price>6065.4844338696</Price>
+        <IsXPropertiesVisible>true</IsXPropertiesVisible>
+        <IsYPropertyVisible>true</IsYPropertyVisible>
+      </EndAnchor>
+      <StartAnchor>
+        <SlotIndex>77</SlotIndex>
+        <DisplayName>Anchor</DisplayName>
+        <IsBrowsable>true</IsBrowsable>
+        <Time>2025-07-08T09:30:00</Time>
+        <Price>67.660801777876543</Price>
+        <IsXPropertiesVisible>false</IsXPropertiesVisible>
+        <IsYPropertyVisible>true</IsYPropertyVisible>
+      </StartAnchor>
+      <Stroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</BrushSerialize>
+        <DashStyleHelper>Dash</DashStyleHelper>
+        <Opacity>100</Opacity>
+        <Width>4</Width>
+      </Stroke>
+      <IsPriceMarkerVisible>true</IsPriceMarkerVisible>
+      <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.HorizontalLine</FullTypeName>
+      <IsGlobalDrawingObjectDefault>true</IsGlobalDrawingObjectDefault>
+      <IsOwnerVisible>true</IsOwnerVisible>
+    </HorizontalLine>
+  </GlobalDrawingTools>
+</NinjaTrader>

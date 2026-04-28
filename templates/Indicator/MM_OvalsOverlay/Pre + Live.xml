@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <MM_OvalsOverlay>
+    <MM_OvalsOverlay xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnBarClose</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>1</Value>
+        <Value2>1</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnBarClose</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <From>2025-08-17T00:00:00</From>
+      <IsAutoScale>true</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
+      <Name />
+      <Panel>-1</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2025-08-22T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>true</PaintPriceMarkers>
+      <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>true</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>3239</IndicatorId>
+      <InstrumentDeserialized>ES SEP25 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>30276</ZOrder>
+      <SwingStrength>5</SwingStrength>
+      <AtrPeriod>14</AtrPeriod>
+      <AtrFracThreshold>0.15</AtrFracThreshold>
+      <MinImpulseTicks>6</MinImpulseTicks>
+      <UseRetraceConfirm>true</UseRetraceConfirm>
+      <ConfirmRetraceTicks>8</ConfirmRetraceTicks>
+      <DirectionMode>Bias</DirectionMode>
+      <ShowT3>false</ShowT3>
+      <UseVwapConfirm>false</UseVwapConfirm>
+      <RubberBandSigmas>2.5</RubberBandSigmas>
+      <ZoneWidthFrac>0.1</ZoneWidthFrac>
+      <ZoneWidthTicksMin>6</ZoneWidthTicksMin>
+      <RetestFrac>0.15</RetestFrac>
+      <RetestTicksMin>4</RetestTicksMin>
+      <EnablePremarket>true</EnablePremarket>
+      <PremarketStartHour>8</PremarketStartHour>
+      <PremktMode>FirstImpulse</PremktMode>
+      <PreUseRetraceConfirm>true</PreUseRetraceConfirm>
+      <PreConfirmRetraceTicks>8</PreConfirmRetraceTicks>
+      <PreCapL0xATR>2</PreCapL0xATR>
+      <KeepPremarketAtOpen>true</KeepPremarketAtOpen>
+      <PreT1Mult>0.75</PreT1Mult>
+      <PreT2Mult>1</PreT2Mult>
+      <PreT3Mult>1.272</PreT3Mult>
+      <PreRBMult>1.618</PreRBMult>
+      <RthT1Mult>1</RthT1Mult>
+      <RthT2Mult>1.382</RthT2Mult>
+      <RthT3Mult>1.618</RthT3Mult>
+      <RthRBMult>2</RthRBMult>
+      <ShowBiasHud>true</ShowBiasHud>
+      <BiasHudPosition>BottomRight</BiasHudPosition>
+      <BiasHudFontSize>18</BiasHudFontSize>
+      <FreezeAfterLock>true</FreezeAfterLock>
+      <BlueFillSerializable>70,64,128,255</BlueFillSerializable>
+      <BlueOutlineSerializable>255,0,255,0</BlueOutlineSerializable>
+      <GreenFillSerializable>70,64,200,64</GreenFillSerializable>
+      <GreenOutlineSerializable>255,255,0,255</GreenOutlineSerializable>
+      <RetestFillSerializable>60,200,200,200</RetestFillSerializable>
+    </MM_OvalsOverlay>
+  </MM_OvalsOverlay>
+</NinjaTrader>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <OneTimeFramingOutline>
+    <OneTimeFramingOutline xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnEachTick</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>30</Value>
+        <Value2>1</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnEachTick</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <From>2026-03-15T00:00:00</From>
+      <IsAutoScale>true</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name />
+      <Panel>-1</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2026-03-30T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>true</PaintPriceMarkers>
+      <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>true</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>449</IndicatorId>
+      <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>31126</ZOrder>
+      <Preset>Dark</Preset>
+      <ColorIntrabar>true</ColorIntrabar>
+      <ColorEntireCandle>false</ColorEntireCandle>
+      <EnableAlerts>true</EnableAlerts>
+      <RearmSeconds>180</RearmSeconds>
+      <SoundFile>Alert4.wav</SoundFile>
+      <CustomBrokeHigh>#FFFFFF00</CustomBrokeHigh>
+      <CustomBrokeLow>#FF800080</CustomBrokeLow>
+      <CustomBrokeBoth>#FF00FFFF</CustomBrokeBoth>
+      <DarkBrokeHigh>#FF00FF00</DarkBrokeHigh>
+      <DarkBrokeLow>#FFFF0000</DarkBrokeLow>
+      <DarkBrokeBoth>#FF696969</DarkBrokeBoth>
+      <LightBrokeHigh>#FF32CD32</LightBrokeHigh>
+      <LightBrokeLow>#FFFF0000</LightBrokeLow>
+      <LightBrokeBoth>#FFDAA520</LightBrokeBoth>
+    </OneTimeFramingOutline>
+  </OneTimeFramingOutline>
+</NinjaTrader>

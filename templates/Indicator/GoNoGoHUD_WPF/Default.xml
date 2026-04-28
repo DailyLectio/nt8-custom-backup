@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <GoNoGoHUD_WPF>
+    <GoNoGoHUD_WPF xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnEachTick</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>4</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>2</Value>
+        <Value2>8</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnEachTick</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>false</DisplayInDataBox>
+      <From>2025-08-17T00:00:00</From>
+      <IsAutoScale>true</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name> CHOP ADX HUD!</Name>
+      <Panel>-1</Panel>
+      <Plots>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>Probability</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+      </Plots>
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2025-08-22T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>true</PaintPriceMarkers>
+      <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>true</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>2044</IndicatorId>
+      <InstrumentDeserialized>ES SEP25 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>10007</ZOrder>
+      <GoThreshold>70</GoThreshold>
+      <YellowFloor>50</YellowFloor>
+      <RequireAdxGate>true</RequireAdxGate>
+      <AdxGate>20</AdxGate>
+      <UseFirstHourMicro>true</UseFirstHourMicro>
+      <RestrictToWindows>false</RestrictToWindows>
+      <UseRVol>true</UseRVol>
+      <UseUD>true</UseUD>
+      <UseAdxSl>true</UseAdxSl>
+      <UseChop>true</UseChop>
+      <UseVWAP>true</UseVWAP>
+      <UseRegime>true</UseRegime>
+      <W_RVol>0.8</W_RVol>
+      <W_UD>0.5</W_UD>
+      <W_ADXSL>1</W_ADXSL>
+      <W_CHOP>0.6</W_CHOP>
+      <W_VWAP>0.9</W_VWAP>
+      <W_Regime>0.8</W_Regime>
+      <Bias>-0.5</Bias>
+      <BarsPerTile>3</BarsPerTile>
+      <TileHeightTicks>50</TileHeightTicks>
+      <TilePadTicks>20</TilePadTicks>
+      <AlertCooldownSec>90</AlertCooldownSec>
+      <BiasMode>0</BiasMode>
+    </GoNoGoHUD_WPF>
+  </GoNoGoHUD_WPF>
+</NinjaTrader>

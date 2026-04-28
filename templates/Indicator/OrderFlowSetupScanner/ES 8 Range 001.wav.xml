@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <OrderFlowSetupScanner>
+    <OrderFlowSetupScanner xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnBarClose</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Range</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>8</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>1</Value>
+        <Value2>0</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnBarClose</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <From>2026-04-06T00:00:00</From>
+      <IsAutoScale>true</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name />
+      <Panel>-1</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2026-04-09T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>true</PaintPriceMarkers>
+      <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>true</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>1831</IndicatorId>
+      <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>100017</ZOrder>
+      <BroadcastToHUD>true</BroadcastToHUD>
+      <LookbackN>20</LookbackN>
+      <EdgeTolTicks>4</EdgeTolTicks>
+      <ImbalanceRatio>3</ImbalanceRatio>
+      <MinImbalanceDelta>10</MinImbalanceDelta>
+      <StackedLevels>3</StackedLevels>
+      <OppStackedLevels>2</OppStackedLevels>
+      <VolHiPctl>85</VolHiPctl>
+      <VolExtremePctl>90</VolExtremePctl>
+      <RangeTightPctl>30</RangeTightPctl>
+      <SeenExtremePctl>95</SeenExtremePctl>
+      <DeltaExtremeLoPctl>10</DeltaExtremeLoPctl>
+      <DeltaExtremeHiPctl>90</DeltaExtremeHiPctl>
+      <EnableAlerts>true</EnableAlerts>
+      <AlertRearmSeconds>30</AlertRearmSeconds>
+      <MinBarsBetweenSameSignal>2</MinBarsBetweenSameSignal>
+      <ShowDashboardTable>true</ShowDashboardTable>
+      <TableLocation>BottomRight</TableLocation>
+      <TableOpacity>80</TableOpacity>
+      <AddHTF30mContext>false</AddHTF30mContext>
+      <EnableSIB>true</EnableSIB>
+      <EnableABS>true</EnableABS>
+      <EnableDD>true</EnableDD>
+      <EnableDEIA>true</EnableDEIA>
+      <EnableEEMDF>true</EnableEEMDF>
+      <EnableTF>true</EnableTF>
+      <EnablePAR>true</EnablePAR>
+      <EnableDEB>true</EnableDEB>
+      <SoundSIB>004.wav</SoundSIB>
+      <SoundABS>001.wav</SoundABS>
+      <SoundDD>001.wav</SoundDD>
+      <SoundDEIA>005.wav</SoundDEIA>
+      <SoundEEMDF>005.wav</SoundEEMDF>
+      <SoundTF>001.wav</SoundTF>
+      <SoundPAR>004.wav</SoundPAR>
+      <SoundDEB>004.wav</SoundDEB>
+      <EnableDT>true</EnableDT>
+      <SoundDT>001.wav</SoundDT>
+    </OrderFlowSetupScanner>
+  </OrderFlowSetupScanner>
+</NinjaTrader>

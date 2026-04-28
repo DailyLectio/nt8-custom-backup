@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <CumDeltaHighlight>
+    <CumDeltaHighlight xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnEachTick</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>1</Value>
+        <Value2>1</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnEachTick</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <From>2025-07-19T00:00:00</From>
+      <IsAutoScale>true</IsAutoScale>
+      <Lines>
+        <Line>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>2</Width>
+          <Name>UpperLevel</Name>
+          <Value>1000</Value>
+        </Line>
+        <Line>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>2</Width>
+          <Name>LowerLevel</Name>
+          <Value>-1000</Value>
+        </Line>
+      </Lines>
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name />
+      <Panel>2</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2025-07-22T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>false</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>true</PaintPriceMarkers>
+      <DrawHorizontalGridLines>false</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>false</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>407</IndicatorId>
+      <InstrumentDeserialized>ES SEP25 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>30239</ZOrder>
+      <_DeltaType>BidAsk</_DeltaType>
+      <_PeriodType>Session</_PeriodType>
+      <SizeFilter>0</SizeFilter>
+      <_DeltaCalc>Close</_DeltaCalc>
+      <IsAbove>1000</IsAbove>
+      <IsAboveColorSerialize>&lt;SolidColorBrush Color="#FF008000" Opacity="0.35" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</IsAboveColorSerialize>
+      <IsAboveOpacity>35</IsAboveOpacity>
+      <IsBelow>-1000</IsBelow>
+      <IsBelowColorSerialize>&lt;SolidColorBrush Color="#FFFF0000" Opacity="0.35" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</IsBelowColorSerialize>
+      <IsBelowOpacity>35</IsBelowOpacity>
+      <HighlightChart>false</HighlightChart>
+      <HighlightIndicator>true</HighlightIndicator>
+      <ShowSocials>false</ShowSocials>
+      <Youtube />
+      <Discord />
+      <TradeSaber />
+      <Author>TradeSaber(Dre)</Author>
+      <Version>Version 1.3 // December 2022</Version>
+    </CumDeltaHighlight>
+  </CumDeltaHighlight>
+</NinjaTrader>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <ManualKeyLevels>
+    <ManualKeyLevels xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnBarClose</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>true</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>32</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>16</Value>
+        <Value2>48</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnBarClose</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>false</DisplayInDataBox>
+      <From>2026-02-05T00:00:00</From>
+      <IsAutoScale>true</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name />
+      <Panel>-1</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2026-03-02T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>true</PaintPriceMarkers>
+      <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>true</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>315</IndicatorId>
+      <InstrumentDeserialized>MNQ MAR26 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>31790</ZOrder>
+      <ResetLevels>false</ResetLevels>
+      <LineColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF9932CC&lt;/SolidColorBrush&gt;</LineColorSerializable>
+      <LineWidth>3</LineWidth>
+      <ONH>24979</ONH>
+      <ONL>24476</ONL>
+      <yVAH>25002</yVAH>
+      <yVAL>24750.5</yVAL>
+      <yPOC>24932</yPOC>
+      <HighestHigh>25200.22</HighestHigh>
+      <HighTarget3>25056.2</HighTarget3>
+      <High3>25048.82</High3>
+      <HighTarget2>24912.18</HighTarget2>
+      <High2>24838.55</High2>
+      <HighTarget1>24764.92</HighTarget1>
+      <High1>24715.46</High1>
+      <POC>24666</POC>
+      <Minus1>24616.24</Minus1>
+      <MinusTarget1>24608.13</MinusTarget1>
+      <Minus2>24567</Minus2>
+      <MinusTarget2>24493.5</MinusTarget2>
+      <Minus3>24419.82</Minus3>
+      <MinusTarget3>24299.25</MinusTarget3>
+      <LowestLow>24275.8</LowestLow>
+    </ManualKeyLevels>
+  </ManualKeyLevels>
+</NinjaTrader>

@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <MultiSeriesHL>
+    <MultiSeriesHL xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <calculate2>OnBarClose</calculate2>
+      <AreLinesConfigurable>true</AreLinesConfigurable>
+      <ArePlotsConfigurable>false</ArePlotsConfigurable>
+      <BarsPeriodSerializable>
+        <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>5</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>1</Value>
+        <Value2>0</Value2>
+      </BarsPeriodSerializable>
+      <BarsToLoad>0</BarsToLoad>
+      <Calculate>OnBarClose</Calculate>
+      <Displacement>0</Displacement>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <From>2025-11-15T00:00:00</From>
+      <IsAutoScale>true</IsAutoScale>
+      <Lines />
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name> </Name>
+      <Panel>-1</Panel>
+      <Plots />
+      <ScaleJustification>Right</ScaleJustification>
+      <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+      <To>2025-11-20T00:00:00</To>
+      <IsDataSeriesRequired>true</IsDataSeriesRequired>
+      <IsOverlay>true</IsOverlay>
+      <SelectedValueSeries>0</SelectedValueSeries>
+      <InputPlot>0</InputPlot>
+      <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+      <PaintPriceMarkers>true</PaintPriceMarkers>
+      <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+      <DrawVerticalGridLines>true</DrawVerticalGridLines>
+      <DrawOnPricePanel>true</DrawOnPricePanel>
+      <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+      <IndicatorId>4904</IndicatorId>
+      <InstrumentDeserialized>ES DEC25 Globex</InstrumentDeserialized>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <ZOrder>30598</ZOrder>
+      <min1>false</min1>
+      <min5>false</min5>
+      <min15>false</min15>
+      <min30>true</min30>
+      <min60>false</min60>
+      <min240>false</min240>
+      <minDaily>false</minDaily>
+      <currentDaily>false</currentDaily>
+      <minWeekly>false</minWeekly>
+      <currentWeekly>false</currentWeekly>
+      <min1ColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</min1ColorSerializable>
+      <min1Dash>Solid</min1Dash>
+      <min1Width>2</min1Width>
+      <min1ShowMedian>true</min1ShowMedian>
+      <min1ShowLabel>false</min1ShowLabel>
+      <min5ColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008080&lt;/SolidColorBrush&gt;</min5ColorSerializable>
+      <min5Dash>Solid</min5Dash>
+      <min5Width>2</min5Width>
+      <min5ShowMedian>true</min5ShowMedian>
+      <min5ShowLabel>false</min5ShowLabel>
+      <min15ColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</min15ColorSerializable>
+      <min15Dash>Solid</min15Dash>
+      <min15Width>2</min15Width>
+      <min15ShowMedian>true</min15ShowMedian>
+      <min15ShowLabel>false</min15ShowLabel>
+      <min30ColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</min30ColorSerializable>
+      <min30Dash>Solid</min30Dash>
+      <min30Width>2</min30Width>
+      <min30ShowMedian>false</min30ShowMedian>
+      <min30ShowLabel>true</min30ShowLabel>
+      <min60ColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF5F9EA0&lt;/SolidColorBrush&gt;</min60ColorSerializable>
+      <min60Dash>Solid</min60Dash>
+      <min60Width>2</min60Width>
+      <min60ShowMedian>true</min60ShowMedian>
+      <min60ShowLabel>false</min60ShowLabel>
+      <min240ColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF800000&lt;/SolidColorBrush&gt;</min240ColorSerializable>
+      <min240Dash>Dash</min240Dash>
+      <min240Width>2</min240Width>
+      <min240ShowMedian>true</min240ShowMedian>
+      <min240ShowLabel>false</min240ShowLabel>
+      <minDailyColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</minDailyColorSerializable>
+      <minDailyDash>Dash</minDailyDash>
+      <minDailyWidth>2</minDailyWidth>
+      <minDailyShowMedian>true</minDailyShowMedian>
+      <minDailyShowLabel>false</minDailyShowLabel>
+      <currentDailyColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00BFFF&lt;/SolidColorBrush&gt;</currentDailyColorSerializable>
+      <currentDailyDash>Dash</currentDailyDash>
+      <currentDailyWidth>2</currentDailyWidth>
+      <currentDailyShowMedian>true</currentDailyShowMedian>
+      <currentDailyShowLabel>false</currentDailyShowLabel>
+      <minWeeklyColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</minWeeklyColorSerializable>
+      <minWeeklyDash>Dash</minWeeklyDash>
+      <minWeeklyWidth>2</minWeeklyWidth>
+      <minWeeklyShowMedian>false</minWeeklyShowMedian>
+      <minWeeklyShowLabel>false</minWeeklyShowLabel>
+      <currentWeeklyColorSerializable>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFF4A460&lt;/SolidColorBrush&gt;</currentWeeklyColorSerializable>
+      <currentWeeklyDash>Dash</currentWeeklyDash>
+      <currentWeeklyWidth>2</currentWeeklyWidth>
+      <currentWeeklyShowMedian>true</currentWeeklyShowMedian>
+      <currentWeeklyShowLabel>false</currentWeeklyShowLabel>
+      <StartWeekFromDay>Monday</StartWeekFromDay>
+      <ShowSocials>false</ShowSocials>
+      <Youtube />
+      <Discord />
+      <TradeSaber />
+      <Author>TradeSaber(Dre)</Author>
+      <Version>Version 1.2.0 // January 2023</Version>
+    </MultiSeriesHL>
+  </MultiSeriesHL>
+</NinjaTrader>

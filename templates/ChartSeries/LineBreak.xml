@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <BarsPeriodType_LineBreak>
+    <BarsProperties xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <BarsPeriod>
+        <BarsPeriodTypeSerialize>13</BarsPeriodTypeSerialize>
+        <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+        <BaseBarsPeriodValue>5</BaseBarsPeriodValue>
+        <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+        <MarketDataType>Last</MarketDataType>
+        <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+        <ReversalType>Tick</ReversalType>
+        <Value>3</Value>
+        <Value2>1</Value2>
+      </BarsPeriod>
+      <RangeType>Days</RangeType>
+      <BarsBack>50</BarsBack>
+      <DaysBack>5</DaysBack>
+      <From>2026-03-19T00:00:00</From>
+      <IsStableSession>true</IsStableSession>
+      <IsTickReplay>false</IsTickReplay>
+      <To>2026-03-25T00:00:00</To>
+      <TradingHoursSerializable></TradingHoursSerializable>
+      <AutoScale>true</AutoScale>
+      <CenterPriceOnScale>false</CenterPriceOnScale>
+      <DisplayInDataBox>true</DisplayInDataBox>
+      <Label></Label>
+      <MaxSerialized>0</MaxSerialized>
+      <MinSerialized>0</MinSerialized>
+      <PriceMarker>
+        <BackgroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFB0E0E6&lt;/SolidColorBrush&gt;</BackgroundSerialize>
+        <IsVisible>true</IsVisible>
+      </PriceMarker>
+      <ShowGlobalDrawObjects>true</ShowGlobalDrawObjects>
+      <ScaleJustification>Right</ScaleJustification>
+      <TradingHoursVisibility>AllSessions</TradingHoursVisibility>
+      <TradingHoursBreakPenSerialize>&lt;Pen Brush="#FFC0C0C0" Thickness="1" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="1" Dashes="2 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</TradingHoursBreakPenSerialize>
+      <LongExecutionBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</LongExecutionBrushSerialize>
+      <PlotExecutions>DoNotPlot</PlotExecutions>
+      <MarkerSize>5</MarkerSize>
+      <PositionPenLoserSerialize>&lt;Pen Brush="#FFFF00FF" Thickness="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="0" Dashes="0 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</PositionPenLoserSerialize>
+      <PositionPenWinnerSerialize>&lt;Pen Brush="#FFADFF2F" Thickness="2" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;
+  &lt;Pen.DashStyle&gt;
+    &lt;DashStyle Offset="0" Dashes="0 2" /&gt;
+  &lt;/Pen.DashStyle&gt;
+&lt;/Pen&gt;</PositionPenWinnerSerialize>
+      <ShortExecutionBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</ShortExecutionBrushSerialize>
+      <BarsSeriesId>8387d945f06740eca1693e5763c374b9</BarsSeriesId>
+      <Id>9b9299e4b5a7401fb05630efd8e55564</Id>
+      <IsLinked>true</IsLinked>
+      <IsPrimarySeries>true</IsPrimarySeries>
+      <ZOrder>1</ZOrder>
+    </BarsProperties>
+    <ChartStyles>
+      <LineOnCloseStyle>
+        <LineOnCloseStyle xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <IsVisible>true</IsVisible>
+          <ChartStyleTypeSerialize>2</ChartStyleTypeSerialize>
+          <DownBrushSerialize>DEFAULT</DownBrushSerialize>
+          <UpBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFACD&lt;/SolidColorBrush&gt;</UpBrushSerialize>
+          <StrokeSerialize>DEFAULT</StrokeSerialize>
+          <Stroke2Serialize>DEFAULT</Stroke2Serialize>
+        </LineOnCloseStyle>
+      </LineOnCloseStyle>
+    </ChartStyles>
+  </BarsPeriodType_LineBreak>
+</NinjaTrader>

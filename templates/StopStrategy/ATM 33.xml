@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<NinjaTrader>
+  <StopStrategy xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <AutoBreakEvenPlus>1</AutoBreakEvenPlus>
+    <AutoBreakEvenProfitTrigger>30</AutoBreakEvenProfitTrigger>
+    <AutoTrailSteps>
+      <AutoTrailStep>
+        <Frequency>1</Frequency>
+        <ProfitTrigger>30</ProfitTrigger>
+        <StopLoss>33</StopLoss>
+      </AutoTrailStep>
+    </AutoTrailSteps>
+    <IsSimStopEnabled>false</IsSimStopEnabled>
+    <VolumeTrigger>0</VolumeTrigger>
+    <Template>ATM 33</Template>
+  </StopStrategy>
+</NinjaTrader>
