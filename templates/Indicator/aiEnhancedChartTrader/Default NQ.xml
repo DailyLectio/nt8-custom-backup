@@ -21,7 +21,7 @@
       <Calculate>OnEachTick</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>false</DisplayInDataBox>
-      <From>2025-12-09T00:00:00</From>
+      <From>2026-04-01T00:00:00</From>
       <IsAutoScale>false</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
@@ -1459,7 +1459,7 @@
       </Plots>
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2025-12-14T00:00:00</To>
+      <To>2026-04-04T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -1470,11 +1470,11 @@
       <DrawVerticalGridLines>true</DrawVerticalGridLines>
       <DrawOnPricePanel>true</DrawOnPricePanel>
       <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-      <IndicatorId>8703</IndicatorId>
-      <InstrumentDeserialized>NQ DEC25 Globex</InstrumentDeserialized>
+      <IndicatorId>2828</IndicatorId>
+      <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
       <MaxSerialized>0</MaxSerialized>
       <MinSerialized>0</MinSerialized>
-      <ZOrder>31253</ZOrder>
+      <ZOrder>30813</ZOrder>
       <BidAskEnabled>true</BidAskEnabled>
       <ScreenshotEmailE>false</ScreenshotEmailE>
       <DuplicateButtonsPermission>false</DuplicateButtonsPermission>
@@ -1482,7 +1482,7 @@
       <DuplicateSendEnabled>false</DuplicateSendEnabled>
       <DuplicateStatus>Copy</DuplicateStatus>
       <PNLIsVisible>true</PNLIsVisible>
-      <QuantityPercentage>320</QuantityPercentage>
+      <QuantityPercentage>590</QuantityPercentage>
       <SyncTimeSliced>true</SyncTimeSliced>
       <SyncCloseAll>true</SyncCloseAll>
       <SyncMoveAllExits>true</SyncMoveAllExits>
@@ -1497,8 +1497,8 @@
       <OneClickOrdersEnabled2>false</OneClickOrdersEnabled2>
       <OneClickWidthOn>60</OneClickWidthOn>
       <OneClickWidthOff>10</OneClickWidthOff>
-      <TotalIndicatorsOnChart>0</TotalIndicatorsOnChart>
-      <TotalIndicatorsOnChartString />
+      <TotalIndicatorsOnChart>6</TotalIndicatorsOnChart>
+      <TotalIndicatorsOnChartString>785|788|794|797|4865|6024</TotalIndicatorsOnChartString>
       <OneClickWidthChangeHeight>0</OneClickWidthChangeHeight>
       <BuyOneClickColor1S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF1E90FF&lt;/SolidColorBrush&gt;</BuyOneClickColor1S>
       <SellOneClickColor1S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</SellOneClickColor1S>
@@ -1527,25 +1527,25 @@
       <ExecutionsDisplayType>Ticks</ExecutionsDisplayType>
       <ShowExecutionsButton>true</ShowExecutionsButton>
       <ExecutionsDisplay>None</ExecutionsDisplay>
-      <TriSize>5</TriSize>
+      <TriSize>4</TriSize>
       <ColorAskTriS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF3CB371&lt;/SolidColorBrush&gt;</ColorAskTriS>
       <ColorBid2TriS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</ColorBid2TriS>
       <ColorExitTriS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF9400D3&lt;/SolidColorBrush&gt;</ColorExitTriS>
       <WinningTradeOutlineStroke>
         <IsOpacityVisible>true</IsOpacityVisible>
-        <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF7CFC00&lt;/SolidColorBrush&gt;</BrushSerialize>
+        <BrushSerialize>&lt;SolidColorBrush Color="#FFFFFFFF" Opacity="0.60000002384185791" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
         <DashStyleHelper>Dash</DashStyleHelper>
-        <Opacity>100</Opacity>
-        <Width>5</Width>
+        <Opacity>60</Opacity>
+        <Width>3</Width>
       </WinningTradeOutlineStroke>
       <LosingTradeOutlineStroke>
         <IsOpacityVisible>true</IsOpacityVisible>
-        <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BrushSerialize>
+        <BrushSerialize>&lt;SolidColorBrush Color="#FFFF0000" Opacity="0.60000002384185791" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
         <DashStyleHelper>Dash</DashStyleHelper>
-        <Opacity>100</Opacity>
-        <Width>5</Width>
+        <Opacity>60</Opacity>
+        <Width>3</Width>
       </LosingTradeOutlineStroke>
-      <LastSelectedCustomTrailingStop>0</LastSelectedCustomTrailingStop>
+      <LastSelectedCustomTrailingStop>1</LastSelectedCustomTrailingStop>
       <AllTrailingStopsIndicator>
         <int>-1</int>
         <int>-1</int>
@@ -1586,14 +1586,14 @@
         <string />
         <string />
       </AllTrailingStopsIndicator2Name>
-      <AdvancedExitOrdersManagementPermission>false</AdvancedExitOrdersManagementPermission>
-      <AdvancedExitOrdersManagementEnabled>false</AdvancedExitOrdersManagementEnabled>
+      <AdvancedExitOrdersManagementPermission>true</AdvancedExitOrdersManagementPermission>
+      <AdvancedExitOrdersManagementEnabled>true</AdvancedExitOrdersManagementEnabled>
       <TrailingStopFeaturesEnabled>true</TrailingStopFeaturesEnabled>
       <TrailingStopShowFT>true</TrailingStopShowFT>
       <TrailingStopShowATR>true</TrailingStopShowATR>
       <ATRMultiplier>1.5</ATRMultiplier>
       <TrailingStopShowHighLow>true</TrailingStopShowHighLow>
-      <TrailingStopHighLowBB>1</TrailingStopHighLowBB>
+      <TrailingStopHighLowBB>3</TrailingStopHighLowBB>
       <NumberOfCustomTrailingStops>3</NumberOfCustomTrailingStops>
       <AllTrailingStops>
         <string>Custom 1</string>
@@ -1606,15 +1606,15 @@
       <AttachStopColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</AttachStopColorS>
       <InActiveAttachStopO>15</InActiveAttachStopO>
       <ActiveAttachStopO>30</ActiveAttachStopO>
-      <TrailingStopIsEnabled>false</TrailingStopIsEnabled>
+      <TrailingStopIsEnabled>true</TrailingStopIsEnabled>
       <SignalEntryType />
-      <TrailingStopType>Fixed Tick</TrailingStopType>
+      <TrailingStopType>High / Low</TrailingStopType>
       <ExitOnCloseIsReady>false</ExitOnCloseIsReady>
       <ExitOnCloseButtonEnabled>true</ExitOnCloseButtonEnabled>
       <ExitOnCloseType>Next Bar</ExitOnCloseType>
       <InitialExitAdjustmentsEnabled>true</InitialExitAdjustmentsEnabled>
       <ATRPeriod>14</ATRPeriod>
-      <MTFEnabled>false</MTFEnabled>
+      <MTFEnabled>true</MTFEnabled>
       <MTFBasePeriodType1>Minute</MTFBasePeriodType1>
       <MTFBarsPeriod1>1</MTFBarsPeriod1>
       <InitialExitsType>Default</InitialExitsType>
@@ -1636,13 +1636,13 @@
       <ShowLastPriceAll>true</ShowLastPriceAll>
       <LastPriceLineStroke>
         <IsOpacityVisible>true</IsOpacityVisible>
-        <BrushSerialize>&lt;SolidColorBrush Color="#FF00FFFF" Opacity="0.75" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
+        <BrushSerialize>&lt;SolidColorBrush Color="#FF0000FF" Opacity="0.75" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
         <DashStyleHelper>Dot</DashStyleHelper>
         <Opacity>75</Opacity>
-        <Width>1</Width>
+        <Width>2</Width>
       </LastPriceLineStroke>
       <ShowLastPriceMarker2>true</ShowLastPriceMarker2>
-      <ColorLastPriceMarkerS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFAF0E6&lt;/SolidColorBrush&gt;</ColorLastPriceMarkerS>
+      <ColorLastPriceMarkerS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4169E1&lt;/SolidColorBrush&gt;</ColorLastPriceMarkerS>
       <DepthButtonEnabled>false</DepthButtonEnabled>
       <DepthEnabled>false</DepthEnabled>
       <MaxLevels>10</MaxLevels>
@@ -1681,7 +1681,7 @@
         <Italic>false</Italic>
         <Size>15</Size>
       </TextFontTime>
-      <BarCounterColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFC0C0C0&lt;/SolidColorBrush&gt;</BarCounterColorS>
+      <BarCounterColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BarCounterColorS>
       <BarCounterOffsetX>5</BarCounterOffsetX>
       <BarCounterOffset>40</BarCounterOffset>
       <CountDown>true</CountDown>
@@ -1690,11 +1690,11 @@
       <SimBackColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFD8BFD8&lt;/SolidColorBrush&gt;</SimBackColorS>
       <LiveBackColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFB0E0E6&lt;/SolidColorBrush&gt;</LiveBackColorS>
       <ShowATMResetButton>true</ShowATMResetButton>
-      <LastATMSelectedS>...CORE 2C 100 200 WIDE no SL</LastATMSelectedS>
+      <LastATMSelectedS>1 NQ</LastATMSelectedS>
       <LastSelectedInd>2</LastSelectedInd>
-      <ShowHideAccountButton>false</ShowHideAccountButton>
+      <ShowHideAccountButton>true</ShowHideAccountButton>
       <HideAccountEnabled>false</HideAccountEnabled>
-      <CloseButtonType>Close Partial</CloseButtonType>
+      <CloseButtonType>BE</CloseButtonType>
       <CloseButtonNumber>1</CloseButtonNumber>
       <PercentClose1>50</PercentClose1>
       <PercentClose2>33</PercentClose2>
@@ -1713,40 +1713,40 @@
       <OrderChangeColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFA500&lt;/SolidColorBrush&gt;</OrderChangeColorS>
       <CustomOrderBuyColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF006400&lt;/SolidColorBrush&gt;</CustomOrderBuyColorS>
       <CustomOrderSellColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF640000&lt;/SolidColorBrush&gt;</CustomOrderSellColorS>
-      <VersionNumber>25. 1. 31. 1</VersionNumber>
+      <VersionNumber>25. 12. 16. 1</VersionNumber>
       <HideVersion>true</HideVersion>
       <ThisSummaryTypeMode>Ticks</ThisSummaryTypeMode>
-      <ThisSummaryExitOrderMode>Currency</ThisSummaryExitOrderMode>
-      <OrderSummaryColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFD3D3D3&lt;/SolidColorBrush&gt;</OrderSummaryColorS>
+      <ThisSummaryExitOrderMode>Points</ThisSummaryExitOrderMode>
+      <OrderSummaryColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4B0082&lt;/SolidColorBrush&gt;</OrderSummaryColorS>
       <AttachButtonsHoverEnabled>true</AttachButtonsHoverEnabled>
       <TextFont66>
-        <Bold>false</Bold>
-        <FamilySerialize>Arial</FamilySerialize>
-        <Italic>false</Italic>
+        <Bold>true</Bold>
+        <FamilySerialize>Calibri</FamilySerialize>
+        <Italic>true</Italic>
         <Size>11</Size>
       </TextFont66>
       <ScaleByOrders>false</ScaleByOrders>
       <AttachmentOrdersEnabled>true</AttachmentOrdersEnabled>
       <LinkButtonsEnabled>true</LinkButtonsEnabled>
-      <AllowOrderQuantityAdjustment>true</AllowOrderQuantityAdjustment>
-      <SplitStopDisplay>false</SplitStopDisplay>
+      <AllowOrderQuantityAdjustment>false</AllowOrderQuantityAdjustment>
+      <SplitStopDisplay>true</SplitStopDisplay>
       <SplitTargetDisplay2>true</SplitTargetDisplay2>
       <MoveOrderSnap>8</MoveOrderSnap>
       <ShowOrdersOffChart>true</ShowOrdersOffChart>
       <HiddenOrdersOpacity>50</HiddenOrdersOpacity>
       <LinkButtonsIsOn>false</LinkButtonsIsOn>
-      <LinkOnPlaceOrder>true</LinkOnPlaceOrder>
-      <LinkMultipleOrders>true</LinkMultipleOrders>
-      <ProfitAndLossDisplayType>None</ProfitAndLossDisplayType>
+      <LinkOnPlaceOrder>false</LinkOnPlaceOrder>
+      <LinkMultipleOrders>false</LinkMultipleOrders>
+      <ProfitAndLossDisplayType>Gross</ProfitAndLossDisplayType>
       <ShowInstrumentOptions>true</ShowInstrumentOptions>
       <ShowCommissionsOptions>true</ShowCommissionsOptions>
       <ShowCloseButton>true</ShowCloseButton>
       <ShowBEButton>true</ShowBEButton>
-      <BEOffset>4</BEOffset>
+      <BEOffset>2</BEOffset>
       <BEMoveStops>true</BEMoveStops>
-      <BEMoveTargets>false</BEMoveTargets>
+      <BEMoveTargets>true</BEMoveTargets>
       <ProfitAndLossType2>Currency</ProfitAndLossType2>
-      <ProfitAndLossType>Ticks</ProfitAndLossType>
+      <ProfitAndLossType>Currency</ProfitAndLossType>
       <ProfitAndLossType3>All</ProfitAndLossType3>
       <ProfitAndLossEntry>Hide</ProfitAndLossEntry>
       <ClickEntryOrdersEnabled>true</ClickEntryOrdersEnabled>
@@ -1829,20 +1829,20 @@
       <TimeSlicedIntervalVariance>20</TimeSlicedIntervalVariance>
       <TimeSlicedLeftoverAction>Fill</TimeSlicedLeftoverAction>
       <RiskRewardButtonEnabled>true</RiskRewardButtonEnabled>
-      <RiskRewardOrdersEnabled>false</RiskRewardOrdersEnabled>
-      <RiskRewardEnabled>false</RiskRewardEnabled>
+      <RiskRewardOrdersEnabled>true</RiskRewardOrdersEnabled>
+      <RiskRewardEnabled>true</RiskRewardEnabled>
       <RiskRewardPlanIsEnabled>true</RiskRewardPlanIsEnabled>
       <PositionSizingButtonsPermission>true</PositionSizingButtonsPermission>
       <PositionSizingButtonsEnabled>true</PositionSizingButtonsEnabled>
       <PositionSizingIsEnabled>false</PositionSizingIsEnabled>
       <PositionSizingDollarsRisk>200</PositionSizingDollarsRisk>
       <PositionSizingPercentRisk>2</PositionSizingPercentRisk>
-      <PositionSizingDollarsRiskI>100</PositionSizingDollarsRiskI>
+      <PositionSizingDollarsRiskI>10</PositionSizingDollarsRiskI>
       <PositionSizingPercentRiskI>0.5</PositionSizingPercentRiskI>
       <PositionSizingAccountSizeOverride>0</PositionSizingAccountSizeOverride>
       <KeepTargetQuantityProportional>true</KeepTargetQuantityProportional>
       <PositionSizingMinSize>1</PositionSizingMinSize>
-      <PositionSizingMaxSize>2</PositionSizingMaxSize>
+      <PositionSizingMaxSize>4</PositionSizingMaxSize>
       <PositionSizingQ1>true</PositionSizingQ1>
       <PositionSizingQ2>true</PositionSizingQ2>
       <RestrictMax>true</RestrictMax>
@@ -1872,14 +1872,14 @@
       </InActionStroke>
       <ColorButtonOrderType3S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF282828&lt;/SolidColorBrush&gt;</ColorButtonOrderType3S>
       <ColorButtonOrderType2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF463214&lt;/SolidColorBrush&gt;</ColorButtonOrderType2S>
-      <PriceBasedEntryOrdersPermission>false</PriceBasedEntryOrdersPermission>
-      <PriceBasedEntryOrdersEnabled>false</PriceBasedEntryOrdersEnabled>
+      <PriceBasedEntryOrdersPermission>true</PriceBasedEntryOrdersPermission>
+      <PriceBasedEntryOrdersEnabled>true</PriceBasedEntryOrdersEnabled>
       <PriceBasedEntryMode>Break</PriceBasedEntryMode>
       <PriceBasedRenkoMode>Known Close</PriceBasedRenkoMode>
       <PriceBasedEntryOrdersCancelIf>false</PriceBasedEntryOrdersCancelIf>
       <PriceBasedEntryButtonLabel />
       <UseTimeFilter>false</UseTimeFilter>
-      <StartT>9:30</StartT>
+      <StartT>9:33</StartT>
       <EndT>11:30</EndT>
       <StartT2>0:00</StartT2>
       <EndT2>0:00</EndT2>
@@ -1892,9 +1892,9 @@
       <CloseBarEntryOrdersEnabled>false</CloseBarEntryOrdersEnabled>
       <InvalidStopEntryAction>Limit</InvalidStopEntryAction>
       <RejectedStopEntryAction>Market</RejectedStopEntryAction>
-      <LimitOrderClose>false</LimitOrderClose>
-      <LimitOrderCloseTicks>20</LimitOrderCloseTicks>
-      <EntryHandlingNow>Flat entries</EntryHandlingNow>
+      <LimitOrderClose>true</LimitOrderClose>
+      <LimitOrderCloseTicks>15</LimitOrderCloseTicks>
+      <EntryHandlingNow>Reverse entries</EntryHandlingNow>
       <ReverseOnEntry>false</ReverseOnEntry>
       <StopEntryOrdersPermission>false</StopEntryOrdersPermission>
       <StopEntryOrdersEnabled>false</StopEntryOrdersEnabled>
@@ -1951,12 +1951,12 @@
       <Limit2EntryBasis>Offer</Limit2EntryBasis>
       <Limit1EntryType>Limit</Limit1EntryType>
       <Limit2EntryType>Limit</Limit2EntryType>
-      <LimitOrderOffset4>5</LimitOrderOffset4>
-      <LimitOrderOffset5>20</LimitOrderOffset5>
+      <LimitOrderOffset4>2</LimitOrderOffset4>
+      <LimitOrderOffset5>5</LimitOrderOffset5>
       <AttachmentOrdersButtonOK>true</AttachmentOrdersButtonOK>
       <AttachEntriesEnabled>true</AttachEntriesEnabled>
       <AttachExitsEnabled>true</AttachExitsEnabled>
-      <AttachDefaultMode>Trail</AttachDefaultMode>
+      <AttachDefaultMode>Track</AttachDefaultMode>
       <AttachDefaultOffset>4</AttachDefaultOffset>
       <AttachOffsetMode>Offset</AttachOffsetMode>
       <AttachButtonsEnabled>true</AttachButtonsEnabled>
@@ -1964,50 +1964,50 @@
       <AttachButtonsTrackEnabled>true</AttachButtonsTrackEnabled>
       <AttachToHighLowBoxes>true</AttachToHighLowBoxes>
       <AttachHighlightPlotEnabled>true</AttachHighlightPlotEnabled>
-      <ActiveAttachOrderO>30</ActiveAttachOrderO>
+      <ActiveAttachOrderO>20</ActiveAttachOrderO>
       <SelectAttachOrderColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FFFF&lt;/SolidColorBrush&gt;</SelectAttachOrderColorS>
       <SelectAttachOrderO>50</SelectAttachOrderO>
       <AttachClickEnabled>true</AttachClickEnabled>
       <AttachMoveEnableTracking>true</AttachMoveEnableTracking>
-      <ATMRow>3</ATMRow>
-      <ATMSaveS1>...NQ-1C-Simple</ATMSaveS1>
-      <ATMSaveS2>...NQ-2C-Equal</ATMSaveS2>
-      <ATMSaveS3>...NQ-2C-Split</ATMSaveS3>
+      <ATMRow>2</ATMRow>
+      <ATMSaveS1>..1C ES Medium (The 8-Point Play)</ATMSaveS1>
+      <ATMSaveS2>3C MES (The 8-Point Level)</ATMSaveS2>
+      <ATMSaveS3>4C MES (The Trend Day Setup)</ATMSaveS3>
       <ATMSaveS4>...NQ-2C-Runner</ATMSaveS4>
-      <ATMSaveS5>...ES-1C-Simple</ATMSaveS5>
-      <ATMSaveS6>...ES-2C-Equal</ATMSaveS6>
-      <ATMSaveS7>...ES-2C-Split</ATMSaveS7>
-      <ATMSaveS8>...ES-2C-Runner</ATMSaveS8>
-      <ATMSaveS9>...CORE 1C 80 100 ATM 50SL</ATMSaveS9>
-      <ATMSaveS010>-- 2C NQ CORE 50 100 1C 50t SL</ATMSaveS010>
+      <ATMSaveS5>..1C ES Medium (The 8-Point Play)</ATMSaveS5>
+      <ATMSaveS6>..1C ES Long (The Trend Runner)</ATMSaveS6>
+      <ATMSaveS7>..1C ES Long (The Bomb)</ATMSaveS7>
+      <ATMSaveS8>1 NQ</ATMSaveS8>
+      <ATMSaveS9>1 MES Canary Probe</ATMSaveS9>
+      <ATMSaveS010 />
       <ATMSaveS011>...CORE 2C 80 100 no SL</ATMSaveS011>
       <ATMSaveS012>...CORE 2C 100 200 WIDE no SL</ATMSaveS012>
-      <ColorATMRow1S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008B8B&lt;/SolidColorBrush&gt;</ColorATMRow1S>
-      <ColorATMRow2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFD2691E&lt;/SolidColorBrush&gt;</ColorATMRow2S>
+      <ColorATMRow1S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008000&lt;/SolidColorBrush&gt;</ColorATMRow1S>
+      <ColorATMRow2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF8C00&lt;/SolidColorBrush&gt;</ColorATMRow2S>
       <ColorATMRow3S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFE4C4&lt;/SolidColorBrush&gt;</ColorATMRow3S>
       <ColorATMRow4S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</ColorATMRow4S>
-      <ATMQty1>0</ATMQty1>
-      <ATMQty2>0</ATMQty2>
-      <ATMQty3>0</ATMQty3>
+      <ATMQty1>1</ATMQty1>
+      <ATMQty2>3</ATMQty2>
+      <ATMQty3>4</ATMQty3>
       <ATMQty4>0</ATMQty4>
-      <ATMQty5>1</ATMQty5>
-      <ATMQty6>2</ATMQty6>
-      <ATMQty7>2</ATMQty7>
-      <ATMQty8>2</ATMQty8>
-      <ATMQty9>1</ATMQty9>
+      <ATMQty5>0</ATMQty5>
+      <ATMQty6>0</ATMQty6>
+      <ATMQty7>0</ATMQty7>
+      <ATMQty8>1</ATMQty8>
+      <ATMQty9>0</ATMQty9>
       <ATMQty010>0</ATMQty010>
-      <ATMQty011>2</ATMQty011>
-      <ATMQty012>2</ATMQty012>
+      <ATMQty011>0</ATMQty011>
+      <ATMQty012>0</ATMQty012>
       <RequireATM>true</RequireATM>
       <ATMQuickButtonsEnabled>true</ATMQuickButtonsEnabled>
-      <ATMLabel1>N1 simple</ATMLabel1>
-      <ATMLabel2>N2 equal</ATMLabel2>
-      <ATMLabel3>N2 split</ATMLabel3>
-      <ATMLabel4>N2 run</ATMLabel4>
-      <ATMLabel5>E1 simple</ATMLabel5>
-      <ATMLabel6>E2 equal</ATMLabel6>
-      <ATMLabel7>E2 split</ATMLabel7>
-      <ATMLabel8>E2 run</ATMLabel8>
+      <ATMLabel1>1C MES</ATMLabel1>
+      <ATMLabel2>3C MES</ATMLabel2>
+      <ATMLabel3>4C MES</ATMLabel3>
+      <ATMLabel4 />
+      <ATMLabel5>1C ES S</ATMLabel5>
+      <ATMLabel6>1C ES M</ATMLabel6>
+      <ATMLabel7>1C ES L</ATMLabel7>
+      <ATMLabel8 />
       <ATMLabel9>Core 1</ATMLabel9>
       <ATMLabel010>Core 2</ATMLabel010>
       <ATMLabel011>Core 3</ATMLabel011>
@@ -2068,8 +2068,8 @@
       <FreePTTicks>60</FreePTTicks>
       <FreeSLEnabled>true</FreeSLEnabled>
       <FreePTEnabled>true</FreePTEnabled>
-      <LastQuantity>2</LastQuantity>
-      <LastAccount>Sim101</LastAccount>
+      <LastQuantity>1</LastQuantity>
+      <LastAccount>Playback101</LastAccount>
       <OrderPanelOn>true</OrderPanelOn>
       <ChartTraderWidth>250</ChartTraderWidth>
       <ColorBuyEMA2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF005000&lt;/SolidColorBrush&gt;</ColorBuyEMA2S>
@@ -2083,7 +2083,7 @@
       <ColorButtonMoveAllExitsS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF463214&lt;/SolidColorBrush&gt;</ColorButtonMoveAllExitsS>
       <ColorButtonOrderTypeS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF282828&lt;/SolidColorBrush&gt;</ColorButtonOrderTypeS>
       <ColorButtonOrderType4S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF463214&lt;/SolidColorBrush&gt;</ColorButtonOrderType4S>
-      <ActiveOutlineEnabled>true</ActiveOutlineEnabled>
+      <ActiveOutlineEnabled>false</ActiveOutlineEnabled>
       <OrderUpOutlineStroke>
         <IsOpacityVisible>true</IsOpacityVisible>
         <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</BrushSerialize>
@@ -2114,8 +2114,8 @@
       <SpaceBetweenGroups>20</SpaceBetweenGroups>
       <FinalATMMode>KeepSelectedAtmStrategyTemplateOnOrderSubmission</FinalATMMode>
       <ThisTIF1>Gtc</ThisTIF1>
-      <OrderModControl>Time In Force</OrderModControl>
-      <ContractTypeMode>Micro</ContractTypeMode>
+      <OrderModControl>Contract Type</OrderModControl>
+      <ContractTypeMode>Mini</ContractTypeMode>
       <ThisTIF2>Gtc</ThisTIF2>
       <AttachmentOrdersPermission>true</AttachmentOrdersPermission>
       <EssentialToolsPermission>true</EssentialToolsPermission>
