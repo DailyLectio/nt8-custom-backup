@@ -591,6 +591,8 @@
     <Compile Include="Strategies\MomentumHA_Scalp_1m.cs" />
     <Compile Include="Strategies\MomentumRange_RangeBar.cs" />
     <Compile Include="Strategies\VolStateFader.cs" />
+    <Compile Include="Strategies\KalmanPulseFader.cs" />
+    <Compile Include="Strategies\CompositeEdgeMomentum.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">

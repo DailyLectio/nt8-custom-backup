@@ -442,8 +442,8 @@ namespace NinjaTrader.NinjaScript.Strategies
             bool wasRed   = Close[1] < Open[1];
 
             // Structural edges
-            double supportEdge    = Lowest(Low,  SrLookbackBars)[0];
-            double resistanceEdge = Highest(High, SrLookbackBars)[0];
+            double supportEdge    = MIN(Low,  SrLookbackBars)[0];
+            double resistanceEdge = MAX(High, SrLookbackBars)[0];
 
             double proximity = EdgeProximityAtr * atrVal;
             double fallbackLimit = 3.0 * atrVal;
