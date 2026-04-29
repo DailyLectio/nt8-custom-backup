@@ -587,6 +587,9 @@
     <Compile Include="Strategies\MomentumV3DB.cs" />
     <Compile Include="Indicators\TradeLogExporterV3D.cs" />
     <Compile Include="Indicators\TradeLogExporter_V3D.cs" />
+    <Compile Include="Strategies\MomentumExpansion_5m.cs" />
+    <Compile Include="Strategies\MomentumHA_Scalp_1m.cs" />
+    <Compile Include="Strategies\MomentumRange_RangeBar.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">

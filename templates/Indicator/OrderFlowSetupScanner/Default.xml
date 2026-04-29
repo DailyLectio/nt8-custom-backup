@@ -9,7 +9,7 @@
       <BarsPeriodSerializable>
         <BarsPeriodTypeSerialize>14</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Range</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>8</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>12</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
@@ -24,8 +24,8 @@
       <From>2026-03-28T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
-      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-      <Name>Footprint Scanner</Name>
+      <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
+      <Name>Order Flow Setup Scanner (Footprint)</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -41,7 +41,7 @@
       <DrawVerticalGridLines>true</DrawVerticalGridLines>
       <DrawOnPricePanel>true</DrawOnPricePanel>
       <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-      <IndicatorId>551</IndicatorId>
+      <IndicatorId>1877</IndicatorId>
       <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
       <MaxSerialized>0</MaxSerialized>
       <MinSerialized>0</MinSerialized>
@@ -63,7 +63,7 @@
       <AlertRearmSeconds>30</AlertRearmSeconds>
       <MinBarsBetweenSameSignal>2</MinBarsBetweenSameSignal>
       <ShowDashboardTable>true</ShowDashboardTable>
-      <TableLocation>BottomRight</TableLocation>
+      <TableLocation>TopRight</TableLocation>
       <TableOpacity>80</TableOpacity>
       <AddHTF30mContext>false</AddHTF30mContext>
       <EnableSIB>true</EnableSIB>
@@ -82,7 +82,7 @@
       <SoundTF>Alert1.wav</SoundTF>
       <SoundPAR>004.wav</SoundPAR>
       <SoundDEB>004.wav</SoundDEB>
-      <EnableDT>true</EnableDT>
+      <EnableDT>false</EnableDT>
       <SoundDT>Alert1.wav</SoundDT>
     </OrderFlowSetupScanner>
   </OrderFlowSetupScanner>
