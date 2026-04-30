@@ -272,6 +272,10 @@ namespace NinjaTrader.NinjaScript.Indicators
                     if (sig.Name.Contains("DD"))  HUDMessenger.SharedSignalMap["Scanner_DD"]  = Time[0];
                     if (sig.Name.Contains("TF"))  HUDMessenger.SharedSignalMap["Scanner_TF"]  = Time[0];
                     if (sig.Name.Contains("DT"))  HUDMessenger.SharedSignalMap["Scanner_DT"]  = Time[0];
+					if (sig.Name.Contains("DEIA")) HUDMessenger.SharedSignalMap["Scanner_DEIA"] = Time[0];
+					if (sig.Name.Contains("EEMDF"))HUDMessenger.SharedSignalMap["Scanner_EEMDF"]= Time[0];
+					if (sig.Name.Contains("PAR"))  HUDMessenger.SharedSignalMap["Scanner_PAR"]  = Time[0];
+					if (sig.Name.Contains("DEB"))  HUDMessenger.SharedSignalMap["Scanner_DEB"]  = Time[0];
                 }
             }
             
