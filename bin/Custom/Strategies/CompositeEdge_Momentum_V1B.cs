@@ -121,6 +121,10 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "Tick Value ($)  NQ=5  ES=12.50  MNQ=0.50  MES=1.25", GroupName = "4. Risk", Order = 4)]
         public double TickValueDollars { get; set; } = 5.00;
 
+        [NinjaScriptProperty, Range(2, 100)]
+        [Display(Name = "Max Total Contracts", GroupName = "4. Risk", Order = 5)]
+        public int MaxTotalContracts { get; set; } = 2;
+
         // =====================================================================
         // PARAMETERS — GUARDS / TIME (unchanged)
         // =====================================================================
@@ -287,7 +291,9 @@ namespace NinjaTrader.NinjaScript.Strategies
             double a = atrInd[0];
             if (a <= 0) return 1;
             double r = (a * AtrStopMult) / TickSize * TickValueDollars;
-            return r <= 0 ? 1 : Math.Max(1, (int)(1500.0 / r));
+            if (r <= 0) return 1;
+            int riskBasedQty = Math.Max(1, (int)(1500.0 / r));
+            return Math.Min(MaxTotalContracts, riskBasedQty);
         }
 
         private int ScaleByConfidence(int maxQty, int sizePct)
