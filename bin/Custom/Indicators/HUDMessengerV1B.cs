@@ -8,11 +8,11 @@ namespace NinjaTrader.NinjaScript.Indicators
 {
     /// <summary>
     /// V1B-facing shared-memory bus.
-    /// Uses a distinct class name so it can coexist with the legacy HUDMessenger
-    /// class, while delegating to the same shared maps written by the existing
-    /// scanner and HUD components.
+    /// Uses a distinct class name so it can coexist with HUDMessenger while
+    /// delegating to the same shared maps written by the existing scanner and
+    /// HUD components.
     /// </summary>
-    public static class HUDMessengerV1B
+    public class HUDMessengerV1B : Indicator
     {
         public static Dictionary<string, DateTime> SharedSignalMap
         {
@@ -46,6 +46,21 @@ namespace NinjaTrader.NinjaScript.Indicators
         {
             get { return HUDMessenger.CurrentHMMRegime; }
             set { HUDMessenger.CurrentHMMRegime = value; }
+        }
+
+        protected override void OnStateChange()
+        {
+            if (State == State.SetDefaults)
+            {
+                Description = "V1B shared HUD message bus used by V1B regime test scripts.";
+                Name = "HUDMessengerV1B";
+                Calculate = Calculate.OnBarClose;
+                IsOverlay = true;
+                DisplayInDataBox = false;
+                DrawOnPricePanel = false;
+                PaintPriceMarkers = false;
+                IsSuspendedWhileInactive = true;
+            }
         }
 
         public static bool IsSignalFresh(string key, DateTime referenceTime, double maxMinutes)

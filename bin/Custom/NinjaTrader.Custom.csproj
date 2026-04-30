@@ -540,7 +540,6 @@
     <Compile Include="Indicators\%40%40TrendBalanceTag.cs" />
     <Compile Include="Indicators\VolumeBreakoutsRVolUD.cs" />
     <Compile Include="Indicators\TradeHUD.cs" />
-    <Compile Include="Indicators\HUDMessenger.cs" />
     <Compile Include="Strategies\%40%40TrinityHUDv18.cs" />
     <Compile Include="Strategies\%40%40TrinityHUDv18backup.cs" />
     <Compile Include="Strategies\TrinityTrader.cs" />
@@ -596,6 +595,7 @@
     <Compile Include="Strategies\KalmanPulse_Fader_V1B.cs" />
     <Compile Include="Strategies\CompositeEdge_Momentum_V1B.cs" />
     <Compile Include="Strategies\VolStateFaderV1B.cs" />
+    <Compile Include="Indicators\HUDMessenger.cs" />
     <Compile Include="Indicators\HUDMessengerV1B.cs" />
   </ItemGroup>
   <ItemGroup>
