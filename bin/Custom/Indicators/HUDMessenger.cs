@@ -17,7 +17,7 @@ namespace NinjaTrader.NinjaScript.Indicators
         public static string CurrentDailyBias { get; set; } = "D"; 
 
         // =========================================================================
-        // V3 GATEKEEPER & DIRECTIONAL ALIGNMENT VARIABLES
+        // V3 GATEKEEPER & DIRECTIONAL ALIGNMENT VARIABLES S
         // =========================================================================
         public static string CurrentPlaybook { get; set; } = "UNKNOWN";
         public static string CurrentMacroRegime { get; set; } = "UNKNOWN";
@@ -34,3 +34,4 @@ namespace NinjaTrader.NinjaScript.Indicators
         }
     }
 }
+

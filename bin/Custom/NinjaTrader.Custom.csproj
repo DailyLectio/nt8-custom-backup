@@ -596,6 +596,7 @@
     <Compile Include="Strategies\KalmanPulse_Fader_V1B.cs" />
     <Compile Include="Strategies\CompositeEdge_Momentum_V1B.cs" />
     <Compile Include="Strategies\VolStateFaderV1B.cs" />
+    <Compile Include="Indicators\HUDMessengerV1B.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
