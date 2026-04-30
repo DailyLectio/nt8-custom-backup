@@ -22,5 +22,15 @@ namespace NinjaTrader.NinjaScript.Indicators
         public static string CurrentPlaybook { get; set; } = "UNKNOWN";
         public static string CurrentMacroRegime { get; set; } = "UNKNOWN";
         public static string CurrentHMMRegime { get; set; } = "UNKNOWN";
+
+        public static bool IsSignalFresh(string key, DateTime referenceTime, double maxMinutes)
+        {
+            DateTime signalTime;
+            if (!SharedSignalMap.TryGetValue(key, out signalTime)) return false;
+            if (signalTime == DateTime.MinValue) return false;
+
+            double ageMinutes = (referenceTime - signalTime).TotalMinutes;
+            return ageMinutes >= 0 && ageMinutes <= maxMinutes;
+        }
     }
 }
