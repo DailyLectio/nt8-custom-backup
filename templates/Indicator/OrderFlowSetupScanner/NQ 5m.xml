@@ -25,7 +25,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-      <Name>Footprint Scanner</Name>
+      <Name>OrderFlowSetupScanner Footprint 5m</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -41,7 +41,7 @@
       <DrawVerticalGridLines>true</DrawVerticalGridLines>
       <DrawOnPricePanel>true</DrawOnPricePanel>
       <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-      <IndicatorId>358</IndicatorId>
+      <IndicatorId>6611</IndicatorId>
       <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
       <MaxSerialized>0</MaxSerialized>
       <MinSerialized>0</MinSerialized>
