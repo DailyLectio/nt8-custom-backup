@@ -5,9 +5,9 @@
 //   1. A/B Mode switch (RequireFootprintConfirmation)
 //      false = V1A: bar-reversal entry only (original behavior)
 //      true  = V1B: entry also requires a fresh ABS, DD, or TF signal
-//              from OrderFlowSetupScanner via HUDMessenger.
+//              from OrderFlowSetupScanner via HUDMessengerV1B.
 //   2. Daily Bias Filter (EnableDailyBiasFilter)
-//      Reads HUDMessenger.CurrentDailyBias set by TradeHUD button:
+//      Reads HUDMessengerV1B.CurrentDailyBias set by TradeHUD button:
 //        D = both sides (rotation)
 //        P = long fades only (bull trend exhaustion)
 //        b = short fades only (bear trend exhaustion)
@@ -319,11 +319,11 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             DateTime now = Time[0];
 
-            if (UseAbsEntry && HUDMessenger.IsSignalFresh("Scanner_ABS", now, FootprintValidMinutes))
+            if (UseAbsEntry && HUDMessengerV1B.IsSignalFresh("Scanner_ABS", now, FootprintValidMinutes))
                 return true;
-            if (UseDdEntry  && HUDMessenger.IsSignalFresh("Scanner_DD",  now, FootprintValidMinutes))
+            if (UseDdEntry  && HUDMessengerV1B.IsSignalFresh("Scanner_DD",  now, FootprintValidMinutes))
                 return true;
-            if (UseTfEntry  && HUDMessenger.IsSignalFresh("Scanner_TF",  now, FootprintValidMinutes))
+            if (UseTfEntry  && HUDMessengerV1B.IsSignalFresh("Scanner_TF",  now, FootprintValidMinutes))
                 return true;
 
             return false;
@@ -338,9 +338,9 @@ namespace NinjaTrader.NinjaScript.Strategies
             // 0 minutes = only fire on the exact same bar-close (age <= 0.5 min buffer)
             double effectiveWindow = window < 0.5 ? 0.5 : window;
 
-            return HUDMessenger.IsSignalFresh("Scanner_DEIA",  now, effectiveWindow)
-                || HUDMessenger.IsSignalFresh("Scanner_EEMDF", now, effectiveWindow)
-                || HUDMessenger.IsSignalFresh("Scanner_DT",    now, effectiveWindow);
+            return HUDMessengerV1B.IsSignalFresh("Scanner_DEIA",  now, effectiveWindow)
+                || HUDMessengerV1B.IsSignalFresh("Scanner_EEMDF", now, effectiveWindow)
+                || HUDMessengerV1B.IsSignalFresh("Scanner_DT",    now, effectiveWindow);
         }
 
         // ── V1B: Daily bias filter ────────────────────────────────────────────
@@ -348,7 +348,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private bool IsBiasCompatible(bool isLong)
         {
             if (!EnableDailyBiasFilter) return true;
-            string bias = HUDMessenger.CurrentDailyBias;
+            string bias = HUDMessengerV1B.CurrentDailyBias;
 
             if (string.IsNullOrEmpty(bias)) return true;
 
@@ -524,7 +524,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 Print(string.Format("[VSF_V1B] LONG | Regime:{0} | Bias:{1} | FP:{2} | " +
                     "Qty:{3}+{4} | Stop:{5:F2} | T1:{6:F2} | T2:{7:F2}",
                     currentRegime == REGIME_COMPRESSION ? "COMP" : "EXHST",
-                    HUDMessenger.CurrentDailyBias,
+                    HUDMessengerV1B.CurrentDailyBias,
                     RequireFootprintConfirmation ? "ON" : "OFF",
                     leg1Qty, leg2Qty, stopPrice, leg1Target, leg2Target));
             }
@@ -556,7 +556,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 Print(string.Format("[VSF_V1B] SHORT | Regime:{0} | Bias:{1} | FP:{2} | " +
                     "Qty:{3}+{4} | Stop:{5:F2} | T1:{6:F2} | T2:{7:F2}",
                     currentRegime == REGIME_COMPRESSION ? "COMP" : "EXHST",
-                    HUDMessenger.CurrentDailyBias,
+                    HUDMessengerV1B.CurrentDailyBias,
                     RequireFootprintConfirmation ? "ON" : "OFF",
                     leg1Qty, leg2Qty, stopPrice, leg1Target, leg2Target));
             }

@@ -251,9 +251,9 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (!RequireFootprintConfirmation) return true;
             DateTime now = Time[0];
-            if (UseAbsEntry && HUDMessenger.IsSignalFresh("Scanner_ABS", now, FootprintValidMinutes)) return true;
-            if (UseDdEntry  && HUDMessenger.IsSignalFresh("Scanner_DD",  now, FootprintValidMinutes)) return true;
-            if (UseTfEntry  && HUDMessenger.IsSignalFresh("Scanner_TF",  now, FootprintValidMinutes)) return true;
+            if (UseAbsEntry && HUDMessengerV1B.IsSignalFresh("Scanner_ABS", now, FootprintValidMinutes)) return true;
+            if (UseDdEntry  && HUDMessengerV1B.IsSignalFresh("Scanner_DD",  now, FootprintValidMinutes)) return true;
+            if (UseTfEntry  && HUDMessengerV1B.IsSignalFresh("Scanner_TF",  now, FootprintValidMinutes)) return true;
             return false;
         }
 
@@ -262,15 +262,15 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (!EnableKillSwitch) return false;
             DateTime now = Time[0];
             double w = Math.Max(0.5, KillSwitchMaxMinutes);
-            return HUDMessenger.IsSignalFresh("Scanner_DEIA",  now, w)
-                || HUDMessenger.IsSignalFresh("Scanner_EEMDF", now, w)
-                || HUDMessenger.IsSignalFresh("Scanner_DT",    now, w);
+            return HUDMessengerV1B.IsSignalFresh("Scanner_DEIA",  now, w)
+                || HUDMessengerV1B.IsSignalFresh("Scanner_EEMDF", now, w)
+                || HUDMessengerV1B.IsSignalFresh("Scanner_DT",    now, w);
         }
 
         private bool IsBiasCompatible(bool isLong)
         {
             if (!EnableDailyBiasFilter) return true;
-            string bias = HUDMessenger.CurrentDailyBias;
+            string bias = HUDMessengerV1B.CurrentDailyBias;
             if (string.IsNullOrEmpty(bias)) return true;
             switch (bias)
             {
@@ -450,7 +450,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 Print(string.Format("[KPF_V1B] LONG | Baseline:{0:F2} | Bias:{1} | FP:{2} | " +
                     "Qty:{3}+{4} | Stop:{5:F2} | T1:{6:F2} | T2:{7:F2}",
-                    baseline, HUDMessenger.CurrentDailyBias,
+                    baseline, HUDMessengerV1B.CurrentDailyBias,
                     RequireFootprintConfirmation ? "ON" : "OFF",
                     l1q, l2q, stopPrice, leg1Target, leg2Target));
             }
@@ -485,7 +485,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                     Print(string.Format("[KPF_V1B] SHORT | Baseline:{0:F2} | Bias:{1} | FP:{2} | " +
                         "Qty:{3}+{4} | Stop:{5:F2} | T1:{6:F2} | T2:{7:F2}",
-                        baseline, HUDMessenger.CurrentDailyBias,
+                        baseline, HUDMessengerV1B.CurrentDailyBias,
                         RequireFootprintConfirmation ? "ON" : "OFF",
                         l1q, l2q, stopPrice, leg1Target, leg2Target));
                 }

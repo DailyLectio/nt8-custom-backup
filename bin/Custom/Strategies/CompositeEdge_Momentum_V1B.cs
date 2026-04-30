@@ -304,9 +304,9 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (!RequireFootprintConfirmation) return true;
             DateTime now = Time[0];
-            if (UseSibEntry && HUDMessenger.IsSignalFresh("Scanner_SIB", now, FootprintValidMinutes)) return true;
-            if (UseDebEntry && HUDMessenger.IsSignalFresh("Scanner_DEB", now, FootprintValidMinutes)) return true;
-            if (UseParEntry && HUDMessenger.IsSignalFresh("Scanner_PAR", now, FootprintValidMinutes)) return true;
+            if (UseSibEntry && HUDMessengerV1B.IsSignalFresh("Scanner_SIB", now, FootprintValidMinutes)) return true;
+            if (UseDebEntry && HUDMessengerV1B.IsSignalFresh("Scanner_DEB", now, FootprintValidMinutes)) return true;
+            if (UseParEntry && HUDMessengerV1B.IsSignalFresh("Scanner_PAR", now, FootprintValidMinutes)) return true;
             return false;
         }
 
@@ -316,16 +316,16 @@ namespace NinjaTrader.NinjaScript.Strategies
             DateTime now = Time[0];
             double w = Math.Max(0.5, KillSwitchMaxMinutes);
             // DT is the first-warning kill signal for momentum — check it alongside DEIA/EEMDF
-            return HUDMessenger.IsSignalFresh("Scanner_DEIA",  now, w)
-                || HUDMessenger.IsSignalFresh("Scanner_EEMDF", now, w)
-                || HUDMessenger.IsSignalFresh("Scanner_DT",    now, w);
+            return HUDMessengerV1B.IsSignalFresh("Scanner_DEIA",  now, w)
+                || HUDMessengerV1B.IsSignalFresh("Scanner_EEMDF", now, w)
+                || HUDMessengerV1B.IsSignalFresh("Scanner_DT",    now, w);
         }
 
         // Momentum-specific bias: D=blocked, B=full, P=long, b=short
         private bool IsBiasCompatible(bool isLong)
         {
             if (!EnableDailyBiasFilter) return true;
-            string bias = HUDMessenger.CurrentDailyBias;
+            string bias = HUDMessengerV1B.CurrentDailyBias;
             if (string.IsNullOrEmpty(bias)) return true;
             switch (bias)
             {
@@ -651,7 +651,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     "MACD_H:{3:F4} | HMM%:{4} | Bias:{5} | FP:{6} | Qty:{7}+{8} | " +
                     "Stop:{9:F2} | T1:{10:F2} | T2:{11:F2}",
                     adxValue, stDirection, rsiValue, macdHist, hmmSizePct,
-                    HUDMessenger.CurrentDailyBias, RequireFootprintConfirmation ? "ON" : "OFF",
+                    HUDMessengerV1B.CurrentDailyBias, RequireFootprintConfirmation ? "ON" : "OFF",
                     l1q, l2q, stopPrice, leg1Target, leg2Target));
                 return;
             }
@@ -690,7 +690,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     "MACD_H:{3:F4} | HMM%:{4} | Bias:{5} | FP:{6} | Qty:{7}+{8} | " +
                     "Stop:{9:F2} | T1:{10:F2} | T2:{11:F2}",
                     adxValue, stDirection, rsiValue, macdHist, hmmSizePct,
-                    HUDMessenger.CurrentDailyBias, RequireFootprintConfirmation ? "ON" : "OFF",
+                    HUDMessengerV1B.CurrentDailyBias, RequireFootprintConfirmation ? "ON" : "OFF",
                     l1q, l2q, stopPrice, leg1Target, leg2Target));
             }
         }

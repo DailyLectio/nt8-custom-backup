@@ -3596,6 +3596,14 @@
             </summary>
         </member>
         <!-- Badly formed XML comment ignored for member "T:NinjaTrader.NinjaScript.Indicators.HUD_ADX_CI_Panel" -->
+        <member name="T:NinjaTrader.NinjaScript.Indicators.HUDMessengerV1B">
+            <summary>
+            V1B-facing shared-memory bus.
+            Uses a distinct class name so it can coexist with the legacy HUDMessenger
+            class, while delegating to the same shared maps written by the existing
+            scanner and HUD components.
+            </summary>
+        </member>
         <member name="T:NinjaTrader.NinjaScript.Indicators.OpenRangeIndicator">
             <summary>
             </summary>
