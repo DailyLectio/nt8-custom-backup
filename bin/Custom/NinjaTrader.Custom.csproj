@@ -597,6 +597,7 @@
     <Compile Include="Strategies\VolStateFaderV1B.cs" />
     <Compile Include="Indicators\HUDMessenger.cs" />
     <Compile Include="Indicators\HUDMessengerV1B.cs" />
+    <Compile Include="Indicators\TradeLogExporterV1AB.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
