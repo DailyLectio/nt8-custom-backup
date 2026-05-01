@@ -6,14 +6,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100108</ZOrder>
+      <ZOrder>100036</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>- CL Oil Liquity Trading</GlobalWorkspace>
       <Id>4f4bd23ad943463e8be0eb4f6397106b</Id>
       <IsLocked>true</IsLocked>
@@ -65,14 +65,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100109</ZOrder>
+      <ZOrder>100037</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>NEW</GlobalWorkspace>
       <Id>8ba7d3c981954e0db1e59ea0ca749e5c</Id>
       <IsLocked>true</IsLocked>
@@ -124,14 +124,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100110</ZOrder>
+      <ZOrder>100038</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>NEW NQ</GlobalWorkspace>
       <Id>39d6660f0a254549ba6f798869ef726c</Id>
       <IsLocked>true</IsLocked>
@@ -183,14 +183,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100111</ZOrder>
+      <ZOrder>100039</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>New 5-UNI-1m</GlobalWorkspace>
       <Id>e207a1ba0f4048a5b9fc60df203f95f7</Id>
       <IsLocked>true</IsLocked>
@@ -242,14 +242,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100112</ZOrder>
+      <ZOrder>100040</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>Uni 15 - 1m 5m - VOL STARTER</GlobalWorkspace>
       <Id>2e4df7a13cdf437184349323fb0715ec</Id>
       <IsLocked>true</IsLocked>
@@ -301,14 +301,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100113</ZOrder>
+      <ZOrder>100041</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>NEW MNQ Momentum Charts MICROS NQ</GlobalWorkspace>
       <Id>110c2190e22c4819bf93592b54988c9f</Id>
       <IsLocked>true</IsLocked>
@@ -360,14 +360,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100114</ZOrder>
+      <ZOrder>100042</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>Uni Chart only TEST</GlobalWorkspace>
       <Id>e994343a2bbb42799b9041397586329b</Id>
       <IsLocked>true</IsLocked>
@@ -419,14 +419,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100115</ZOrder>
+      <ZOrder>100043</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>MNQ simple light</GlobalWorkspace>
       <Id>e52a9caedb00438cac8bb38650cf9a63</Id>
       <IsLocked>true</IsLocked>
@@ -478,14 +478,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100116</ZOrder>
+      <ZOrder>100044</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>AAA Core</GlobalWorkspace>
       <Id>58e24c35f7764cc7a5ddd88f24a679e0</Id>
       <IsLocked>false</IsLocked>
@@ -527,14 +527,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100117</ZOrder>
+      <ZOrder>100045</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>Core Playbook Trading Charts</GlobalWorkspace>
       <Id>0138d4e46bf0499897940737315ddbe7</Id>
       <IsLocked>true</IsLocked>
@@ -586,14 +586,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100118</ZOrder>
+      <ZOrder>100046</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>Core Playbook Trading Charts</GlobalWorkspace>
       <Id>2e88c241a9d74f6198cb6d1898356968</Id>
       <IsLocked>true</IsLocked>
@@ -643,14 +643,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100119</ZOrder>
+      <ZOrder>100047</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>Core Playbook Trading Charts</GlobalWorkspace>
       <Id>9952042850c64c5da7dbfd85fd2bf6b9</Id>
       <IsLocked>true</IsLocked>
@@ -692,14 +692,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100120</ZOrder>
+      <ZOrder>100048</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>- Deja Trade CLEAN</GlobalWorkspace>
       <Id>f58fcf32aa814c488639bd1cb043b6cf</Id>
       <IsLocked>true</IsLocked>
@@ -745,14 +745,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100121</ZOrder>
+      <ZOrder>100049</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>- Deja Trade CLEAN</GlobalWorkspace>
       <Id>c893702c91a746c3a4457eeb25303bce</Id>
       <IsLocked>true</IsLocked>
@@ -804,14 +804,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100122</ZOrder>
+      <ZOrder>100050</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>ChatGPT Setups</GlobalWorkspace>
       <Id>45576c7b71ee4fd9a2dd90d0112cef65</Id>
       <IsLocked>true</IsLocked>
@@ -857,14 +857,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100123</ZOrder>
+      <ZOrder>100051</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>ChatGPT Setups</GlobalWorkspace>
       <Id>6c9b977938324ea4992bb9e0642ad6ba</Id>
       <IsLocked>true</IsLocked>
@@ -916,14 +916,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>100043</ZOrder>
+      <ZOrder>100052</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639132387322351595</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
       <GlobalWorkspace>Trade Screen</GlobalWorkspace>
       <Id>79aaf727f2554b01b1a8bfc414a84237</Id>
       <IsLocked>true</IsLocked>
@@ -940,7 +940,7 @@
         <IsYPropertyVisible>true</IsYPropertyVisible>
       </EndAnchor>
       <StartAnchor>
-        <SlotIndex>11268</SlotIndex>
+        <SlotIndex>11042.196614583334</SlotIndex>
         <DisplayName>Anchor</DisplayName>
         <IsBrowsable>true</IsBrowsable>
         <Time>2026-04-28T10:36:01.155</Time>
@@ -960,5 +960,238 @@
       <IsGlobalDrawingObjectDefault>true</IsGlobalDrawingObjectDefault>
       <IsOwnerVisible>true</IsOwnerVisible>
     </HorizontalLine>
+    <FibonacciRetracements xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <IsAutoScale>false</IsAutoScale>
+      <MaxValue>-1.7976931348623157E+308</MaxValue>
+      <MinValue>1.7976931348623157E+308</MinValue>
+      <ZOrder>100062</ZOrder>
+      <AttachedTo>
+        <ChartObjectSerialize>ChartBars</ChartObjectSerialize>
+        <InstrumentSerialize>ES JUN26</InstrumentSerialize>
+      </AttachedTo>
+      <ScaleJustification>Right</ScaleJustification>
+      <DrawingState>Normal</DrawingState>
+      <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
+      <GlobalWorkspace>Trade Screen</GlobalWorkspace>
+      <Id>ad34faf0788a4cc990bd775c69b35a0f</Id>
+      <IsLocked>true</IsLocked>
+      <PanelIndex>0</PanelIndex>
+      <Tag>@Fibonacci retracements 3</Tag>
+      <ZOrderType>Normal</ZOrderType>
+      <PriceLevels>
+        <PriceLevel>
+          <IsVisible>true</IsVisible>
+          <Stroke>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFA9A9A9&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>1</Width>
+          </Stroke>
+          <Value>0</Value>
+          <Name>0.00%</Name>
+        </PriceLevel>
+        <PriceLevel>
+          <IsVisible>true</IsVisible>
+          <Stroke>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFC0C0C0&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>1</Width>
+          </Stroke>
+          <Value>23.6</Value>
+          <Name>23.60%</Name>
+        </PriceLevel>
+        <PriceLevel>
+          <IsVisible>true</IsVisible>
+          <Stroke>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF6495ED&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>2</Width>
+          </Stroke>
+          <Value>38.2</Value>
+          <Name>38.20%</Name>
+        </PriceLevel>
+        <PriceLevel>
+          <IsVisible>true</IsVisible>
+          <Stroke>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF1E90FF&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>2</Width>
+          </Stroke>
+          <Value>50</Value>
+          <Name>50.00%</Name>
+        </PriceLevel>
+        <PriceLevel>
+          <IsVisible>true</IsVisible>
+          <Stroke>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF1E90FF&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>2</Width>
+          </Stroke>
+          <Value>61.8</Value>
+          <Name>61.80%</Name>
+        </PriceLevel>
+        <PriceLevel>
+          <IsVisible>true</IsVisible>
+          <Stroke>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFC0C0C0&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>1</Width>
+          </Stroke>
+          <Value>76.4</Value>
+          <Name>76.40%</Name>
+        </PriceLevel>
+        <PriceLevel>
+          <IsVisible>true</IsVisible>
+          <Stroke>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFA9A9A9&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>1</Width>
+          </Stroke>
+          <Value>100</Value>
+          <Name>100.00%</Name>
+        </PriceLevel>
+        <PriceLevel>
+          <IsVisible>true</IsVisible>
+          <Stroke>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFA9A9A9&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>1</Width>
+          </Stroke>
+          <Value>127.2</Value>
+          <Name>127.20%</Name>
+        </PriceLevel>
+        <PriceLevel>
+          <IsVisible>true</IsVisible>
+          <Stroke>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFA9A9A9&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>1</Width>
+          </Stroke>
+          <Value>141.4</Value>
+          <Name>141.40%</Name>
+        </PriceLevel>
+        <PriceLevel>
+          <IsVisible>true</IsVisible>
+          <Stroke>
+            <IsOpacityVisible>true</IsOpacityVisible>
+            <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFA9A9A9&lt;/SolidColorBrush&gt;</BrushSerialize>
+            <DashStyleHelper>Solid</DashStyleHelper>
+            <Opacity>100</Opacity>
+            <Width>1</Width>
+          </Stroke>
+          <Value>161.8</Value>
+          <Name>161.80%</Name>
+        </PriceLevel>
+      </PriceLevels>
+      <AnchorLineStroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush Color="#00FFFFFF" Opacity="0.5" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
+        <DashStyleHelper>Solid</DashStyleHelper>
+        <Opacity>50</Opacity>
+        <Width>1</Width>
+      </AnchorLineStroke>
+      <StartAnchor>
+        <SlotIndex>12776</SlotIndex>
+        <DisplayName>Start</DisplayName>
+        <IsBrowsable>true</IsBrowsable>
+        <Time>2026-05-01T09:55:20.001</Time>
+        <Price>7300.8258126634682</Price>
+        <IsXPropertiesVisible>true</IsXPropertiesVisible>
+        <IsYPropertyVisible>true</IsYPropertyVisible>
+      </StartAnchor>
+      <EndAnchor>
+        <SlotIndex>12976.836358974359</SlotIndex>
+        <DisplayName>End</DisplayName>
+        <IsBrowsable>true</IsBrowsable>
+        <Time>2026-05-01T16:12:39.692</Time>
+        <Price>7259.0621129910287</Price>
+        <IsXPropertiesVisible>true</IsXPropertiesVisible>
+        <IsYPropertyVisible>true</IsYPropertyVisible>
+      </EndAnchor>
+      <PriceLevelOpacity>0</PriceLevelOpacity>
+      <IsExtendedLinesRight>true</IsExtendedLinesRight>
+      <IsExtendedLinesLeft>true</IsExtendedLinesLeft>
+      <TextLocation>ExtremeRight</TextLocation>
+      <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.FibonacciRetracements</FullTypeName>
+      <IsGlobalDrawingObjectDefault>true</IsGlobalDrawingObjectDefault>
+      <IsOwnerVisible>true</IsOwnerVisible>
+    </FibonacciRetracements>
+    <RegionHighlightY xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <IsVisible>true</IsVisible>
+      <IsAutoScale>false</IsAutoScale>
+      <MaxValue>-1.7976931348623157E+308</MaxValue>
+      <MinValue>1.7976931348623157E+308</MinValue>
+      <ZOrder>-1</ZOrder>
+      <AttachedTo>
+        <ChartObjectSerialize>ChartBars</ChartObjectSerialize>
+        <InstrumentSerialize>ES JUN26</InstrumentSerialize>
+      </AttachedTo>
+      <ScaleJustification>Right</ScaleJustification>
+      <DrawingState>Normal</DrawingState>
+      <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
+      <GlobalLastSeenSerialize>639132701531448436</GlobalLastSeenSerialize>
+      <GlobalWorkspace>Trade Screen</GlobalWorkspace>
+      <Id>78ad0748a2fd41af8892c1a733611430</Id>
+      <IsLocked>true</IsLocked>
+      <PanelIndex>0</PanelIndex>
+      <Tag>@Region highlight y 369</Tag>
+      <ZOrderType>Normal</ZOrderType>
+      <AnchorLineStroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush Color="#FF808080" Opacity="0.5" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
+        <DashStyleHelper>Dash</DashStyleHelper>
+        <Opacity>50</Opacity>
+        <Width>1</Width>
+      </AnchorLineStroke>
+      <AreaBrushSerialize>&lt;SolidColorBrush Color="#FFFFD700" Opacity="0.3" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</AreaBrushSerialize>
+      <AreaOpacity>30</AreaOpacity>
+      <EndAnchor>
+        <SlotIndex>5259.4786568220161</SlotIndex>
+        <DisplayName>End</DisplayName>
+        <IsBrowsable>true</IsBrowsable>
+        <Time>2026-05-01T16:57:27.387</Time>
+        <Price>7271.7082315572979</Price>
+        <IsXPropertiesVisible>false</IsXPropertiesVisible>
+        <IsYPropertyVisible>true</IsYPropertyVisible>
+      </EndAnchor>
+      <OutlineStroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush Color="#FFF0FFFF" Opacity="0.60000002384185791" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" /&gt;</BrushSerialize>
+        <DashStyleHelper>Solid</DashStyleHelper>
+        <Opacity>60</Opacity>
+        <Width>1</Width>
+      </OutlineStroke>
+      <StartAnchor>
+        <SlotIndex>5259.4786568220161</SlotIndex>
+        <DisplayName>Start</DisplayName>
+        <IsBrowsable>true</IsBrowsable>
+        <Time>2026-05-01T16:57:27.387</Time>
+        <Price>7275.0357072425322</Price>
+        <IsXPropertiesVisible>false</IsXPropertiesVisible>
+        <IsYPropertyVisible>true</IsYPropertyVisible>
+      </StartAnchor>
+      <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.RegionHighlightY</FullTypeName>
+      <IsGlobalDrawingObjectDefault>true</IsGlobalDrawingObjectDefault>
+      <IsOwnerVisible>true</IsOwnerVisible>
+    </RegionHighlightY>
   </GlobalDrawingTools>
 </NinjaTrader>
