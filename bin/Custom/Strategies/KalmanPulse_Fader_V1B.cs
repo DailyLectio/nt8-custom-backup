@@ -164,9 +164,12 @@ namespace NinjaTrader.NinjaScript.Strategies
         private string activeLeg2     = "";
 
         private int    lastEntryBar   = -1;
+        private int    lastExitBar    = -1;
         private double prevTickPrice  = 0;
         private double lastLeg1Target = 0;
         private double lastLeg2Target = 0;
+
+        private const int ExitCooldownBars = 3;
 
         // =====================================================================
         // ORDER LABELS
@@ -309,6 +312,15 @@ namespace NinjaTrader.NinjaScript.Strategies
             Execution execution, string executionId, double price, int quantity,
             MarketPosition marketPosition, string orderId, DateTime time)
         {
+            if (execution != null
+                && execution.Order != null
+                && execution.Order.OrderState == OrderState.Filled
+                && execution.Order.Name != null
+                && execution.Order.Name.IndexOf("Stop", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                lastExitBar = CurrentBar;
+            }
+
             int tc = SystemPerformance.AllTrades.Count;
             if (tc > lastTradeCount)
             {
@@ -331,7 +343,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 consecutiveLosers  = 0;
                 leg1Hit = false; leg1JustHit = false;
                 currentLeg2Qty = 1; activeLeg2 = "";
-                lastEntryBar = -1; prevTickPrice = 0;
+                lastEntryBar = -1; lastExitBar = -1; prevTickPrice = 0;
                 lastLeg1Target = 0; lastLeg2Target = 0;
                 kalmanState = double.NaN; prevKalmanState = double.NaN;
                 kalmanVar = 1.0; runningAtr = 0; atrInitCount = 0;
@@ -350,12 +362,14 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (Position.MarketPosition == MarketPosition.Long && curPrice < lowerEnvelope)
             {
                 ExitLong("EnvelopeBreakExit", "");
+                lastExitBar = CurrentBar;
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 prevTickPrice = curPrice; return;
             }
             if (Position.MarketPosition == MarketPosition.Short && curPrice > upperEnvelope)
             {
                 ExitShort("EnvelopeBreakExit", "");
+                lastExitBar = CurrentBar;
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 prevTickPrice = curPrice; return;
             }
@@ -365,6 +379,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             {
                 if (Position.MarketPosition == MarketPosition.Long) ExitLong("KillSwitch", KPL2);
                 else ExitShort("KillSwitch", KPS2);
+                lastExitBar = CurrentBar;
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 Print(string.Format("[KPF_V1B] KILL SWITCH at {0:F2}", curPrice));
                 prevTickPrice = curPrice; return;
@@ -411,6 +426,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             leg1Hit = false; leg1JustHit = false; currentLeg2Qty = 1; activeLeg2 = "";
 
             if (CurrentBar == lastEntryBar) { prevTickPrice = curPrice; return; }
+            if (CurrentBar - lastExitBar < ExitCooldownBars) { prevTickPrice = curPrice; return; }
             if (consecutiveLosers >= MaxConsecutiveLosses) { prevTickPrice = curPrice; return; }
             if (!IsInTime()) { prevTickPrice = curPrice; return; }
 
@@ -436,6 +452,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 double leg1Target = RT(baseline);
                 double leg2Target = RT(innerUpper);
 
+                if (curPrice <= stopPrice) { prevTickPrice = curPrice; return; }
                 if ((leg1Target - curPrice) / TickSize < 4) { prevTickPrice = curPrice; return; }
 
                 int maxC = CalcMaxContracts(atrVal);
@@ -471,6 +488,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     double leg1Target = RT(baseline);
                     double leg2Target = RT(innerLower);
 
+                    if (curPrice >= stopPrice) { prevTickPrice = curPrice; return; }
                     if ((curPrice - leg1Target) / TickSize < 4) { prevTickPrice = curPrice; return; }
 
                     int maxC = CalcMaxContracts(atrVal);
