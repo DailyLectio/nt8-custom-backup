@@ -599,6 +599,7 @@
     <Compile Include="Indicators\TradeLogExporterV1AB.cs" />
     <Compile Include="Indicators\%40%40RegimeMatrixHUDV3D_backup050126.cs" />
     <Compile Include="Indicators\RegimeMatrixHUDV3D.cs" />
+    <Compile Include="Indicators\ValueAreaBackfillReporter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
