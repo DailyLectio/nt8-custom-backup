@@ -54,6 +54,7 @@
 
 #region Using declarations
 using System;
+using System.Globalization;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -239,6 +240,257 @@ namespace NinjaTrader.NinjaScript.Strategies
         }
 
         // =====================================================================
+        // STAGE 1 RAW TRADE LOG
+        // =====================================================================
+        private const string Stage1ModelVersion = "V3D";
+        private const string Stage1BotName = "V3D_Sniper_A";
+        private const string Stage1DefaultAbMode = "A";
+        private const string Stage1TradeLogHeader =
+            "trade_date,entry_time,exit_time,model_version,account," +
+            "strategy_name,bot_name,ab_mode,symbol,instrument,direction," +
+            "contracts,entry_price,exit_price,gross_pnl,net_pnl,ticks," +
+            "win_loss,exit_reason,initial_stop_price,initial_stop_distance," +
+            "export_timestamp";
+
+        private string tradeLogPath = "";
+        private double entryPriceForLog = 0.0;
+        private double initialStopPriceForLog = 0.0;
+        private double initialStopTicksForLog = 0.0;
+        private DateTime entryTimeForLog = DateTime.MinValue;
+        private string directionForLog = "";
+        private bool stage1TradeOpen = false;
+        private int stage1StartTradeCount = 0;
+        private int stage1EntryContracts = 0;
+        private string stage1ExitReason = "UNKNOWN";
+
+        private void ConfigureStage1TradeLog()
+        {
+            string dir = Path.Combine(@"C:\Users\Valued Customer\NT8_Regimes", Stage1ModelVersion, "TradeLog");
+            tradeLogPath = Path.Combine(dir, Stage1BotName + "_TradeLog.csv");
+            EnsureStage1TradeLogHeader();
+        }
+
+        private void CaptureInitialStopForLog(double stopPrice, string direction)
+        {
+            initialStopPriceForLog = stopPrice;
+            initialStopTicksForLog = 0.0;
+            directionForLog = direction;
+        }
+
+        private void CaptureInitialStopTicksForLog(double stopTicks, string direction)
+        {
+            initialStopTicksForLog = stopTicks;
+            initialStopPriceForLog = 0.0;
+            directionForLog = direction;
+        }
+
+        private void HandleStage1TradeLogExecution(
+            Execution execution, double price, int quantity,
+            MarketPosition marketPosition, DateTime time)
+        {
+            if (execution == null || execution.Order == null || quantity <= 0)
+                return;
+
+            OrderAction action = execution.Order.OrderAction;
+            bool isEntry = action == OrderAction.Buy || action == OrderAction.SellShort;
+            bool isExit = action == OrderAction.Sell || action == OrderAction.BuyToCover;
+
+            if (isEntry)
+            {
+                string fillDirection = action == OrderAction.SellShort ? "SHORT" : "LONG";
+                if (!stage1TradeOpen || directionForLog != fillDirection)
+                {
+                    stage1TradeOpen = true;
+                    stage1StartTradeCount = SystemPerformance.AllTrades.Count;
+                    entryTimeForLog = time;
+                    entryPriceForLog = price;
+                    directionForLog = fillDirection;
+                    stage1EntryContracts = quantity;
+                    stage1ExitReason = "UNKNOWN";
+                }
+                else
+                {
+                    double totalNotional = entryPriceForLog * stage1EntryContracts + price * quantity;
+                    stage1EntryContracts += quantity;
+                    entryPriceForLog = totalNotional / Math.Max(1, stage1EntryContracts);
+                }
+
+                if (initialStopPriceForLog <= 0.0 && initialStopTicksForLog > 0.0)
+                {
+                    initialStopPriceForLog = fillDirection == "LONG"
+                        ? price - initialStopTicksForLog * TickSize
+                        : price + initialStopTicksForLog * TickSize;
+                    initialStopPriceForLog = Instrument.MasterInstrument.RoundToTickSize(initialStopPriceForLog);
+                }
+                return;
+            }
+
+            if (isExit)
+            {
+                stage1ExitReason = InferStage1ExitReason(execution.Order.Name);
+                if (stage1TradeOpen &&
+                    (marketPosition == MarketPosition.Flat || Position.MarketPosition == MarketPosition.Flat))
+                {
+                    WriteStage1TradeLog(price, time, execution);
+                    ResetStage1TradeLogState();
+                }
+            }
+        }
+
+        private void WriteStage1TradeLog(double exitPrice, DateTime exitTime, Execution execution)
+        {
+            if (string.IsNullOrEmpty(tradeLogPath))
+                ConfigureStage1TradeLog();
+
+            int tradeCount = SystemPerformance.AllTrades.Count;
+            double grossPnl = 0.0;
+            double commission = 0.0;
+            for (int i = stage1StartTradeCount; i < tradeCount; i++)
+            {
+                var trade = SystemPerformance.AllTrades[i];
+                grossPnl += trade.ProfitCurrency;
+                commission += trade.Commission;
+            }
+
+            if (tradeCount <= stage1StartTradeCount)
+            {
+                double priceDiff = directionForLog == "LONG"
+                    ? exitPrice - entryPriceForLog
+                    : entryPriceForLog - exitPrice;
+                double tickValue = Instrument.MasterInstrument.PointValue * TickSize;
+                grossPnl = (priceDiff / TickSize) * tickValue * Math.Max(1, stage1EntryContracts);
+                commission = 0.0;
+            }
+
+            double netPnl = grossPnl - commission;
+            double tickValueForLog = Instrument.MasterInstrument.PointValue * TickSize;
+            double ticks = tickValueForLog > 0.0 ? netPnl / tickValueForLog : 0.0;
+            string winLoss = netPnl > 0.0 ? "WIN" : (netPnl < 0.0 ? "LOSS" : "SCRATCH");
+            double stopDistance = 0.0;
+            if (initialStopPriceForLog > 0.0 && entryPriceForLog > 0.0)
+                stopDistance = Math.Abs(entryPriceForLog - initialStopPriceForLog)
+                    * Instrument.MasterInstrument.PointValue
+                    * Math.Max(1, stage1EntryContracts);
+
+            string accountName = execution.Account != null
+                ? execution.Account.Name
+                : (Account == null ? "UNKNOWN" : Account.Name);
+
+            string row = string.Join(",",
+                entryTimeForLog.ToString("yyyy-MM-dd"),
+                entryTimeForLog.ToString("yyyy-MM-dd HH:mm:ss"),
+                exitTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                Stage1ModelVersion,
+                SafeStage1Csv(accountName),
+                SafeStage1Csv(Name),
+                SafeStage1Csv(Stage1BotName),
+                SafeStage1Csv(ResolveStage1AbMode()),
+                SafeStage1Csv(GetStage1Symbol()),
+                SafeStage1Csv(Instrument.FullName),
+                directionForLog,
+                stage1EntryContracts.ToString(CultureInfo.InvariantCulture),
+                FormatStage1(entryPriceForLog, "F2"),
+                FormatStage1(exitPrice, "F2"),
+                FormatStage1(grossPnl, "F2"),
+                FormatStage1(netPnl, "F2"),
+                FormatStage1(ticks, "F1"),
+                winLoss,
+                SafeStage1Csv(stage1ExitReason),
+                FormatStage1(initialStopPriceForLog, "F2"),
+                FormatStage1(stopDistance, "F2"),
+                DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+            );
+
+            try
+            {
+                EnsureStage1TradeLogHeader();
+                File.AppendAllText(tradeLogPath, row + Environment.NewLine);
+            }
+            catch (Exception ex)
+            {
+                Print("Stage1 trade log write error: " + ex.Message);
+            }
+        }
+
+        private void EnsureStage1TradeLogHeader()
+        {
+            try
+            {
+                string dir = Path.GetDirectoryName(tradeLogPath);
+                if (!Directory.Exists(dir))
+                    Directory.CreateDirectory(dir);
+                if (!File.Exists(tradeLogPath) || new FileInfo(tradeLogPath).Length == 0)
+                    File.WriteAllText(tradeLogPath, Stage1TradeLogHeader + Environment.NewLine);
+            }
+            catch (Exception ex)
+            {
+                Print("Stage1 trade log header error: " + ex.Message);
+            }
+        }
+
+        private void ResetStage1TradeLogState()
+        {
+            stage1TradeOpen = false;
+            stage1StartTradeCount = SystemPerformance.AllTrades.Count;
+            stage1EntryContracts = 0;
+            entryPriceForLog = 0.0;
+            initialStopPriceForLog = 0.0;
+            initialStopTicksForLog = 0.0;
+            entryTimeForLog = DateTime.MinValue;
+            directionForLog = "";
+            stage1ExitReason = "UNKNOWN";
+        }
+
+        private string GetStage1Symbol()
+        {
+            string sym = Instrument.MasterInstrument.Name.ToUpperInvariant();
+            if (sym.Contains("MNQ")) return "NQ";
+            if (sym.Contains("MES")) return "ES";
+            if (sym.Contains("NQ")) return "NQ";
+            if (sym.Contains("ES")) return "ES";
+            return sym;
+        }
+
+        private string ResolveStage1AbMode()
+        {
+            return Stage1DefaultAbMode;
+        }
+
+        private string InferStage1ExitReason(string orderName)
+        {
+            if (string.IsNullOrEmpty(orderName)) return "UNKNOWN";
+            string n = orderName.ToUpperInvariant();
+            if (n.Contains("PROFIT") || n.Contains("TARGET")) return "TARGET_HIT";
+            if (n.Contains("STOP")) return "STOP_HIT";
+            if (n.Contains("TRANSITION")) return "REGIME_TRANSITION_EXIT";
+            if (n.Contains("CIRCUIT")) return "CIRCUIT_BREAKER";
+            if (n.Contains("SLOPE")) return "SLOPE_EXIT";
+            if (n.Contains("TRAIL")) return "TRAIL_STOP";
+            if (n.Contains("WOBBLE")) return "WOBBLE_EJECT";
+            if (n.Contains("ILLIQUID")) return "ILLIQUID_EXIT";
+            if (n.Contains("ENVELOPE")) return "ENVELOPE_BREAK_EXIT";
+            if (n.Contains("TREND")) return "TREND_BREAK_EXIT";
+            if (n.Contains("GUARD")) return "GUARD_FLAT";
+            if (n.Contains("KILL")) return "KILL_SWITCH";
+            if (n.Contains("TIME")) return "TIME_EXIT";
+            if (n.Contains("SESSION") || n.Contains("CLOSE") || n.Contains("EOD")) return "SESSION_CLOSE";
+            return orderName;
+        }
+
+        private string FormatStage1(double value, string format)
+        {
+            return value.ToString(format, CultureInfo.InvariantCulture);
+        }
+
+        private string SafeStage1Csv(string value)
+        {
+            string s = value ?? "";
+            if (s.Contains(",") || s.Contains("\"") || s.Contains("\r") || s.Contains("\n"))
+                return "\"" + s.Replace("\"", "\"\"") + "\"";
+            return s;
+        }
+
+        // =====================================================================
         // LIFECYCLE
         // =====================================================================
         protected override void OnStateChange()
@@ -262,6 +514,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 fastEma        = EMA(FastEmaPeriod);
                 slowEma        = EMA(SlowEmaPeriod);
                 SetupFileWatcher();
+                ConfigureStage1TradeLog();
                 lastTradeCount = SystemPerformance.AllTrades.Count;
             }
             else if (State == State.Terminated)
@@ -396,6 +649,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             Execution execution, string executionId, double price, int quantity,
             MarketPosition marketPosition, string orderId, DateTime time)
         {
+            HandleStage1TradeLogExecution(execution, price, quantity, marketPosition, time);
             int tc = SystemPerformance.AllTrades.Count;
             if (tc > lastTradeCount)
             {
@@ -496,6 +750,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     if (dipValid && recovered)
                     {
                         SetStopLoss(SnipeL, CalculationMode.Ticks, riskTicks, false);
+                        CaptureInitialStopTicksForLog(riskTicks, "LONG");
                         SetProfitTarget(SnipeL, CalculationMode.Ticks, rewardTicks);
                         EnterLong(qty, SnipeL);
 
@@ -520,6 +775,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     if (ripValid && collapsed)
                     {
                         SetStopLoss(SnipeS, CalculationMode.Ticks, riskTicks, false);
+                        CaptureInitialStopTicksForLog(riskTicks, "SHORT");
                         SetProfitTarget(SnipeS, CalculationMode.Ticks, rewardTicks);
                         EnterShort(qty, SnipeS);
 
