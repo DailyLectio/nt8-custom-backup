@@ -5,6 +5,8 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
+$env:GIT_TERMINAL_PROMPT = "0"
+$env:GCM_INTERACTIVE = "Never"
 
 if ([string]::IsNullOrWhiteSpace($RepoPath)) {
     $RepoPath = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
