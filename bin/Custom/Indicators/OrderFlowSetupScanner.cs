@@ -1,6 +1,7 @@
 #region Using declarations
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using NinjaTrader.Gui;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -24,6 +25,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 		
 		private string footprintExportPath = string.Empty;
 		private DateTime lastExportTime = DateTime.MinValue;
+        private const string FootprintHeader = "TimestampET,Signal,Volume,Delta,DeltaPct,VwapDistanceTicks,Symbol,Direction,Category,ClosePrice,HighPrice,LowPrice,ActiveBias,SourceChart";
 
         private RollingWindow volWin, deltaPctWin, rangeWin, maxSeenWin, minSeenWin, dShWin, dSlWin, barDeltaWin;
 
@@ -101,16 +103,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 
                 // 2. Initialize the CSV Export Path
                 footprintExportPath = @"C:\Users\Valued Customer\NT8_Regimes\Active\Footprint_Export.csv";
-                
-                try 
-                {
-                    // Create/Clear the file and write the header row
-                    using (System.IO.StreamWriter sw = new System.IO.StreamWriter(footprintExportPath, false)) 
-                    {
-                        sw.WriteLine("TimestampET,Signal,Volume,Delta,DeltaPct,VwapDistanceTicks");
-                    }
-                } 
-                catch { }
+                EnsureFootprintExportFile();
             }
         }
 
@@ -126,15 +119,94 @@ namespace NinjaTrader.NinjaScript.Indicators
             barDeltaWin = new RollingWindow(LookbackN);
         }
 
-		// --- MACRO EXPORT METHOD ---
-        private void ExportFootprintSignal(string signalDetected)
+        private void EnsureFootprintExportFile()
         {
-            if (CurrentBar < 1 || vol == null) return;
+            if (string.IsNullOrEmpty(footprintExportPath)) return;
 
             try
             {
-                double barVol = vol.Volumes[0].TotalVolume;
-                double barDelta = vol.Volumes[0].BarDelta;
+                string dir = System.IO.Path.GetDirectoryName(footprintExportPath);
+                if (!string.IsNullOrEmpty(dir) && !System.IO.Directory.Exists(dir))
+                    System.IO.Directory.CreateDirectory(dir);
+
+                if (!System.IO.File.Exists(footprintExportPath) || new System.IO.FileInfo(footprintExportPath).Length == 0)
+                {
+                    using (System.IO.StreamWriter sw = new System.IO.StreamWriter(footprintExportPath, false))
+                        sw.WriteLine(FootprintHeader);
+                    return;
+                }
+
+                string firstLine = string.Empty;
+                using (System.IO.StreamReader sr = new System.IO.StreamReader(footprintExportPath))
+                    firstLine = sr.ReadLine() ?? string.Empty;
+
+                if (firstLine != FootprintHeader)
+                {
+                    string backupPath = footprintExportPath.Replace(
+                        ".csv",
+                        ".schema_backup_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".csv");
+                    System.IO.File.Move(footprintExportPath, backupPath);
+
+                    using (System.IO.StreamWriter sw = new System.IO.StreamWriter(footprintExportPath, false))
+                        sw.WriteLine(FootprintHeader);
+                }
+            }
+            catch (Exception)
+            {
+                // CSV logging must never crash or freeze the chart.
+            }
+        }
+
+        private bool ShouldExportInstrument()
+        {
+            string name = Instrument.MasterInstrument.Name;
+            return name == "NQ" || name == "MNQ" || name == "ES" || name == "MES";
+        }
+
+        private string GetLeaderSymbol()
+        {
+            string name = Instrument.MasterInstrument.Name;
+            if (name == "MNQ") return "NQ";
+            if (name == "MES") return "ES";
+            return name;
+        }
+
+        private string DirectionLabel(int dir)
+        {
+            if (dir > 0) return "Bullish";
+            if (dir < 0) return "Bearish";
+            return "Neutral";
+        }
+
+        private string CsvNumber(double value)
+        {
+            return value.ToString("0.########", CultureInfo.InvariantCulture);
+        }
+
+        private void BroadcastSignal(SignalEvent sig)
+        {
+            if (sig.Name.Contains("SIB"))   HUDMessenger.SharedSignalMap["Scanner_SIB"]   = Time[0];
+            if (sig.Name.Contains("ABS"))   HUDMessenger.SharedSignalMap["Scanner_ABS"]   = Time[0];
+            if (sig.Name.Contains("DD"))    HUDMessenger.SharedSignalMap["Scanner_DD"]    = Time[0];
+            if (sig.Name.Contains("TF"))    HUDMessenger.SharedSignalMap["Scanner_TF"]    = Time[0];
+            if (sig.Name.Contains("DT"))    HUDMessenger.SharedSignalMap["Scanner_DT"]    = Time[0];
+            if (sig.Name.Contains("DEIA"))  HUDMessenger.SharedSignalMap["Scanner_DEIA"]  = Time[0];
+            if (sig.Name.Contains("EEMDF")) HUDMessenger.SharedSignalMap["Scanner_EEMDF"] = Time[0];
+            if (sig.Name.Contains("PAR"))   HUDMessenger.SharedSignalMap["Scanner_PAR"]   = Time[0];
+            if (sig.Name.Contains("DEB"))   HUDMessenger.SharedSignalMap["Scanner_DEB"]   = Time[0];
+        }
+
+		// --- MACRO EXPORT METHOD ---
+        private void ExportFootprintSignal(SignalEvent sig)
+        {
+            if (CurrentBar < 1 || vol == null || !ShouldExportInstrument()) return;
+
+            try
+            {
+                EnsureFootprintExportFile();
+
+                double barVol = vol.Volumes[CurrentBar].TotalVolume;
+                double barDelta = vol.Volumes[CurrentBar].BarDelta;
                 double deltaPct = barVol > 0 ? Math.Round((barDelta / barVol) * 100, 2) : 0;
 
                 double distToVwapTicks = 0;
@@ -145,13 +217,22 @@ namespace NinjaTrader.NinjaScript.Indicators
 
                 using (System.IO.StreamWriter sw = new System.IO.StreamWriter(footprintExportPath, true))
                 {
-                    sw.WriteLine(string.Format("{0},{1},{2},{3},{4},{5}",
+                    sw.WriteLine(string.Join(",", new string[] {
                         Time[0].ToString("yyyy-MM-dd HH:mm:ss"),
-                        signalDetected,
-                        barVol,
-                        barDelta,
-                        deltaPct,
-                        distToVwapTicks));
+                        sig.Name,
+                        CsvNumber(barVol),
+                        CsvNumber(barDelta),
+                        CsvNumber(deltaPct),
+                        CsvNumber(distToVwapTicks),
+                        GetLeaderSymbol(),
+                        DirectionLabel(sig.Dir),
+                        sig.Category.ToString(),
+                        CsvNumber(Close[0]),
+                        CsvNumber(High[0]),
+                        CsvNumber(Low[0]),
+                        HUDMessenger.CurrentDailyBias ?? string.Empty,
+                        Instrument.MasterInstrument.Name
+                    }));
                 }
             }
             catch (Exception)
@@ -237,68 +318,41 @@ namespace NinjaTrader.NinjaScript.Indicators
                 if (allow) filteredSignals.Add(sig);
             }
 
-            // --- 3. EXPORT TO PYTHON (NQ/MNQ ONLY) ---
-            // This ensures ES/CL charts don't pollute your NQ Macro Model data
-            if (Instrument.MasterInstrument.Name == "NQ" || Instrument.MasterInstrument.Name == "MNQ")
-            {
-                // We check the "signals" list for any valid hits to export
-                bool exportedThisBar = false;
-                foreach (var sig in filteredSignals)
-                {
-                    if (exportedThisBar) break; // Only export one signal per bar to the CSV
-                    
-                    // HIGHEST PRIORITY: Kill Switch / Exhaustion Signals
-                    if (sig.Name.Contains("DEIA")) { ExportFootprintSignal("DEIA"); exportedThisBar = true; }
-                    else if (sig.Name.Contains("EEMDF")) { ExportFootprintSignal("EEMDF"); exportedThisBar = true; }
-                    
-                    // HIGH PRIORITY: Trend & Breakout Signals
-                    else if (sig.Name.Contains("SIB")) { ExportFootprintSignal("SIB"); exportedThisBar = true; }
-                    else if (sig.Name.Contains("DEB")) { ExportFootprintSignal("DEB"); exportedThisBar = true; }
-                    
-                    // STANDARD PRIORITY: Pullback & Reversal Signals
-                    else if (sig.Name.Contains("PAR")) { ExportFootprintSignal("PAR"); exportedThisBar = true; }
-                    else if (sig.Name.Contains("ABS")) { ExportFootprintSignal("ABS"); exportedThisBar = true; }
-                    else if (sig.Name.Contains("TF")) { ExportFootprintSignal("TF"); exportedThisBar = true; }
-                }
-            }
-
-            // --- 4. BROADCAST TO HUD ---
-            if (BroadcastToHUD)
-            {
-                foreach (var sig in filteredSignals)
-                {
-                    if (sig.Name.Contains("SIB")) HUDMessenger.SharedSignalMap["Scanner_SIB"] = Time[0];
-                    if (sig.Name.Contains("ABS")) HUDMessenger.SharedSignalMap["Scanner_ABS"] = Time[0];
-                    if (sig.Name.Contains("DD"))  HUDMessenger.SharedSignalMap["Scanner_DD"]  = Time[0];
-                    if (sig.Name.Contains("TF"))  HUDMessenger.SharedSignalMap["Scanner_TF"]  = Time[0];
-                    if (sig.Name.Contains("DT"))  HUDMessenger.SharedSignalMap["Scanner_DT"]  = Time[0];
-					if (sig.Name.Contains("DEIA")) HUDMessenger.SharedSignalMap["Scanner_DEIA"] = Time[0];
-					if (sig.Name.Contains("EEMDF"))HUDMessenger.SharedSignalMap["Scanner_EEMDF"]= Time[0];
-					if (sig.Name.Contains("PAR"))  HUDMessenger.SharedSignalMap["Scanner_PAR"]  = Time[0];
-					if (sig.Name.Contains("DEB"))  HUDMessenger.SharedSignalMap["Scanner_DEB"]  = Time[0];
-                }
-            }
-            
-            // --- 5. DELTA TRANSITION (DT) LOGIC ---
+            // --- 3. DELTA TRANSITION (DT) LOGIC ---
             if (EnableDT && CurrentBar > LookbackN)
             {
-                double currentDelta = vol.Volumes[0].BarDelta;
-                double prevDelta    = vol.Volumes[1].BarDelta;
+                double currentDelta = vol.Volumes[CurrentBar].BarDelta;
+                double prevDelta    = vol.Volumes[CurrentBar - 1].BarDelta;
 
                 if (prevDelta > 0 && currentDelta <= -MinImbalanceDelta) // Bearish DT
                 {
-                    if (Instrument.MasterInstrument.Name == "NQ" || Instrument.MasterInstrument.Name == "MNQ") 
-                        ExportFootprintSignal("DT");
-                    
                     filteredSignals.Add(new SignalEvent { Name = "DT", Dir = -1, Category = SetupCategory.Reversal, Y = High[0] + (2 * TickSize) });
                 }
                 else if (prevDelta < 0 && currentDelta >= MinImbalanceDelta) // Bullish DT
                 {
-                    if (Instrument.MasterInstrument.Name == "NQ" || Instrument.MasterInstrument.Name == "MNQ") 
-                        ExportFootprintSignal("DT");
-                    
                     filteredSignals.Add(new SignalEvent { Name = "DT", Dir = 1, Category = SetupCategory.Reversal, Y = Low[0] - (2 * TickSize) });
                 }
+            }
+
+            // --- 4. EXPORT TO CSV ---
+            if (ShouldExportInstrument())
+            {
+                HashSet<string> exportedThisBar = new HashSet<string>();
+                foreach (var sig in filteredSignals)
+                {
+                    string exportKey = sig.Name + "_" + sig.Dir.ToString(CultureInfo.InvariantCulture);
+                    if (exportedThisBar.Contains(exportKey)) continue;
+
+                    ExportFootprintSignal(sig);
+                    exportedThisBar.Add(exportKey);
+                }
+            }
+
+            // --- 5. BROADCAST TO HUD ---
+            if (BroadcastToHUD)
+            {
+                foreach (var sig in filteredSignals)
+                    BroadcastSignal(sig);
             }
 
             Render(filteredSignals); 
