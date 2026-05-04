@@ -1,5 +1,5 @@
 // CC BY-NC 4.0
-// KalmanPulse_Fader.cs — Adaptive Kalman Filter Mean-Reversion Fade Strategy
+// KalmanPulseFader.cs — Adaptive Kalman Filter Mean-Reversion Fade Strategy
 // ─────────────────────────────────────────────────────────────────────────────
 // REGIME ENGINE : Gaussian Kernel Smoother → Adaptive Kalman Filter baseline.
 //   Kalman process/measurement noise scales with live ATR, making the filter
@@ -41,7 +41,7 @@ using NinjaTrader.NinjaScript.Strategies;
 
 namespace NinjaTrader.NinjaScript.Strategies
 {
-    public class KalmanPulse_Fader : Strategy
+    public class KalmanPulseFader : Strategy
     {
         // =====================================================================
         // PARAMETERS
@@ -272,7 +272,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         // STAGE 1 RAW TRADE LOG
         // =====================================================================
         private const string Stage1ModelVersion = "V1A";
-        private const string Stage1BotName = "KalmanPulse_Fader_A";
+        private const string Stage1BotName = "KalmanPulseFader";
         private const string Stage1DefaultAbMode = "A";
         private const string Stage1TradeLogHeader =
             "trade_date,entry_time,exit_time,model_version,account," +
@@ -527,7 +527,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (State == State.SetDefaults)
             {
-                Name                         = "KalmanPulse_Fader";
+                Name                         = "KalmanPulseFader";
                 Calculate                    = Calculate.OnEachTick;
                 EntriesPerDirection          = 2;
                 EntryHandling                = EntryHandling.AllEntries;
@@ -774,7 +774,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 lastEntryBar   = CurrentBar;
 
                 Print(string.Format(
-                    "[KalmanPulse_Fader] LONG | Baseline:{0:F2} | InnerL:{1:F2} | " +
+                    "[KalmanPulseFader] LONG | Baseline:{0:F2} | InnerL:{1:F2} | " +
                     "Slope:{2:F4} | Qty:{3}+{4} | Stop:{5:F2} | T1:{6:F2} | T2:{7:F2}",
                     baseline, innerLower, baselineSlope,
                     leg1Qty, leg2Qty, stopPrice, leg1Target, leg2Target));
@@ -815,7 +815,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     lastEntryBar   = CurrentBar;
 
                     Print(string.Format(
-                        "[KalmanPulse_Fader] SHORT | Baseline:{0:F2} | InnerU:{1:F2} | " +
+                        "[KalmanPulseFader] SHORT | Baseline:{0:F2} | InnerU:{1:F2} | " +
                         "Slope:{2:F4} | Qty:{3}+{4} | Stop:{5:F2} | T1:{6:F2} | T2:{7:F2}",
                         baseline, innerUpper, baselineSlope,
                         leg1Qty, leg2Qty, stopPrice, leg1Target, leg2Target));
