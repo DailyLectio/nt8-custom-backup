@@ -534,7 +534,7 @@
       <TradingHoursSerializable>CME US Index Futures RTH</TradingHoursSerializable>
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
-      <EnableTrinityFilter>false</EnableTrinityFilter>
+      <EnableTrinityFilter>true</EnableTrinityFilter>
       <SelectedHudLane>BracketSniper</SelectedHudLane>
       <Contracts>1</Contracts>
       <UseStopX>true</UseStopX>
