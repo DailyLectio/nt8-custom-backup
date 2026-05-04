@@ -168,7 +168,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentum_V3D_B+ExitSlopeMode, 2cc92a6c7339498dbbb4c8d8f9c237f9, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentum_V3D_B+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Hysteresis</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -313,14 +313,14 @@
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>1</Value>
+        <Value>3</Value>
         <Value2>1</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-04-11T00:00:00</From>
+      <From>2026-04-18T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -329,7 +329,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-04-26T00:00:00</To>
+      <To>2026-05-03T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -381,7 +381,7 @@
       <DataFolderPath>C:\Users\Valued Customer\NT8_Regimes\V3D</DataFolderPath>
       <AtrStopMult>0.75</AtrStopMult>
       <AtrPeriod>14</AtrPeriod>
-      <MinStopTicks>40</MinStopTicks>
+      <MinStopTicks>4</MinStopTicks>
       <Leg1TargetMult>0.75</Leg1TargetMult>
       <RiskReward>1.5</RiskReward>
       <ConfidenceScaleThreshold>80</ConfidenceScaleThreshold>
@@ -392,7 +392,7 @@
       <CiMaxExpansion>50</CiMaxExpansion>
       <AdxEntryThreshold>18</AdxEntryThreshold>
       <VelocityReliefThreshold>0.85</VelocityReliefThreshold>
-      <MinConfidence>80</MinConfidence>
+      <MinConfidence>65</MinConfidence>
       <SlopeExit>Hysteresis</SlopeExit>
       <MinHoldBars>2</MinHoldBars>
       <CiSlopeBarsExit>5</CiSlopeBarsExit>
@@ -407,7 +407,7 @@
       <DailyLossLimit>0</DailyLossLimit>
       <EnableTimeFilter>true</EnableTimeFilter>
       <StartTime>93500</StartTime>
-      <EndTime>155500</EndTime>
+      <EndTime>154500</EndTime>
     </Momentum_V3D_B>
   </Strategy>
 </StrategyTemplate>
