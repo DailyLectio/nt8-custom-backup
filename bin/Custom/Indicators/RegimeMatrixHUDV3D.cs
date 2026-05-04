@@ -111,6 +111,14 @@ namespace NinjaTrader.NinjaScript.Indicators
         public bool MacroFresh        { get; private set; } = false;  // XX_Macro_Regimes_V3D.csv
         public bool HMMFresh          { get; private set; } = false;  // XX_HMM_Regimes_V3D.csv
 
+        // Phase One HUD visibility additions
+        public int    HMMStateAgeBars        { get; private set; } = 0;
+        public bool   AsymHysteresisGateOpen { get; private set; } = false;
+        public string AsymHysteresisReason   { get; private set; } = "UNKNOWN";
+        public bool   AsymHysteresisEnabled  { get; private set; } = false;
+        public bool   LabelAmbiguousFit      { get; private set; } = false;
+        public string LabelVwapSeparation    { get; private set; } = "";
+
         // ===================================================================
         // PARAMETERS
         // ===================================================================
@@ -210,6 +218,7 @@ namespace NinjaTrader.NinjaScript.Indicators
         private TextBlock _tbBotLine;      // bot permission summary
         private TextBlock _tbReasonLine;   // WHY + PHASE
         private TextBlock _tbPipelineLine; // V1.1 — upstream feed health summary
+        private TextBlock _tbGateLine;     // Phase One - hysteresis + HMM label quality
         private Button    _btnMode;
         private Button    _btnExpansion;
         private Button    _btnMomo;
@@ -419,7 +428,10 @@ namespace NinjaTrader.NinjaScript.Indicators
                                    out double v) ? v : def;
 
             bool GetBool(string name)
-                => Get(name) == "1";
+            {
+                string v = Get(name).Trim().ToLowerInvariant();
+                return v == "1" || v == "true" || v == "yes" || v == "y" || v == "on";
+            }
 
             // --- Core regime state ---
             FinalRegime      = Get("FinalRegime");
@@ -430,6 +442,10 @@ namespace NinjaTrader.NinjaScript.Indicators
             Velocity3P       = GetDbl("Velocity3P_ATR");
             StateAgeBars     = GetInt("StateAgeBars");
             ReasonCode       = Get("ReasonCode");
+            HMMStateAgeBars  = GetInt("HMMStateAgeBars", 0);
+            AsymHysteresisGateOpen = GetBool("AsymHysteresisGateOpen");
+            AsymHysteresisReason   = Get("AsymHysteresisReason");
+            AsymHysteresisEnabled  = GetBool("AsymHysteresisEnabled");
 
             // Stale data flag from Python (also evaluated locally below)
             bool pythonStaleFlag = GetBool("StaleDataFlag");
@@ -468,6 +484,8 @@ namespace NinjaTrader.NinjaScript.Indicators
                 _parseFailed = true;
             else
                 _parseFailed = false;
+
+            ReadHmmLabelQuality();
         }
 
         // ===================================================================
@@ -574,6 +592,70 @@ namespace NinjaTrader.NinjaScript.Indicators
                 string detail = BuildPipelineDetail();
                 LogOverrideEvent("PIPELINE", false, detail);
             }
+        }
+
+        private void ReadHmmLabelQuality()
+        {
+            LabelAmbiguousFit = false;
+            LabelVwapSeparation = "";
+
+            if (string.IsNullOrEmpty(_hmmRegimeFile) || !File.Exists(_hmmRegimeFile))
+                return;
+
+            try
+            {
+                Dictionary<string, string> row = ReadLastCsvRowMap(_hmmRegimeFile);
+                LabelAmbiguousFit = ParseFlexibleBool(GetMap(row, "LabelAmbiguousFit"));
+                LabelVwapSeparation = GetMap(row, "LabelVwapSeparation");
+            }
+            catch
+            {
+                LabelAmbiguousFit = false;
+                LabelVwapSeparation = "READ_ERR";
+            }
+        }
+
+        private Dictionary<string, string> ReadLastCsvRowMap(string filePath)
+        {
+            var rows = new List<string>();
+
+            using (FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+            using (StreamReader sr = new StreamReader(fs))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                    if (!string.IsNullOrWhiteSpace(line))
+                        rows.Add(line);
+            }
+
+            var map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            if (rows.Count < 2)
+                return map;
+
+            string[] headers = rows[0].Split(',');
+            string[] values = rows[rows.Count - 1].Split(',');
+
+            for (int i = 0; i < headers.Length && i < values.Length; i++)
+                map[headers[i].Trim()] = values[i].Trim();
+
+            return map;
+        }
+
+        private string GetMap(Dictionary<string, string> map, string key)
+        {
+            string value;
+            if (map != null && map.TryGetValue(key, out value))
+                return value;
+            return "";
+        }
+
+        private bool ParseFlexibleBool(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return false;
+
+            string v = value.Trim().ToLowerInvariant();
+            return v == "1" || v == "true" || v == "yes" || v == "y" || v == "on";
         }
 
         // -------------------------------------------------------------------
@@ -759,8 +841,8 @@ namespace NinjaTrader.NinjaScript.Indicators
 
         // ===================================================================
         // WPF CONTROL CONSTRUCTION
-        // V1.1: Added Row 6 — Pipeline health row. Buttons shifted to Row 7.
-        //        Grid now has 9 rows (was 8).
+        // V1.1: Added Row 6 - Pipeline health row.
+        // Phase One: Added Row 7 - hysteresis + HMM label quality row.
         // ===================================================================
 
         private void CreateWPFControls()
@@ -776,8 +858,8 @@ namespace NinjaTrader.NinjaScript.Indicators
                 MinWidth            = 440, // slightly wider to fit pipeline row
             };
 
-            // Row definitions — 9 rows (0-8). V1.1 added row 6.
-            for (int i = 0; i < 9; i++)
+            // Row definitions - 10 rows (0-9).
+            for (int i = 0; i < 10; i++)
                 _hudGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
             // Row 0 — Header bar
@@ -828,7 +910,14 @@ namespace NinjaTrader.NinjaScript.Indicators
                 new Thickness(6, 2, 6, 2), TextAlignment.Left);
             SetRow(_tbPipelineLine, 6);
 
-            // Row 7 — Mode + Override buttons (StackPanel) [was Row 6 in V1.0]
+            // Row 7 - Phase One gate + HMM label quality line
+            _tbGateLine = MakeTextBlock(
+                "GATE: --  |  HMM AGE: --  |  HMM DRIFT: --",
+                Brushes.White, 10, FontWeights.Bold, Brushes.DimGray,
+                new Thickness(6, 2, 6, 2), TextAlignment.Left);
+            SetRow(_tbGateLine, 7);
+
+            // Row 8 - Mode + Override buttons (StackPanel)
             var buttonPanel = new StackPanel
             {
                 Orientation = Orientation.Horizontal,
@@ -851,7 +940,7 @@ namespace NinjaTrader.NinjaScript.Indicators
             buttonPanel.Children.Add(_btnSniper);
             buttonPanel.Children.Add(_btnKillAll);
 
-            Grid.SetRow(buttonPanel, 7); // V1.1: shifted from 6 → 7
+            Grid.SetRow(buttonPanel, 8);
             _hudGrid.Children.Add(buttonPanel);
 
             UserControlCollection.Add(_hudGrid);
@@ -980,6 +1069,36 @@ namespace NinjaTrader.NinjaScript.Indicators
                                          liveStaleDuringRTH     ? Brushes.DarkRed    :
                                                                    Brushes.DarkGoldenrod;
             _tbPipelineLine.Foreground = Brushes.White;
+
+            // ----------------------------------------------------------------
+            // Phase One - Asymmetric hysteresis + HMM label quality row
+            // ----------------------------------------------------------------
+            string gateLabel;
+            Brush gateBg;
+
+            if (!AsymHysteresisEnabled)
+            {
+                gateLabel = "DISABLED";
+                gateBg = Brushes.DimGray;
+            }
+            else if (AsymHysteresisGateOpen)
+            {
+                gateLabel = "OPEN";
+                gateBg = Brushes.DarkGreen;
+            }
+            else
+            {
+                gateLabel = "BLOCKED";
+                gateBg = Brushes.DarkRed;
+            }
+
+            string ageWarn = HMMStateAgeBars > 0 && HMMStateAgeBars < 2 ? " (YOUNG)" : "";
+            string driftLabel = LabelAmbiguousFit ? "WARN" : "OK";
+
+            _tbGateLine.Text =
+                $"GATE: {gateLabel} | HMM AGE: {HMMStateAgeBars} bars{ageWarn} | HMM DRIFT: {driftLabel} | {AsymHysteresisReason}";
+            _tbGateLine.Background = LabelAmbiguousFit ? Brushes.DarkGoldenrod : gateBg;
+            _tbGateLine.Foreground = Brushes.White;
 
             // If pipeline kill is active AND any feed is stale, also reflect in status bar
             if (KillOnPipelineStale && !PipelineAllGreen && IsRTHNow())

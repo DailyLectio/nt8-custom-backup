@@ -71,9 +71,17 @@ namespace NinjaTrader.NinjaScript.Indicators
         public int ConflictScore { get; private set; } = 0;
         public double Velocity3CP { get; private set; } = 0.0;
         public bool StaleDataFlag { get; private set; } = false;
+        public int HMMStateAgeBars { get; private set; } = 0;
+        public bool AsymHysteresisGateOpen { get; private set; } = false;
+        public string AsymHysteresisReason { get; private set; } = "UNKNOWN";
+        public bool AsymHysteresisEnabled { get; private set; } = false;
+        public bool LiveFeedFresh { get; private set; } = false;
 
         private DateTime lastFileWriteUtc = DateTime.MinValue;
         private string lastFileRead = "";
+        private DateTime lastPipelineCheck = DateTime.MinValue;
+        private const int PipelineCheckSeconds = 60;
+        private string liveExportFile = "";
 
         [NinjaScriptProperty]
         [Display(Name="Data Folder Path", Description="Path to V3C Python CSVs.", GroupName="Data Settings", Order=0)]
@@ -96,6 +104,8 @@ namespace NinjaTrader.NinjaScript.Indicators
         private TextBlock hmmText;
         private TextBlock reasonText;
         private TextBlock staleText;
+        private TextBlock pipelineText;
+        private TextBlock gateText;
         private TextBlock laneText1;
         private TextBlock laneText2;
 
@@ -114,6 +124,9 @@ namespace NinjaTrader.NinjaScript.Indicators
             else if (State == State.DataLoaded)
             {
                 RegisterInstance();
+                string leaderSym = GetLeaderSymbol(Instrument.MasterInstrument.Name);
+                string exportDir = Path.GetFullPath(Path.Combine(DataFolderPath, @"..\Exports"));
+                liveExportFile = Path.Combine(exportDir, $"{leaderSym}_1min_export.txt");
 
                 if (ChartControl != null)
                     ChartControl.Dispatcher.InvokeAsync(() => CreateWPFControls());
@@ -133,6 +146,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                 return;
 
             LoadV3CFileIfNeeded();
+            CheckPipelineStatus();
             UpdateHUD();
         }
 
@@ -231,6 +245,10 @@ namespace NinjaTrader.NinjaScript.Indicators
                 RegimeConfidence = ParseInt(Get(row, "RegimeConfidence", "0"), 0);
                 ConflictScore = ParseInt(Get(row, "ConflictScore", "0"), 0);
                 Velocity3CP = ParseDouble(Get(row, "Velocity3CP", "0"), 0.0);
+                HMMStateAgeBars = ParseInt(Get(row, "HMMStateAgeBars", "0"), 0);
+                AsymHysteresisReason = Get(row, "AsymHysteresisReason", "COL_NOT_FOUND");
+                AsymHysteresisGateOpen = ParseBool(Get(row, "AsymHysteresisGateOpen", "False"));
+                AsymHysteresisEnabled = ParseBool(Get(row, "AsymHysteresisEnabled", "False"));
 
                 IsMomoAllowed = ParseBool(Get(row, "AllowMomo", "False"));
                 IsAdxAllowed = ParseBool(Get(row, "AllowAdxx", "False"));
@@ -248,6 +266,8 @@ namespace NinjaTrader.NinjaScript.Indicators
 
                 if (StaleDataFlag)
                     ForceAllOff();
+
+                CheckPipelineStatus();
 
                 lastFileRead = fileToRead;
                 lastFileWriteUtc = writeUtc;
@@ -417,6 +437,30 @@ namespace NinjaTrader.NinjaScript.Indicators
             AllowShort = false;
         }
 
+        private void CheckPipelineStatus()
+        {
+            if ((DateTime.Now - lastPipelineCheck).TotalSeconds < PipelineCheckSeconds)
+                return;
+
+            lastPipelineCheck = DateTime.Now;
+
+            if (string.IsNullOrEmpty(liveExportFile) || !File.Exists(liveExportFile))
+            {
+                LiveFeedFresh = false;
+                return;
+            }
+
+            double ageMinutes = (DateTime.Now - File.GetLastWriteTime(liveExportFile)).TotalMinutes;
+            LiveFeedFresh = !IsRTHNow() || ageMinutes < 3.0;
+        }
+
+        private bool IsRTHNow()
+        {
+            DateTime now = DateTime.Now;
+            int hms = now.Hour * 10000 + now.Minute * 100 + now.Second;
+            return hms >= 93000 && hms <= 160000;
+        }
+
         private void CreateWPFControls()
         {
             if (myGrid != null)
@@ -431,7 +475,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                 Width = 390
             };
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 12; i++)
                 myGrid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
             headerText = NewText($"[{Instrument.MasterInstrument.Name}->{GetLeaderSymbol(Instrument.MasterInstrument.Name)}] V3C SHADOW HUD", Brushes.White, 13, true);
@@ -470,12 +514,24 @@ namespace NinjaTrader.NinjaScript.Indicators
             Grid.SetRow(staleText, 7);
             myGrid.Children.Add(staleText);
 
+            pipelineText = NewText("PIPELINE: --", Brushes.White, 10, true);
+            pipelineText.Background = Brushes.DimGray;
+            pipelineText.Padding = new Thickness(4, 2, 4, 2);
+            Grid.SetRow(pipelineText, 8);
+            myGrid.Children.Add(pipelineText);
+
+            gateText = NewText("GATE: --", Brushes.White, 10, true);
+            gateText.Background = Brushes.DimGray;
+            gateText.Padding = new Thickness(4, 2, 4, 2);
+            Grid.SetRow(gateText, 9);
+            myGrid.Children.Add(gateText);
+
             laneText1 = NewText("LANES: --", Brushes.WhiteSmoke, 10, false);
-            Grid.SetRow(laneText1, 8);
+            Grid.SetRow(laneText1, 10);
             myGrid.Children.Add(laneText1);
 
             laneText2 = NewText("DIR: --", Brushes.WhiteSmoke, 10, false);
-            Grid.SetRow(laneText2, 9);
+            Grid.SetRow(laneText2, 11);
             myGrid.Children.Add(laneText2);
 
             UserControlCollection.Add(myGrid);
@@ -510,6 +566,35 @@ namespace NinjaTrader.NinjaScript.Indicators
                 hmmText.Text = $"HMM: {HMMMicro}";
                 reasonText.Text = $"WHY: {ReasonCode}";
                 staleText.Text = StaleDataFlag ? $"STALE: {StaleReason}" : "V3C FILE: FRESH";
+
+                pipelineText.Text = $"PIPELINE: 1M {(LiveFeedFresh ? "OK" : "STALE")} | DATA {(StaleDataFlag ? "STALE" : "FRESH")}";
+                pipelineText.Background = LiveFeedFresh && !StaleDataFlag ? Brushes.DarkGreen :
+                                          !LiveFeedFresh && IsRTHNow()     ? Brushes.DarkRed :
+                                                                            Brushes.DarkGoldenrod;
+                pipelineText.Foreground = Brushes.White;
+
+                string gateLabel;
+                Brush gateBrush;
+                if (!AsymHysteresisEnabled || AsymHysteresisReason == "COL_NOT_FOUND")
+                {
+                    gateLabel = AsymHysteresisReason == "COL_NOT_FOUND" ? "SCHEMA?" : "DISABLED";
+                    gateBrush = Brushes.DimGray;
+                }
+                else if (AsymHysteresisGateOpen)
+                {
+                    gateLabel = "OPEN";
+                    gateBrush = Brushes.DarkGreen;
+                }
+                else
+                {
+                    gateLabel = "BLOCKED";
+                    gateBrush = Brushes.DarkRed;
+                }
+
+                string ageWarn = HMMStateAgeBars > 0 && HMMStateAgeBars < 2 ? " (YOUNG)" : "";
+                gateText.Text = $"GATE: {gateLabel} | HMM AGE: {HMMStateAgeBars} bars{ageWarn} | {AsymHysteresisReason}";
+                gateText.Background = gateBrush;
+                gateText.Foreground = Brushes.White;
 
                 laneText1.Text =
                     $"MOMO:{OnOff(IsMomoAllowed)} L:{OnOff(IsMomoLongAllowed)} S:{OnOff(IsMomoShortAllowed)} ADXX:{OnOff(IsAdxAllowed)} PINE:{OnOff(IsPineAllowed)} " +
