@@ -589,7 +589,6 @@
     <Compile Include="Strategies\MomentumHA_Scalp_1m.cs" />
     <Compile Include="Strategies\MomentumRange_RangeBar.cs" />
     <Compile Include="Strategies\VolStateFader.cs" />
-    <Compile Include="Strategies\%40%40KalmanPulseFader__V1.cs" />
     <Compile Include="Strategies\CompositeEdgeMomentum.cs" />
     <Compile Include="Strategies\KalmanPulse_Fader_V1B.cs" />
     <Compile Include="Strategies\CompositeEdge_Momentum_V1B.cs" />
@@ -601,6 +600,8 @@
     <Compile Include="Indicators\RegimeMatrixHUDV3D.cs" />
     <Compile Include="Indicators\ValueAreaBackfillReporter.cs" />
     <Compile Include="Strategies\KalmanPulseFaderV2.cs" />
+    <Compile Include="Indicators\PipelineMonitorV1A.cs" />
+    <Compile Include="Strategies\KalmanPulseFader.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
