@@ -111,6 +111,15 @@
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">2</Max>
         <Min xsi:type="xsd:int">2</Min>
+        <Name>MaxTotalContracts</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>2</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">2</Max>
+        <Min xsi:type="xsd:int">2</Min>
         <Name>MaxConsecutiveLosses</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>2</ValueSerializable>
@@ -289,6 +298,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -320,12 +330,14 @@
       <AtrStopMult>2</AtrStopMult>
       <SizePct>100</SizePct>
       <TickValueDollars>5</TickValueDollars>
+      <AbMode>B</AbMode>
+      <MaxTotalContracts>2</MaxTotalContracts>
       <MaxConsecutiveLosses>2</MaxConsecutiveLosses>
       <DailyGoal>0</DailyGoal>
       <DailyLossLimit>0</DailyLossLimit>
       <EnableTimeFilter>true</EnableTimeFilter>
       <StartTime>103500</StartTime>
-      <EndTime>155500</EndTime>
+      <EndTime>154500</EndTime>
       <RequireFootprintConfirmation>false</RequireFootprintConfirmation>
       <FootprintValidMinutes>3</FootprintValidMinutes>
       <UseAbsEntry>true</UseAbsEntry>
