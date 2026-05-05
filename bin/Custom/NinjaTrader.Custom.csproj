@@ -599,6 +599,10 @@
     <Compile Include="Indicators\PipelineMonitorV1A.cs" />
     <Compile Include="Strategies\KalmanPulseFader.cs" />
     <Compile Include="Indicators\V3CTradeLogger.cs" />
+    <Compile Include="Strategies\ADXDIV3C.cs" />
+    <Compile Include="Strategies\MomoV3C.cs" />
+    <Compile Include="Strategies\V3_Expansion_Rider_V3C.cs" />
+    <Compile Include="Strategies\V3_Value_Fader_V3C.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
