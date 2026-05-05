@@ -4112,6 +4112,24 @@
         <member name="P:NinjaTrader.NinjaScript.Indicators.TradeSaber.ReversalTS.SetVolumeAlert">
             Enable Sound Alert	
         </member>
+        <member name="T:NinjaTrader.NinjaScript.Strategies.V3CTradeLogger">
+            <summary>
+            Lightweight Stage 1 trade logger for V3C strategies.
+            Writes one CSV row per closed trade to V3C\TradeLog\{AccountName}_TradeLog.csv.
+            Schema matches the Stage 1 per-bot log format used by V3D strategies.
+            </summary>
+        </member>
+        <member name="M:NinjaTrader.NinjaScript.Strategies.V3CTradeLogger.OnExecution(NinjaTrader.Cbi.Execution,NinjaTrader.Cbi.Order)">
+            <summary>
+            Call from the strategy's OnExecutionUpdate.
+            </summary>
+        </member>
+        <member name="M:NinjaTrader.NinjaScript.Strategies.V3CTradeLogger.OnStopOrderSubmitted(NinjaTrader.Cbi.Order)">
+            <summary>
+            Call from OnOrderUpdate to capture the initial stop price as soon
+            as the stop order is submitted, while the entry position is open.
+            </summary>
+        </member>
         <member name="M:NinjaTrader.NinjaScript.Optimizers.DefaultOptimizer.Iterate(System.Int32)">
             <summary>
             This methods iterates the parameters recursively. The actual back test is performed as the last parameter is iterated.

@@ -1,4 +1,5 @@
 // CC BY-NC 4.0
+// Stage 1 trade logging added 2026-05-04.
 #region Using
 using System;
 using System.ComponentModel;
@@ -38,6 +39,15 @@ namespace NinjaTrader.NinjaScript.Strategies
         [NinjaScriptProperty]
         [Display(Name="1b. Select HUD Lane", Description="Routes the strategy to a specific Regime Lane on the HUD.", GroupName="0. Trinity Command Center", Order=1)]
         public AdxDiHudLane SelectedHudLane { get; set; } = AdxDiHudLane.BracketSniper;
+
+        // ===== 0b. STAGE 1 TRADE LOGGING =====
+        [NinjaScriptProperty]
+        [Display(Name="Account Name Filter", Description="Exact NT8 account name.", GroupName="0b. Trade Logging", Order=0)]
+        public string AccountNameFilter { get; set; } = "";
+
+        [NinjaScriptProperty]
+        [Display(Name="Trade Log Folder", GroupName="0b. Trade Logging", Order=1)]
+        public string TradeLogFolder { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog";
 
         private bool IsBotAllowedByTrinity()
         {
@@ -242,6 +252,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private Series<double> dmPlus, dmMinus, sumDmPlus, sumDmMinus, sumTr, diPlusSeries, diMinusSeries;
         private double trailingStopLong  = double.NaN;
         private double trailingStopShort = double.NaN;
+        private V3CTradeLogger _logger;
 
         private double RT(double p) => Instrument.MasterInstrument.RoundToTickSize(p);
 
@@ -288,6 +299,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 sumTr = new Series<double>(this); diPlusSeries = new Series<double>(this);
                 diMinusSeries = new Series<double>(this);
                 AddChartIndicator(adx); AddChartIndicator(ema);
+                _logger = new V3CTradeLogger(this, AccountNameFilter, "V3C", TradeLogFolder);
             }
         }
 
@@ -444,6 +456,21 @@ namespace NinjaTrader.NinjaScript.Strategies
             SetStopLoss(SEntry, CalculationMode.Price, stp, false);
             SetProfitTarget(SEntry, CalculationMode.Price, tgt);
             trailingStopShort = stp; EnterShort(Contracts, SEntry);
+        }
+
+        protected override void OnExecutionUpdate(Execution execution, string executionId,
+            double price, int quantity, MarketPosition marketPosition, string orderId,
+            DateTime time)
+        {
+            _logger?.OnExecution(execution, null);
+        }
+
+        protected override void OnOrderUpdate(Order order, double limitPrice, double stopPrice,
+            int quantity, int filled, double averageFillPrice, OrderState orderState,
+            DateTime time, ErrorCode error, string comment)
+        {
+            if (orderState == OrderState.Working)
+                _logger?.OnStopOrderSubmitted(order);
         }
     }
 }

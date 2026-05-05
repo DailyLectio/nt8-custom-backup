@@ -1,4 +1,6 @@
 // CC BY-NC 4.0
+// Stage 1 trade logging added 2026-05-04 — matches V3D per-bot log schema.
+// Uses V3CTradeLogger (shared helper, must be compiled first).
 #region Using declarations
 using System;
 using System.ComponentModel;
@@ -26,6 +28,15 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="Debug V3C Gate", GroupName="0. V3C Regime Gate", Order=1)]
         public bool DebugV3CGate { get; set; } = false;
 
+        // ===== 0b. STAGE 1 TRADE LOGGING =====
+        [NinjaScriptProperty]
+        [Display(Name="Account Name Filter", Description="Exact NT8 account name. Trade log only writes when account matches.", GroupName="0b. Trade Logging", Order=0)]
+        public string AccountNameFilter { get; set; } = "";
+
+        [NinjaScriptProperty]
+        [Display(Name="Trade Log Folder", Description="Folder where per-account TradeLog CSV is written.", GroupName="0b. Trade Logging", Order=1)]
+        public string TradeLogFolder { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog";
+
         // ===== 1. SETTINGS =====
         [NinjaScriptProperty, Range(2, 100)]
         [Display(Name="Total Contracts (Must be even)", GroupName="2. Risk Management", Order=0)]
@@ -47,6 +58,9 @@ namespace NinjaTrader.NinjaScript.Strategies
         private bool leg1Hit = false;
         private int oppositeBrickCount = 0;
 
+        // Stage 1 trade logger
+        private V3CTradeLogger _logger;
+
         protected override void OnStateChange()
         {
             if (State == State.SetDefaults)
@@ -63,6 +77,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             else if (State == State.DataLoaded)
             {
                 atr = ATR(14);
+                _logger = new V3CTradeLogger(this, AccountNameFilter, "V3C", TradeLogFolder);
             }
         }
 
@@ -261,6 +276,25 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (DebugV3CGate)
                 Print($"{Time[0]} {Name} V3C Gate: {message}");
+        }
+
+        // =========================================================================
+        // STAGE 1 TRADE LOGGING — delegates to V3CTradeLogger
+        // =========================================================================
+        protected override void OnExecutionUpdate(Execution execution, string executionId,
+            double price, int quantity, MarketPosition marketPosition, string orderId,
+            DateTime time)
+        {
+            _logger?.OnExecution(execution, null);
+        }
+
+        protected override void OnOrderUpdate(Order order, double limitPrice, double stopPrice,
+            int quantity, int filled, double averageFillPrice, OrderState orderState,
+            DateTime time, ErrorCode error, string comment)
+        {
+            // Capture initial stop price as soon as the stop order is live
+            if (orderState == OrderState.Working)
+                _logger?.OnStopOrderSubmitted(order);
         }
     }
 }

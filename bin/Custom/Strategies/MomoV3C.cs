@@ -34,6 +34,15 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="2. Fix HA Backtesting (Dual Series)", Description="If true, routes orders to a hidden Standard 1m chart to bypass synthetic HA fills.", GroupName="Trinity Command Center", Order=2)]
         public bool UseDualSeries { get; set; } = true;
 
+        // ===== 0b. STAGE 1 TRADE LOGGING =====
+        [NinjaScriptProperty]
+        [Display(Name="Account Name Filter", Description="Exact NT8 account name.", GroupName="0b. Trade Logging", Order=0)]
+        public string AccountNameFilter { get; set; } = "";
+
+        [NinjaScriptProperty]
+        [Display(Name="Trade Log Folder", GroupName="0b. Trade Logging", Order=1)]
+        public string TradeLogFolder { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog";
+
         private int execSeries = 0; // 0 = Primary Chart, 1 = Secondary 1m Chart
 
         // The live permission slip linked to the V3C HUD Parking Garage
@@ -377,6 +386,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private EMA anchorEma;
         private Series<double> sessionVWAP;
         private double cumPV, cumVol;
+        private V3CTradeLogger _logger;
 
         private Series<double> trSeries;
         private SUM sumTr;
@@ -509,6 +519,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 sessionPnLBaseline = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit;
                 lastTradeCount = SystemPerformance.AllTrades.Count;
+                _logger = new V3CTradeLogger(this, AccountNameFilter, "V3C", TradeLogFolder);
             }
             else if (State == State.Realtime)
             {
@@ -738,6 +749,21 @@ namespace NinjaTrader.NinjaScript.Strategies
             SetStopLoss(SEntry, CalculationMode.Price, stp, false);
             SetProfitTarget(SEntry, CalculationMode.Price, tgt);
             EnterShort(execSeries, Contracts, SEntry);
+        }
+
+        protected override void OnExecutionUpdate(Execution execution, string executionId,
+            double price, int quantity, MarketPosition marketPosition, string orderId,
+            DateTime time)
+        {
+            _logger?.OnExecution(execution, null);
+        }
+
+        protected override void OnOrderUpdate(Order order, double limitPrice, double stopPrice,
+            int quantity, int filled, double averageFillPrice, OrderState orderState,
+            DateTime time, ErrorCode error, string comment)
+        {
+            if (orderState == OrderState.Working)
+                _logger?.OnStopOrderSubmitted(order);
         }
     }
 }

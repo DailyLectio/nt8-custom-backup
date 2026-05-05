@@ -563,10 +563,8 @@
     <Compile Include="Strategies\V3ValueFader.cs" />
     <Compile Include="Strategies\ADXDI.cs" />
     <Compile Include="Indicators\RegimeMatrixHUDV3C.cs" />
-    <Compile Include="Strategies\MomoV3C.cs" />
     <Compile Include="Strategies\ADXXV3C.cs" />
     <Compile Include="Strategies\PineV3C.cs" />
-    <Compile Include="Strategies\ADXDIV3C.cs" />
     <Compile Include="Indicators\ValueAreaExporter.cs" />
     <Compile Include="Strategies\MomentumV3D.cs" />
     <Compile Include="Strategies\ADXDIV3D.cs" />
@@ -578,8 +576,6 @@
     <Compile Include="Strategies\SniperV3DB.cs" />
     <Compile Include="Strategies\ADXDIV3DB.cs" />
     <Compile Include="Strategies\V3_Compression_Sniper_V3C.cs" />
-    <Compile Include="Strategies\V3_Expansion_Rider_V3C.cs" />
-    <Compile Include="Strategies\V3_Value_Fader_V3C.cs" />
     <Compile Include="Strategies\ADXDIV3DC.cs" />
     <Compile Include="Strategies\MomoV3CB.cs" />
     <Compile Include="Strategies\MomentumV3DB.cs" />
@@ -602,6 +598,7 @@
     <Compile Include="Strategies\KalmanPulseFaderV2.cs" />
     <Compile Include="Indicators\PipelineMonitorV1A.cs" />
     <Compile Include="Strategies\KalmanPulseFader.cs" />
+    <Compile Include="Indicators\V3CTradeLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
