@@ -6,14 +6,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20095</ZOrder>
+      <ZOrder>100063</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>- CL Oil Liquity Trading</GlobalWorkspace>
       <Id>4f4bd23ad943463e8be0eb4f6397106b</Id>
       <IsLocked>true</IsLocked>
@@ -65,14 +65,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20096</ZOrder>
+      <ZOrder>100064</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>NEW</GlobalWorkspace>
       <Id>8ba7d3c981954e0db1e59ea0ca749e5c</Id>
       <IsLocked>true</IsLocked>
@@ -124,14 +124,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20097</ZOrder>
+      <ZOrder>100065</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>NEW NQ</GlobalWorkspace>
       <Id>39d6660f0a254549ba6f798869ef726c</Id>
       <IsLocked>true</IsLocked>
@@ -183,14 +183,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20098</ZOrder>
+      <ZOrder>100066</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>New 5-UNI-1m</GlobalWorkspace>
       <Id>e207a1ba0f4048a5b9fc60df203f95f7</Id>
       <IsLocked>true</IsLocked>
@@ -242,14 +242,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20099</ZOrder>
+      <ZOrder>100067</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>Uni 15 - 1m 5m - VOL STARTER</GlobalWorkspace>
       <Id>2e4df7a13cdf437184349323fb0715ec</Id>
       <IsLocked>true</IsLocked>
@@ -301,14 +301,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20100</ZOrder>
+      <ZOrder>100068</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>NEW MNQ Momentum Charts MICROS NQ</GlobalWorkspace>
       <Id>110c2190e22c4819bf93592b54988c9f</Id>
       <IsLocked>true</IsLocked>
@@ -360,14 +360,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20101</ZOrder>
+      <ZOrder>100069</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>Uni Chart only TEST</GlobalWorkspace>
       <Id>e994343a2bbb42799b9041397586329b</Id>
       <IsLocked>true</IsLocked>
@@ -419,14 +419,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20102</ZOrder>
+      <ZOrder>100070</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>MNQ simple light</GlobalWorkspace>
       <Id>e52a9caedb00438cac8bb38650cf9a63</Id>
       <IsLocked>true</IsLocked>
@@ -478,14 +478,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20103</ZOrder>
+      <ZOrder>100071</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>AAA Core</GlobalWorkspace>
       <Id>58e24c35f7764cc7a5ddd88f24a679e0</Id>
       <IsLocked>false</IsLocked>
@@ -527,14 +527,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20104</ZOrder>
+      <ZOrder>100072</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>Core Playbook Trading Charts</GlobalWorkspace>
       <Id>0138d4e46bf0499897940737315ddbe7</Id>
       <IsLocked>true</IsLocked>
@@ -586,14 +586,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20105</ZOrder>
+      <ZOrder>100073</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>Core Playbook Trading Charts</GlobalWorkspace>
       <Id>2e88c241a9d74f6198cb6d1898356968</Id>
       <IsLocked>true</IsLocked>
@@ -643,14 +643,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20106</ZOrder>
+      <ZOrder>100074</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>Core Playbook Trading Charts</GlobalWorkspace>
       <Id>9952042850c64c5da7dbfd85fd2bf6b9</Id>
       <IsLocked>true</IsLocked>
@@ -692,14 +692,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20107</ZOrder>
+      <ZOrder>100075</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>- Deja Trade CLEAN</GlobalWorkspace>
       <Id>f58fcf32aa814c488639bd1cb043b6cf</Id>
       <IsLocked>true</IsLocked>
@@ -745,14 +745,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20108</ZOrder>
+      <ZOrder>100076</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>- Deja Trade CLEAN</GlobalWorkspace>
       <Id>c893702c91a746c3a4457eeb25303bce</Id>
       <IsLocked>true</IsLocked>
@@ -804,14 +804,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20109</ZOrder>
+      <ZOrder>100077</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>ChatGPT Setups</GlobalWorkspace>
       <Id>45576c7b71ee4fd9a2dd90d0112cef65</Id>
       <IsLocked>true</IsLocked>
@@ -857,14 +857,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20110</ZOrder>
+      <ZOrder>100078</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>ChatGPT Setups</GlobalWorkspace>
       <Id>6c9b977938324ea4992bb9e0642ad6ba</Id>
       <IsLocked>true</IsLocked>
@@ -916,14 +916,14 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20111</ZOrder>
+      <ZOrder>100079</ZOrder>
       <AttachedTo>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
       </AttachedTo>
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>Trade Screen</GlobalWorkspace>
       <Id>79aaf727f2554b01b1a8bfc414a84237</Id>
       <IsLocked>true</IsLocked>
@@ -940,7 +940,7 @@
         <IsYPropertyVisible>true</IsYPropertyVisible>
       </EndAnchor>
       <StartAnchor>
-        <SlotIndex>0</SlotIndex>
+        <SlotIndex>6376.196614583333</SlotIndex>
         <DisplayName>Anchor</DisplayName>
         <IsBrowsable>true</IsBrowsable>
         <Time>2026-04-28T10:36:01.155</Time>
@@ -965,7 +965,7 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20116</ZOrder>
+      <ZOrder>100081</ZOrder>
       <AttachedTo>
         <ChartObjectSerialize>ChartBars</ChartObjectSerialize>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
@@ -973,7 +973,7 @@
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>Trade Screen</GlobalWorkspace>
       <Id>5114c04c91614fcb8dff8df97b030cca</Id>
       <IsLocked>true</IsLocked>
@@ -990,7 +990,7 @@
         <IsYPropertyVisible>true</IsYPropertyVisible>
       </EndAnchor>
       <StartAnchor>
-        <SlotIndex>451.03077777777776</SlotIndex>
+        <SlotIndex>9231.4634845729088</SlotIndex>
         <DisplayName>Anchor</DisplayName>
         <IsBrowsable>true</IsBrowsable>
         <Time>2026-05-05T09:36:05.54</Time>
@@ -1015,7 +1015,7 @@
       <IsAutoScale>false</IsAutoScale>
       <MaxValue>-1.7976931348623157E+308</MaxValue>
       <MinValue>1.7976931348623157E+308</MinValue>
-      <ZOrder>20119</ZOrder>
+      <ZOrder>100084</ZOrder>
       <AttachedTo>
         <ChartObjectSerialize>ChartBars</ChartObjectSerialize>
         <InstrumentSerialize>ES JUN26</InstrumentSerialize>
@@ -1023,7 +1023,7 @@
       <ScaleJustification>Right</ScaleJustification>
       <DrawingState>Normal</DrawingState>
       <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-      <GlobalLastSeenSerialize>639135874151100724</GlobalLastSeenSerialize>
+      <GlobalLastSeenSerialize>639136157489611879</GlobalLastSeenSerialize>
       <GlobalWorkspace>V3D</GlobalWorkspace>
       <Id>8a014c18203341ec96649355dff9308f</Id>
       <IsLocked>true</IsLocked>
@@ -1040,7 +1040,7 @@
         <IsYPropertyVisible>true</IsYPropertyVisible>
       </EndAnchor>
       <StartAnchor>
-        <SlotIndex>451.03077777777776</SlotIndex>
+        <SlotIndex>9231.4634845729088</SlotIndex>
         <DisplayName>Anchor</DisplayName>
         <IsBrowsable>true</IsBrowsable>
         <Time>2026-05-05T09:36:05.54</Time>
