@@ -71,27 +71,36 @@ namespace NinjaTrader.NinjaScript.Indicators
         public bool ShowSignalMarkers { get; set; }
 
         [NinjaScriptProperty]
-        [Display(Name = "Require SuperTrend Filter", GroupName = "2. Signals", Order = 1)]
+        [Display(Name = "Show Signal Text", GroupName = "2. Signals", Order = 1)]
+        public bool ShowSignalText { get; set; }
+
+        [NinjaScriptProperty]
+        [Range(0, 200)]
+        [Display(Name = "Signal Text Offset Ticks", GroupName = "2. Signals", Order = 2)]
+        public int SignalTextOffsetTicks { get; set; }
+
+        [NinjaScriptProperty]
+        [Display(Name = "Require SuperTrend Filter", GroupName = "2. Signals", Order = 3)]
         public bool RequireSuperTrendFilter { get; set; }
 
         [NinjaScriptProperty]
         [Range(1, 100)]
-        [Display(Name = "ATR Stop Period", GroupName = "2. Signals", Order = 2)]
+        [Display(Name = "ATR Stop Period", GroupName = "2. Signals", Order = 4)]
         public int AtrStopPeriod { get; set; }
 
         [NinjaScriptProperty]
         [Range(0.1, 10.0)]
-        [Display(Name = "ATR Stop Mult", GroupName = "2. Signals", Order = 3)]
+        [Display(Name = "ATR Stop Mult", GroupName = "2. Signals", Order = 5)]
         public double AtrStopMult { get; set; }
 
         [NinjaScriptProperty]
         [Range(1, 100)]
-        [Display(Name = "SuperTrend ATR Period", GroupName = "2. Signals", Order = 4)]
+        [Display(Name = "SuperTrend ATR Period", GroupName = "2. Signals", Order = 6)]
         public int SuperTrendAtrPeriod { get; set; }
 
         [NinjaScriptProperty]
         [Range(0.1, 10.0)]
-        [Display(Name = "SuperTrend Factor", GroupName = "2. Signals", Order = 5)]
+        [Display(Name = "SuperTrend Factor", GroupName = "2. Signals", Order = 7)]
         public double SuperTrendFactor { get; set; }
 
         [NinjaScriptProperty]
@@ -142,6 +151,8 @@ namespace NinjaTrader.NinjaScript.Indicators
                 ShadingOpacity = 12;
 
                 ShowSignalMarkers = true;
+                ShowSignalText = true;
+                SignalTextOffsetTicks = 8;
                 RequireSuperTrendFilter = true;
                 AtrStopPeriod = 14;
                 AtrStopMult = 2.0;
@@ -151,9 +162,9 @@ namespace NinjaTrader.NinjaScript.Indicators
                 ShowContextHud = true;
                 HudLocation = TextPosition.BottomRight;
 
-                AddPlot(new Stroke(Brushes.DarkOrange, 2), PlotStyle.Line, "Basis");
-                AddPlot(new Stroke(Brushes.DodgerBlue, 2), PlotStyle.Line, "Upper");
-                AddPlot(new Stroke(Brushes.DodgerBlue, 2), PlotStyle.Line, "Lower");
+                AddPlot(Brushes.DarkOrange, "Basis");
+                AddPlot(Brushes.DodgerBlue, "Upper");
+                AddPlot(Brushes.DodgerBlue, "Lower");
             }
             else if (State == State.DataLoaded)
             {
@@ -246,13 +257,21 @@ namespace NinjaTrader.NinjaScript.Indicators
                 {
                     string tag = "RegimeDirectionNT8_Long_" + CurrentBar;
                     Draw.ArrowUp(this, tag, false, 0, Low[0] - 2 * TickSize, Brushes.LimeGreen);
-                    Draw.Text(this, tag + "_Text", "B\nSL: " + buyStop.ToString("0.0"), 0, Low[0] - 6 * TickSize, Brushes.LimeGreen);
+                    if (ShowSignalText)
+                    {
+                        double textY = Lower[0] - Math.Max(1, SignalTextOffsetTicks) * TickSize;
+                        Draw.Text(this, tag + "_Text", "B\nSL: " + buyStop.ToString("0.0"), 0, textY, Brushes.LimeGreen);
+                    }
                 }
                 else if (shortCondition)
                 {
                     string tag = "RegimeDirectionNT8_Short_" + CurrentBar;
                     Draw.ArrowDown(this, tag, false, 0, High[0] + 2 * TickSize, Brushes.Red);
-                    Draw.Text(this, tag + "_Text", "S\nSL: " + sellStop.ToString("0.0"), 0, High[0] + 6 * TickSize, Brushes.Red);
+                    if (ShowSignalText)
+                    {
+                        double textY = Upper[0] + Math.Max(1, SignalTextOffsetTicks) * TickSize;
+                        Draw.Text(this, tag + "_Text", "S\nSL: " + sellStop.ToString("0.0"), 0, textY, Brushes.Red);
+                    }
                 }
             }
 
