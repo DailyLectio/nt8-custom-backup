@@ -574,7 +574,7 @@
     <Compile Include="Strategies\ExpansionV3DB.cs" />
     <Compile Include="Strategies\FaderV3DB.cs" />
     <Compile Include="Strategies\SniperV3DB.cs" />
-    <Compile Include="Strategies\ADXDIV3DB.cs" />
+    <Compile Include="Strategies\%40%40ADXDIV3DB.cs" />
     <Compile Include="Strategies\V3_Compression_Sniper_V3C.cs" />
     <Compile Include="Strategies\ADXDIV3DC.cs" />
     <Compile Include="Strategies\MomoV3CB.cs" />

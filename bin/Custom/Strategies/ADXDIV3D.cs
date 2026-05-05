@@ -150,6 +150,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         // =========================================================================
         private int    consecutiveLosers    = 0;
         private int    lastTradeCount       = 0;
+        private int    lastDebugBarPrinted  = -1;
         private double trailingStopLong     = double.NaN;
         private double trailingStopShort    = double.NaN;
 
@@ -481,6 +482,10 @@ namespace NinjaTrader.NinjaScript.Strategies
                 ExitOnSessionCloseSeconds    = 30;
                 RealtimeErrorHandling        = RealtimeErrorHandling.IgnoreAllErrors;
                 TraceOrders                  = false;
+                IsOverlay                    = true;
+                IsAutoScale                  = false;
+                DisplayInDataBox             = false;
+                DrawOnPricePanel             = true;
             }
             else if (State == State.DataLoaded)
             {
@@ -488,6 +493,10 @@ namespace NinjaTrader.NinjaScript.Strategies
                 matrixFile   = Path.Combine(DataFolderPath, leaderSymbol + "_RegimeMatrix_Latest.csv");
                 atr          = ATR(AtrPeriod);
                 adx          = ADX(AdxPeriod);
+                atr.IsAutoScale              = false;
+                adx.IsAutoScale              = false;
+                atr.DisplayInDataBox         = false;
+                adx.DisplayInDataBox         = false;
 
                 dmPlus       = new Series<double>(this);
                 dmMinus      = new Series<double>(this);
@@ -500,6 +509,13 @@ namespace NinjaTrader.NinjaScript.Strategies
                 SetupFileWatcher();
                 ConfigureStage1TradeLog();
                 lastTradeCount = SystemPerformance.AllTrades.Count;
+
+                Print(string.Format(CultureInfo.InvariantCulture,
+                    "{0} loaded | Instrument={1} | BarsPeriod={2} | RegimeFile={3}",
+                    Name,
+                    Instrument != null ? Instrument.FullName : "UNKNOWN",
+                    BarsPeriod != null ? BarsPeriod.ToString() : "UNKNOWN",
+                    matrixFile));
             }
             else if (State == State.Terminated)
             {
@@ -672,6 +688,25 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (CurrentBar < Math.Max(AdxPeriod, AtrPeriod) + 2) return;
 
             RefreshRegimeState();
+
+            if (CurrentBar != lastDebugBarPrinted && CurrentBar % 25 == 0)
+            {
+                lastDebugBarPrinted = CurrentBar;
+                Print(string.Format(CultureInfo.InvariantCulture,
+                    "{0} update | Time={1:yyyy-MM-dd HH:mm:ss} | Instrument={2} | BarsPeriod={3} | CurrentBar={4} | Close={5:F2} | Regime={6} | AllowLong={7} | AllowShort={8} | Stale={9} | ParseFailed={10} | RegimeFile={11}",
+                    Name,
+                    Time[0],
+                    Instrument != null ? Instrument.FullName : "UNKNOWN",
+                    BarsPeriod != null ? BarsPeriod.ToString() : "UNKNOWN",
+                    CurrentBar,
+                    Close[0],
+                    finalRegime,
+                    allowLong,
+                    allowShort,
+                    staleDataFlag,
+                    parseFailed,
+                    matrixFile));
+            }
 
             if (Bars.IsFirstBarOfSession)
             {
