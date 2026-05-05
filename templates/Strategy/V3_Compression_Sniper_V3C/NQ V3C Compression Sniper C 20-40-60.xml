@@ -73,11 +73,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">1</Max>
-        <Min xsi:type="xsd:double">1</Min>
+        <Max xsi:type="xsd:double">0.9</Max>
+        <Min xsi:type="xsd:double">0.9</Min>
         <Name>StopAtr</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>1</ValueSerializable>
+        <ValueSerializable>0.9</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -108,13 +108,13 @@
       <BarsPeriodSerializable>
         <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>40</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>80</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>20</Value>
-        <Value2>60</Value2>
+        <Value>40</Value>
+        <Value2>120</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnBarClose</Calculate>
@@ -124,7 +124,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>NQ VC3-A Compression Fast </Name>
+      <Name>NQ V3C Compression Sniper C 20-40-60</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -180,11 +180,11 @@
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>true</EnableTrinityFilter>
       <DebugV3CGate>false</DebugV3CGate>
-      <AccountNameFilter>SimV3C-NQ-2A</AccountNameFilter>
+      <AccountNameFilter>SimV3C-NQ-2C</AccountNameFilter>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog</TradeLogFolder>
       <Contracts>1</Contracts>
       <TargetAtr>1</TargetAtr>
-      <StopAtr>1</StopAtr>
+      <StopAtr>0.9</StopAtr>
       <FastEmaPeriod>9</FastEmaPeriod>
       <SlowEmaPeriod>21</SlowEmaPeriod>
     </V3_Compression_Sniper_V3C>

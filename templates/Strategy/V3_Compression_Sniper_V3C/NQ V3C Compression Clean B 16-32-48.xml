@@ -73,29 +73,29 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">1</Max>
-        <Min xsi:type="xsd:double">1</Min>
+        <Max xsi:type="xsd:double">0.75</Max>
+        <Min xsi:type="xsd:double">0.75</Min>
         <Name>StopAtr</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>1</ValueSerializable>
+        <ValueSerializable>0.75</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">9</Max>
-        <Min xsi:type="xsd:int">9</Min>
+        <Max xsi:type="xsd:int">13</Max>
+        <Min xsi:type="xsd:int">13</Min>
         <Name>FastEmaPeriod</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>9</ValueSerializable>
+        <ValueSerializable>13</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">21</Max>
-        <Min xsi:type="xsd:int">21</Min>
+        <Max xsi:type="xsd:int">34</Max>
+        <Min xsi:type="xsd:int">34</Min>
         <Name>SlowEmaPeriod</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>21</ValueSerializable>
+        <ValueSerializable>34</ValueSerializable>
       </Parameter>
     </ArrayOfParameter>
   </OptimizationParameters>
@@ -108,28 +108,28 @@
       <BarsPeriodSerializable>
         <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>40</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>32</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>20</Value>
-        <Value2>60</Value2>
+        <Value>16</Value>
+        <Value2>48</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnBarClose</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2099-12-01T00:00:00</From>
+      <From>2026-04-29T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>NQ V3C Compression Fast</Name>
+      <Name>NQ V3C Compression Clean B</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>1800-01-01T00:00:00</To>
+      <To>2026-05-04T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -154,6 +154,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -179,11 +180,13 @@
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>true</EnableTrinityFilter>
       <DebugV3CGate>false</DebugV3CGate>
+      <AccountNameFilter>SimV3C-NQ-2B</AccountNameFilter>
+      <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog</TradeLogFolder>
       <Contracts>1</Contracts>
       <TargetAtr>0.75</TargetAtr>
-      <StopAtr>1</StopAtr>
-      <FastEmaPeriod>9</FastEmaPeriod>
-      <SlowEmaPeriod>21</SlowEmaPeriod>
+      <StopAtr>0.75</StopAtr>
+      <FastEmaPeriod>13</FastEmaPeriod>
+      <SlowEmaPeriod>34</SlowEmaPeriod>
     </V3_Compression_Sniper_V3C>
   </Strategy>
 </StrategyTemplate>
