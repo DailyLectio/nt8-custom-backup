@@ -120,7 +120,7 @@
       <Calculate>OnBarClose</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2099-12-01T00:00:00</From>
+      <From>2026-04-29T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -129,7 +129,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>1800-01-01T00:00:00</To>
+      <To>2026-05-04T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -154,6 +154,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -179,6 +180,8 @@
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>true</EnableTrinityFilter>
       <DebugV3CGate>false</DebugV3CGate>
+      <AccountNameFilter>SimV3C-NQ-3B</AccountNameFilter>
+      <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog</TradeLogFolder>
       <Contracts>1</Contracts>
       <StopAtr>1.25</StopAtr>
       <MinTargetTicks>10</MinTargetTicks>

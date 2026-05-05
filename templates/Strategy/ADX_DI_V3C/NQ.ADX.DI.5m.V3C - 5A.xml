@@ -51,7 +51,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SelectedHudLane</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.ADX_DI_V3C+AdxDiHudLane, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.ADX_DI_V3C+AdxDiHudLane, 18916823ec17452bb2fe0a3ffe03a5d1, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>BracketSniper</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -125,7 +125,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>StopModeSelection</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.ADX_DI_V3C+StopMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.ADX_DI_V3C+StopMode, 18916823ec17452bb2fe0a3ffe03a5d1, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>AtrStatic</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -475,7 +475,7 @@
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-04-18T00:00:00</From>
+      <From>2026-04-19T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -484,7 +484,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-05-03T00:00:00</To>
+      <To>2026-05-04T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -536,6 +536,8 @@
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>false</EnableTrinityFilter>
       <SelectedHudLane>BracketSniper</SelectedHudLane>
+      <AccountNameFilter>NQ.ADX.DI.5m.V3C - 5A</AccountNameFilter>
+      <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog</TradeLogFolder>
       <Contracts>1</Contracts>
       <UseStopX>true</UseStopX>
       <RiskReward>0.5</RiskReward>
@@ -579,7 +581,7 @@
       <LunchEndHHmm>1250</LunchEndHHmm>
       <CustomBlk1On>true</CustomBlk1On>
       <Blk1StartHHmm>958</Blk1StartHHmm>
-      <Blk1EndHHmm>1025</Blk1EndHHmm>
+      <Blk1EndHHmm>1005</Blk1EndHHmm>
     </ADX_DI_V3C>
   </Strategy>
 </StrategyTemplate>
