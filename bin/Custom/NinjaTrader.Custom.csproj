@@ -579,7 +579,7 @@
     <Compile Include="Strategies\ADXDIV3DC.cs" />
     <Compile Include="Strategies\MomoV3CB.cs" />
     <Compile Include="Strategies\MomentumV3DB.cs" />
-    <Compile Include="Indicators\TradeLogExporterV3D.cs" />
+    <Compile Include="Indicators\%40%40TradeLogExporterV3D.cs" />
     <Compile Include="Indicators\TradeLogExporter_V3D.cs" />
     <Compile Include="Strategies\MomentumExpansion_5m.cs" />
     <Compile Include="Strategies\MomentumHA_Scalp_1m.cs" />
