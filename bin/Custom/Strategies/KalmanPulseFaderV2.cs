@@ -1,11 +1,11 @@
-// CC BY-NC 4.0
-// KalmanPulse_Fader_V2.cs — Adaptive Kalman Fade Strategy (V2)
-// ─────────────────────────────────────────────────────────────────────────
+﻿// CC BY-NC 4.0
+// KalmanPulse_Fader_V2.cs â€” Adaptive Kalman Fade Strategy (V2)
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // V2 ADDITIONS:
 //   1. Dual-Layer Exit Cooldowns (Bars + Seconds) to prevent machine-gun firing.
 //   2. Hard cap on MaxTotalContracts to prevent sizing explosion during tight ATR.
 //   3. Retains V1B OrderFlow/Kill Switch logic as optional parameters.
-// ─────────────────────────────────────────────────────────────────────────
+// â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 #region Using declarations
 using System;
@@ -24,7 +24,7 @@ namespace NinjaTrader.NinjaScript.Strategies
     public class KalmanPulse_Fader_V2 : Strategy
     {
         // =====================================================================
-        // PARAMETERS — KALMAN ENGINE
+        // PARAMETERS â€” KALMAN ENGINE
         // =====================================================================
         [NinjaScriptProperty, Range(5, 200)]
         [Display(Name = "Kernel Length", GroupName = "1. Kalman Engine", Order = 0)]
@@ -47,11 +47,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         public double InnerMult { get; set; } = 1.5;
 
         // =====================================================================
-        // PARAMETERS — RISK
+        // PARAMETERS â€” RISK
         // =====================================================================
         [NinjaScriptProperty, Range(0.5, 5.0)]
         [Display(Name = "ATR Stop Multiplier", GroupName = "2. Risk", Order = 0)]
-        public double AtrStopMult { get; set; } = 2.0;
+        public double AtrStopMult { get; set; } = 0.9;
 
         [NinjaScriptProperty, Range(0, 100)]
         [Display(Name = "Size Pct", GroupName = "2. Risk", Order = 1)]
@@ -66,8 +66,31 @@ namespace NinjaTrader.NinjaScript.Strategies
                  Description = "Hard cap on position size to prevent ATR explosion.")]
         public int MaxTotalContracts { get; set; } = 2;
 
+        [NinjaScriptProperty, Range(0.10, 10.0)]
+        [Display(Name = "Leg 1 Target ATR", GroupName = "2. Risk", Order = 4)]
+        public double Leg1TargetAtr { get; set; } = 1.0;
+
+        [NinjaScriptProperty, Range(0.10, 10.0)]
+        [Display(Name = "Leg 2 Target ATR", GroupName = "2. Risk", Order = 5)]
+        public double Leg2TargetAtr { get; set; } = 1.5;
+
+        [NinjaScriptProperty, Range(1, 200)]
+        [Display(Name = "Min Leg 1 Target Ticks", GroupName = "2. Risk", Order = 6)]
+        public int MinLeg1TargetTicks { get; set; } = 10;
+
+        [NinjaScriptProperty, Range(1, 200)]
+        [Display(Name = "Min Leg 2 Target Ticks", GroupName = "2. Risk", Order = 7)]
+        public int MinLeg2TargetTicks { get; set; } = 16;
+
+        [NinjaScriptProperty, Range(0.10, 10.0)]
+        [Display(Name = "Break Even After ATR", GroupName = "2. Risk", Order = 8)]
+        public double BreakEvenAfterAtr { get; set; } = 0.75;
+
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name = "Break Even Plus Ticks", GroupName = "2. Risk", Order = 9)]
+        public int BreakEvenPlusTicks { get; set; } = 4;
         // =====================================================================
-        // PARAMETERS — GUARDS & COOLDOWNS (V2 UPGRADES)
+        // PARAMETERS â€” GUARDS & COOLDOWNS (V2 UPGRADES)
         // =====================================================================
         [NinjaScriptProperty, Range(0, 10)]
         [Display(Name = "Max Consecutive Losses", GroupName = "3. Guards", Order = 0)]
@@ -92,7 +115,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         public int ExitCooldownSeconds { get; set; } = 30;
 
         // =====================================================================
-        // PARAMETERS — TIME
+        // PARAMETERS â€” TIME
         // =====================================================================
         [NinjaScriptProperty]
         [Display(Name = "Enable Time Filter", GroupName = "4. Time", Order = 0)]
@@ -144,6 +167,9 @@ namespace NinjaTrader.NinjaScript.Strategies
         private double   prevTickPrice  = 0;
         private double   lastLeg1Target = 0;
         private double   lastLeg2Target = 0;
+        private double   entryAtrForTrade = 0;
+        private double   activeEntryPrice = 0;
+        private bool     leg2StopAtBreakeven = false;
 
         // =====================================================================
         // ORDER LABELS
@@ -297,6 +323,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 lastExitTime = DateTime.MinValue;
                 prevTickPrice = 0;
                 lastLeg1Target = 0; lastLeg2Target = 0;
+                entryAtrForTrade = 0; activeEntryPrice = 0; leg2StopAtBreakeven = false;
                 kalmanState = double.NaN; prevKalmanState = double.NaN;
                 kalmanVar = 1.0; runningAtr = 0; atrInitCount = 0;
                 sessionStartProfit = SystemPerformance.AllTrades
@@ -310,7 +337,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             double curPrice = Close[0];
 
-            // ── Emergency envelope breach exit ────────────────────────────────
+            // â”€â”€ Emergency envelope breach exit â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (Position.MarketPosition == MarketPosition.Long && curPrice < lowerEnvelope)
             {
                 ExitLong("EnvelopeBreakExit", "");
@@ -326,45 +353,43 @@ namespace NinjaTrader.NinjaScript.Strategies
                 prevTickPrice = curPrice; return;
             }
 
-            // ── Runner management + dynamic target update ─────────────────────
+            // â”€â”€ Runner management + ATR breakeven stop â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             if (Position.MarketPosition != MarketPosition.Flat)
             {
                 if (!leg1Hit && Position.Quantity <= currentLeg2Qty && currentLeg2Qty > 0)
                 {
                     leg1Hit = true; leg1JustHit = true;
                     double pivot = Position.MarketPosition == MarketPosition.Long
-                        ? RT(Position.AveragePrice + 4 * TickSize)
-                        : RT(Position.AveragePrice - 4 * TickSize);
+                        ? RT(Position.AveragePrice + BreakEvenPlusTicks * TickSize)
+                        : RT(Position.AveragePrice - BreakEvenPlusTicks * TickSize);
                     if (activeLeg2 == KPL2) SetStopLoss(KPL2, CalculationMode.Price, pivot, false);
                     else if (activeLeg2 == KPS2) SetStopLoss(KPS2, CalculationMode.Price, pivot, false);
+                    leg2StopAtBreakeven = true;
                 }
                 else if (leg1JustHit) leg1JustHit = false;
 
-                if (!leg1JustHit && activeLeg2.Length > 0)
+                if (!leg2StopAtBreakeven && activeLeg2.Length > 0 && entryAtrForTrade > 0)
                 {
-                    if (Position.MarketPosition == MarketPosition.Long)
+                    double favorableMove = Position.MarketPosition == MarketPosition.Long
+                        ? curPrice - activeEntryPrice
+                        : activeEntryPrice - curPrice;
+                    if (favorableMove >= entryAtrForTrade * BreakEvenAfterAtr)
                     {
-                        double newL1 = RT(baseline); double newL2 = RT(innerUpper);
-                        if (!leg1Hit && Math.Abs(newL1 - lastLeg1Target) >= TickSize)
-                        { SetProfitTarget(KPL1, CalculationMode.Price, newL1); lastLeg1Target = newL1; }
-                        if (Math.Abs(newL2 - lastLeg2Target) >= TickSize)
-                        { SetProfitTarget(KPL2, CalculationMode.Price, newL2); lastLeg2Target = newL2; }
-                    }
-                    else
-                    {
-                        double newL1 = RT(baseline); double newL2 = RT(innerLower);
-                        if (!leg1Hit && Math.Abs(newL1 - lastLeg1Target) >= TickSize)
-                        { SetProfitTarget(KPS1, CalculationMode.Price, newL1); lastLeg1Target = newL1; }
-                        if (Math.Abs(newL2 - lastLeg2Target) >= TickSize)
-                        { SetProfitTarget(KPS2, CalculationMode.Price, newL2); lastLeg2Target = newL2; }
+                        double pivot = Position.MarketPosition == MarketPosition.Long
+                            ? RT(activeEntryPrice + BreakEvenPlusTicks * TickSize)
+                            : RT(activeEntryPrice - BreakEvenPlusTicks * TickSize);
+                        if (activeLeg2 == KPL2) SetStopLoss(KPL2, CalculationMode.Price, pivot, false);
+                        else if (activeLeg2 == KPS2) SetStopLoss(KPS2, CalculationMode.Price, pivot, false);
+                        leg2StopAtBreakeven = true;
                     }
                 }
 
                 prevTickPrice = curPrice; return;
             }
 
-            // ── Entry gates & Strict Cooldowns ────────────────────────────────
+            // â”€â”€ Entry gates & Strict Cooldowns â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             leg1Hit = false; leg1JustHit = false; currentLeg2Qty = 1; activeLeg2 = "";
+            entryAtrForTrade = 0; activeEntryPrice = 0; leg2StopAtBreakeven = false;
 
             if (CurrentBar == lastEntryBar) { prevTickPrice = curPrice; return; }
             if (consecutiveLosers >= MaxConsecutiveLosses) { prevTickPrice = curPrice; return; }
@@ -386,18 +411,20 @@ namespace NinjaTrader.NinjaScript.Strategies
             bool tickDown = prevTickPrice > 0 && curPrice < prevTickPrice;
             double slopeThreshold = atrVal * 0.1;
 
-            // ── LONG FADE ─────────────────────────────────────────────────────
+            // â”€â”€ LONG FADE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             bool fadeLong = curPrice <= innerLower && curPrice > lowerEnvelope
                          && baselineSlope >= -slopeThreshold;
 
             if (fadeLong && tickUp)
             {
                 double stopPrice  = RT(curPrice - atrVal * AtrStopMult);
-                double leg1Target = RT(baseline);
-                double leg2Target = RT(innerUpper);
+                double leg1Dist   = Math.Max(atrVal * Leg1TargetAtr, MinLeg1TargetTicks * TickSize);
+                double leg2Dist   = Math.Max(atrVal * Leg2TargetAtr, MinLeg2TargetTicks * TickSize);
+                double leg1Target = RT(curPrice + leg1Dist);
+                double leg2Target = RT(curPrice + leg2Dist);
 
                 if (curPrice <= stopPrice) { prevTickPrice = curPrice; return; }
-                if ((leg1Target - curPrice) / TickSize < 4) { prevTickPrice = curPrice; return; }
+                if ((leg1Target - curPrice) / TickSize < MinLeg1TargetTicks || (leg2Target - curPrice) / TickSize < MinLeg2TargetTicks) { prevTickPrice = curPrice; return; }
 
                 int maxC = CalcMaxContracts(atrVal);
                 int sz   = ScaleByConfidence(maxC, SizePct);
@@ -413,11 +440,12 @@ namespace NinjaTrader.NinjaScript.Strategies
                 currentLeg2Qty = l2q; activeLeg2 = KPL2;
                 lastLeg1Target = leg1Target; lastLeg2Target = leg2Target;
                 lastEntryBar   = CurrentBar;
+                entryAtrForTrade = atrVal; activeEntryPrice = curPrice; leg2StopAtBreakeven = false;
 
                 Print(string.Format("[KPF_V2] LONG | Baseline:{0:F2} | Qty:{1}+{2} | Stop:{3:F2} | T1:{4:F2} | T2:{5:F2}",
                     baseline, l1q, l2q, stopPrice, leg1Target, leg2Target));
             }
-            // ── SHORT FADE ────────────────────────────────────────────────────
+            // â”€â”€ SHORT FADE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
             else
             {
                 bool fadeShort = curPrice >= innerUpper && curPrice < upperEnvelope
@@ -426,11 +454,13 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (fadeShort && tickDown)
                 {
                     double stopPrice  = RT(curPrice + atrVal * AtrStopMult);
-                    double leg1Target = RT(baseline);
-                    double leg2Target = RT(innerLower);
+                    double leg1Dist   = Math.Max(atrVal * Leg1TargetAtr, MinLeg1TargetTicks * TickSize);
+                    double leg2Dist   = Math.Max(atrVal * Leg2TargetAtr, MinLeg2TargetTicks * TickSize);
+                    double leg1Target = RT(curPrice - leg1Dist);
+                    double leg2Target = RT(curPrice - leg2Dist);
 
                     if (curPrice >= stopPrice) { prevTickPrice = curPrice; return; }
-                    if ((curPrice - leg1Target) / TickSize < 4) { prevTickPrice = curPrice; return; }
+                    if ((curPrice - leg1Target) / TickSize < MinLeg1TargetTicks || (curPrice - leg2Target) / TickSize < MinLeg2TargetTicks) { prevTickPrice = curPrice; return; }
 
                     int maxC = CalcMaxContracts(atrVal);
                     int sz   = ScaleByConfidence(maxC, SizePct);
@@ -446,6 +476,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     currentLeg2Qty = l2q; activeLeg2 = KPS2;
                     lastLeg1Target = leg1Target; lastLeg2Target = leg2Target;
                     lastEntryBar   = CurrentBar;
+                    entryAtrForTrade = atrVal; activeEntryPrice = curPrice; leg2StopAtBreakeven = false;
 
                     Print(string.Format("[KPF_V2] SHORT | Baseline:{0:F2} | Qty:{1}+{2} | Stop:{3:F2} | T1:{4:F2} | T2:{5:F2}",
                         baseline, l1q, l2q, stopPrice, leg1Target, leg2Target));
@@ -456,3 +487,5 @@ namespace NinjaTrader.NinjaScript.Strategies
         }
     }
 }
+
+
