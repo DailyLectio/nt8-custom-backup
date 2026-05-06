@@ -1,6 +1,6 @@
 // CC BY-NC 4.0
 // KalmanPulseFader.cs
-// FIXES 2026-05-06: BUG-001 (lastExitBar session reset), BUG-002 (dead atrBuffer field removed), BUG-006 (stop sanity guards added) â€” Adaptive Kalman Filter Mean-Reversion Fade Strategy
+// FIXES 2026-05-06: BUG-001 (lastExitBar session reset), BUG-002 (dead atrBuffer removed), BUG-006 (stop sanity guards), BUG-007 (entrySubmittedBar gate: suppresses same-bar envelope exit) -- Adaptive Kalman Filter Mean-Reversion Fade Strategy
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // REGIME ENGINE : Gaussian Kernel Smoother â†’ Adaptive Kalman Filter baseline.
 //   Kalman process/measurement noise scales with live ATR, making the filter
@@ -186,6 +186,9 @@ namespace NinjaTrader.NinjaScript.Strategies
         private int    lastEntryBar    = -1;
         private int    lastExitBar     = -1;  // BUG-001 FIX
         private DateTime lastExitTime  = DateTime.MinValue;
+        // BUG-007 FIX: suppress EnvelopeBreakExit on the same bar an entry was submitted
+        // Prevents the simultaneous-entry-and-envelope-exit race (observed 12:30 and 12:45 today)
+        private int    entrySubmittedBar = -1;
 
         // Previous tick price for micro-reversal detection
         private double prevTickPrice   = 0;
@@ -637,6 +640,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 lastEntryBar       = -1;
                 lastExitBar        = -1;  // BUG-001 FIX
                 lastExitTime       = DateTime.MinValue;
+                entrySubmittedBar  = -1;  // BUG-007 FIX
                 prevTickPrice      = 0;
                 lastLeg1Target     = 0;
                 lastLeg2Target     = 0;
@@ -660,7 +664,8 @@ namespace NinjaTrader.NinjaScript.Strategies
             // ==================================================================
             // EMERGENCY EXIT: price broke outer envelope (failed fade)
             // ==================================================================
-            if (Position.MarketPosition == MarketPosition.Long && curPrice < lowerEnvelope)
+            if (Position.MarketPosition == MarketPosition.Long && curPrice < lowerEnvelope
+                && CurrentBar != entrySubmittedBar)
             {
                 ExitLong("EnvelopeBreakExit", "");
                 RegisterExitCooldown();
@@ -668,7 +673,8 @@ namespace NinjaTrader.NinjaScript.Strategies
                 prevTickPrice = curPrice;
                 return;
             }
-            if (Position.MarketPosition == MarketPosition.Short && curPrice > upperEnvelope)
+            if (Position.MarketPosition == MarketPosition.Short && curPrice > upperEnvelope
+                && CurrentBar != entrySubmittedBar)
             {
                 ExitShort("EnvelopeBreakExit", "");
                 RegisterExitCooldown();
@@ -679,7 +685,8 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             // Trend regime emergency exit
             if (Position.MarketPosition == MarketPosition.Long &&
-                curPrice > upperEnvelope && baselineSlope > 0)
+                curPrice > upperEnvelope && baselineSlope > 0
+                && CurrentBar != entrySubmittedBar)
             {
                 ExitLong("TrendBreakExit", "");
                 RegisterExitCooldown();
@@ -688,7 +695,8 @@ namespace NinjaTrader.NinjaScript.Strategies
                 return;
             }
             if (Position.MarketPosition == MarketPosition.Short &&
-                curPrice < lowerEnvelope && baselineSlope < 0)
+                curPrice < lowerEnvelope && baselineSlope < 0
+                && CurrentBar != entrySubmittedBar)
             {
                 ExitShort("TrendBreakExit", "");
                 RegisterExitCooldown();
@@ -804,6 +812,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 lastLeg1Target = leg1Target;
                 lastLeg2Target = leg2Target;
                 lastEntryBar   = CurrentBar;
+                entrySubmittedBar = CurrentBar;  // BUG-007 FIX
                 entryAtrForTrade = atrVal; activeEntryPrice = curPrice; leg2StopAtBreakeven = false;
 
                 Print(string.Format(
@@ -850,6 +859,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     lastLeg1Target = leg1Target;
                     lastLeg2Target = leg2Target;
                     lastEntryBar   = CurrentBar;
+                    entrySubmittedBar = CurrentBar;  // BUG-007 FIX
                     entryAtrForTrade = atrVal; activeEntryPrice = curPrice; leg2StopAtBreakeven = false;
 
                     Print(string.Format(

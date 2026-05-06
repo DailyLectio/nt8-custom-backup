@@ -1,6 +1,6 @@
 // CC BY-NC 4.0
 // KalmanPulse_Fader_V2.cs
-// AUDIT 2026-05-06: No code bugs found. Cleanest of three files. Action: correct AtrStopMult from 2.0 to 0.9 in the live grid parameter panel. â€” Adaptive Kalman Fade Strategy (V2)
+// AUDIT 2026-05-06: No code bugs found. BUG-007 (entrySubmittedBar gate: suppresses same-bar envelope exit) applied to match base and V1B -- Adaptive Kalman Fade Strategy (V2)
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // V2 ADDITIONS:
 //   1. Dual-Layer Exit Cooldowns (Bars + Seconds) to prevent machine-gun firing.
@@ -165,6 +165,8 @@ namespace NinjaTrader.NinjaScript.Strategies
         private int      lastEntryBar   = -1;
         private int      lastExitBar    = -1;
         private DateTime lastExitTime   = DateTime.MinValue;
+        // BUG-007 FIX: suppress envelope exit on the bar an entry was submitted
+        private int      entrySubmittedBar = -1;
         private double   prevTickPrice  = 0;
         private double   lastLeg1Target = 0;
         private double   lastLeg2Target = 0;
@@ -320,8 +322,9 @@ namespace NinjaTrader.NinjaScript.Strategies
                 consecutiveLosers  = 0;
                 leg1Hit = false; leg1JustHit = false;
                 currentLeg2Qty = 1; activeLeg2 = "";
-                lastEntryBar = -1; lastExitBar = -1; 
+                lastEntryBar = -1; lastExitBar = -1;
                 lastExitTime = DateTime.MinValue;
+                entrySubmittedBar = -1;  // BUG-007 FIX
                 prevTickPrice = 0;
                 lastLeg1Target = 0; lastLeg2Target = 0;
                 entryAtrForTrade = 0; activeEntryPrice = 0; leg2StopAtBreakeven = false;
@@ -339,14 +342,17 @@ namespace NinjaTrader.NinjaScript.Strategies
             double curPrice = Close[0];
 
             // â”€â”€ Emergency envelope breach exit â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-            if (Position.MarketPosition == MarketPosition.Long && curPrice < lowerEnvelope)
+            // BUG-007 FIX: do not fire envelope exit on the same bar an entry was submitted
+            if (Position.MarketPosition == MarketPosition.Long && curPrice < lowerEnvelope
+                && CurrentBar != entrySubmittedBar)
             {
                 ExitLong("EnvelopeBreakExit", "");
                 RegisterExitCooldown();
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 prevTickPrice = curPrice; return;
             }
-            if (Position.MarketPosition == MarketPosition.Short && curPrice > upperEnvelope)
+            if (Position.MarketPosition == MarketPosition.Short && curPrice > upperEnvelope
+                && CurrentBar != entrySubmittedBar)
             {
                 ExitShort("EnvelopeBreakExit", "");
                 RegisterExitCooldown();
@@ -435,6 +441,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 currentLeg2Qty = l2q; activeLeg2 = KPL2;
                 lastLeg1Target = leg1Target; lastLeg2Target = leg2Target;
                 lastEntryBar   = CurrentBar;
+                entrySubmittedBar = CurrentBar;  // BUG-007 FIX
                 entryAtrForTrade = atrVal; activeEntryPrice = curPrice; leg2StopAtBreakeven = false;
 
                 Print(string.Format("[KPF_V2] LONG | Baseline:{0:F2} | Qty:{1}+{2} | Stop:{3:F2} | T1:{4:F2} | T2:{5:F2}",
@@ -471,6 +478,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     currentLeg2Qty = l2q; activeLeg2 = KPS2;
                     lastLeg1Target = leg1Target; lastLeg2Target = leg2Target;
                     lastEntryBar   = CurrentBar;
+                    entrySubmittedBar = CurrentBar;  // BUG-007 FIX
                     entryAtrForTrade = atrVal; activeEntryPrice = curPrice; leg2StopAtBreakeven = false;
 
                     Print(string.Format("[KPF_V2] SHORT | Baseline:{0:F2} | Qty:{1}+{2} | Stop:{3:F2} | T1:{4:F2} | T2:{5:F2}",
@@ -482,4 +490,3 @@ namespace NinjaTrader.NinjaScript.Strategies
         }
     }
 }
-

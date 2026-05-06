@@ -1,6 +1,6 @@
 // CC BY-NC 4.0
 // KalmanPulse_Fader_V1B.cs
-// FIXES 2026-05-06: BUG-003 (ExitCooldownBars promoted to parameter), BUG-005 (MaxTotalContracts Range unified) â€” Adaptive Kalman Fade Strategy (V1B)
+// FIXES 2026-05-06: BUG-003 (ExitCooldownBars promoted to parameter), BUG-005 (MaxTotalContracts Range unified), BUG-007 (entrySubmittedBar gate: suppresses same-bar envelope exit) -- Adaptive Kalman Fade Strategy (V1B)
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // V1B ADDITIONS over V1A:
 //   1. A/B Mode switch (RequireFootprintConfirmation)
@@ -206,6 +206,8 @@ namespace NinjaTrader.NinjaScript.Strategies
         private int    lastEntryBar   = -1;
         private int    lastExitBar    = -1;
         private DateTime lastExitTime = DateTime.MinValue;
+        // BUG-007 FIX: suppress EnvelopeBreakExit on same bar an entry was submitted
+        private int    entrySubmittedBar = -1;
         private double prevTickPrice  = 0;
         private double lastLeg1Target = 0;
         private double lastLeg2Target = 0;
@@ -656,7 +658,9 @@ namespace NinjaTrader.NinjaScript.Strategies
                 consecutiveLosers  = 0;
                 leg1Hit = false; leg1JustHit = false;
                 currentLeg2Qty = 1; activeLeg2 = "";
-                lastEntryBar = -1; lastExitBar = -1; lastExitTime = DateTime.MinValue; prevTickPrice = 0;
+                lastEntryBar = -1; lastExitBar = -1; lastExitTime = DateTime.MinValue;
+                entrySubmittedBar = -1;  // BUG-007 FIX
+                prevTickPrice = 0;
                 lastLeg1Target = 0; lastLeg2Target = 0;
                 entryAtrForTrade = 0; activeEntryPrice = 0; leg2StopAtBreakeven = false;
                 kalmanState = double.NaN; prevKalmanState = double.NaN;
@@ -673,14 +677,17 @@ namespace NinjaTrader.NinjaScript.Strategies
             double curPrice = Close[0];
 
             // â”€â”€ Envelope breach exit â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-            if (Position.MarketPosition == MarketPosition.Long && curPrice < lowerEnvelope)
+            // BUG-007 FIX: do not fire envelope exit on the same bar an entry was submitted
+            if (Position.MarketPosition == MarketPosition.Long && curPrice < lowerEnvelope
+                && CurrentBar != entrySubmittedBar)
             {
                 ExitLong("EnvelopeBreakExit", "");
                 RegisterExitCooldown();
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 prevTickPrice = curPrice; return;
             }
-            if (Position.MarketPosition == MarketPosition.Short && curPrice > upperEnvelope)
+            if (Position.MarketPosition == MarketPosition.Short && curPrice > upperEnvelope
+                && CurrentBar != entrySubmittedBar)
             {
                 ExitShort("EnvelopeBreakExit", "");
                 RegisterExitCooldown();
@@ -779,6 +786,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 currentLeg2Qty = l2q; activeLeg2 = KPL2;
                 lastLeg1Target = leg1Target; lastLeg2Target = leg2Target;
                 lastEntryBar   = CurrentBar;
+                entrySubmittedBar = CurrentBar;  // BUG-007 FIX
                 entryAtrForTrade = atrVal; activeEntryPrice = curPrice; leg2StopAtBreakeven = false;
 
                 Print(string.Format("[KPF_V1B] LONG | Baseline:{0:F2} | Bias:{1} | FP:{2} | " +
@@ -819,6 +827,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     currentLeg2Qty = l2q; activeLeg2 = KPS2;
                     lastLeg1Target = leg1Target; lastLeg2Target = leg2Target;
                     lastEntryBar   = CurrentBar;
+                    entrySubmittedBar = CurrentBar;  // BUG-007 FIX
                     entryAtrForTrade = atrVal; activeEntryPrice = curPrice; leg2StopAtBreakeven = false;
 
                     Print(string.Format("[KPF_V1B] SHORT | Baseline:{0:F2} | Bias:{1} | FP:{2} | " +
