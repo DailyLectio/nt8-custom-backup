@@ -51,7 +51,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>Preset</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+ChartPreset, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+ChartPreset, 98134550270447aab9af6ff753c78c0b, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Custom</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -89,7 +89,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SideAnchor</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+AnchorMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+AnchorMode, 98134550270447aab9af6ff753c78c0b, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>VWAP</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -235,7 +235,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+ExitSlopeMode, 98134550270447aab9af6ff753c78c0b, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Simple</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -562,25 +562,25 @@
       <AreLinesConfigurable>true</AreLinesConfigurable>
       <ArePlotsConfigurable>true</ArePlotsConfigurable>
       <BarsPeriodSerializable>
-        <BarsPeriodTypeSerialize>9</BarsPeriodTypeSerialize>
+        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>5</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>1</Value>
+        <Value>5</Value>
         <Value2>1</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-05-03T00:00:00</From>
+      <From>2026-05-01T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-      <Name>NQ Momo 5m NQ OG</Name>
+      <Name>NQ Momo 5m 21 adx</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -611,7 +611,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>true</IncludeCommission>
-      <InstrumentOrInstrumentList />
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -680,14 +680,14 @@
       <GuardsIgnoreHistorical>true</GuardsIgnoreHistorical>
       <EnableTimeFilter>true</EnableTimeFilter>
       <StartTime1>94000</StartTime1>
-      <EndTime1>1145</EndTime1>
+      <EndTime1>114500</EndTime1>
       <UseBlock1>true</UseBlock1>
       <Block1Start>95600</Block1Start>
       <Block1End>100300</Block1End>
       <UseBlock2>false</UseBlock2>
       <Block2Start>95500</Block2Start>
       <Block2End>102500</Block2End>
-      <UseBlock3>true</UseBlock3>
+      <UseBlock3>false</UseBlock3>
       <Block3Start>114500</Block3Start>
       <Block3End>122500</Block3End>
       <FlattenNearEnd>false</FlattenNearEnd>

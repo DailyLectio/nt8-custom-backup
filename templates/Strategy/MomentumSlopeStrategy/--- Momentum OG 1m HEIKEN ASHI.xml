@@ -51,7 +51,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>Preset</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+ChartPreset, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+ChartPreset, 98134550270447aab9af6ff753c78c0b, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Custom</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -89,7 +89,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SideAnchor</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+AnchorMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+AnchorMode, 98134550270447aab9af6ff753c78c0b, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>VWAP</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -235,7 +235,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+ExitSlopeMode, 98134550270447aab9af6ff753c78c0b, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Hysteresis</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -648,7 +648,7 @@
       <AdxPeriod>14</AdxPeriod>
       <UseDiCrossEntry>true</UseDiCrossEntry>
       <UseAdxEntryThreshold>true</UseAdxEntryThreshold>
-      <AdxEntryThreshold>18</AdxEntryThreshold>
+      <AdxEntryThreshold>20</AdxEntryThreshold>
       <UseCiEntryThreshold>false</UseCiEntryThreshold>
       <CiEntryThreshold>60</CiEntryThreshold>
       <UseSlopeGateOnEntry>false</UseSlopeGateOnEntry>
@@ -666,10 +666,10 @@
       <HystConsecutive>2</HystConsecutive>
       <HystCiRisePerBar>0.5</HystCiRisePerBar>
       <HystAdxDropPerBar>0.7</HystAdxDropPerBar>
-      <AtrStopMult>1</AtrStopMult>
+      <AtrStopMult>0.9</AtrStopMult>
       <AtrStopLen>14</AtrStopLen>
       <MinStopTicks>48</MinStopTicks>
-      <RiskReward>0.7</RiskReward>
+      <RiskReward>0.76</RiskReward>
       <EnableDailyGuards>false</EnableDailyGuards>
       <DailyProfitTarget>1000</DailyProfitTarget>
       <DailyLossLimit>500</DailyLossLimit>
@@ -680,10 +680,10 @@
       <GuardsIgnoreHistorical>true</GuardsIgnoreHistorical>
       <EnableTimeFilter>true</EnableTimeFilter>
       <StartTime1>94000</StartTime1>
-      <EndTime1>154500</EndTime1>
+      <EndTime1>114500</EndTime1>
       <UseBlock1>true</UseBlock1>
       <Block1Start>95600</Block1Start>
-      <Block1End>100500</Block1End>
+      <Block1End>100300</Block1End>
       <UseBlock2>false</UseBlock2>
       <Block2Start>95500</Block2Start>
       <Block2End>102500</Block2End>
