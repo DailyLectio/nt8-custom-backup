@@ -114,6 +114,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         [NinjaScriptProperty, Range(0, 100)]
         [Display(Name = "Break Even Plus Ticks", GroupName = "2. Risk", Order = 9)]
         public int BreakEvenPlusTicks { get; set; } = 4;
+
         // --- Guards ---
         [NinjaScriptProperty, Range(0, 10)]
         [Display(Name = "Max Consecutive Losses", GroupName = "3. Guards", Order = 0)]
@@ -126,6 +127,14 @@ namespace NinjaTrader.NinjaScript.Strategies
         [NinjaScriptProperty, Range(0, 10000)]
         [Display(Name = "Daily Loss Limit ($, 0=off)", GroupName = "3. Guards", Order = 2)]
         public double DailyLossLimit { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 50)]
+        [Display(Name = "Exit Cooldown Bars", GroupName = "3. Guards", Order = 3)]
+        public int ExitCooldownBars { get; set; } = 3;
+
+        [NinjaScriptProperty, Range(0, 300)]
+        [Display(Name = "Exit Cooldown Seconds", GroupName = "3. Guards", Order = 4)]
+        public int ExitCooldownSeconds { get; set; } = 30;
 
         // --- Time ---
         [NinjaScriptProperty]
@@ -176,6 +185,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         // Per-bar entry guard (only one entry allowed per bar)
         private int    lastEntryBar    = -1;
         private int    lastExitBar     = -1;  // BUG-001 FIX
+        private DateTime lastExitTime  = DateTime.MinValue;
 
         // Previous tick price for micro-reversal detection
         private double prevTickPrice   = 0;
@@ -293,6 +303,12 @@ namespace NinjaTrader.NinjaScript.Strategies
             lowerEnvelope = baseline - atrVal * AtrFactor;
             innerUpper    = baseline + atrVal * InnerMult;
             innerLower    = baseline - atrVal * InnerMult;
+        }
+
+        private void RegisterExitCooldown()
+        {
+            lastExitBar = CurrentBar;
+            lastExitTime = Time[0];
         }
 
         // =====================================================================
@@ -578,6 +594,15 @@ namespace NinjaTrader.NinjaScript.Strategies
             MarketPosition marketPosition, string orderId, DateTime time)
         {
             HandleStage1TradeLogExecution(execution, price, quantity, marketPosition, time);
+            if (execution != null && execution.Order != null && execution.Order.OrderState == OrderState.Filled)
+            {
+                OrderAction action = execution.Order.OrderAction;
+                bool isExit = action == OrderAction.Sell || action == OrderAction.BuyToCover;
+
+                if (isExit)
+                    RegisterExitCooldown();
+            }
+
             int tc = SystemPerformance.AllTrades.Count;
             if (tc > lastTradeCount)
             {
@@ -842,6 +867,3 @@ namespace NinjaTrader.NinjaScript.Strategies
         }
     }
 }
-
-
-

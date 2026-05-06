@@ -360,12 +360,6 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (!leg1Hit && Position.Quantity <= currentLeg2Qty && currentLeg2Qty > 0)
                 {
                     leg1Hit = true; leg1JustHit = true;
-                    double pivot = Position.MarketPosition == MarketPosition.Long
-                        ? RT(Position.AveragePrice + BreakEvenPlusTicks * TickSize)
-                        : RT(Position.AveragePrice - BreakEvenPlusTicks * TickSize);
-                    if (activeLeg2 == KPL2) SetStopLoss(KPL2, CalculationMode.Price, pivot, false);
-                    else if (activeLeg2 == KPS2) SetStopLoss(KPS2, CalculationMode.Price, pivot, false);
-                    leg2StopAtBreakeven = true;
                 }
                 else if (leg1JustHit) leg1JustHit = false;
 
@@ -488,5 +482,4 @@ namespace NinjaTrader.NinjaScript.Strategies
         }
     }
 }
-
 

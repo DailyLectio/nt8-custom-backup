@@ -115,6 +115,11 @@ namespace NinjaTrader.NinjaScript.Strategies
                  Description = "Bars to wait after any exit before re-entering. BUG-003 FIX: promoted from hardcoded const.")]
         public int ExitCooldownBars { get; set; } = 3;
 
+        [NinjaScriptProperty, Range(0, 300)]
+        [Display(Name = "Exit Cooldown Seconds", GroupName = "3. Guards", Order = 4,
+                 Description = "Minimum wall-clock seconds to wait after any exit before re-entering.")]
+        public int ExitCooldownSeconds { get; set; } = 30;
+
         [NinjaScriptProperty]
         [Display(Name = "Enable Time Filter", GroupName = "4. Time", Order = 0)]
         public bool EnableTimeFilter { get; set; } = true;
@@ -200,6 +205,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         private int    lastEntryBar   = -1;
         private int    lastExitBar    = -1;
+        private DateTime lastExitTime = DateTime.MinValue;
         private double prevTickPrice  = 0;
         private double lastLeg1Target = 0;
         private double lastLeg2Target = 0;
@@ -289,6 +295,12 @@ namespace NinjaTrader.NinjaScript.Strategies
             lowerEnvelope = baseline - atrVal * AtrFactor;
             innerUpper    = baseline + atrVal * InnerMult;
             innerLower    = baseline - atrVal * InnerMult;
+        }
+
+        private void RegisterExitCooldown()
+        {
+            lastExitBar = CurrentBar;
+            lastExitTime = Time[0];
         }
 
         // â”€â”€ V1B helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
@@ -607,13 +619,13 @@ namespace NinjaTrader.NinjaScript.Strategies
             MarketPosition marketPosition, string orderId, DateTime time)
         {
             HandleStage1TradeLogExecution(execution, price, quantity, marketPosition, time);
-            if (execution != null
-                && execution.Order != null
-                && execution.Order.OrderState == OrderState.Filled
-                && execution.Order.Name != null
-                && execution.Order.Name.IndexOf("Stop", StringComparison.OrdinalIgnoreCase) >= 0)
+            if (execution != null && execution.Order != null && execution.Order.OrderState == OrderState.Filled)
             {
-                lastExitBar = CurrentBar;
+                OrderAction action = execution.Order.OrderAction;
+                bool isExit = action == OrderAction.Sell || action == OrderAction.BuyToCover;
+
+                if (isExit)
+                    RegisterExitCooldown();
             }
 
             int tc = SystemPerformance.AllTrades.Count;
@@ -644,7 +656,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 consecutiveLosers  = 0;
                 leg1Hit = false; leg1JustHit = false;
                 currentLeg2Qty = 1; activeLeg2 = "";
-                lastEntryBar = -1; lastExitBar = -1; prevTickPrice = 0;
+                lastEntryBar = -1; lastExitBar = -1; lastExitTime = DateTime.MinValue; prevTickPrice = 0;
                 lastLeg1Target = 0; lastLeg2Target = 0;
                 entryAtrForTrade = 0; activeEntryPrice = 0; leg2StopAtBreakeven = false;
                 kalmanState = double.NaN; prevKalmanState = double.NaN;
@@ -664,14 +676,14 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (Position.MarketPosition == MarketPosition.Long && curPrice < lowerEnvelope)
             {
                 ExitLong("EnvelopeBreakExit", "");
-                lastExitBar = CurrentBar;
+                RegisterExitCooldown();
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 prevTickPrice = curPrice; return;
             }
             if (Position.MarketPosition == MarketPosition.Short && curPrice > upperEnvelope)
             {
                 ExitShort("EnvelopeBreakExit", "");
-                lastExitBar = CurrentBar;
+                RegisterExitCooldown();
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 prevTickPrice = curPrice; return;
             }
@@ -681,7 +693,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             {
                 if (Position.MarketPosition == MarketPosition.Long) ExitLong("KillSwitch", KPL2);
                 else ExitShort("KillSwitch", KPS2);
-                lastExitBar = CurrentBar;
+                RegisterExitCooldown();
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 Print(string.Format("[KPF_V1B] KILL SWITCH at {0:F2}", curPrice));
                 prevTickPrice = curPrice; return;
@@ -693,12 +705,6 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (!leg1Hit && Position.Quantity <= currentLeg2Qty && currentLeg2Qty > 0)
                 {
                     leg1Hit = true; leg1JustHit = true;
-                    double pivot = Position.MarketPosition == MarketPosition.Long
-                        ? RT(Position.AveragePrice + BreakEvenPlusTicks * TickSize)
-                        : RT(Position.AveragePrice - BreakEvenPlusTicks * TickSize);
-                    if (activeLeg2 == KPL2) SetStopLoss(KPL2, CalculationMode.Price, pivot, false);
-                    else if (activeLeg2 == KPS2) SetStopLoss(KPS2, CalculationMode.Price, pivot, false);
-                    leg2StopAtBreakeven = true;
                 }
                 else if (leg1JustHit) leg1JustHit = false;
 
@@ -727,6 +733,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             if (CurrentBar == lastEntryBar) { prevTickPrice = curPrice; return; }
             if (CurrentBar - lastExitBar < ExitCooldownBars) { prevTickPrice = curPrice; return; }
+            if ((Time[0] - lastExitTime).TotalSeconds < ExitCooldownSeconds) { prevTickPrice = curPrice; return; }
             if (consecutiveLosers >= MaxConsecutiveLosses) { prevTickPrice = curPrice; return; }
             if (!IsInTime()) { prevTickPrice = curPrice; return; }
 
@@ -826,6 +833,3 @@ namespace NinjaTrader.NinjaScript.Strategies
         }
     }
 }
-
-
-
