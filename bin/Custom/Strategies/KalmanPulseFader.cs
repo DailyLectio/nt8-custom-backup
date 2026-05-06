@@ -636,6 +636,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 activeLeg2         = "";
                 lastEntryBar       = -1;
                 lastExitBar        = -1;  // BUG-001 FIX
+                lastExitTime       = DateTime.MinValue;
                 prevTickPrice      = 0;
                 lastLeg1Target     = 0;
                 lastLeg2Target     = 0;
@@ -662,6 +663,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (Position.MarketPosition == MarketPosition.Long && curPrice < lowerEnvelope)
             {
                 ExitLong("EnvelopeBreakExit", "");
+                RegisterExitCooldown();
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 prevTickPrice = curPrice;
                 return;
@@ -669,6 +671,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (Position.MarketPosition == MarketPosition.Short && curPrice > upperEnvelope)
             {
                 ExitShort("EnvelopeBreakExit", "");
+                RegisterExitCooldown();
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 prevTickPrice = curPrice;
                 return;
@@ -679,6 +682,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 curPrice > upperEnvelope && baselineSlope > 0)
             {
                 ExitLong("TrendBreakExit", "");
+                RegisterExitCooldown();
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 prevTickPrice = curPrice;
                 return;
@@ -687,6 +691,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 curPrice < lowerEnvelope && baselineSlope < 0)
             {
                 ExitShort("TrendBreakExit", "");
+                RegisterExitCooldown();
                 leg1Hit = false; leg1JustHit = false; activeLeg2 = "";
                 prevTickPrice = curPrice;
                 return;
@@ -702,16 +707,6 @@ namespace NinjaTrader.NinjaScript.Strategies
                 {
                     leg1Hit     = true;
                     leg1JustHit = true;
-
-                    double pivot = Position.MarketPosition == MarketPosition.Long
-                        ? RT(Position.AveragePrice + BreakEvenPlusTicks * TickSize)
-                        : RT(Position.AveragePrice - BreakEvenPlusTicks * TickSize);
-
-                    if (activeLeg2 == KPL2)
-                        SetStopLoss(KPL2, CalculationMode.Price, pivot, false);
-                    else if (activeLeg2 == KPS2)
-                        SetStopLoss(KPS2, CalculationMode.Price, pivot, false);
-                    leg2StopAtBreakeven = true;
                 }
                 else if (leg1JustHit)
                 {
@@ -746,6 +741,8 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             // Gate 1: only one entry per bar
             if (CurrentBar == lastEntryBar) { prevTickPrice = curPrice; return; }
+            if (CurrentBar - lastExitBar < ExitCooldownBars) { prevTickPrice = curPrice; return; }
+            if ((Time[0] - lastExitTime).TotalSeconds < ExitCooldownSeconds) { prevTickPrice = curPrice; return; }
 
             // Gate 2: circuit breaker
             if (consecutiveLosers >= MaxConsecutiveLosses) { prevTickPrice = curPrice; return; }
