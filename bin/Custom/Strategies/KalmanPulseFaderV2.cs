@@ -1,5 +1,6 @@
-﻿// CC BY-NC 4.0
-// KalmanPulse_Fader_V2.cs â€” Adaptive Kalman Fade Strategy (V2)
+// CC BY-NC 4.0
+// KalmanPulse_Fader_V2.cs
+// AUDIT 2026-05-06: No code bugs found. Cleanest of three files. Action: correct AtrStopMult from 2.0 to 0.9 in the live grid parameter panel. â€” Adaptive Kalman Fade Strategy (V2)
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // V2 ADDITIONS:
 //   1. Dual-Layer Exit Cooldowns (Bars + Seconds) to prevent machine-gun firing.

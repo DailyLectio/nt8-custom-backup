@@ -1,5 +1,6 @@
-﻿// CC BY-NC 4.0
-// KalmanPulse_Fader_V1B.cs â€” Adaptive Kalman Fade Strategy (V1B)
+// CC BY-NC 4.0
+// KalmanPulse_Fader_V1B.cs
+// FIXES 2026-05-06: BUG-003 (ExitCooldownBars promoted to parameter), BUG-005 (MaxTotalContracts Range unified) â€” Adaptive Kalman Fade Strategy (V1B)
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // V1B ADDITIONS over V1A:
 //   1. A/B Mode switch (RequireFootprintConfirmation)
@@ -67,7 +68,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "AB Mode", GroupName = "6. Trade Log", Order = 0)]
         public string AbMode { get; set; } = "B";
 
-        [NinjaScriptProperty, Range(2, 100)]
+        [NinjaScriptProperty, Range(1, 100)]
         [Display(Name = "Max Total Contracts", GroupName = "2. Risk", Order = 3)]
         public int MaxTotalContracts { get; set; } = 2;
 
@@ -108,6 +109,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         [NinjaScriptProperty, Range(0, 10000)]
         [Display(Name = "Daily Loss Limit ($, 0=off)", GroupName = "3. Guards", Order = 2)]
         public double DailyLossLimit { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 50)]
+        [Display(Name = "Exit Cooldown (Bars)", GroupName = "3. Guards", Order = 3,
+                 Description = "Bars to wait after any exit before re-entering. BUG-003 FIX: promoted from hardcoded const.")]
+        public int ExitCooldownBars { get; set; } = 3;
 
         [NinjaScriptProperty]
         [Display(Name = "Enable Time Filter", GroupName = "4. Time", Order = 0)]
@@ -201,7 +207,6 @@ namespace NinjaTrader.NinjaScript.Strategies
         private double entryAtrForTrade = 0;
         private double activeEntryPrice = 0;
         private bool   leg2StopAtBreakeven = false;
-        private const int ExitCooldownBars = 3;
 
         // =====================================================================
         // ORDER LABELS

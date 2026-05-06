@@ -1,5 +1,6 @@
-﻿// CC BY-NC 4.0
-// KalmanPulseFader.cs â€” Adaptive Kalman Filter Mean-Reversion Fade Strategy
+// CC BY-NC 4.0
+// KalmanPulseFader.cs
+// FIXES 2026-05-06: BUG-001 (lastExitBar session reset), BUG-002 (dead atrBuffer field removed), BUG-006 (stop sanity guards added) â€” Adaptive Kalman Filter Mean-Reversion Fade Strategy
 // â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 // REGIME ENGINE : Gaussian Kernel Smoother â†’ Adaptive Kalman Filter baseline.
 //   Kalman process/measurement noise scales with live ATR, making the filter
@@ -157,7 +158,6 @@ namespace NinjaTrader.NinjaScript.Strategies
         // =====================================================================
         // ATR (manual rolling, tick-safe)
         // =====================================================================
-        private double[] atrBuffer;
         private double   runningAtr   = 0;
         private int      atrInitCount = 0;
 
@@ -175,6 +175,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         // Per-bar entry guard (only one entry allowed per bar)
         private int    lastEntryBar    = -1;
+        private int    lastExitBar     = -1;  // BUG-001 FIX
 
         // Previous tick price for micro-reversal detection
         private double prevTickPrice   = 0;
@@ -609,6 +610,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 currentLeg2Qty     = 1;
                 activeLeg2         = "";
                 lastEntryBar       = -1;
+                lastExitBar        = -1;  // BUG-001 FIX
                 prevTickPrice      = 0;
                 lastLeg1Target     = 0;
                 lastLeg2Target     = 0;
@@ -757,6 +759,8 @@ namespace NinjaTrader.NinjaScript.Strategies
                 double leg1Target = RT(curPrice + leg1Dist);
                 double leg2Target = RT(curPrice + leg2Dist);
 
+                // BUG-006 FIX: inverted-stop guard
+                if (curPrice <= stopPrice) { prevTickPrice = curPrice; return; }
                 // Ensure minimum distance
                 if ((leg1Target - curPrice) / TickSize < MinLeg1TargetTicks || (leg2Target - curPrice) / TickSize < MinLeg2TargetTicks) { prevTickPrice = curPrice; return; }
 
@@ -802,6 +806,8 @@ namespace NinjaTrader.NinjaScript.Strategies
                     double leg1Target = RT(curPrice - leg1Dist);
                     double leg2Target = RT(curPrice - leg2Dist);
 
+                    // BUG-006 FIX: inverted-stop guard
+                    if (curPrice >= stopPrice) { prevTickPrice = curPrice; return; }
                     if ((curPrice - leg1Target) / TickSize < MinLeg1TargetTicks || (curPrice - leg2Target) / TickSize < MinLeg2TargetTicks) { prevTickPrice = curPrice; return; }
 
                     int maxC    = CalcMaxContracts(atrVal);
