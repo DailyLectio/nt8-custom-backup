@@ -163,11 +163,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">155500</Max>
-        <Min xsi:type="xsd:int">155500</Min>
+        <Max xsi:type="xsd:int">154500</Max>
+        <Min xsi:type="xsd:int">154500</Min>
         <Name>EndTime</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>155500</ValueSerializable>
+        <ValueSerializable>154500</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -250,14 +250,14 @@
       <AreLinesConfigurable>true</AreLinesConfigurable>
       <ArePlotsConfigurable>true</ArePlotsConfigurable>
       <BarsPeriodSerializable>
-        <BarsPeriodTypeSerialize>2</BarsPeriodTypeSerialize>
+        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
         <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>12</Value>
+        <Value>3</Value>
         <Value2>1</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
@@ -273,7 +273,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-05-04T00:00:00</To>
+      <To>2026-05-06T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -327,11 +327,17 @@
       <AtrPeriod>14</AtrPeriod>
       <AtrFactor>2</AtrFactor>
       <InnerMult>1.5</InnerMult>
-      <AtrStopMult>2</AtrStopMult>
+      <AtrStopMult>0.9</AtrStopMult>
       <SizePct>100</SizePct>
       <TickValueDollars>5</TickValueDollars>
       <AbMode>B</AbMode>
       <MaxTotalContracts>2</MaxTotalContracts>
+      <Leg1TargetAtr>1</Leg1TargetAtr>
+      <Leg2TargetAtr>1.5</Leg2TargetAtr>
+      <MinLeg1TargetTicks>10</MinLeg1TargetTicks>
+      <MinLeg2TargetTicks>16</MinLeg2TargetTicks>
+      <BreakEvenAfterAtr>0.75</BreakEvenAfterAtr>
+      <BreakEvenPlusTicks>4</BreakEvenPlusTicks>
       <MaxConsecutiveLosses>2</MaxConsecutiveLosses>
       <DailyGoal>0</DailyGoal>
       <DailyLossLimit>0</DailyLossLimit>

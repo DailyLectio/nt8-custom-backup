@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StrategyTemplate>
-  <StrategyType>NinjaTrader.NinjaScript.Strategies.KalmanPulse_Fader_V1B</StrategyType>
+  <StrategyType>NinjaTrader.NinjaScript.Strategies.KalmanPulse_Fader_V2</StrategyType>
   <OptimizerType>NinjaTrader.NinjaScript.Optimizers.DefaultOptimizer</OptimizerType>
   <OptimizerParameters>
     <ArrayOfParameterWrapper xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -145,6 +145,24 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
+        <Max xsi:type="xsd:int">3</Max>
+        <Min xsi:type="xsd:int">3</Min>
+        <Name>ExitCooldownBars</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>3</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">30</Max>
+        <Min xsi:type="xsd:int">30</Min>
+        <Name>ExitCooldownSeconds</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>30</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
         <Max xsi:type="xsd:boolean">true</Max>
         <Min xsi:type="xsd:boolean">true</Min>
         <Name>EnableTimeFilter</Name>
@@ -163,88 +181,16 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">154500</Max>
-        <Min xsi:type="xsd:int">154500</Min>
+        <Max xsi:type="xsd:int">155500</Max>
+        <Min xsi:type="xsd:int">155500</Min>
         <Name>EndTime</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>154500</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">false</Max>
-        <Min xsi:type="xsd:boolean">false</Min>
-        <Name>RequireFootprintConfirmation</Name>
-        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>False</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">3</Max>
-        <Min xsi:type="xsd:int">3</Min>
-        <Name>FootprintValidMinutes</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>3</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
-        <Name>UseAbsEntry</Name>
-        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
-        <Name>UseDdEntry</Name>
-        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
-        <Name>UseTfEntry</Name>
-        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
-        <Name>EnableKillSwitch</Name>
-        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">1</Max>
-        <Min xsi:type="xsd:int">1</Min>
-        <Name>KillSwitchMaxMinutes</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>1</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
-        <Name>EnableDailyBiasFilter</Name>
-        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
+        <ValueSerializable>155500</ValueSerializable>
       </Parameter>
     </ArrayOfParameter>
   </OptimizationParameters>
   <Strategy>
-    <KalmanPulse_Fader_V1B xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <KalmanPulse_Fader_V2 xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <IsVisible>true</IsVisible>
       <calculate2>OnEachTick</calculate2>
       <AreLinesConfigurable>true</AreLinesConfigurable>
@@ -267,8 +213,8 @@
       <From>2026-05-01T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
-      <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>KalmanPulse Fader Mode A+</Name>
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name>KalmanPulse_Fader_V2 Mode A</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -330,7 +276,6 @@
       <AtrStopMult>0.9</AtrStopMult>
       <SizePct>100</SizePct>
       <TickValueDollars>5</TickValueDollars>
-      <AbMode>B</AbMode>
       <MaxTotalContracts>2</MaxTotalContracts>
       <Leg1TargetAtr>1</Leg1TargetAtr>
       <Leg2TargetAtr>1.5</Leg2TargetAtr>
@@ -341,17 +286,11 @@
       <MaxConsecutiveLosses>2</MaxConsecutiveLosses>
       <DailyGoal>0</DailyGoal>
       <DailyLossLimit>0</DailyLossLimit>
+      <ExitCooldownBars>3</ExitCooldownBars>
+      <ExitCooldownSeconds>30</ExitCooldownSeconds>
       <EnableTimeFilter>true</EnableTimeFilter>
       <StartTime>103500</StartTime>
-      <EndTime>154500</EndTime>
-      <RequireFootprintConfirmation>false</RequireFootprintConfirmation>
-      <FootprintValidMinutes>3</FootprintValidMinutes>
-      <UseAbsEntry>true</UseAbsEntry>
-      <UseDdEntry>false</UseDdEntry>
-      <UseTfEntry>true</UseTfEntry>
-      <EnableKillSwitch>true</EnableKillSwitch>
-      <KillSwitchMaxMinutes>1</KillSwitchMaxMinutes>
-      <EnableDailyBiasFilter>true</EnableDailyBiasFilter>
-    </KalmanPulse_Fader_V1B>
+      <EndTime>155500</EndTime>
+    </KalmanPulse_Fader_V2>
   </Strategy>
 </StrategyTemplate>

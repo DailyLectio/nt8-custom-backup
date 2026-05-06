@@ -1,4 +1,27 @@
 // CC BY-NC 4.0
+// ============================================================================
+// V3_Compression_Sniper (LEGACY — FILE-BASED REGIME READER)
+// ============================================================================
+// DEPRECATION NOTICE — 2026-05-06 Audit
+// ============================================================================
+// This file reads regime context from a CSV file on disk inside OnBarUpdate,
+// which means file I/O runs on EVERY bar update. This creates:
+//   - Potential file-lock collisions with the regime writer process
+//   - Latency on 1-minute bars in live trading
+//   - Silent failures (try/catch swallows all I/O errors)
+//
+// ACTION REQUIRED: Remove this strategy from all active live/sim charts.
+// Use V3_Compression_Sniper_V3C_PATCHED.cs instead, which reads from the
+// in-memory V3C HUD singleton with no file I/O overhead.
+//
+// KNOWN ISSUES (from 2026-05-06 audit):
+//   [HIGH]  riskTicks and rewardTicks typed as double — floating-point
+//           imprecision can cause unexpected stop/target rounding.
+//   [HIGH]  No session trade cap or cooldown — can overtrade on 1m bars.
+//   [MEDIUM] Simultaneous long/short eligibility not protected.
+//   [MEDIUM] Slow EMA touch looks back 2 bars — potentially stale.
+//   [LOW]   No minimum stop tick floor.
+// ============================================================================
 #region Using declarations
 using System;
 using System.IO;
@@ -29,35 +52,35 @@ namespace NinjaTrader.NinjaScript.Strategies
         public int Contracts { get; set; } = 1;
 
         [NinjaScriptProperty, Range(0.1, 5.0)]
-        [Display(Name="Fixed Target (ATR)", Description="Strict target. Breakouts fail in compression.", GroupName="2. Risk Management", Order=1)]
+        [Display(Name="Fixed Target (ATR)", GroupName="2. Risk Management", Order=1)]
         public double TargetAtr { get; set; } = 0.75;
+        // AUDIT NOTE: 0.75 = 1:1 R:R with StopAtr 0.75. Below minimum recommended 1.25:1.
 
         [NinjaScriptProperty, Range(0.1, 5.0)]
-        [Display(Name="Stop Loss (ATR)", Description="Hard stop behind the swing.", GroupName="2. Risk Management", Order=2)]
+        [Display(Name="Stop Loss (ATR)", GroupName="2. Risk Management", Order=2)]
         public double StopAtr { get; set; } = 1.0;
 
         // ===== 3. INDICATOR TUNING =====
         [NinjaScriptProperty, Range(1, 200)]
-        [Display(Name="Fast EMA Period", Description="The trigger line to cross back over.", GroupName="3. Indicator Tuning", Order=0)]
+        [Display(Name="Fast EMA Period", GroupName="3. Indicator Tuning", Order=0)]
         public int FastEmaPeriod { get; set; } = 9;
 
         [NinjaScriptProperty, Range(1, 200)]
-        [Display(Name="Slow EMA Period", Description="The baseline 'Dip/Rip' zone.", GroupName="3. Indicator Tuning", Order=1)]
+        [Display(Name="Slow EMA Period", GroupName="3. Indicator Tuning", Order=1)]
         public int SlowEmaPeriod { get; set; } = 21;
 
-        // ===== INTERNAL STATE & INDICATORS =====
+        // ===== INTERNAL STATE =====
         private ATR atr;
         private EMA fastEma;
         private EMA slowEma;
-        
         private string currentPlaybook = "UNKNOWN";
-        private string currentMacro = "UNKNOWN";
+        private string currentMacro    = "UNKNOWN";
 
         protected override void OnStateChange()
         {
             if (State == State.SetDefaults)
             {
-                Description                                 = "V3 Regime-Native: Compression Sniper (Sell Rips / Buy Dips)";
+                Description                                 = "[DEPRECATED] V3 Regime-Native: Compression Sniper";
                 Name                                        = "V3_Compression_Sniper";
                 Calculate                                   = Calculate.OnBarClose;
                 EntriesPerDirection                         = 1;
@@ -70,7 +93,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             }
             else if (State == State.DataLoaded)
             {
-                atr = ATR(14);
+                atr     = ATR(14);
                 fastEma = EMA(FastEmaPeriod);
                 slowEma = EMA(SlowEmaPeriod);
             }
@@ -78,68 +101,55 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         protected override void OnBarUpdate()
         {
-            // Ensure enough bars exist for the slower EMA to calculate
             if (CurrentBar < Math.Max(SlowEmaPeriod, 22)) return;
 
-            // =========================================================================
-            // PHASE 1: THE REGIME GATEKEEPER
-            // =========================================================================
             UpdateRegimePlaybook();
+            // AUDIT ISSUE [HIGH]: File I/O runs every bar. Risk of file-lock and latency.
 
-            // =========================================================================
-            // PHASE 2: ENTRY LOGIC (Strictly constrained to TREND_COMPRESSION)
-            // =========================================================================
             if (Position.MarketPosition == MarketPosition.Flat && currentPlaybook == "TREND_COMPRESSION")
             {
-                // Calculate rigid risk/reward parameters in ticks
-                double riskTicks = (atr[0] * StopAtr) / TickSize;
+                // AUDIT ISSUE [HIGH]: riskTicks is double — floating-point may cause
+                // unexpected stop rounding. Should be: (int)Math.Round(...)
+                double riskTicks   = (atr[0] * StopAtr)   / TickSize;
                 double rewardTicks = (atr[0] * TargetAtr) / TickSize;
+                // AUDIT ISSUE [MEDIUM]: No cooldown, no session cap, no circuit breaker.
 
-                // ---------------------------------------------------------------------
-                // LONG SNIPE (Buy the Dip): 
-                // Context: Macro is UP. 
-                // Trigger: Price dipped below Fast EMA, touched Slow EMA, and closed back above Fast EMA.
-                // ---------------------------------------------------------------------
                 if (currentMacro.Contains("TREND_UP") || currentMacro.Contains("INITIATIVE"))
                 {
-                    bool touchedSlowEma = Low[1] <= slowEma[1] || Low[2] <= slowEma[2];
+                    // AUDIT ISSUE [MEDIUM]: Low[2] lookback is 2 bars stale. Tighten to Low[1].
+                    bool touchedSlowEma  = Low[1] <= slowEma[1] || Low[2] <= slowEma[2];
                     bool closedAboveFast = Close[0] > fastEma[0] && Close[1] <= fastEma[1];
 
                     if (touchedSlowEma && closedAboveFast)
                     {
-                        SetStopLoss("SnipeL", CalculationMode.Ticks, riskTicks, false);
+                        SetStopLoss("SnipeL",   CalculationMode.Ticks, riskTicks,   false);
                         SetProfitTarget("SnipeL", CalculationMode.Ticks, rewardTicks);
                         EnterLong(Contracts, "SnipeL");
                     }
                 }
-                
-                // ---------------------------------------------------------------------
-                // SHORT SNIPE (Sell the Rip): 
-                // Context: Macro is DOWN. 
-                // Trigger: Price popped above Fast EMA, touched Slow EMA, and closed back below Fast EMA.
-                // ---------------------------------------------------------------------
                 else if (currentMacro.Contains("TREND_DOWN") || currentMacro.Contains("FAILURE"))
                 {
-                    bool touchedSlowEma = High[1] >= slowEma[1] || High[2] >= slowEma[2];
+                    // AUDIT ISSUE [MEDIUM]: High[2] lookback is 2 bars stale. Tighten to High[1].
+                    bool touchedSlowEma  = High[1] >= slowEma[1] || High[2] >= slowEma[2];
                     bool closedBelowFast = Close[0] < fastEma[0] && Close[1] >= fastEma[1];
 
                     if (touchedSlowEma && closedBelowFast)
                     {
-                        SetStopLoss("SnipeS", CalculationMode.Ticks, riskTicks, false);
+                        SetStopLoss("SnipeS",   CalculationMode.Ticks, riskTicks,   false);
                         SetProfitTarget("SnipeS", CalculationMode.Ticks, rewardTicks);
                         EnterShort(Contracts, "SnipeS");
                     }
                 }
+                // AUDIT ISSUE [MEDIUM]: No mutual exclusion — both macros could theoretically
+                // satisfy conditions if the currentMacro string matches both branches.
             }
-            // *NOTE: No OnBarUpdate management for active trades. Strict binary targets only.*
         }
 
-        // =========================================================================
-        // LIGHTWEIGHT CSV READER (Reads Macro Direction AND Playbook State)
-        // =========================================================================
+        // AUDIT ISSUE [HIGH]: This method is called every bar — continuous file I/O.
+        // In the V3C version, this is replaced by hud.FinalRegime (in-memory, no I/O).
         private void UpdateRegimePlaybook()
         {
-            string symbol = Instrument.MasterInstrument.Name;
+            string symbol    = Instrument.MasterInstrument.Name;
             string macroFile = Path.Combine(DataFolderPath, $"{symbol}_Macro_Regimes.csv");
 
             if (!File.Exists(macroFile)) return;
@@ -151,19 +161,17 @@ namespace NinjaTrader.NinjaScript.Strategies
                 {
                     string lastLine = "";
                     string line;
-                    // Fast forward to the most recent checkpoint
                     while ((line = sr.ReadLine()) != null) { lastLine = line; }
 
                     string[] parts = lastLine.Split(',');
-                    if (parts.Length >= 50) 
+                    if (parts.Length >= 50)
                     {
-                        // Safely grab the structural bias and the actionable playbook
-                        currentMacro = parts[parts.Length - 3].Trim(); 
-                        currentPlaybook = parts[parts.Length - 1].Trim(); 
+                        currentMacro    = parts[parts.Length - 3].Trim();
+                        currentPlaybook = parts[parts.Length - 1].Trim();
                     }
                 }
             }
-            catch { /* Silent fail to prevent locking the UI during live file writes */ }
+            catch { /* Silent fail — errors invisible in live trading */ }
         }
     }
 }
