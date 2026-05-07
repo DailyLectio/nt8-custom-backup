@@ -4124,6 +4124,11 @@
             Call from the strategy's OnExecutionUpdate.
             </summary>
         </member>
+        <member name="M:NinjaTrader.NinjaScript.Strategies.V3CTradeLogger.OnExecution(NinjaTrader.Cbi.Execution,NinjaTrader.Cbi.Order,System.DateTime)">
+            <summary>
+            Call from the strategy's OnExecutionUpdate with the execution timestamp.
+            </summary>
+        </member>
         <member name="M:NinjaTrader.NinjaScript.Strategies.V3CTradeLogger.OnStopOrderSubmitted(NinjaTrader.Cbi.Order)">
             <summary>
             Call from OnOrderUpdate to capture the initial stop price as soon
