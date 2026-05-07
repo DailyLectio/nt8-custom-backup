@@ -30,7 +30,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 		{
 			if (State == State.SetDefaults)
 			{
-				Description									= @"Enter the description for your new custom Indicator here.";
+				Description									= @"V3D legacy placeholder only: no production export logic. Do not use for V3C or V3D trade logging.";
 				Name										= "TradeLogExporterV3D";
 				Calculate									= Calculate.OnBarClose;
 				IsOverlay									= false;

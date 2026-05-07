@@ -17,7 +17,7 @@ namespace NinjaTrader.NinjaScript.Indicators
         {
             if (State == State.SetDefaults)
             {
-                Description = @"Quietly appends live 1-minute OHLCV data to the Macro Regime export files.";
+                Description = @"Shared V1A/V1B/V3C/V3D data feed: quietly appends live 1-minute OHLCV data to NT8_Regimes\Exports for the model pipelines.";
                 Name = "Live Data Exporter (Macro Regime)";
                 Calculate = Calculate.OnBarClose;
                 IsOverlay = true;

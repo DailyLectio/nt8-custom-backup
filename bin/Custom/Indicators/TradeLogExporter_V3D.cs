@@ -2,7 +2,10 @@
 // V3D Institutional Regime Matrix — NT8 Trade Log Exporter
 //
 // PURPOSE:
-//   Apply this indicator to the SAME chart as each V3D bot strategy.
+//   LEGACY V3D chart-level exporter. V3D strategies now have internal
+//   account-scoped export via V3DStrategyTradeLogger.cs.
+//   If this indicator remains on a chart, AccountNameFilter must contain only
+//   SimV3D accounts so it cannot write V3C fills.
 //   It listens to OnExecutionUpdate and writes one row per completed
 //   round-trip trade to:
 //       C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog\V3D_TradeLog.csv
@@ -57,7 +60,7 @@ namespace NinjaTrader.NinjaScript.Indicators
         [NinjaScriptProperty]
         [Display(
             Name = "Model Version",
-            Description = "V3C or V3D",
+            Description = "V3D only. Do not set this legacy exporter to V3C.",
             Order = 2, GroupName = "V3D Trade Log")]
         public string ModelVersion { get; set; }
 
@@ -68,6 +71,13 @@ namespace NinjaTrader.NinjaScript.Indicators
                           "(e.g. 'NQ JUN26'), enter it here. Leave blank to use auto-detection.",
             Order = 3, GroupName = "V3D Trade Log")]
         public string LeaderSymbolOverride { get; set; }
+
+        [NinjaScriptProperty]
+        [Display(
+            Name = "Account Name Filter",
+            Description = "V3D only: exact NT8 account allow-list. Defaults to all baked SimV3D accounts; V3C accounts are blocked.",
+            Order = 4, GroupName = "V3D Trade Log")]
+        public string AccountNameFilter { get; set; }
         // ---------------------------------------------------------------
         private const string BASE_PATH =
             @"C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog\";
@@ -115,10 +125,11 @@ namespace NinjaTrader.NinjaScript.Indicators
         {
             if (State == State.SetDefaults)
             {
-                Description      = "V3D: Writes one CSV row per completed trade with full regime context.";
+                Description      = "V3D legacy chart-level exporter: writes V3D_TradeLog.csv only for accounts in AccountNameFilter. Internal V3D strategy export is preferred.";
                 Name             = "Trade Log Exporter (V3D)";
                 BotName          = "Unknown_Bot";
                 ModelVersion     = "V3D";
+                AccountNameFilter = "SimV3D-ES-1A;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-3A;SimV3D-ES-4A;SimV3D-ES-5A;SimV3D-NQ-1A;SimV3D-NQ-1B;SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-3A;SimV3D-NQ-3B;SimV3D-NQ-4A;SimV3D-NQ-4B;SimV3D-NQ-5A;SimV3D-NQ-5B;SimV3D-NQ-5C";
                 Calculate        = Calculate.OnBarClose;
                 IsOverlay        = true;
                 DisplayInDataBox = false;
@@ -173,6 +184,10 @@ namespace NinjaTrader.NinjaScript.Indicators
             if (execution == null)
                 return;
 
+            string accountName = execution.Account == null ? "UNKNOWN" : execution.Account.Name;
+            if (!IsAllowedAccount(accountName))
+                return;
+
             // Only process fills for our tracked instrument
             if (execution.Instrument.MasterInstrument.Name.ToUpper() != leaderSymbol &&
                 execution.Instrument.MasterInstrument.Name.ToUpper() !=
@@ -222,6 +237,20 @@ namespace NinjaTrader.NinjaScript.Indicators
             {
                 Print("TradeLogExporter Error in OnAccountExecutionUpdate: " + ex.Message);
             }
+        }
+
+        private bool IsAllowedAccount(string accountName)
+        {
+            if (string.IsNullOrWhiteSpace(AccountNameFilter))
+                return false;
+
+            foreach (string raw in AccountNameFilter.Split(new[] { ',', ';', '|' },
+                         StringSplitOptions.RemoveEmptyEntries))
+            {
+                if (string.Equals(accountName, raw.Trim(), StringComparison.OrdinalIgnoreCase))
+                    return true;
+            }
+            return false;
         }
 
         // ---------------------------------------------------------------

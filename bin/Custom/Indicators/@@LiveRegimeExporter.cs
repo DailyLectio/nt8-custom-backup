@@ -19,7 +19,7 @@ namespace NinjaTrader.NinjaScript.Indicators
         {
             if (State == State.SetDefaults)
             {
-                Description = "Exports 1-min live data for the Python HMM Watchdog.";
+                Description = "Legacy/shared research exporter: writes Live_* 1-minute data for Python HMM tests. Not a V3C/V3D production trade exporter.";
                 Name = "LiveRegimeExporter";
                 Calculate = Calculate.OnBarClose; // Only runs when the minute finishes
                 IsOverlay = true;

@@ -62,7 +62,7 @@ namespace NinjaTrader.NinjaScript.Indicators
         {
             if (State == State.SetDefaults)
             {
-                Description = "Backfills ES/NQ ValueArea CSV rows from loaded intraday NT8 chart history.";
+                Description = "V3D data maintenance: backfills ES/NQ ValueArea CSV rows from loaded intraday NT8 chart history.";
                 Name = "Value Area Backfill Reporter";
                 Calculate = Calculate.OnBarClose;
                 IsOverlay = true;

@@ -63,6 +63,17 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "Data Folder Path", GroupName = "1. Regime", Order = 0)]
         public string DataFolderPath { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V3D";
 
+        [NinjaScriptProperty]
+        [Display(Name = "Account Name Filter", Description = "V3D only: exact NT8 account name allow-list for this strategy class. Separate multiple baked accounts with semicolons.", GroupName = "0b. Trade Logging", Order = 0)]
+        public string AccountNameFilter { get; set; } = "SimV3D-NQ-2B";
+
+        [NinjaScriptProperty]
+        [Display(Name = "Configured Strategy Name", Description = "V3D only: exported strategy identity. Leave as the baked default unless intentionally renaming the tab.", GroupName = "0b. Trade Logging", Order = 1)]
+        public string ConfiguredStrategyName { get; set; } = "Momentum_V3D_B";
+
+        [NinjaScriptProperty]
+        [Display(Name = "Trade Log Folder", Description = "V3D only: internal strategy-owned export folder. External V3D trade-log exporter indicators are not required.", GroupName = "0b. Trade Logging", Order = 2)]
+        public string TradeLogFolder { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog";
         [NinjaScriptProperty, Range(0.1, 5.0)]
         [Display(Name = "ATR Stop Multiplier", GroupName = "2. Risk", Order = 0)]
         public double AtrStopMult { get; set; } = 0.75;
@@ -299,6 +310,8 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (Math.Abs(velocity3P) >= VelocityReliefThreshold) floor -= 2.0;
             return floor;
         }
+        private V3DStrategyTradeLogger v3dTradeLogger;
+
 
         // =====================================================================
         // LIFECYCLE
@@ -339,6 +352,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 diMinusSeries = new Series<double>(this);
 
                 SetupFileWatcher();
+                v3dTradeLogger = new V3DStrategyTradeLogger(this, AccountNameFilter, ConfiguredStrategyName, "V3D", TradeLogFolder, "V3D_Momentum_B", "B");
                 lastTradeCount = SystemPerformance.AllTrades.Count;
             }
             else if (State == State.Terminated)
@@ -464,6 +478,9 @@ namespace NinjaTrader.NinjaScript.Strategies
             Execution execution, string executionId, double price, int quantity,
             MarketPosition marketPosition, string orderId, DateTime time)
         {
+            if (v3dTradeLogger != null && !v3dTradeLogger.IsConfiguredAccount(execution))
+                return;
+            v3dTradeLogger?.OnExecution(execution, price, quantity, marketPosition, time);
             int tc = SystemPerformance.AllTrades.Count;
             if (tc > lastTradeCount)
             {
