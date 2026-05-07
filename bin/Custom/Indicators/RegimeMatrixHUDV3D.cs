@@ -888,7 +888,7 @@ namespace NinjaTrader.NinjaScript.Indicators
             SetRow(_tbLayerLine, 3);
 
             // Row 4 — Bot permissions line
-            _tbBotLine = MakeTextBlock("MOMO:--  EXP:--  PINE:--  ADX_DI:--  LONG:--  SHORT:--",
+            _tbBotLine = MakeTextBlock("MOMO:--  EXP:--  FADER:--  ADX_DI:--  LONG:--  SHORT:--",
                 Brushes.White, 10, FontWeights.Normal, null,
                 new Thickness(6, 1, 6, 3), TextAlignment.Left);
             SetRow(_tbBotLine, 4);
@@ -927,7 +927,7 @@ namespace NinjaTrader.NinjaScript.Indicators
             _btnMode      = MakeButton("AUTO/MAN",  Brushes.DarkSlateGray,  ModeButton_Click);
             _btnExpansion = MakeButton("EXP OVRD",  Brushes.DarkOliveGreen, ExpansionOvrd_Click);
             _btnMomo      = MakeButton("MOMO OVRD", Brushes.DarkOliveGreen, MomoOvrd_Click);
-            _btnPine      = MakeButton("PINE OVRD", Brushes.DarkOliveGreen, PineOvrd_Click);
+            _btnPine      = MakeButton("FADER OVRD", Brushes.DarkOliveGreen, PineOvrd_Click);
             _btnADX_DI    = MakeButton("ADX OVRD",  Brushes.DarkOliveGreen, AdxDiOvrd_Click);
             _btnSniper    = MakeButton("SNP OVRD",  Brushes.DarkOliveGreen, SniperOvrd_Click);
             _btnKillAll   = MakeButton("KILL ALL",  Brushes.DarkRed,        KillAll_Click);
@@ -1038,7 +1038,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 
             _tbBotLine.Text = Fmt("MOMO", IsMomoAllowed, MomoSizePct) + "  " +
                               Fmt("EXP",  IsExpansionAllowed, ExpansionSizePct) + "  " +
-                              Fmt("PINE", IsPineAllowed, PineSizePct) + "  " +
+                              Fmt("FADER", IsPineAllowed, PineSizePct) + "  " +
                               Fmt("ADX_DI", IsADX_DIAllowed, ADX_DISizePct) + "  " +
                               Fmt("SNP", IsSniperAllowed, SniperSizePct) + "  " +
                               $"LONG:{(AllowLong ? "ON" : "OFF")}  SHORT:{(AllowShort ? "ON" : "OFF")}";
@@ -1183,7 +1183,7 @@ namespace NinjaTrader.NinjaScript.Indicators
             if (_isAutoMode || _killAllActive) return;
             IsPineAllowed = !IsPineAllowed;
             if (IsPineAllowed) PineSizePct = RegimeConfidence;
-            LogOverrideEvent("PINE", IsPineAllowed, "MANUAL_OVERRIDE");
+            LogOverrideEvent("FADER", IsPineAllowed, "MANUAL_OVERRIDE");
             if (ChartControl != null)
                 ChartControl.Dispatcher.InvokeAsync(() => UpdateHUDDisplay());
         }
