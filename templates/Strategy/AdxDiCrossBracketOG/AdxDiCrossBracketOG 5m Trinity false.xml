@@ -16,7 +16,7 @@
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
         <Value>5</Value>
-        <Value2>60</Value2>
+        <Value2>1</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnPriceChange</Calculate>
@@ -31,7 +31,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-04-12T00:00:00</To>
+      <To>2026-05-07T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -57,6 +57,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>true</IncludeCommission>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -72,7 +73,7 @@
       <OrderFillResolutionValue>1</OrderFillResolutionValue>
       <RestartsWithinMinutes>3</RestartsWithinMinutes>
       <SetOrderQuantity>Strategy</SetOrderQuantity>
-      <Slippage>5</Slippage>
+      <Slippage>2</Slippage>
       <StartBehavior>WaitUntilFlat</StartBehavior>
       <StopTargetHandling>PerEntryExecution</StopTargetHandling>
       <SupportsOptimizationGraph>true</SupportsOptimizationGraph>
@@ -84,9 +85,9 @@
       <UseStopX>true</UseStopX>
       <RiskReward>1</RiskReward>
       <AdxPeriod>14</AdxPeriod>
-      <LevelRange>24</LevelRange>
+      <LevelRange>20</LevelRange>
       <AtrPeriod>14</AtrPeriod>
-      <AtrMultiplier>1</AtrMultiplier>
+      <AtrMultiplier>2</AtrMultiplier>
       <StopModeSelection>BarNTrailing</StopModeSelection>
       <EnableEntryFilters>false</EnableEntryFilters>
       <RequireAdxRising>true</RequireAdxRising>
@@ -97,11 +98,11 @@
       <EmaOffsetTicks>0</EmaOffsetTicks>
       <EmaSwitchNBars>2</EmaSwitchNBars>
       <TrailingNBars>4</TrailingNBars>
-      <TrailingOffsetTicks>12</TrailingOffsetTicks>
-      <Step1ATR>1.5</Step1ATR>
-      <Step2ATR>2.5</Step2ATR>
-      <BreakevenPlusTicks>4</BreakevenPlusTicks>
-      <TrailAtrMult>2</TrailAtrMult>
+      <TrailingOffsetTicks>5</TrailingOffsetTicks>
+      <Step1ATR>1.25</Step1ATR>
+      <Step2ATR>2.25</Step2ATR>
+      <BreakevenPlusTicks>5</BreakevenPlusTicks>
+      <TrailAtrMult>1.25</TrailAtrMult>
       <EnableTimeFilters>true</EnableTimeFilters>
       <ClockOffsetMinutes>0</ClockOffsetMinutes>
       <AllowLondon>false</AllowLondon>
