@@ -158,11 +158,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">21</Max>
-        <Min xsi:type="xsd:double">21</Min>
+        <Max xsi:type="xsd:double">20</Max>
+        <Min xsi:type="xsd:double">20</Min>
         <Name>AdxEntryThreshold</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>21</ValueSerializable>
+        <ValueSerializable>20</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -229,23 +229,23 @@
       </Parameter>
       <Parameter>
         <EnumValuesSerializable>
-          <string>Simple</string>
+          <string>Hysteresis</string>
         </EnumValuesSerializable>
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
         <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
-        <ValueSerializable>Simple</ValueSerializable>
+        <ValueSerializable>Hysteresis</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">3</Max>
-        <Min xsi:type="xsd:int">3</Min>
+        <Max xsi:type="xsd:int">2</Max>
+        <Min xsi:type="xsd:int">2</Min>
         <Name>MinHoldBars</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>3</ValueSerializable>
+        <ValueSerializable>2</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -322,11 +322,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">1.3</Max>
-        <Min xsi:type="xsd:double">1.3</Min>
+        <Max xsi:type="xsd:double">0.9</Max>
+        <Min xsi:type="xsd:double">0.9</Min>
         <Name>AtrStopMult</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>1.3</ValueSerializable>
+        <ValueSerializable>0.9</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -340,20 +340,20 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">60</Max>
-        <Min xsi:type="xsd:int">60</Min>
+        <Max xsi:type="xsd:int">48</Max>
+        <Min xsi:type="xsd:int">48</Min>
         <Name>MinStopTicks</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>60</ValueSerializable>
+        <ValueSerializable>48</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">1</Max>
-        <Min xsi:type="xsd:double">1</Min>
+        <Max xsi:type="xsd:double">0.76</Max>
+        <Min xsi:type="xsd:double">0.76</Min>
         <Name>RiskReward</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>1</ValueSerializable>
+        <ValueSerializable>0.76</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -520,20 +520,20 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">114500</Max>
-        <Min xsi:type="xsd:int">114500</Min>
+        <Max xsi:type="xsd:int">113000</Max>
+        <Min xsi:type="xsd:int">113000</Min>
         <Name>Block3Start</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>114500</ValueSerializable>
+        <ValueSerializable>113000</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">122500</Max>
-        <Min xsi:type="xsd:int">122500</Min>
+        <Max xsi:type="xsd:int">125500</Max>
+        <Min xsi:type="xsd:int">125500</Min>
         <Name>Block3End</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>122500</ValueSerializable>
+        <ValueSerializable>125500</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -562,25 +562,25 @@
       <AreLinesConfigurable>true</AreLinesConfigurable>
       <ArePlotsConfigurable>true</ArePlotsConfigurable>
       <BarsPeriodSerializable>
-        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
+        <BarsPeriodTypeSerialize>9</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
         <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>5</Value>
+        <Value>1</Value>
         <Value2>1</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-05-02T00:00:00</From>
+      <From>2026-05-04T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-      <Name>NQ Momo 5m 21 ADX</Name>
+      <Name>NQ Momo OG 1m HA 20</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -627,12 +627,12 @@
       <OrderFillResolutionValue>1</OrderFillResolutionValue>
       <RestartsWithinMinutes>3</RestartsWithinMinutes>
       <SetOrderQuantity>Strategy</SetOrderQuantity>
-      <Slippage>2</Slippage>
+      <Slippage>3</Slippage>
       <StartBehavior>WaitUntilFlat</StartBehavior>
       <StopTargetHandling>PerEntryExecution</StopTargetHandling>
       <SupportsOptimizationGraph>true</SupportsOptimizationGraph>
       <TestPeriod>28</TestPeriod>
-      <TradingHoursSerializable>CME US Index Futures ETH</TradingHoursSerializable>
+      <TradingHoursSerializable>CME US Index Futures RTH</TradingHoursSerializable>
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
       <Contracts>1</Contracts>
@@ -648,7 +648,7 @@
       <AdxPeriod>14</AdxPeriod>
       <UseDiCrossEntry>true</UseDiCrossEntry>
       <UseAdxEntryThreshold>true</UseAdxEntryThreshold>
-      <AdxEntryThreshold>21</AdxEntryThreshold>
+      <AdxEntryThreshold>20</AdxEntryThreshold>
       <UseCiEntryThreshold>false</UseCiEntryThreshold>
       <CiEntryThreshold>60</CiEntryThreshold>
       <UseSlopeGateOnEntry>false</UseSlopeGateOnEntry>
@@ -656,8 +656,8 @@
       <AdxSlopeBarsEntry>5</AdxSlopeBarsEntry>
       <CiDecreaseMinEntry>2</CiDecreaseMinEntry>
       <AdxIncreaseMinEntry>2</AdxIncreaseMinEntry>
-      <SlopeExit>Simple</SlopeExit>
-      <MinHoldBars>3</MinHoldBars>
+      <SlopeExit>Hysteresis</SlopeExit>
+      <MinHoldBars>2</MinHoldBars>
       <CiSlopeBarsExit>5</CiSlopeBarsExit>
       <AdxSlopeBarsExit>5</AdxSlopeBarsExit>
       <CiRiseMinExit>2</CiRiseMinExit>
@@ -666,10 +666,10 @@
       <HystConsecutive>2</HystConsecutive>
       <HystCiRisePerBar>0.5</HystCiRisePerBar>
       <HystAdxDropPerBar>0.7</HystAdxDropPerBar>
-      <AtrStopMult>1.3</AtrStopMult>
+      <AtrStopMult>0.9</AtrStopMult>
       <AtrStopLen>14</AtrStopLen>
-      <MinStopTicks>60</MinStopTicks>
-      <RiskReward>1.3</RiskReward>
+      <MinStopTicks>48</MinStopTicks>
+      <RiskReward>0.76</RiskReward>
       <EnableDailyGuards>false</EnableDailyGuards>
       <DailyProfitTarget>1000</DailyProfitTarget>
       <DailyLossLimit>500</DailyLossLimit>
@@ -687,9 +687,9 @@
       <UseBlock2>false</UseBlock2>
       <Block2Start>95500</Block2Start>
       <Block2End>102500</Block2End>
-      <UseBlock3>true</UseBlock3>
-      <Block3Start>114500</Block3Start>
-      <Block3End>122500</Block3End>
+      <UseBlock3>false</UseBlock3>
+      <Block3Start>113000</Block3Start>
+      <Block3End>125500</Block3End>
       <FlattenNearEnd>false</FlattenNearEnd>
       <FlattenBufferSeconds>300</FlattenBufferSeconds>
     </MomentumSlopeStrategy>
