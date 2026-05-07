@@ -604,6 +604,7 @@
     <Compile Include="Strategies\V3_Expansion_Rider_V3C.cs" />
     <Compile Include="Strategies\V3_Value_Fader_V3C.cs" />
     <Compile Include="Indicators\RegimeDirectionNT8.cs" />
+    <Compile Include="Indicators\V3DStrategyTradeLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
