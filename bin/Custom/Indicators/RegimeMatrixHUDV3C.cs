@@ -597,7 +597,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                 gateText.Foreground = Brushes.White;
 
                 laneText1.Text =
-                    $"MOMO:{OnOff(IsMomoAllowed)} L:{OnOff(IsMomoLongAllowed)} S:{OnOff(IsMomoShortAllowed)} ADXX:{OnOff(IsAdxAllowed)} PINE:{OnOff(IsPineAllowed)} " +
+                    $"MOMO:{OnOff(IsMomoAllowed)} L:{OnOff(IsMomoLongAllowed)} S:{OnOff(IsMomoShortAllowed)} ADXX:{OnOff(IsAdxAllowed)} FADER:{OnOff(IsPineAllowed)} " +
                     $"EXP:{OnOff(IsExpansionBotAllowed)} COMP:{OnOff(IsCompressionBotAllowed)} FADE:{OnOff(IsFadeBotAllowed)}";
 
                 laneText2.Text =
