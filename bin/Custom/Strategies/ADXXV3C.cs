@@ -37,6 +37,14 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="1b. Select HUD Lane", Description="Routes the strategy to a specific Regime Lane on the HUD.", GroupName="Trinity Command Center", Order=1)]
         public AdxxHudLane SelectedHudLane { get; set; } = AdxxHudLane.DefaultBreakout;
 
+        [NinjaScriptProperty]
+        [Display(Name = "Account Name Filter", Description = "Exact NT8 account name for V3C trade logging, e.g. SimV3C-NQ-5A.", GroupName = "Trade Logging", Order = 0)]
+        public string AccountNameFilter { get; set; } = "SimV3C-NQ-5A";
+
+        [NinjaScriptProperty]
+        [Display(Name = "Trade Log Folder", Description = "Folder for V3C strategy-owned trade logs.", GroupName = "Trade Logging", Order = 1)]
+        public string TradeLogFolder { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog";
+
         // The live permission slip linked to the V3C HUD Parking Garage
         private bool IsBotAllowedByTrinity()
         {
@@ -258,6 +266,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         private double trailingStopLong  = double.NaN;
         private double trailingStopShort = double.NaN;
+        private V3CTradeLogger tradeLogger;
 
         private double RT(double p) => Instrument.MasterInstrument.RoundToTickSize(p);
 
@@ -348,7 +357,26 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 AddChartIndicator(adx);
                 AddChartIndicator(ema);
+                tradeLogger = new V3CTradeLogger(this, AccountNameFilter, "V3C", TradeLogFolder);
             }
+        }
+
+        protected override void OnExecutionUpdate(
+            Execution execution, string executionId, double price, int quantity,
+            MarketPosition marketPosition, string orderId, DateTime time)
+        {
+            tradeLogger?.OnExecution(execution, null, time);
+        }
+
+        protected override void OnOrderUpdate(
+            Order order, double limitPrice, double stopPrice, int quantity, int filled,
+            double averageFillPrice, OrderState orderState, DateTime time,
+            ErrorCode error, string nativeError)
+        {
+            if (order == null)
+                return;
+            if (orderState == OrderState.Working || orderState == OrderState.Accepted || orderState == OrderState.Submitted)
+                tradeLogger?.OnStopOrderSubmitted(order);
         }
 
         protected override void OnBarUpdate()

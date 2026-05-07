@@ -41,6 +41,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private readonly string      _modelVersion;
         private readonly string      _logFolder;
         private          string      _currentLogPath;
+        private          string      _entryAccount;
         private          double      _entryPrice;
         private          string      _entryTime;
         private          string      _direction;
@@ -66,11 +67,23 @@ namespace NinjaTrader.NinjaScript.Strategies
         /// </summary>
         public void OnExecution(Execution execution, Order previousOrder)
         {
+            OnExecution(execution, previousOrder, _strategy.Time[0]);
+        }
+
+        /// <summary>
+        /// Call from the strategy's OnExecutionUpdate with the execution timestamp.
+        /// </summary>
+        public void OnExecution(Execution execution, Order previousOrder, DateTime executionTime)
+        {
             if (execution?.Order == null) return;
+
+            string accountName = execution.Account != null
+                ? execution.Account.Name
+                : (_strategy.Account == null ? "" : _strategy.Account.Name);
 
             // Only log for the configured account
             if (!string.IsNullOrEmpty(_accountFilter) &&
-                !string.Equals(_strategy.Account.Name, _accountFilter,
+                !string.Equals(accountName, _accountFilter,
                                StringComparison.OrdinalIgnoreCase))
                 return;
 
@@ -83,8 +96,9 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (!_entryFilled)
                 {
                     _entryFilled          = true;
+                    _entryAccount         = accountName;
                     _entryPrice           = execution.Price;
-                    _entryTime            = _strategy.Time[0].ToString("yyyy-MM-dd HH:mm:ss");
+                    _entryTime            = executionTime.ToString("yyyy-MM-dd HH:mm:ss");
                     _direction            = order.OrderAction == OrderAction.Buy ? "LONG" : "SHORT";
                     _entryName            = order.Name ?? "";
                     _contracts            = execution.Quantity;
@@ -104,8 +118,8 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (!_entryFilled) return;  // Guard: no entry captured
 
                 double exitPrice = execution.Price;
-                string exitTime  = _strategy.Time[0].ToString("yyyy-MM-dd HH:mm:ss");
-                string tradeDate = _strategy.Time[0].ToString("yyyy-MM-dd");
+                string exitTime  = executionTime.ToString("yyyy-MM-dd HH:mm:ss");
+                string tradeDate = executionTime.ToString("yyyy-MM-dd");
 
                 double sign = _direction == "LONG" ? 1.0 : -1.0;
                 double pointValue = _strategy.Instrument.MasterInstrument.PointValue;
@@ -125,10 +139,11 @@ namespace NinjaTrader.NinjaScript.Strategies
                     _initialStopDistance = Math.Abs(_entryPrice - _initialStopPrice)
                                            * _contracts * pointValue;
 
-                EnsureLogFile(tradeDate, symbol);
+                EnsureLogFile(tradeDate, symbol, accountName);
                 WriteRow(
                     tradeDate, _entryTime, exitTime, _modelVersion,
-                    _accountFilter, stratName, botName, "N/A",
+                    string.IsNullOrEmpty(_entryAccount) ? accountName : _entryAccount,
+                    stratName, botName, "N/A",
                     symbol, instrument, _direction,
                     _contracts.ToString(),
                     _entryPrice.ToString("F4", CultureInfo.InvariantCulture),
@@ -148,6 +163,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 // Reset entry state
                 _entryFilled         = false;
+                _entryAccount        = "";
                 _initialStopPrice    = 0.0;
                 _initialStopDistance = 0.0;
             }
@@ -170,10 +186,11 @@ namespace NinjaTrader.NinjaScript.Strategies
             }
         }
 
-        private void EnsureLogFile(string tradeDate, string symbol)
+        private void EnsureLogFile(string tradeDate, string symbol, string accountName)
         {
             // Use account name as the file key — one file per account
-            string safeName = _accountFilter
+            string keyName = string.IsNullOrEmpty(accountName) ? _accountFilter : accountName;
+            string safeName = keyName
                 .Replace(" ", "_")
                 .Replace("-", "_")
                 .Replace("(", "")
