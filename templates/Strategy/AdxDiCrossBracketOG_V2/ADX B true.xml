@@ -500,7 +500,7 @@
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2099-12-01T00:00:00</From>
+      <From>2026-05-07T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -509,7 +509,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>1800-01-01T00:00:00</To>
+      <To>2026-05-12T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -534,6 +534,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -566,11 +567,11 @@
       <AtrPeriod>14</AtrPeriod>
       <AtrMultiplier>1</AtrMultiplier>
       <StopModeSelection>BarNTrailing</StopModeSelection>
-      <EnableEntryFilters>false</EnableEntryFilters>
+      <EnableEntryFilters>true</EnableEntryFilters>
       <RequireAdxRising>true</RequireAdxRising>
       <AdxRisingBars>3</AdxRisingBars>
       <MinDiGap>5</MinDiGap>
-      <DebugEntryFilters>false</DebugEntryFilters>
+      <DebugEntryFilters>true</DebugEntryFilters>
       <EmaPeriod>50</EmaPeriod>
       <EmaOffsetTicks>0</EmaOffsetTicks>
       <EmaSwitchNBars>2</EmaSwitchNBars>
