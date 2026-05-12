@@ -592,7 +592,6 @@
     <Compile Include="Indicators\HUDMessenger.cs" />
     <Compile Include="Indicators\HUDMessengerV1B.cs" />
     <Compile Include="Indicators\TradeLogExporterV1AB.cs" />
-    <Compile Include="Indicators\%40%40RegimeMatrixHUDV3D_backup050126.cs" />
     <Compile Include="Indicators\RegimeMatrixHUDV3D.cs" />
     <Compile Include="Indicators\ValueAreaBackfillReporter.cs" />
     <Compile Include="Strategies\KalmanPulseFaderV2.cs" />
@@ -605,6 +604,9 @@
     <Compile Include="Strategies\V3_Value_Fader_V3C.cs" />
     <Compile Include="Indicators\RegimeDirectionNT8.cs" />
     <Compile Include="Indicators\V3DStrategyTradeLogger.cs" />
+    <Compile Include="Strategies\AdxDiCrossBracketOG_V2.cs" />
+    <Compile Include="Strategies\AdxDiCrossStrategyPineTrail_V2.cs" />
+    <Compile Include="Strategies\MomentumSlopeOG_V2.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">

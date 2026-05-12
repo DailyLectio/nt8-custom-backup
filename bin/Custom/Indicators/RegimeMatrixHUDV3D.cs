@@ -154,6 +154,18 @@ namespace NinjaTrader.NinjaScript.Indicators
                  GroupName = "Pipeline Monitor", Order = 4)]
         public int PythonStageStaleMinutes { get; set; } = 15;
 
+        [NinjaScriptProperty]
+        [Display(Name = "Write HUD History CSV",
+                 Description = "Append one HUD-read audit row per chart bar after safety and override logic.",
+                 GroupName = "History Export", Order = 0)]
+        public bool WriteHudHistoryCsv { get; set; } = true;
+
+        [NinjaScriptProperty]
+        [Display(Name = "HUD History Folder",
+                 Description = "Blank = V3D\\History\\HUD_Reads.",
+                 GroupName = "History Export", Order = 1)]
+        public string HudHistoryFolder { get; set; } = "";
+
         // ===================================================================
         // INTERNAL STATE
         // ===================================================================
@@ -206,6 +218,10 @@ namespace NinjaTrader.NinjaScript.Indicators
         // Throttle — only re-check upstream feeds once per minute
         private DateTime _lastPipelineCheck     = DateTime.MinValue;
         private const int PipelineCheckSeconds  = 60;
+        private int _lastHistoryWriteBar = -1;
+        private string _lastTimestampET = "";
+        private string _lastSessionKey = "";
+        private string _lastHMMAsOfTimestampET = "";
 
         // ===================================================================
         // WPF UI ELEMENTS
@@ -338,6 +354,8 @@ namespace NinjaTrader.NinjaScript.Indicators
             if (!_isAutoMode && !_killAllActive)
                 ApplyManualOverrides();
 
+            WriteHudHistoryRow();
+
             // Refresh WPF display
             if (ChartControl != null && _hudGrid != null)
                 ChartControl.Dispatcher.InvokeAsync(() => UpdateHUDDisplay());
@@ -446,6 +464,9 @@ namespace NinjaTrader.NinjaScript.Indicators
             AsymHysteresisGateOpen = GetBool("AsymHysteresisGateOpen");
             AsymHysteresisReason   = Get("AsymHysteresisReason");
             AsymHysteresisEnabled  = GetBool("AsymHysteresisEnabled");
+            _lastTimestampET        = Get("TimestampET");
+            _lastSessionKey         = Get("session_key");
+            _lastHMMAsOfTimestampET = Get("HMMAsOfTimestampET");
 
             // Stale data flag from Python (also evaluated locally below)
             bool pythonStaleFlag = GetBool("StaleDataFlag");
@@ -486,6 +507,110 @@ namespace NinjaTrader.NinjaScript.Indicators
                 _parseFailed = false;
 
             ReadHmmLabelQuality();
+        }
+
+        private void WriteHudHistoryRow()
+        {
+            if (!WriteHudHistoryCsv || CurrentBar < 1 || _lastHistoryWriteBar == CurrentBar)
+                return;
+
+            _lastHistoryWriteBar = CurrentBar;
+
+            try
+            {
+                string folder = string.IsNullOrWhiteSpace(HudHistoryFolder)
+                    ? Path.Combine(DataFolderPath, "History", "HUD_Reads")
+                    : HudHistoryFolder;
+
+                Directory.CreateDirectory(folder);
+
+                string sessionDate = Time[0].ToString("yyyyMMdd");
+                string chartSym = Instrument.MasterInstrument.Name;
+                string path = Path.Combine(folder, $"{_leaderSymbol}_V3D_HUD_ReadHistory_{sessionDate}.csv");
+                bool exists = File.Exists(path);
+
+                if (!exists)
+                {
+                    File.AppendAllText(path,
+                        "TaxonomyVersion,Model,Symbol,Time,Account,Phase,EntryRegime,Dir,Result,Exit,NetPnL,HudReadTimestampLocal,BarTimestamp,CurrentBar,ChartSymbol,LeaderSymbol,SourceFile,SourceFileModifiedUtc,SessionKey,TimestampET,HMMAsOfTimestampET,FinalRegime,FinalDirection,MacroRegime,MacroPlaybook,MacroCheckpointState,HMMRegime,HMMDirection,RegimeConfidence,ConflictScore,PhaseDetail,Velocity3P,StateAgeBars,HMMStateAgeBars,AsymHysteresisGateOpen,AsymHysteresisReason,AsymHysteresisEnabled,AllowLong,AllowShort,AllowFadeLong,AllowFadeShort,AllowExpansion,AllowMomo,AllowPine,AllowADX_DI,AllowSniper,ExpansionSizePct,MomoSizePct,PineSizePct,ADX_DISizePct,SniperSizePct,StaleDataFlag,PipelineAllGreen,ValueAreaFresh,LiveFeedFresh,MacroFresh,HMMFresh,KillOnPipelineStale,IsAutoMode,KillAllActive,ReasonCode\n");
+                }
+
+                string line = string.Join(",",
+                    Csv("HUD_TAXONOMY_V1"),
+                    Csv("V3D"),
+                    Csv(_leaderSymbol),
+                    Csv(Time[0].ToString("HH:mm")),
+                    Csv(""),
+                    Csv(Phase),
+                    Csv(FinalRegime),
+                    Csv(FinalDirection),
+                    Csv(""),
+                    Csv(""),
+                    Csv(""),
+                    Csv(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")),
+                    Csv(Time[0].ToString("yyyy-MM-dd HH:mm:ss")),
+                    Csv(CurrentBar.ToString()),
+                    Csv(chartSym),
+                    Csv(_leaderSymbol),
+                    Csv(_matrixFile),
+                    Csv(_lastFileWriteUtc == DateTime.MinValue ? "" : _lastFileWriteUtc.ToString("yyyy-MM-dd HH:mm:ss")),
+                    Csv(_lastSessionKey),
+                    Csv(_lastTimestampET),
+                    Csv(_lastHMMAsOfTimestampET),
+                    Csv(FinalRegime),
+                    Csv(FinalDirection),
+                    Csv(MacroRegime),
+                    Csv(MacroPlaybook),
+                    Csv(MacroCheckpointState),
+                    Csv(HMMRegime),
+                    Csv(HMMDirection),
+                    Csv(RegimeConfidence.ToString()),
+                    Csv(ConflictScore.ToString(System.Globalization.CultureInfo.InvariantCulture)),
+                    Csv(Phase),
+                    Csv(Velocity3P.ToString(System.Globalization.CultureInfo.InvariantCulture)),
+                    Csv(StateAgeBars.ToString()),
+                    Csv(HMMStateAgeBars.ToString()),
+                    Csv(AsymHysteresisGateOpen.ToString()),
+                    Csv(AsymHysteresisReason),
+                    Csv(AsymHysteresisEnabled.ToString()),
+                    Csv(AllowLong.ToString()),
+                    Csv(AllowShort.ToString()),
+                    Csv(AllowFadeLong.ToString()),
+                    Csv(AllowFadeShort.ToString()),
+                    Csv(IsExpansionAllowed.ToString()),
+                    Csv(IsMomoAllowed.ToString()),
+                    Csv(IsPineAllowed.ToString()),
+                    Csv(IsADX_DIAllowed.ToString()),
+                    Csv(IsSniperAllowed.ToString()),
+                    Csv(ExpansionSizePct.ToString()),
+                    Csv(MomoSizePct.ToString()),
+                    Csv(PineSizePct.ToString()),
+                    Csv(ADX_DISizePct.ToString()),
+                    Csv(SniperSizePct.ToString()),
+                    Csv(StaleDataFlag.ToString()),
+                    Csv(PipelineAllGreen.ToString()),
+                    Csv(ValueAreaFresh.ToString()),
+                    Csv(LiveFeedFresh.ToString()),
+                    Csv(MacroFresh.ToString()),
+                    Csv(HMMFresh.ToString()),
+                    Csv(KillOnPipelineStale.ToString()),
+                    Csv(_isAutoMode.ToString()),
+                    Csv(_killAllActive.ToString()),
+                    Csv(ReasonCode));
+
+                File.AppendAllText(path, line + "\n");
+            }
+            catch (Exception ex)
+            {
+                Print($"[V3D HUD {_leaderSymbol}] HUD history write error: {ex.Message}");
+            }
+        }
+
+        private string Csv(string value)
+        {
+            if (value == null)
+                value = "";
+            return "\"" + value.Replace("\"", "\"\"") + "\"";
         }
 
         // ===================================================================
