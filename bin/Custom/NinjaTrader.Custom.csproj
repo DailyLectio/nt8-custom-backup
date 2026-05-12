@@ -607,6 +607,7 @@
     <Compile Include="Strategies\AdxDiCrossBracketOG_V2.cs" />
     <Compile Include="Strategies\AdxDiCrossStrategyPineTrail_V2.cs" />
     <Compile Include="Strategies\MomentumSlopeOG_V2.cs" />
+    <Compile Include="Indicators\NT8TradeExportAutoWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
