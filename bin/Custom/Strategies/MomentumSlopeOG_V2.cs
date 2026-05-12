@@ -19,6 +19,10 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="1. Enable Trinity Filter", Description="If true, listens to the Regime HUD for Momo permission.", GroupName="Trinity Command Center", Order=0)]
         public bool EnableTrinityFilter { get; set; } = true;
 
+        [NinjaScriptProperty]
+        [Display(Name="Debug entry filters", Description="Print candidate entry blocks, including Trinity gate state.", GroupName="Trinity Command Center", Order=1)]
+        public bool DebugEntryFilters { get; set; } = false;
+
         private bool IsBotAllowedByTrinity()
         {
             if (!EnableTrinityFilter) return true;
@@ -29,6 +33,30 @@ namespace NinjaTrader.NinjaScript.Strategies
                 return hudInstance.IsMomoAllowed;
 
             return false;
+        }
+
+        private bool TryGetTrinityState(out string baseSymbol, out Indicators.RegimeMatrixHUD_V3D hudInstance)
+        {
+            baseSymbol = ResolveTrinitySymbol(Instrument.MasterInstrument.Name);
+            hudInstance = null;
+            return Indicators.RegimeMatrixHUD_V3D.InstancesV3D.TryGetValue(baseSymbol, out hudInstance) && hudInstance != null;
+        }
+
+        private void PrintDebugEntryBlock(string side, string reason)
+        {
+            if (!DebugEntryFilters)
+                return;
+
+            string baseSymbol;
+            Indicators.RegimeMatrixHUD_V3D hud;
+            bool hasHud = TryGetTrinityState(out baseSymbol, out hud);
+            string lane = hasHud ? (hud.IsMomoAllowed ? "1" : "0") : "NO_HUD";
+            string regime = hasHud ? hud.FinalRegime : "NO_HUD";
+            string reasonCode = hasHud ? hud.ReasonCode : "NO_HUD";
+            string stale = hasHud ? hud.StaleDataFlag.ToString() : "NO_HUD";
+            string accountName = Account != null ? Account.Name : "NO_ACCOUNT";
+
+            Print($"{Time[0]} MomentumSlopeOG_V2 debug | account={accountName} symbol={Instrument.FullName} hudSymbol={baseSymbol} side={side} EnableTrinityFilter={EnableTrinityFilter} lane=AllowMomo:{lane} finalRegime={regime} reasonCode={reasonCode} stale={stale} decision=BLOCK reason={reason}");
         }
 
         private string ResolveTrinitySymbol(string sym)
@@ -580,6 +608,23 @@ namespace NinjaTrader.NinjaScript.Strategies
                     SubmitLongWithStops();
                 else if (doShort && anchorShortOK)
                     SubmitShortWithStops();
+                else if (DebugEntryFilters && (doLong || doShort))
+                {
+                    string why = "";
+                    if (doLong && !anchorLongOK) why += "anchorLong ";
+                    if (doShort && !anchorShortOK) why += "anchorShort ";
+                    PrintDebugEntryBlock(doLong ? "LONG" : "SHORT", why == "" ? "entry_filter" : why.Trim());
+                }
+            }
+            else if (DebugEntryFilters && Position.MarketPosition == MarketPosition.Flat && (crossUp || crossDown))
+            {
+                string why = "";
+                if (!timeOk) why += "time ";
+                if (!canEnter) why += "cooldown_or_guard ";
+                if (!slopeEntryOk) why += "slope ";
+                if (!adxOk) why += "ADX ";
+                if (!ciOk) why += "CI ";
+                PrintDebugEntryBlock(crossUp ? "LONG" : "SHORT", why == "" ? "entry_filter" : why.Trim());
             }
 
             // --- Slope-based exits only ---
@@ -632,7 +677,11 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         private void SubmitLongWithStops()
         {
-            if (!IsBotAllowedByTrinity()) return;
+            if (!IsBotAllowedByTrinity())
+            {
+                PrintDebugEntryBlock("LONG", "trinity");
+                return;
+            }
 
             double risk = Math.Max(Math.Max(0.01, AtrStopMult) * atrStop[0], Math.Max(1, MinStopTicks) * TickSize);
             double stp  = RT(Close[0] - risk);
@@ -644,7 +693,11 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         private void SubmitShortWithStops()
         {
-            if (!IsBotAllowedByTrinity()) return;
+            if (!IsBotAllowedByTrinity())
+            {
+                PrintDebugEntryBlock("SHORT", "trinity");
+                return;
+            }
 
             double risk = Math.Max(Math.Max(0.01, AtrStopMult) * atrStop[0], Math.Max(1, MinStopTicks) * TickSize);
             double stp  = RT(Close[0] + risk);

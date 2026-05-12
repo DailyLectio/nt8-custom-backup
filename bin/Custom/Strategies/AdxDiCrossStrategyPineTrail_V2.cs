@@ -22,6 +22,10 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="1. Enable Trinity Filter", Description="If true, listens to the Regime HUD for Pine permission.", GroupName="Trinity Command Center", Order=0)]
         public bool EnableTrinityFilter { get; set; } = true;
 
+        [NinjaScriptProperty]
+        [Display(Name="Debug entry filters", Description="Print candidate entry blocks, including Trinity gate state.", GroupName="Trinity Command Center", Order=1)]
+        public bool DebugEntryFilters { get; set; } = false;
+
         private bool IsBotAllowedByTrinity()
         {
             if (!EnableTrinityFilter) return true;
@@ -32,6 +36,30 @@ namespace NinjaTrader.NinjaScript.Strategies
                 return hudInstance.IsPineAllowed;
 
             return false;
+        }
+
+        private bool TryGetTrinityState(out string baseSymbol, out Indicators.RegimeMatrixHUD_V3D hudInstance)
+        {
+            baseSymbol = ResolveTrinitySymbol(Instrument.MasterInstrument.Name);
+            hudInstance = null;
+            return Indicators.RegimeMatrixHUD_V3D.InstancesV3D.TryGetValue(baseSymbol, out hudInstance) && hudInstance != null;
+        }
+
+        private void PrintDebugEntryBlock(string side, string reason)
+        {
+            if (!DebugEntryFilters)
+                return;
+
+            string baseSymbol;
+            Indicators.RegimeMatrixHUD_V3D hud;
+            bool hasHud = TryGetTrinityState(out baseSymbol, out hud);
+            string lane = hasHud ? (hud.IsPineAllowed ? "1" : "0") : "NO_HUD";
+            string regime = hasHud ? hud.FinalRegime : "NO_HUD";
+            string reasonCode = hasHud ? hud.ReasonCode : "NO_HUD";
+            string stale = hasHud ? hud.StaleDataFlag.ToString() : "NO_HUD";
+            string accountName = Account != null ? Account.Name : "NO_ACCOUNT";
+
+            Print($"{Time[0]} AdxDiCrossStrategy_PineTrail_V2 debug | account={accountName} symbol={Instrument.FullName} hudSymbol={baseSymbol} side={side} EnableTrinityFilter={EnableTrinityFilter} lane=AllowPine:{lane} finalRegime={regime} reasonCode={reasonCode} stale={stale} decision=BLOCK reason={reason}");
         }
 
         private string ResolveTrinitySymbol(string sym)
@@ -402,8 +430,10 @@ namespace NinjaTrader.NinjaScript.Strategies
             }
 
             // ===== Combine filters for canLong / canShort =====
+            bool trinityAllowed = IsBotAllowedByTrinity();
+
             bool canLong =
-                IsBotAllowedByTrinity() &&
+                trinityAllowed &&
                 longSignal &&
                 passEmaLong &&
                 outsideEmaZone &&
@@ -411,7 +441,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 outsideManualZone;
 
             bool canShort =
-                IsBotAllowedByTrinity() &&
+                trinityAllowed &&
                 shortSignal &&
                 passEmaShort &&
                 outsideEmaZone &&
@@ -448,6 +478,17 @@ namespace NinjaTrader.NinjaScript.Strategies
                 {
                     pendingShortStopTicks = stopTicks;
                     EnterShort(Contracts, "Short");
+                }
+                else if (DebugEntryFilters && (longSignal || shortSignal))
+                {
+                    string why = "";
+                    if (!trinityAllowed) why += "trinity ";
+                    if (longSignal && !passEmaLong) why += "emaLong ";
+                    if (shortSignal && !passEmaShort) why += "emaShort ";
+                    if (!outsideEmaZone) why += "emaZone ";
+                    if (!outsideVwapZone) why += "vwapZone ";
+                    if (!outsideManualZone) why += "manualZone ";
+                    PrintDebugEntryBlock(longSignal ? "LONG" : "SHORT", why == "" ? "entry_filter" : why.Trim());
                 }
             }
 
