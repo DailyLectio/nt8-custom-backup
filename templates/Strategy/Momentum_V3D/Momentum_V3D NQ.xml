@@ -273,11 +273,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">155500</Max>
-        <Min xsi:type="xsd:int">155500</Min>
+        <Max xsi:type="xsd:int">154500</Max>
+        <Min xsi:type="xsd:int">154500</Min>
         <Name>EndTime</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>155500</ValueSerializable>
+        <ValueSerializable>154500</ValueSerializable>
       </Parameter>
     </ArrayOfParameter>
   </OptimizationParameters>
@@ -302,16 +302,16 @@
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2099-12-01T00:00:00</From>
+      <From>2026-04-28T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>Momentum_V3D</Name>
+      <Name>Momentum_V3D NQ</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>1800-01-01T00:00:00</To>
+      <To>2026-05-13T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -336,6 +336,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -367,7 +368,7 @@
       <AtrPeriod>14</AtrPeriod>
       <MinStopTicks>4</MinStopTicks>
       <RiskReward>1.5</RiskReward>
-      <TickValueDollars>12.5</TickValueDollars>
+      <TickValueDollars>5</TickValueDollars>
       <CiPeriod>14</CiPeriod>
       <AdxPeriod>14</AdxPeriod>
       <CiMaxCompression>58</CiMaxCompression>
@@ -389,7 +390,7 @@
       <DailyLossLimit>0</DailyLossLimit>
       <EnableTimeFilter>true</EnableTimeFilter>
       <StartTime>93500</StartTime>
-      <EndTime>155500</EndTime>
+      <EndTime>154500</EndTime>
     </Momentum_V3D>
   </Strategy>
 </StrategyTemplate>
