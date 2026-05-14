@@ -35,35 +35,6 @@
   <OptimizationParameters>
     <ArrayOfParameter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Parameter>
-        <EnumValuesSerializable>
-          <string>B_FullTrinity</string>
-        </EnumValuesSerializable>
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">0</Max>
-        <Min xsi:type="xsd:int">0</Min>
-        <Name>PermissionMode</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.V3DPermissionMode, e80cc402b8bb4fb59900325599b82861, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
-        <ValueSerializable>B_FullTrinity</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">50</Max>
-        <Min xsi:type="xsd:int">50</Min>
-        <Name>BaselineSizePct</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>50</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">50</Max>
-        <Min xsi:type="xsd:int">50</Min>
-        <Name>SoftSizePctFloor</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>50</ValueSerializable>
-      </Parameter>
-      <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
         <Max xsi:type="xsd:double">0.75</Max>
@@ -179,7 +150,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentum_V3D+ExitSlopeMode, e80cc402b8bb4fb59900325599b82861, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentum_V3D+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Hysteresis</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -261,7 +232,7 @@
         <Min xsi:type="xsd:int">2</Min>
         <Name>MaxConsecutiveLosses</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>10</ValueSerializable>
+        <ValueSerializable>2</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -331,16 +302,16 @@
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2099-12-01T00:00:00</From>
+      <From>2026-04-29T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>Momentum_V3D ES 2C</Name>
+      <Name>Momentum_V3D NQ 2A</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>1800-01-01T00:00:00</To>
+      <To>2026-05-14T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -365,6 +336,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -389,11 +361,11 @@
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath>C:\Users\Valued Customer\NT8_Regimes\V3D</DataFolderPath>
-      <PermissionMode>C_SoftTrinity</PermissionMode>
+      <PermissionMode>A_Baseline</PermissionMode>
       <BaselineSizePct>50</BaselineSizePct>
       <SoftSizePctFloor>50</SoftSizePctFloor>
-      <AccountNameFilter>SimV3D-ES-2C</AccountNameFilter>
-      <ConfiguredStrategyName>Momentum_V3D ES 2C</ConfiguredStrategyName>
+      <AccountNameFilter>SimV3D-NQ-2A;SimV3D-ES-2A</AccountNameFilter>
+      <ConfiguredStrategyName>Momentum_V3D</ConfiguredStrategyName>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
       <AtrStopMult>0.75</AtrStopMult>
       <AtrPeriod>14</AtrPeriod>
@@ -416,7 +388,7 @@
       <HystConsecutive>2</HystConsecutive>
       <HystCiRisePerBar>0.5</HystCiRisePerBar>
       <HystAdxDropPerBar>0.5</HystAdxDropPerBar>
-      <MaxConsecutiveLosses>10</MaxConsecutiveLosses>
+      <MaxConsecutiveLosses>2</MaxConsecutiveLosses>
       <DailyGoal>0</DailyGoal>
       <DailyLossLimit>0</DailyLossLimit>
       <EnableTimeFilter>true</EnableTimeFilter>

@@ -35,35 +35,6 @@
   <OptimizationParameters>
     <ArrayOfParameter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Parameter>
-        <EnumValuesSerializable>
-          <string>B_FullTrinity</string>
-        </EnumValuesSerializable>
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">0</Max>
-        <Min xsi:type="xsd:int">0</Min>
-        <Name>PermissionMode</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.V3DPermissionMode, e80cc402b8bb4fb59900325599b82861, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
-        <ValueSerializable>B_FullTrinity</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">75</Max>
-        <Min xsi:type="xsd:int">75</Min>
-        <Name>BaselineSizePct</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>75</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">75</Max>
-        <Min xsi:type="xsd:int">75</Min>
-        <Name>SoftSizePctFloor</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>75</ValueSerializable>
-      </Parameter>
-      <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
         <Max xsi:type="xsd:double">1.5</Max>
@@ -84,11 +55,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">5</Max>
-        <Min xsi:type="xsd:double">5</Min>
+        <Max xsi:type="xsd:double">12.5</Max>
+        <Min xsi:type="xsd:double">12.5</Min>
         <Name>TickValueDollars</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>5</ValueSerializable>
+        <ValueSerializable>12.5</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -147,8 +118,8 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">2</Max>
-        <Min xsi:type="xsd:int">2</Min>
+        <Max xsi:type="xsd:int">10</Max>
+        <Min xsi:type="xsd:int">10</Min>
         <Name>MaxConsecutiveLosses</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>10</ValueSerializable>
@@ -182,13 +153,13 @@
       <BarsPeriodSerializable>
         <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>80</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>44</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>40</Value>
-        <Value2>120</Value2>
+        <Value>22</Value>
+        <Value2>66</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnBarClose</Calculate>
@@ -197,8 +168,8 @@
       <From>2026-04-19T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
-      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-      <Name>Expansion_V3D NQ 1C</Name>
+      <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
+      <Name>Expansion_V3D ES 1A</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -228,7 +199,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
-      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
+      <InstrumentOrInstrumentList>ES JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -253,15 +224,15 @@
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath>C:\Users\Valued Customer\NT8_Regimes\V3D</DataFolderPath>
-      <PermissionMode>C_SoftTrinity</PermissionMode>
+      <PermissionMode>A_Baseline</PermissionMode>
       <BaselineSizePct>75</BaselineSizePct>
       <SoftSizePctFloor>75</SoftSizePctFloor>
-      <AccountNameFilter>SimV3D-NQ-1C</AccountNameFilter>
-      <ConfiguredStrategyName>Expansion_V3D NQ 1C</ConfiguredStrategyName>
+      <AccountNameFilter>SimV3D-NQ-1A;SimV3D-ES-1A</AccountNameFilter>
+      <ConfiguredStrategyName>Expansion_V3D</ConfiguredStrategyName>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
       <InitialRiskAtr>1.5</InitialRiskAtr>
       <AtrPeriod>14</AtrPeriod>
-      <TickValueDollars>5</TickValueDollars>
+      <TickValueDollars>12.5</TickValueDollars>
       <WaitBricks>3</WaitBricks>
       <MinConfidence>75</MinConfidence>
       <HybridBarN>3</HybridBarN>

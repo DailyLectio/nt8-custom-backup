@@ -160,7 +160,7 @@
         <Min xsi:type="xsd:int">2</Min>
         <Name>MaxConsecutiveLosses</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>2</ValueSerializable>
+        <ValueSerializable>10</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -292,8 +292,8 @@
       <PermissionMode>C_SoftTrinity</PermissionMode>
       <BaselineSizePct>50</BaselineSizePct>
       <SoftSizePctFloor>50</SoftSizePctFloor>
-      <AccountNameFilter>SimV3D-NQ-5A;SimV3D-NQ-5B;SimV3D-NQ-5C;SimV3D-ES-5A;SimV3D-ES-5B;SimV3D-ES-5C</AccountNameFilter>
-      <ConfiguredStrategyName>ADX_DI_V3D</ConfiguredStrategyName>
+      <AccountNameFilter>SimV3D-NQ-5C</AccountNameFilter>
+      <ConfiguredStrategyName>ADX_DI_V3D NQ 5C</ConfiguredStrategyName>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
       <AtrMultiplier>1</AtrMultiplier>
       <AtrPeriod>14</AtrPeriod>
@@ -305,7 +305,7 @@
       <IbWidthAtrMin>2</IbWidthAtrMin>
       <TrailNBars>1</TrailNBars>
       <TrailOffsetTicks>5</TrailOffsetTicks>
-      <MaxConsecutiveLosses>2</MaxConsecutiveLosses>
+      <MaxConsecutiveLosses>10</MaxConsecutiveLosses>
       <EnableTimeFilter>true</EnableTimeFilter>
       <BlockOpenEnd>93900</BlockOpenEnd>
       <BlockLunchStart>113000</BlockLunchStart>

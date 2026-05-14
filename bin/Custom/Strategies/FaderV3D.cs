@@ -144,7 +144,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         // --- Guards ---
         [NinjaScriptProperty, Range(0, 10)]
         [Display(Name = "Max Consecutive Losses", GroupName = "4. Guards", Order = 0)]
-        public int MaxConsecutiveLosses { get; set; } = 2;
+        public int MaxConsecutiveLosses { get; set; } = 10;
 
         [NinjaScriptProperty, Range(0, 10000)]
         [Display(Name = "Daily P&L Goal ($, 0 = off)",

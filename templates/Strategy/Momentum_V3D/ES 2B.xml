@@ -364,8 +364,8 @@
       <PermissionMode>B_FullTrinity</PermissionMode>
       <BaselineSizePct>50</BaselineSizePct>
       <SoftSizePctFloor>50</SoftSizePctFloor>
-      <AccountNameFilter>SimV3D-NQ-2A;SimV3D-ES-2A</AccountNameFilter>
-      <ConfiguredStrategyName>Momentum_V3D</ConfiguredStrategyName>
+      <AccountNameFilter>SimV3D-ES-2B</AccountNameFilter>
+      <ConfiguredStrategyName>Momentum_V3D ES 2B</ConfiguredStrategyName>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
       <AtrStopMult>0.75</AtrStopMult>
       <AtrPeriod>14</AtrPeriod>

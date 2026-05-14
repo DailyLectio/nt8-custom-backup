@@ -169,7 +169,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>Expansion_V3D NQ</Name>
+      <Name>Expansion_V3D NQ 1A</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -227,8 +227,8 @@
       <PermissionMode>A_Baseline</PermissionMode>
       <BaselineSizePct>75</BaselineSizePct>
       <SoftSizePctFloor>75</SoftSizePctFloor>
-      <AccountNameFilter>SimV3D-NQ-1A;SimV3D-ES-1A</AccountNameFilter>
-      <ConfiguredStrategyName>Expansion_V3D</ConfiguredStrategyName>
+      <AccountNameFilter>SimV3D-NQ-1A</AccountNameFilter>
+      <ConfiguredStrategyName>Expansion_V3D NQ 1A</ConfiguredStrategyName>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
       <InitialRiskAtr>1.5</InitialRiskAtr>
       <AtrPeriod>14</AtrPeriod>

@@ -261,7 +261,7 @@
         <Min xsi:type="xsd:int">2</Min>
         <Name>MaxConsecutiveLosses</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>2</ValueSerializable>
+        <ValueSerializable>10</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -392,8 +392,8 @@
       <PermissionMode>C_SoftTrinity</PermissionMode>
       <BaselineSizePct>50</BaselineSizePct>
       <SoftSizePctFloor>50</SoftSizePctFloor>
-      <AccountNameFilter>SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-2C;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-2C</AccountNameFilter>
-      <ConfiguredStrategyName>Momentum_V3D</ConfiguredStrategyName>
+      <AccountNameFilter>SimV3D-NQ-2C</AccountNameFilter>
+      <ConfiguredStrategyName>Momentum_V3D NQ 2C</ConfiguredStrategyName>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
       <AtrStopMult>0.75</AtrStopMult>
       <AtrPeriod>14</AtrPeriod>
@@ -416,7 +416,7 @@
       <HystConsecutive>2</HystConsecutive>
       <HystCiRisePerBar>0.5</HystCiRisePerBar>
       <HystAdxDropPerBar>0.5</HystAdxDropPerBar>
-      <MaxConsecutiveLosses>2</MaxConsecutiveLosses>
+      <MaxConsecutiveLosses>10</MaxConsecutiveLosses>
       <DailyGoal>0</DailyGoal>
       <DailyLossLimit>0</DailyLossLimit>
       <EnableTimeFilter>true</EnableTimeFilter>

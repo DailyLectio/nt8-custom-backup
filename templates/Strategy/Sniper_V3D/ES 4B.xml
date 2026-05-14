@@ -160,7 +160,7 @@
         <Min xsi:type="xsd:int">2</Min>
         <Name>MaxConsecutiveLosses</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>2</ValueSerializable>
+        <ValueSerializable>10</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -288,11 +288,11 @@
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath>C:\Users\Valued Customer\NT8_Regimes\V3D</DataFolderPath>
-      <PermissionMode>C_SoftTrinity</PermissionMode>
+      <PermissionMode>B_FullTrinity</PermissionMode>
       <BaselineSizePct>50</BaselineSizePct>
       <SoftSizePctFloor>50</SoftSizePctFloor>
-      <AccountNameFilter>SimV3D-NQ-4A;SimV3D-NQ-4B;SimV3D-NQ-4C;SimV3D-ES-4A;SimV3D-ES-4B;SimV3D-ES-4C</AccountNameFilter>
-      <ConfiguredStrategyName>Sniper_V3D</ConfiguredStrategyName>
+      <AccountNameFilter>SimV3D-ES-4B</AccountNameFilter>
+      <ConfiguredStrategyName>Sniper_V3D ES 4B</ConfiguredStrategyName>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
       <TargetAtr>0.75</TargetAtr>
       <StopAtr>1</StopAtr>
@@ -304,7 +304,7 @@
       <IbExtensionMax>0.8</IbExtensionMax>
       <LateDayEmaProximityAtr>1</LateDayEmaProximityAtr>
       <MinConfidence>60</MinConfidence>
-      <MaxConsecutiveLosses>2</MaxConsecutiveLosses>
+      <MaxConsecutiveLosses>10</MaxConsecutiveLosses>
       <DailyGoal>0</DailyGoal>
       <DailyLossLimit>0</DailyLossLimit>
       <EnableTimeFilter>true</EnableTimeFilter>
