@@ -37,11 +37,20 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
+        <Max xsi:type="xsd:boolean">false</Max>
+        <Min xsi:type="xsd:boolean">false</Min>
         <Name>EnableTrinityFilter</Name>
         <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
+        <ValueSerializable>False</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:boolean">false</Max>
+        <Min xsi:type="xsd:boolean">false</Min>
+        <Name>DebugEntryFilters</Name>
+        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>False</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -54,23 +63,23 @@
       </Parameter>
       <Parameter>
         <EnumValuesSerializable>
-          <string>Candle_1m</string>
+          <string>Custom</string>
         </EnumValuesSerializable>
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>Preset</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ChartPreset, b75c366b75b3411480ea9508ddff0a02, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
-        <ValueSerializable>Candle_1m</ValueSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ChartPreset, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ValueSerializable>Custom</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
+        <Max xsi:type="xsd:boolean">false</Max>
+        <Min xsi:type="xsd:boolean">false</Min>
         <Name>ApplyPresetDefaults</Name>
         <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
+        <ValueSerializable>False</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable>
@@ -80,7 +89,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SideAnchor</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+AnchorMode, b75c366b75b3411480ea9508ddff0a02, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+AnchorMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>None</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -226,7 +235,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ExitSlopeMode, b75c366b75b3411480ea9508ddff0a02, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Simple</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -349,11 +358,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
+        <Max xsi:type="xsd:boolean">false</Max>
+        <Min xsi:type="xsd:boolean">false</Min>
         <Name>EnableDailyGuards</Name>
         <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
+        <ValueSerializable>False</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -430,20 +439,20 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">93000</Max>
-        <Min xsi:type="xsd:int">93000</Min>
+        <Max xsi:type="xsd:int">93500</Max>
+        <Min xsi:type="xsd:int">93500</Min>
         <Name>StartTime1</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>93000</ValueSerializable>
+        <ValueSerializable>93500</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">120000</Max>
-        <Min xsi:type="xsd:int">120000</Min>
+        <Max xsi:type="xsd:int">154500</Max>
+        <Min xsi:type="xsd:int">154500</Min>
         <Name>EndTime1</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>120000</ValueSerializable>
+        <ValueSerializable>154500</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -457,11 +466,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">95900</Max>
-        <Min xsi:type="xsd:int">95900</Min>
+        <Max xsi:type="xsd:int">95700</Max>
+        <Min xsi:type="xsd:int">95700</Min>
         <Name>Block1Start</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>95900</ValueSerializable>
+        <ValueSerializable>95700</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -526,7 +535,7 @@
       <AreLinesConfigurable>true</AreLinesConfigurable>
       <ArePlotsConfigurable>true</ArePlotsConfigurable>
       <BarsPeriodSerializable>
-        <BarsPeriodTypeSerialize>9</BarsPeriodTypeSerialize>
+        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
         <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
@@ -543,13 +552,13 @@
       <From>2026-05-09T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
-      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
       <Name>MomentumSlopeStrategy_V2 A=false</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-05-12T00:00:00</To>
+      <To>2026-05-14T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -574,7 +583,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
-      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
+      <InstrumentOrInstrumentList>ES JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -599,6 +608,7 @@
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>false</EnableTrinityFilter>
+      <DebugEntryFilters>false</DebugEntryFilters>
       <Contracts>1</Contracts>
       <Preset>Custom</Preset>
       <ApplyPresetDefaults>false</ApplyPresetDefaults>
@@ -610,8 +620,8 @@
       <AdxPeriod>14</AdxPeriod>
       <UseDiCrossEntry>true</UseDiCrossEntry>
       <UseAdxEntryThreshold>true</UseAdxEntryThreshold>
-      <AdxEntryThreshold>18</AdxEntryThreshold>
-      <UseCiEntryThreshold>false</UseCiEntryThreshold>
+      <AdxEntryThreshold>20</AdxEntryThreshold>
+      <UseCiEntryThreshold>true</UseCiEntryThreshold>
       <CiEntryThreshold>60</CiEntryThreshold>
       <UseSlopeGateOnEntry>false</UseSlopeGateOnEntry>
       <CiSlopeBarsEntry>5</CiSlopeBarsEntry>
@@ -627,7 +637,7 @@
       <HystWindow>5</HystWindow>
       <HystConsecutive>2</HystConsecutive>
       <HystCiRisePerBar>0.5</HystCiRisePerBar>
-      <HystAdxDropPerBar>0.5</HystAdxDropPerBar>
+      <HystAdxDropPerBar>0.7</HystAdxDropPerBar>
       <AtrStopMult>0.75</AtrStopMult>
       <AtrStopLen>14</AtrStopLen>
       <MinStopTicks>2</MinStopTicks>
