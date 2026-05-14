@@ -115,13 +115,13 @@
       <AtrStopMult>0.9</AtrStopMult>
       <AtrStopLen>14</AtrStopLen>
       <MinStopTicks>48</MinStopTicks>
-      <RiskReward>1.25</RiskReward>
-      <StopModeSelection>BarNTrailing</StopModeSelection>
+      <RiskReward>0.76</RiskReward>
+      <StopModeSelection>AtrStep</StopModeSelection>
       <TrailingNBars>1</TrailingNBars>
       <TrailingOffsetTicks>10</TrailingOffsetTicks>
       <Step1ATR>0.5</Step1ATR>
       <Step2ATR>1</Step2ATR>
-      <BreakevenPlusTicks>5</BreakevenPlusTicks>
+      <BreakevenPlusTicks>12</BreakevenPlusTicks>
       <TrailAtrMult>1</TrailAtrMult>
       <EnableDailyGuards>false</EnableDailyGuards>
       <DailyProfitTarget>1000</DailyProfitTarget>
@@ -137,9 +137,9 @@
       <BlockOpen>true</BlockOpen>
       <OpenBlockStart>93000</OpenBlockStart>
       <OpenBlockEnd>94900</OpenBlockEnd>
-      <BlockNews>false</BlockNews>
-      <NewsBlockStart>95600</NewsBlockStart>
-      <NewsBlockEnd>100300</NewsBlockEnd>
+      <BlockNews>true</BlockNews>
+      <NewsBlockStart>105500</NewsBlockStart>
+      <NewsBlockEnd>103500</NewsBlockEnd>
       <BlockLunch>true</BlockLunch>
       <LunchBlockStart>145000</LunchBlockStart>
       <LunchBlockEnd>151000</LunchBlockEnd>

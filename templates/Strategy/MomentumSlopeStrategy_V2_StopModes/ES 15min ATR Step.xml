@@ -15,7 +15,7 @@
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>5</Value>
+        <Value>15</Value>
         <Value2>120</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
@@ -57,7 +57,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>true</IncludeCommission>
-      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
+      <InstrumentOrInstrumentList>ES JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -112,11 +112,11 @@
       <HystConsecutive>2</HystConsecutive>
       <HystCiRisePerBar>0.5</HystCiRisePerBar>
       <HystAdxDropPerBar>0.7</HystAdxDropPerBar>
-      <AtrStopMult>0.9</AtrStopMult>
+      <AtrStopMult>1</AtrStopMult>
       <AtrStopLen>14</AtrStopLen>
-      <MinStopTicks>48</MinStopTicks>
-      <RiskReward>1.25</RiskReward>
-      <StopModeSelection>BarNTrailing</StopModeSelection>
+      <MinStopTicks>12</MinStopTicks>
+      <RiskReward>1</RiskReward>
+      <StopModeSelection>AtrStep</StopModeSelection>
       <TrailingNBars>1</TrailingNBars>
       <TrailingOffsetTicks>10</TrailingOffsetTicks>
       <Step1ATR>0.5</Step1ATR>
@@ -132,9 +132,9 @@
       <ResetOnNewSession>true</ResetOnNewSession>
       <GuardsIgnoreHistorical>true</GuardsIgnoreHistorical>
       <EnableTimeFilter>true</EnableTimeFilter>
-      <StartTime1>95000</StartTime1>
-      <EndTime1>113000</EndTime1>
-      <BlockOpen>true</BlockOpen>
+      <StartTime1>93500</StartTime1>
+      <EndTime1>110500</EndTime1>
+      <BlockOpen>false</BlockOpen>
       <OpenBlockStart>93000</OpenBlockStart>
       <OpenBlockEnd>94900</OpenBlockEnd>
       <BlockNews>false</BlockNews>

@@ -290,43 +290,55 @@ namespace NinjaTrader.NinjaScript.Strategies
         public bool EnableTimeFilter { get; set; } = true;
 
         [NinjaScriptProperty]
-        [Display(Name="Start Time 1 (HHmmss)", GroupName="Time Filters", Order=1)]
-        public int StartTime1 { get; set; } = 93000;   // 09:30:00
+        [Display(Name="Entry Start Time (HHmmss)", GroupName="Time Filters", Order=1)]
+        public int StartTime1 { get; set; } = 94000;   // 09:40:00
 
         [NinjaScriptProperty]
-        [Display(Name="End Time 1 (HHmmss)", GroupName="Time Filters", Order=2)]
-        public int EndTime1 { get; set; } = 120000;    // 12:00:00
+        [Display(Name="Entry End Time (HHmmss)", GroupName="Time Filters", Order=2)]
+        public int EndTime1 { get; set; } = 114500;    // 11:45:00
 
         [NinjaScriptProperty]
-        [Display(Name="Use Block Window 1", GroupName="Time Filters", Order=3)]
-        public bool UseBlock1 { get; set; } = true;
+        [Display(Name="Block Open", GroupName="Time Filters", Order=3)]
+        public bool BlockOpen { get; set; } = true;
 
         [NinjaScriptProperty]
-        [Display(Name="Block1 Start (HHmmss)", GroupName="Time Filters", Order=4)]
-        public int Block1Start { get; set; } = 95900;  // 09:59:00
+        [Display(Name="Open Block Start (HHmmss)", GroupName="Time Filters", Order=4)]
+        public int OpenBlockStart { get; set; } = 93000;  // 09:30:00
 
         [NinjaScriptProperty]
-        [Display(Name="Block1 End (HHmmss)", GroupName="Time Filters", Order=5)]
-        public int Block1End { get; set; } = 100600;   // 10:06:00
+        [Display(Name="Open Block End (HHmmss)", GroupName="Time Filters", Order=5)]
+        public int OpenBlockEnd { get; set; } = 93900;   // 09:39:00
 
         [NinjaScriptProperty]
-        [Display(Name="Use Block Window 2", GroupName="Time Filters", Order=6)]
-        public bool UseBlock2 { get; set; } = false;
+        [Display(Name="Block News", GroupName="Time Filters", Order=6)]
+        public bool BlockNews { get; set; } = true;
 
         [NinjaScriptProperty]
-        [Display(Name="Block2 Start (HHmmss)", GroupName="Time Filters", Order=7)]
-        public int Block2Start { get; set; } = 102800; // 10:28:00
+        [Display(Name="News Block Start (HHmmss)", GroupName="Time Filters", Order=7)]
+        public int NewsBlockStart { get; set; } = 95600; // 09:56:00
 
         [NinjaScriptProperty]
-        [Display(Name="Block2 End (HHmmss)", GroupName="Time Filters", Order=8)]
-        public int Block2End { get; set; } = 103500;   // 10:35:00
+        [Display(Name="News Block End (HHmmss)", GroupName="Time Filters", Order=8)]
+        public int NewsBlockEnd { get; set; } = 100300;   // 10:03:00
 
         [NinjaScriptProperty]
-        [Display(Name="Flatten Near End", GroupName="Time Filters", Order=9)]
+        [Display(Name="Block Lunch", GroupName="Time Filters", Order=9)]
+        public bool BlockLunch { get; set; } = false;
+
+        [NinjaScriptProperty]
+        [Display(Name="Lunch Block Start (HHmmss)", GroupName="Time Filters", Order=10)]
+        public int LunchBlockStart { get; set; } = 113000; // 11:30:00
+
+        [NinjaScriptProperty]
+        [Display(Name="Lunch Block End (HHmmss)", GroupName="Time Filters", Order=11)]
+        public int LunchBlockEnd { get; set; } = 132000;   // 13:20:00
+
+        [NinjaScriptProperty]
+        [Display(Name="Flatten Near End", GroupName="Time Filters", Order=12)]
         public bool FlattenNearEnd { get; set; } = false;
 
         [NinjaScriptProperty, Range(0, 1800)]
-        [Display(Name="Flatten Seconds Before End", GroupName="Time Filters", Order=10)]
+        [Display(Name="Flatten Seconds Before End", GroupName="Time Filters", Order=13)]
         public int FlattenBufferSeconds { get; set; } = 300; // 5 minutes
 
         // ===== Internals =====
@@ -428,17 +440,23 @@ namespace NinjaTrader.NinjaScript.Strategies
             return h * 3600 + m * 60 + s;
         }
 
+        private static bool InTimeRange(int hhmmss, int startHHmmss, int endHHmmss)
+        {
+            return hhmmss >= startHHmmss && hhmmss <= endHHmmss;
+        }
+
         private bool IsInAllowedWindow()
         {
             if (!EnableTimeFilter) return true;
             int t = ToTime(Time[0]);
 
-            bool inMain = (t >= StartTime1 && t <= EndTime1);
+            bool inMain = InTimeRange(t, StartTime1, EndTime1);
             if (!inMain) return false;
 
-            bool blocked1 = UseBlock1 && (t >= Block1Start && t <= Block1End);
-            bool blocked2 = UseBlock2 && (t >= Block2Start && t <= Block2End);
-            return !(blocked1 || blocked2);
+            bool blockedOpen = BlockOpen && InTimeRange(t, OpenBlockStart, OpenBlockEnd);
+            bool blockedNews = BlockNews && InTimeRange(t, NewsBlockStart, NewsBlockEnd);
+            bool blockedLunch = BlockLunch && InTimeRange(t, LunchBlockStart, LunchBlockEnd);
+            return !(blockedOpen || blockedNews || blockedLunch);
         }
 
         protected override void OnStateChange()
