@@ -102,6 +102,20 @@ namespace NinjaTrader.NinjaScript.Indicators
         public int ADX_DISizePct    { get; private set; } = 0;
         public int SniperSizePct    { get; private set; } = 0;
 
+        // A/B/C test handshake surfaces. Existing full-Trinity properties above
+        // remain unchanged for Mode B consumers.
+        public bool BaselineGateOpen { get; private set; } = false;
+        public bool SoftExpansionAllowed { get; private set; } = false;
+        public bool SoftMomoAllowed      { get; private set; } = false;
+        public bool SoftPineAllowed      { get; private set; } = false;
+        public bool SoftADX_DIAllowed    { get; private set; } = false;
+        public bool SoftSniperAllowed    { get; private set; } = false;
+        public int SoftExpansionSizePct  { get; private set; } = 0;
+        public int SoftMomoSizePct       { get; private set; } = 0;
+        public int SoftPineSizePct       { get; private set; } = 0;
+        public int SoftADX_DISizePct     { get; private set; } = 0;
+        public int SoftSniperSizePct     { get; private set; } = 0;
+
         // ----- V1.1: PIPELINE HEALTH — read by bots and monitoring systems -----
         // PipelineAllGreen: true only when ALL four upstream feeds are current.
         // Each individual property can be used for targeted diagnostics.
@@ -497,6 +511,8 @@ namespace NinjaTrader.NinjaScript.Indicators
             PineSizePct      = GetInt("AllowPine_SizePct");
             ADX_DISizePct    = GetInt("AllowADX_DI_SizePct");
             SniperSizePct    = GetInt("AllowSniper_SizePct");
+
+            ApplyTestingHandshakePermissions();
 
             // Combine Python stale flag with local assessment
             StaleDataFlag = pythonStaleFlag;
@@ -905,6 +921,33 @@ namespace NinjaTrader.NinjaScript.Indicators
             AllowLong = AllowShort = AllowFadeLong = AllowFadeShort = false;
             ExpansionSizePct = MomoSizePct = PineSizePct =
             ADX_DISizePct    = SniperSizePct = 0;
+            BaselineGateOpen = false;
+            SoftExpansionAllowed = SoftMomoAllowed = SoftPineAllowed =
+            SoftADX_DIAllowed    = SoftSniperAllowed = false;
+            SoftExpansionSizePct = SoftMomoSizePct = SoftPineSizePct =
+            SoftADX_DISizePct    = SoftSniperSizePct = 0;
+        }
+
+        private void ApplyTestingHandshakePermissions()
+        {
+            BaselineGateOpen = true;
+
+            bool trendExpansion = FinalRegime == "TREND_EXPANSION";
+            bool trendCompression = FinalRegime == "TREND_COMPRESSION";
+            bool trendEmerging = FinalRegime == "TREND_EMERGING";
+            bool rotationLiquid = FinalRegime == "ROTATION_LIQUID";
+
+            SoftExpansionAllowed = IsExpansionAllowed || trendExpansion || trendCompression || trendEmerging;
+            SoftMomoAllowed      = IsMomoAllowed      || trendExpansion || trendCompression || trendEmerging;
+            SoftPineAllowed      = IsPineAllowed      || rotationLiquid || trendExpansion || trendCompression;
+            SoftADX_DIAllowed    = IsADX_DIAllowed    || rotationLiquid || trendCompression || trendEmerging || trendExpansion;
+            SoftSniperAllowed    = IsSniperAllowed    || trendCompression || trendEmerging || trendExpansion;
+
+            SoftExpansionSizePct = Math.Max(ExpansionSizePct, 75);
+            SoftMomoSizePct      = Math.Max(MomoSizePct, 50);
+            SoftPineSizePct      = Math.Max(PineSizePct, 50);
+            SoftADX_DISizePct    = Math.Max(ADX_DISizePct, 50);
+            SoftSniperSizePct    = Math.Max(SniperSizePct, 50);
         }
 
         // ===================================================================

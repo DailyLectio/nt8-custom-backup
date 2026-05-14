@@ -78,10 +78,21 @@ namespace NinjaTrader.NinjaScript.Strategies
         [NinjaScriptProperty]
         [Display(Name = "Data Folder Path", GroupName = "1. Regime", Order = 0)]
         public string DataFolderPath { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V3D";
+        [NinjaScriptProperty]
+        [Display(Name = "V3D Test Mode", Description = "A=baseline/no Trinity gate, B=full Trinity, C=soft Trinity diagnostics.", GroupName = "1. Regime", Order = 1)]
+        public V3DPermissionMode PermissionMode { get; set; } = V3DPermissionMode.B_FullTrinity;
+
+        [NinjaScriptProperty, Range(1, 100)]
+        [Display(Name = "Baseline SizePct", Description = "Sizing used in Mode A when supervisor SizePct is intentionally ignored.", GroupName = "1. Regime", Order = 2)]
+        public int BaselineSizePct { get; set; } = 50;
+
+        [NinjaScriptProperty, Range(1, 100)]
+        [Display(Name = "Soft SizePct Floor", Description = "Minimum sizing used in Mode C when the full Trinity bot lane is zero.", GroupName = "1. Regime", Order = 3)]
+        public int SoftSizePctFloor { get; set; } = 50;
 
         [NinjaScriptProperty]
         [Display(Name = "Account Name Filter", Description = "V3D only: exact NT8 account name allow-list for this strategy class. Separate multiple baked accounts with semicolons.", GroupName = "0b. Trade Logging", Order = 0)]
-        public string AccountNameFilter { get; set; } = "SimV3D-NQ-4A;SimV3D-ES-4A";
+        public string AccountNameFilter { get; set; } = "SimV3D-NQ-4A;SimV3D-NQ-4B;SimV3D-NQ-4C;SimV3D-ES-4A;SimV3D-ES-4B;SimV3D-ES-4C";
 
         [NinjaScriptProperty]
         [Display(Name = "Configured Strategy Name", Description = "V3D only: exported strategy identity. Leave as the baked default unless intentionally renaming the tab.", GroupName = "0b. Trade Logging", Order = 1)]
@@ -217,6 +228,42 @@ namespace NinjaTrader.NinjaScript.Strategies
         // HELPERS
         // =====================================================================
         private double RT(double p) => Instrument.MasterInstrument.RoundToTickSize(p);
+        private bool IsBaselineMode()
+        {
+            return PermissionMode == V3DPermissionMode.A_Baseline;
+        }
+
+        private bool IsSoftMode()
+        {
+            return PermissionMode == V3DPermissionMode.C_SoftTrinity;
+        }
+
+        private bool EnforceFullTrinityGates()
+        {
+            return PermissionMode == V3DPermissionMode.B_FullTrinity;
+        }
+
+        private bool AllowRegimeManagedExit()
+        {
+            return PermissionMode != V3DPermissionMode.A_Baseline;
+        }
+
+        private bool DirectionLongAllowed()
+        {
+            return IsBaselineMode() || allowLong;
+        }
+
+        private bool DirectionShortAllowed()
+        {
+            return IsBaselineMode() || allowShort;
+        }
+
+        private int EffectiveSizePct(int trinitySizePct)
+        {
+            if (IsBaselineMode()) return BaselineSizePct;
+            if (IsSoftMode()) return Math.Max(trinitySizePct, SoftSizePctFloor);
+            return trinitySizePct;
+        }
 
         private string GetLeaderSymbol(string sym)
         {
@@ -277,7 +324,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private void ConfigureStage1TradeLog()
         {
             string dir = Path.Combine(@"C:\Users\Valued Customer\NT8_Regimes", Stage1ModelVersion, "TradeLog");
-            tradeLogPath = Path.Combine(dir, Stage1BotName + "_TradeLog.csv");
+            tradeLogPath = Path.Combine(dir, ResolveStage1BotName() + "_TradeLog.csv");
             EnsureStage1TradeLogHeader();
         }
 
@@ -394,7 +441,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 Stage1ModelVersion,
                 SafeStage1Csv(accountName),
                 SafeStage1Csv(Name),
-                SafeStage1Csv(Stage1BotName),
+                SafeStage1Csv(ResolveStage1BotName()),
                 SafeStage1Csv(ResolveStage1AbMode()),
                 SafeStage1Csv(GetStage1Symbol()),
                 SafeStage1Csv(Instrument.FullName),
@@ -464,7 +511,19 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         private string ResolveStage1AbMode()
         {
+            if (PermissionMode == V3DPermissionMode.B_FullTrinity) return "B";
+            if (PermissionMode == V3DPermissionMode.C_SoftTrinity) return "C";
             return Stage1DefaultAbMode;
+        }
+
+        private string ResolveStage1BotName()
+        {
+            string suffix = ResolveStage1AbMode();
+            if (Stage1BotName.EndsWith("_A", StringComparison.OrdinalIgnoreCase) ||
+                Stage1BotName.EndsWith("_B", StringComparison.OrdinalIgnoreCase) ||
+                Stage1BotName.EndsWith("_C", StringComparison.OrdinalIgnoreCase))
+                return Stage1BotName.Substring(0, Stage1BotName.Length - 2) + "_" + suffix;
+            return Stage1BotName + "_" + suffix;
         }
 
         private string InferStage1ExitReason(string orderName)
@@ -527,7 +586,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 fastEma        = EMA(FastEmaPeriod);
                 slowEma        = EMA(SlowEmaPeriod);
                 SetupFileWatcher();
-                v3dTradeLogger = new V3DStrategyTradeLogger(this, AccountNameFilter, ConfiguredStrategyName, "V3D", TradeLogFolder, "V3D_Sniper_A", "A");
+                v3dTradeLogger = new V3DStrategyTradeLogger(this, AccountNameFilter, ConfiguredStrategyName, "V3D", TradeLogFolder, ResolveStage1BotName(), ResolveStage1AbMode());
                 ConfigureStage1TradeLog();
                 lastTradeCount = SystemPerformance.AllTrades.Count;
             }
@@ -696,7 +755,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             }
 
             // ── TRANSITION: immediate flat ─────────────────────────────────
-            if (Position.MarketPosition != MarketPosition.Flat && finalRegime == "TRANSITION")
+            if (AllowRegimeManagedExit() && Position.MarketPosition != MarketPosition.Flat && finalRegime == "TRANSITION")
             {
                 if (Position.MarketPosition == MarketPosition.Long)  ExitLong ("TransitionExit", SnipeL);
                 else                                                  ExitShort("TransitionExit", SnipeS);
@@ -709,9 +768,10 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (Position.MarketPosition == MarketPosition.Flat)
             {
                 // Gate 1: data integrity
-                if (parseFailed || staleDataFlag)               return;
+                if (!IsBaselineMode() && (parseFailed || staleDataFlag)) return;
                 // Gate 2: regime
-                if (finalRegime != "TREND_COMPRESSION")        return;
+                if (EnforceFullTrinityGates() && finalRegime != "TREND_COMPRESSION") return;
+                if (IsSoftMode() && finalRegime != "TREND_COMPRESSION" && finalRegime != "TREND_EMERGING" && finalRegime != "TREND_EXPANSION") return;
                 // Gate 3: circuit breaker
                 if (consecutiveLosers >= MaxConsecutiveLosses) return;
                 // Gate 4: time
@@ -719,9 +779,11 @@ namespace NinjaTrader.NinjaScript.Strategies
                 // Gate 5: IB extension bounds
                 if (ibExtensionPct < IbExtensionMin || ibExtensionPct > IbExtensionMax) return;
                 // Gate 6: SizePct — zero means supervisor has not approved sniper sizing
-                if (sniperSizePct <= 0)                        return;
+                int effectiveSizePct = EffectiveSizePct(sniperSizePct);
+                if (effectiveSizePct <= 0) return;
                 // Gate 7: confidence floor
-                if (regimeConfidence < MinConfidence)          return;
+                if (EnforceFullTrinityGates() && regimeConfidence < MinConfidence) return;
+                if (IsSoftMode() && regimeConfidence < Math.Min(MinConfidence, 35)) return;
 
                 // Gate 8: daily P&L guard (optional — 0 disables)
                 if (DailyGoal > 0 || DailyLossLimit > 0)
@@ -748,14 +810,14 @@ namespace NinjaTrader.NinjaScript.Strategies
                 double rewardTicks = (atrVal * TargetAtr) / TickSize;
 
                 int maxC = CalcMaxContracts();
-                int qty  = ScaleByConfidence(maxC, sniperSizePct);
+                int qty  = ScaleByConfidence(maxC, effectiveSizePct);
 
                 // ── LONG SNIPE: dip-buy pattern ────────────────────────────
                 // VERSION A coherent 3-bar sequence:
                 //   The slow EMA touch (bar[1] or bar[2]) must be paired with bar[1]
                 //   still closing at or below the fast EMA — ensuring the dip is not stale.
                 //   Bar[0] then closes back above the fast EMA (recovery confirmed).
-                if (finalDirection == "LONG" && allowLong)
+                if ((IsBaselineMode() || finalDirection == "LONG") && DirectionLongAllowed())
                 {
                     // FIX: require bar[1] to still be compressed (Close[1] <= fast1)
                     // so the slow EMA touch on bar[2] is part of the same pullback sequence.
@@ -776,12 +838,12 @@ namespace NinjaTrader.NinjaScript.Strategies
                             "[Sniper_V3D-A] LONG entry | Regime:{0} | Conf:{1} | Phase:{2} | " +
                             "Reason:{3} | IBExt:{4:F2} | Pattern:{5} | SizePct:{6} | Qty:{7}",
                             finalRegime, regimeConfidence, phase, reasonCode,
-                            ibExtensionPct, pattern, sniperSizePct, qty));
+                            ibExtensionPct, pattern, effectiveSizePct, qty));
                     }
                 }
 
                 // ── SHORT SNIPE: rip-sell pattern ──────────────────────────
-                else if (finalDirection == "SHORT" && allowShort)
+                else if ((IsBaselineMode() || finalDirection == "SHORT") && DirectionShortAllowed())
                 {
                     // Symmetric: slow EMA touch on bar[1] or bar[2], bar[1] still at/above fast, bar[0] drops below
                     bool ripBar1 = High[1] >= slow1 && Close[1] >= fast1;
@@ -801,7 +863,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                             "[Sniper_V3D-A] SHORT entry | Regime:{0} | Conf:{1} | Phase:{2} | " +
                             "Reason:{3} | IBExt:{4:F2} | Pattern:{5} | SizePct:{6} | Qty:{7}",
                             finalRegime, regimeConfidence, phase, reasonCode,
-                            ibExtensionPct, pattern, sniperSizePct, qty));
+                            ibExtensionPct, pattern, effectiveSizePct, qty));
                     }
                 }
             }
