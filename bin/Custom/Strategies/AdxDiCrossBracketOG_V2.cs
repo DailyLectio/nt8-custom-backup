@@ -38,6 +38,30 @@ namespace NinjaTrader.NinjaScript.Strategies
             return false;
         }
 
+        private bool TryGetTrinityState(out string baseSymbol, out Indicators.RegimeMatrixHUD_V3D hudInstance)
+        {
+            baseSymbol = ResolveTrinitySymbol(Instrument.MasterInstrument.Name);
+            hudInstance = null;
+            return Indicators.RegimeMatrixHUD_V3D.InstancesV3D.TryGetValue(baseSymbol, out hudInstance) && hudInstance != null;
+        }
+
+        private void PrintDebugEntryBlock(string side, string reason)
+        {
+            if (!DebugEntryFilters)
+                return;
+
+            string baseSymbol;
+            Indicators.RegimeMatrixHUD_V3D hud;
+            bool hasHud = TryGetTrinityState(out baseSymbol, out hud);
+            string lane = hasHud ? (hud.IsADX_DIAllowed ? "1" : "0") : "NO_HUD";
+            string regime = hasHud ? hud.FinalRegime : "NO_HUD";
+            string reasonCode = hasHud ? hud.ReasonCode : "NO_HUD";
+            string stale = hasHud ? hud.StaleDataFlag.ToString() : "NO_HUD";
+            string accountName = Account != null ? Account.Name : "NO_ACCOUNT";
+
+            Print($"{Time[0]} AdxDiCrossBracketOG_V2 debug | account={accountName} symbol={Instrument.FullName} hudSymbol={baseSymbol} side={side} EnableTrinityFilter={EnableTrinityFilter} lane=AllowADX_DI:{lane} finalRegime={regime} reasonCode={reasonCode} stale={stale} decision=BLOCK reason={reason}");
+        }
+
         private string ResolveTrinitySymbol(string sym)
         {
             if (sym == "MES") return "ES";
@@ -392,7 +416,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     if (!AdxSlopeOK()) why += "ADXslope ";
                     if (crossUp && !DIGapOK_Long()) why += "DIgapLong ";
                     if (crossDn && !DIGapOK_Short()) why += "DIgapShort ";
-                    if (why != "") Print($"{Time[0]} entry filtered: {why} | ADX={adx[0]:F1} DI+={diPlusSeries[0]:F1} DI-={diMinusSeries[0]:F1} hhmm={HHmmNow()}");
+                    if (why != "") PrintDebugEntryBlock(crossUp ? "LONG" : "SHORT", why.Trim());
                 }
             }
 
@@ -524,7 +548,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         // ===== Entry helpers: attach stop/target BEFORE entry =====
         private void SubmitLongWithCatStops()
         {
-            if (!IsBotAllowedByTrinity()) return;
+            if (!IsBotAllowedByTrinity())
+            {
+                PrintDebugEntryBlock("LONG", "trinity");
+                return;
+            }
 
             double risk = atr[0] * AtrMultiplier;
             double stp  = RT(Close[0] - risk);
@@ -539,7 +567,11 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         private void SubmitShortWithCatStops()
         {
-            if (!IsBotAllowedByTrinity()) return;
+            if (!IsBotAllowedByTrinity())
+            {
+                PrintDebugEntryBlock("SHORT", "trinity");
+                return;
+            }
 
             double risk = atr[0] * AtrMultiplier;
             double stp  = RT(Close[0] + risk);
