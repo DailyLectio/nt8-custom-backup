@@ -346,24 +346,24 @@
       <DebugEntryFilters>false</DebugEntryFilters>
       <Contracts>1</Contracts>
       <ExitOnStopX>true</ExitOnStopX>
-      <RMultiple>1.5</RMultiple>
+      <RMultiple>0.72</RMultiple>
       <AtrLength>14</AtrLength>
-      <StopAtrMult>1</StopAtrMult>
+      <StopAtrMult>0.88</StopAtrMult>
       <DiLength>14</DiLength>
       <AdxSmoothing>14</AdxSmoothing>
       <LevelRange>20</LevelRange>
       <StopModeSelection>BarNTrailing</StopModeSelection>
-      <TrailTicks>8</TrailTicks>
+      <TrailTicks>1</TrailTicks>
       <TrailStartBars>1</TrailStartBars>
       <TrailingNBars>1</TrailingNBars>
       <TrailingOffsetTicks>12</TrailingOffsetTicks>
-      <UseEmaBias>false</UseEmaBias>
+      <UseEmaBias>true</UseEmaBias>
       <EmaPeriod>50</EmaPeriod>
-      <UseEmaNoTradeZone>false</UseEmaNoTradeZone>
-      <EmaZoneTicks>8</EmaZoneTicks>
-      <UseSessionVwapZone>false</UseSessionVwapZone>
-      <UseDailyVwapZone>false</UseDailyVwapZone>
-      <VwapZoneTicks>8</VwapZoneTicks>
+      <UseEmaNoTradeZone>true</UseEmaNoTradeZone>
+      <EmaZoneTicks>25</EmaZoneTicks>
+      <UseSessionVwapZone>true</UseSessionVwapZone>
+      <UseDailyVwapZone>true</UseDailyVwapZone>
+      <VwapZoneTicks>40</VwapZoneTicks>
       <UseManualZone>false</UseManualZone>
       <ManualZonePrice1>0</ManualZonePrice1>
       <ManualZonePrice2>0</ManualZonePrice2>

@@ -46,11 +46,20 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">3</Max>
-        <Min xsi:type="xsd:int">3</Min>
+        <Max xsi:type="xsd:boolean">false</Max>
+        <Min xsi:type="xsd:boolean">false</Min>
+        <Name>DebugEntryFilters</Name>
+        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>False</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">1</Max>
+        <Min xsi:type="xsd:int">1</Min>
         <Name>Contracts</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>3</ValueSerializable>
+        <ValueSerializable>1</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -123,7 +132,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>StopModeSelection</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.AdxDiCrossStrategy_PineTrail_V2+StopMode, b75c366b75b3411480ea9508ddff0a02, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.AdxDiCrossStrategy_PineTrail_V2+StopMode, 1d2c5157e71c4e26924a0202cc7f3494, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>AtrStatic</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -275,7 +284,7 @@
       <Calculate>OnBarClose</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2099-12-01T00:00:00</From>
+      <From>2026-05-09T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -284,7 +293,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>1800-01-01T00:00:00</To>
+      <To>2026-05-14T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -309,6 +318,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
+      <InstrumentOrInstrumentList>ES JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -333,26 +343,27 @@
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>true</EnableTrinityFilter>
+      <DebugEntryFilters>true</DebugEntryFilters>
       <Contracts>1</Contracts>
       <ExitOnStopX>true</ExitOnStopX>
-      <RMultiple>1.5</RMultiple>
+      <RMultiple>0.72</RMultiple>
       <AtrLength>14</AtrLength>
-      <StopAtrMult>1</StopAtrMult>
+      <StopAtrMult>0.88</StopAtrMult>
       <DiLength>14</DiLength>
       <AdxSmoothing>14</AdxSmoothing>
       <LevelRange>20</LevelRange>
-      <StopModeSelection>AtrStatic</StopModeSelection>
-      <TrailTicks>8</TrailTicks>
+      <StopModeSelection>BarNTrailing</StopModeSelection>
+      <TrailTicks>1</TrailTicks>
       <TrailStartBars>1</TrailStartBars>
       <TrailingNBars>1</TrailingNBars>
-      <TrailingOffsetTicks>0</TrailingOffsetTicks>
-      <UseEmaBias>false</UseEmaBias>
+      <TrailingOffsetTicks>12</TrailingOffsetTicks>
+      <UseEmaBias>true</UseEmaBias>
       <EmaPeriod>50</EmaPeriod>
-      <UseEmaNoTradeZone>false</UseEmaNoTradeZone>
-      <EmaZoneTicks>8</EmaZoneTicks>
-      <UseSessionVwapZone>false</UseSessionVwapZone>
-      <UseDailyVwapZone>false</UseDailyVwapZone>
-      <VwapZoneTicks>8</VwapZoneTicks>
+      <UseEmaNoTradeZone>true</UseEmaNoTradeZone>
+      <EmaZoneTicks>25</EmaZoneTicks>
+      <UseSessionVwapZone>true</UseSessionVwapZone>
+      <UseDailyVwapZone>true</UseDailyVwapZone>
+      <VwapZoneTicks>40</VwapZoneTicks>
       <UseManualZone>false</UseManualZone>
       <ManualZonePrice1>0</ManualZonePrice1>
       <ManualZonePrice2>0</ManualZonePrice2>

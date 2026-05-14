@@ -37,20 +37,20 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
+        <Max xsi:type="xsd:boolean">false</Max>
+        <Min xsi:type="xsd:boolean">false</Min>
         <Name>EnableTrinityFilter</Name>
         <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
+        <ValueSerializable>False</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
+        <Max xsi:type="xsd:boolean">false</Max>
+        <Min xsi:type="xsd:boolean">false</Min>
         <Name>DebugEntryFilters</Name>
         <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
+        <ValueSerializable>False</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -69,7 +69,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>Preset</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ChartPreset, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ChartPreset, 950e3065209245ebb3bdf104f7a979cb, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Custom</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -89,7 +89,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SideAnchor</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+AnchorMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+AnchorMode, 950e3065209245ebb3bdf104f7a979cb, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>None</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -235,7 +235,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ExitSlopeMode, 950e3065209245ebb3bdf104f7a979cb, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Simple</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -553,7 +553,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>MomentumSlopeStrategy_V2 B=true</Name>
+      <Name>MomentumSlopeStrategy_V2 A=false</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -621,14 +621,14 @@
       <UseDiCrossEntry>true</UseDiCrossEntry>
       <UseAdxEntryThreshold>true</UseAdxEntryThreshold>
       <AdxEntryThreshold>20</AdxEntryThreshold>
-      <UseCiEntryThreshold>true</UseCiEntryThreshold>
+      <UseCiEntryThreshold>false</UseCiEntryThreshold>
       <CiEntryThreshold>60</CiEntryThreshold>
       <UseSlopeGateOnEntry>false</UseSlopeGateOnEntry>
       <CiSlopeBarsEntry>5</CiSlopeBarsEntry>
       <AdxSlopeBarsEntry>5</AdxSlopeBarsEntry>
       <CiDecreaseMinEntry>2</CiDecreaseMinEntry>
       <AdxIncreaseMinEntry>2</AdxIncreaseMinEntry>
-      <SlopeExit>Simple</SlopeExit>
+      <SlopeExit>Hysteresis</SlopeExit>
       <MinHoldBars>2</MinHoldBars>
       <CiSlopeBarsExit>5</CiSlopeBarsExit>
       <AdxSlopeBarsExit>5</AdxSlopeBarsExit>
@@ -638,10 +638,10 @@
       <HystConsecutive>2</HystConsecutive>
       <HystCiRisePerBar>0.5</HystCiRisePerBar>
       <HystAdxDropPerBar>0.7</HystAdxDropPerBar>
-      <AtrStopMult>0.75</AtrStopMult>
+      <AtrStopMult>0.9</AtrStopMult>
       <AtrStopLen>14</AtrStopLen>
-      <MinStopTicks>2</MinStopTicks>
-      <RiskReward>1.5</RiskReward>
+      <MinStopTicks>48</MinStopTicks>
+      <RiskReward>0.76</RiskReward>
       <EnableDailyGuards>false</EnableDailyGuards>
       <DailyProfitTarget>1000</DailyProfitTarget>
       <DailyLossLimit>500</DailyLossLimit>
@@ -651,7 +651,7 @@
       <ResetOnNewSession>true</ResetOnNewSession>
       <GuardsIgnoreHistorical>true</GuardsIgnoreHistorical>
       <EnableTimeFilter>true</EnableTimeFilter>
-      <StartTime1>93500</StartTime1>
+      <StartTime1>94000</StartTime1>
       <EndTime1>154500</EndTime1>
       <UseBlock1>true</UseBlock1>
       <Block1Start>95700</Block1Start>
