@@ -608,6 +608,7 @@
     <Compile Include="Strategies\AdxDiCrossStrategyPineTrail_V2.cs" />
     <Compile Include="Strategies\MomentumSlopeOG_V2.cs" />
     <Compile Include="Indicators\NT8TradeExportAutoWriter.cs" />
+    <Compile Include="Strategies\MomentumSlopeOG_V2_StopModes.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
