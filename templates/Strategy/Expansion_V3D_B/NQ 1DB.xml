@@ -233,7 +233,7 @@
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath>C:\Users\Valued Customer\NT8_Regimes\V3D</DataFolderPath>
-      <AccountNameFilter>SimV3D-NQ-1B;SimV3D-ES-2B;SimV3D-NQ-1D</AccountNameFilter>
+      <AccountNameFilter>SimV3D-NQ-1D;SimV3D-ES-1D</AccountNameFilter>
       <ConfiguredStrategyName>Expansion_V3D_B</ConfiguredStrategyName>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
       <InitialRiskAtr>1.5</InitialRiskAtr>

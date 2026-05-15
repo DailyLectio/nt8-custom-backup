@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StrategyTemplate>
-  <StrategyType>NinjaTrader.NinjaScript.Strategies.ADX_DI_V3D_C</StrategyType>
+  <StrategyType>NinjaTrader.NinjaScript.Strategies.Momentum_V3D_B</StrategyType>
   <OptimizerType>NinjaTrader.NinjaScript.Optimizers.DefaultOptimizer</OptimizerType>
   <OptimizerParameters>
     <ArrayOfParameterWrapper xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -37,11 +37,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">1</Max>
-        <Min xsi:type="xsd:double">1</Min>
-        <Name>AtrMultiplier</Name>
+        <Max xsi:type="xsd:double">0.75</Max>
+        <Min xsi:type="xsd:double">0.75</Min>
+        <Name>AtrStopMult</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>1</ValueSerializable>
+        <ValueSerializable>0.75</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -51,6 +51,42 @@
         <Name>AtrPeriod</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>14</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">4</Max>
+        <Min xsi:type="xsd:int">4</Min>
+        <Name>MinStopTicks</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>4</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:double">0.75</Max>
+        <Min xsi:type="xsd:double">0.75</Min>
+        <Name>Leg1TargetMult</Name>
+        <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0.75</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:double">1.5</Max>
+        <Min xsi:type="xsd:double">1.5</Min>
+        <Name>RiskReward</Name>
+        <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>1.5</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">80</Max>
+        <Min xsi:type="xsd:int">80</Min>
+        <Name>ConfidenceScaleThreshold</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>80</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -66,7 +102,7 @@
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">14</Max>
         <Min xsi:type="xsd:int">14</Min>
-        <Name>DiLength</Name>
+        <Name>CiPeriod</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>14</ValueSerializable>
       </Parameter>
@@ -75,72 +111,137 @@
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">14</Max>
         <Min xsi:type="xsd:int">14</Min>
-        <Name>AdxSmoothing</Name>
+        <Name>AdxPeriod</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>14</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">20</Max>
-        <Min xsi:type="xsd:double">20</Min>
-        <Name>LevelRange</Name>
+        <Max xsi:type="xsd:double">58</Max>
+        <Min xsi:type="xsd:double">58</Min>
+        <Name>CiMaxCompression</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>20</ValueSerializable>
+        <ValueSerializable>58</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">35</Max>
-        <Min xsi:type="xsd:double">35</Min>
-        <Name>LevelTrend</Name>
+        <Max xsi:type="xsd:double">50</Max>
+        <Min xsi:type="xsd:double">50</Min>
+        <Name>CiMaxExpansion</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>35</ValueSerializable>
+        <ValueSerializable>50</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
-        <Name>AllowWeakEntry</Name>
-        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:double">2</Max>
-        <Min xsi:type="xsd:double">2</Min>
-        <Name>IbWidthAtrMin</Name>
+        <Max xsi:type="xsd:double">18</Max>
+        <Min xsi:type="xsd:double">18</Min>
+        <Name>AdxEntryThreshold</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>2</ValueSerializable>
+        <ValueSerializable>18</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">55</Max>
-        <Min xsi:type="xsd:int">55</Min>
+        <Max xsi:type="xsd:double">0.85</Max>
+        <Min xsi:type="xsd:double">0.85</Min>
+        <Name>VelocityReliefThreshold</Name>
+        <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0.85</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">65</Max>
+        <Min xsi:type="xsd:int">65</Min>
         <Name>MinConfidence</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>55</ValueSerializable>
+        <ValueSerializable>65</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable>
+          <string>Hysteresis</string>
+        </EnumValuesSerializable>
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">0</Max>
+        <Min xsi:type="xsd:int">0</Min>
+        <Name>SlopeExit</Name>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentum_V3D_B+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ValueSerializable>Hysteresis</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">1</Max>
-        <Min xsi:type="xsd:int">1</Min>
-        <Name>TrailNBars</Name>
+        <Max xsi:type="xsd:int">2</Max>
+        <Min xsi:type="xsd:int">2</Min>
+        <Name>MinHoldBars</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>1</ValueSerializable>
+        <ValueSerializable>2</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">5</Max>
         <Min xsi:type="xsd:int">5</Min>
-        <Name>TrailOffsetTicks</Name>
+        <Name>CiSlopeBarsExit</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>5</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">5</Max>
+        <Min xsi:type="xsd:int">5</Min>
+        <Name>AdxSlopeBarsExit</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>5</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:double">2</Max>
+        <Min xsi:type="xsd:double">2</Min>
+        <Name>CiRiseMinExit</Name>
+        <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>2</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:double">2</Max>
+        <Min xsi:type="xsd:double">2</Min>
+        <Name>AdxDropMinExit</Name>
+        <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>2</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">2</Max>
+        <Min xsi:type="xsd:int">2</Min>
+        <Name>HystConsecutive</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>2</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:double">0.5</Max>
+        <Min xsi:type="xsd:double">0.5</Min>
+        <Name>HystCiRisePerBar</Name>
+        <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0.5</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:double">0.5</Max>
+        <Min xsi:type="xsd:double">0.5</Min>
+        <Name>HystAdxDropPerBar</Name>
+        <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0.5</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -181,43 +282,25 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">93900</Max>
-        <Min xsi:type="xsd:int">93900</Min>
-        <Name>BlockOpenEnd</Name>
+        <Max xsi:type="xsd:int">93500</Max>
+        <Min xsi:type="xsd:int">93500</Min>
+        <Name>StartTime</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>93900</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">113000</Max>
-        <Min xsi:type="xsd:int">113000</Min>
-        <Name>BlockLunchStart</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>113000</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">132000</Max>
-        <Min xsi:type="xsd:int">132000</Min>
-        <Name>BlockLunchEnd</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>132000</ValueSerializable>
+        <ValueSerializable>93500</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">155500</Max>
         <Min xsi:type="xsd:int">155500</Min>
-        <Name>SessionEnd</Name>
+        <Name>EndTime</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>155500</ValueSerializable>
       </Parameter>
     </ArrayOfParameter>
   </OptimizationParameters>
   <Strategy>
-    <ADX_DI_V3D_C xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <Momentum_V3D_B xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <IsVisible>true</IsVisible>
       <calculate2>OnPriceChange</calculate2>
       <AreLinesConfigurable>true</AreLinesConfigurable>
@@ -230,23 +313,23 @@
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>3</Value>
+        <Value>1</Value>
         <Value2>1</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-04-21T00:00:00</From>
+      <From>2026-04-30T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>ADX_DI_V3D_C</Name>
+      <Name>Momentum_V3D_B NQ 2D</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-04-26T00:00:00</To>
+      <To>2026-05-15T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -267,7 +350,7 @@
       <DaysToLoad>5</DaysToLoad>
       <DefaultQuantity>1</DefaultQuantity>
       <DisconnectDelaySeconds>10</DisconnectDelaySeconds>
-      <EntriesPerDirection>1</EntriesPerDirection>
+      <EntriesPerDirection>2</EntriesPerDirection>
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
@@ -296,26 +379,38 @@
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath>C:\Users\Valued Customer\NT8_Regimes\V3D</DataFolderPath>
-      <AtrMultiplier>1</AtrMultiplier>
+      <AccountNameFilter>SimV3D-NQ-2D;SimV3D-ES-2D</AccountNameFilter>
+      <ConfiguredStrategyName>Momentum_V3D_B</ConfiguredStrategyName>
+      <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
+      <AtrStopMult>0.75</AtrStopMult>
       <AtrPeriod>14</AtrPeriod>
+      <MinStopTicks>4</MinStopTicks>
+      <Leg1TargetMult>0.75</Leg1TargetMult>
+      <RiskReward>1.5</RiskReward>
+      <ConfidenceScaleThreshold>80</ConfidenceScaleThreshold>
       <TickValueDollars>5</TickValueDollars>
-      <DiLength>14</DiLength>
-      <AdxSmoothing>14</AdxSmoothing>
-      <LevelRange>20</LevelRange>
-      <LevelTrend>35</LevelTrend>
-      <AllowWeakEntry>true</AllowWeakEntry>
-      <IbWidthAtrMin>2</IbWidthAtrMin>
-      <MinConfidence>55</MinConfidence>
-      <TrailNBars>1</TrailNBars>
-      <TrailOffsetTicks>5</TrailOffsetTicks>
-      <MaxConsecutiveLosses>2</MaxConsecutiveLosses>
+      <CiPeriod>14</CiPeriod>
+      <AdxPeriod>14</AdxPeriod>
+      <CiMaxCompression>58</CiMaxCompression>
+      <CiMaxExpansion>50</CiMaxExpansion>
+      <AdxEntryThreshold>18</AdxEntryThreshold>
+      <VelocityReliefThreshold>0.85</VelocityReliefThreshold>
+      <MinConfidence>65</MinConfidence>
+      <SlopeExit>Hysteresis</SlopeExit>
+      <MinHoldBars>2</MinHoldBars>
+      <CiSlopeBarsExit>5</CiSlopeBarsExit>
+      <AdxSlopeBarsExit>5</AdxSlopeBarsExit>
+      <CiRiseMinExit>2</CiRiseMinExit>
+      <AdxDropMinExit>2</AdxDropMinExit>
+      <HystConsecutive>2</HystConsecutive>
+      <HystCiRisePerBar>0.5</HystCiRisePerBar>
+      <HystAdxDropPerBar>0.5</HystAdxDropPerBar>
+      <MaxConsecutiveLosses>10</MaxConsecutiveLosses>
       <DailyGoal>0</DailyGoal>
       <DailyLossLimit>0</DailyLossLimit>
       <EnableTimeFilter>true</EnableTimeFilter>
-      <BlockOpenEnd>93900</BlockOpenEnd>
-      <BlockLunchStart>113000</BlockLunchStart>
-      <BlockLunchEnd>130000</BlockLunchEnd>
-      <SessionEnd>155500</SessionEnd>
-    </ADX_DI_V3D_C>
+      <StartTime>93500</StartTime>
+      <EndTime>155500</EndTime>
+    </Momentum_V3D_B>
   </Strategy>
 </StrategyTemplate>
