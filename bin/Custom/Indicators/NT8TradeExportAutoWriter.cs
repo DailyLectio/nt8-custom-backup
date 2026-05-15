@@ -6,6 +6,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using NinjaTrader.Cbi;
 using NinjaTrader.Data;
 using NinjaTrader.NinjaScript;
@@ -17,6 +18,9 @@ namespace NinjaTrader.NinjaScript.Indicators
     {
         private const string Header =
             "Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,MAE,MFE,ETD,Bars,";
+        private const string DefaultRegistryPath = @"C:\Users\Valued Customer\NT8_Regimes\accounts_registry.json";
+        private const string EmbeddedAccountFilter =
+            "Sim1OG-ES-ADX-1A;Sim1OG-ES-ADX-1B;Sim1OG-ES-Momo-1A;Sim1OG-ES-Momo-1B;Sim1OG-ES-Pine-1A;Sim1OG-ES-Pine-1B;Sim1OG-NQ-ADX-1A;Sim1OG-NQ-ADX-1B;Sim1OG-NQ-Momo-1A;Sim1OG-NQ-Momo-1B;Sim1OG-NQ-Pine-1A;Sim1OG-NQ-Pine-1B;SimMomoOG-ES-1A;SimMomoOG-ES-1B;SimMomoOG-NQ-1A;SimMomoOG-NQ-1B;SimV1A-ES-1A;SimV1A-ES-2A;SimV1A-ES-3A;SimV1A-NQ-1A;SimV1A-NQ-2A;SimV1A-NQ-3A;SimV1A-NQ-CompMomo-1A;SimV1A-NQ-CompMomo-1A1C;SimV1A-NQ-CompMomo-1B;SimV1A-NQ-KalmanFader-1A;SimV1A-NQ-KalmanFader-1B;SimV1A-NQ-KalmanFader-1C;SimV1A-NQ-VolFader-1A;SimV1A-NQ-VolFader-1B;SimV1A-NQ-VolFader-1C;SimV3C-ES-1A;SimV3C-ES-2A;SimV3C-ES-3A;SimV3C-ES-4A;SimV3C-ES-5A;SimV3C-NQ-1A;SimV3C-NQ-1B;SimV3C-NQ-1C;SimV3C-NQ-2A;SimV3C-NQ-2B;SimV3C-NQ-2C;SimV3C-NQ-2D;SimV3C-NQ-3A;SimV3C-NQ-3B;SimV3C-NQ-4A;SimV3C-NQ-4B;SimV3C-NQ-5A;SimV3C-NQ-5B;SimV3D-ES-1A;SimV3D-ES-1B;SimV3D-ES-1C;SimV3D-ES-1D;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-2C;SimV3D-ES-2D;SimV3D-ES-3A;SimV3D-ES-3B;SimV3D-ES-3C;SimV3D-ES-3D;SimV3D-ES-4A;SimV3D-ES-4B;SimV3D-ES-4C;SimV3D-ES-4D;SimV3D-ES-5A;SimV3D-ES-5B;SimV3D-ES-5C;SimV3D-ES-5D;SimV3D-NQ-1A;SimV3D-NQ-1B;SimV3D-NQ-1C;SimV3D-NQ-1D;SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-2C;SimV3D-NQ-2D;SimV3D-NQ-3A;SimV3D-NQ-3B;SimV3D-NQ-3C;SimV3D-NQ-3D;SimV3D-NQ-4A;SimV3D-NQ-4B;SimV3D-NQ-4C;SimV3D-NQ-4D;SimV3D-NQ-5A;SimV3D-NQ-5B;SimV3D-NQ-5C;SimV3D-NQ-5D";
 
         private DateTime lastWriteUtc = DateTime.MinValue;
         private bool subscribed;
@@ -30,7 +34,15 @@ namespace NinjaTrader.NinjaScript.Indicators
         public string AccountFilter { get; set; }
 
         [NinjaScriptProperty]
-        [Display(Name = "Refresh Seconds", Order = 3, GroupName = "EOD Export")]
+        [Display(Name = "Use Registry Account Filter", Order = 3, GroupName = "EOD Export")]
+        public bool UseRegistryAccountFilter { get; set; }
+
+        [NinjaScriptProperty]
+        [Display(Name = "Registry Path", Order = 4, GroupName = "EOD Export")]
+        public string RegistryPath { get; set; }
+
+        [NinjaScriptProperty]
+        [Display(Name = "Refresh Seconds", Order = 5, GroupName = "EOD Export")]
         public int RefreshSeconds { get; set; }
 
         protected override void OnStateChange()
@@ -44,8 +56,10 @@ namespace NinjaTrader.NinjaScript.Indicators
                 DisplayInDataBox = false;
                 IsSuspendedWhileInactive = false;
                 OutputPath = @"C:\Users\Valued Customer\Downloads\tradeexport.csv";
+                RegistryPath = DefaultRegistryPath;
+                UseRegistryAccountFilter = true;
                 RefreshSeconds = 30;
-                AccountFilter = "Sim1OG-ES-ADX-1A;Sim1OG-ES-ADX-1B;Sim1OG-ES-Momo-1A;Sim1OG-ES-Momo-1B;Sim1OG-ES-Pine-1A;Sim1OG-ES-Pine-1B;Sim1OG-NQ-ADX-1A;Sim1OG-NQ-ADX-1B;Sim1OG-NQ-Momo-1A;Sim1OG-NQ-Momo-1B;Sim1OG-NQ-Pine-1A;Sim1OG-NQ-Pine-1B;SimV1A-ES-1A;SimV1A-ES-2A;SimV1A-ES-3A;SimV1A-NQ-1A;SimV1A-NQ-2A;SimV1A-NQ-3A;SimMomo-OG-ES-1A;SimMomo-OG-ES-1B;SimMomo-OG-NQ-1A;SimMomo-OG-NQ-1B;SimV3C-ES-1A;SimV3C-ES-2A;SimV3C-ES-3A;SimV3C-ES-4A;SimV3C-ES-5A;SimV3C-NQ-1A;SimV3C-NQ-2A;SimV3C-NQ-3A;SimV3C-NQ-4A;SimV3C-NQ-5A;SimV3D-ES-1A;SimV3D-ES-1B;SimV3D-ES-1C;SimV3D-ES-1D;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-2C;SimV3D-ES-2D;SimV3D-ES-3A;SimV3D-ES-3B;SimV3D-ES-3C;SimV3D-ES-3D;SimV3D-ES-4A;SimV3D-ES-4B;SimV3D-ES-4C;SimV3D-ES-4D;SimV3D-ES-5A;SimV3D-ES-5B;SimV3D-ES-5C;SimV3D-ES-5D;SimV3D-NQ-1A;SimV3D-NQ-1B;SimV3D-NQ-1C;SimV3D-NQ-1D;SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-2C;SimV3D-NQ-2D;SimV3D-NQ-3A;SimV3D-NQ-3B;SimV3D-NQ-3C;SimV3D-NQ-3D;SimV3D-NQ-4A;SimV3D-NQ-4B;SimV3D-NQ-4C;SimV3D-NQ-4D;SimV3D-NQ-5A;SimV3D-NQ-5B;SimV3D-NQ-5C;SimV3D-NQ-5D";
+                AccountFilter = "";
             }
             else if (State == State.DataLoaded)
             {
@@ -109,7 +123,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                 if (!string.IsNullOrWhiteSpace(dir) && !Directory.Exists(dir))
                     Directory.CreateDirectory(dir);
 
-                HashSet<string> allowed = ParseAccountFilter(AccountFilter);
+                HashSet<string> allowed = BuildAllowedAccounts();
                 List<TradeRow> rows = BuildTodayRows(allowed);
                 rows.Sort((a, b) =>
                 {
@@ -131,15 +145,31 @@ namespace NinjaTrader.NinjaScript.Indicators
 
                 string temp = OutputPath + ".tmp";
                 File.WriteAllText(temp, sb.ToString(), Encoding.UTF8);
-                if (File.Exists(OutputPath))
-                    File.Delete(OutputPath);
-                File.Move(temp, OutputPath);
+                ReplaceFile(temp, OutputPath);
                 lastWriteUtc = DateTime.UtcNow;
+                WriteStatus("OK rows=" + rows.Count + " accounts=" + allowed.Count + " updated=" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
             }
             catch (Exception ex)
             {
+                WriteStatus("ERROR " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture) + " " + ex.Message);
                 Print("NT8TradeExportAutoWriter error: " + ex.Message);
             }
+        }
+
+        private HashSet<string> BuildAllowedAccounts()
+        {
+            HashSet<string> accounts = ParseAccountFilter(AccountFilter);
+            foreach (string account in ParseAccountFilter(EmbeddedAccountFilter))
+                accounts.Add(account);
+
+            string registry = string.IsNullOrWhiteSpace(RegistryPath)
+                ? DefaultRegistryPath
+                : RegistryPath;
+
+            foreach (string account in LoadRegistryAccounts(registry))
+                accounts.Add(account);
+
+            return accounts;
         }
 
         private List<TradeRow> BuildTodayRows(HashSet<string> allowed)
@@ -213,6 +243,62 @@ namespace NinjaTrader.NinjaScript.Indicators
                     accounts.Add(account);
             }
             return accounts;
+        }
+
+        private static IEnumerable<string> LoadRegistryAccounts(string path)
+        {
+            List<string> accounts = new List<string>();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(path) || !File.Exists(path))
+                    return accounts;
+
+                string text = File.ReadAllText(path);
+                MatchCollection matches = Regex.Matches(text, "\"(?<account>Sim[^\"]+)\"\\s*:");
+                foreach (Match match in matches)
+                {
+                    string account = match.Groups["account"].Value.Trim();
+                    if (account.Length > 0 && !accounts.Contains(account, StringComparer.OrdinalIgnoreCase))
+                        accounts.Add(account);
+                }
+            }
+            catch
+            {
+            }
+            return accounts;
+        }
+
+        private static void ReplaceFile(string temp, string target)
+        {
+            if (File.Exists(target))
+            {
+                try
+                {
+                    File.Replace(temp, target, null);
+                    return;
+                }
+                catch
+                {
+                    File.Copy(temp, target, true);
+                    File.Delete(temp);
+                    return;
+                }
+            }
+
+            File.Move(temp, target);
+        }
+
+        private void WriteStatus(string message)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(OutputPath))
+                    return;
+                File.WriteAllText(OutputPath + ".status.txt", message + Environment.NewLine, Encoding.UTF8);
+            }
+            catch
+            {
+            }
         }
 
         private static string AccountName(Account account)
