@@ -322,11 +322,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">0.75</Max>
-        <Min xsi:type="xsd:double">0.75</Min>
+        <Max xsi:type="xsd:double">0.9</Max>
+        <Min xsi:type="xsd:double">0.9</Min>
         <Name>AtrStopMult</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>0.75</ValueSerializable>
+        <ValueSerializable>0.9</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -340,11 +340,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">44</Max>
-        <Min xsi:type="xsd:int">44</Min>
+        <Max xsi:type="xsd:int">48</Max>
+        <Min xsi:type="xsd:int">48</Min>
         <Name>MinStopTicks</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>44</ValueSerializable>
+        <ValueSerializable>48</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -504,20 +504,20 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">94000</Max>
-        <Min xsi:type="xsd:int">94000</Min>
+        <Max xsi:type="xsd:int">95000</Max>
+        <Min xsi:type="xsd:int">95000</Min>
         <Name>StartTime1</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>94000</ValueSerializable>
+        <ValueSerializable>95000</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">154500</Max>
-        <Min xsi:type="xsd:int">154500</Min>
+        <Max xsi:type="xsd:int">113000</Max>
+        <Min xsi:type="xsd:int">113000</Min>
         <Name>EndTime1</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>154500</ValueSerializable>
+        <ValueSerializable>113000</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -540,20 +540,20 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">93900</Max>
-        <Min xsi:type="xsd:int">93900</Min>
+        <Max xsi:type="xsd:int">94900</Max>
+        <Min xsi:type="xsd:int">94900</Min>
         <Name>OpenBlockEnd</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>93900</ValueSerializable>
+        <ValueSerializable>94900</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
+        <Max xsi:type="xsd:boolean">false</Max>
+        <Min xsi:type="xsd:boolean">false</Min>
         <Name>BlockNews</Name>
         <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
+        <ValueSerializable>False</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -576,29 +576,29 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">false</Max>
-        <Min xsi:type="xsd:boolean">false</Min>
+        <Max xsi:type="xsd:boolean">true</Max>
+        <Min xsi:type="xsd:boolean">true</Min>
         <Name>BlockLunch</Name>
         <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>False</ValueSerializable>
+        <ValueSerializable>True</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">113000</Max>
-        <Min xsi:type="xsd:int">113000</Min>
+        <Max xsi:type="xsd:int">145000</Max>
+        <Min xsi:type="xsd:int">145000</Min>
         <Name>LunchBlockStart</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>113000</ValueSerializable>
+        <ValueSerializable>145000</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">132000</Max>
-        <Min xsi:type="xsd:int">132000</Min>
+        <Max xsi:type="xsd:int">151000</Max>
+        <Min xsi:type="xsd:int">151000</Min>
         <Name>LunchBlockEnd</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>132000</ValueSerializable>
+        <ValueSerializable>151000</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -627,36 +627,37 @@
       <AreLinesConfigurable>true</AreLinesConfigurable>
       <ArePlotsConfigurable>true</ArePlotsConfigurable>
       <BarsPeriodSerializable>
-        <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
+        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>80</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>40</Value>
-        <Value2>120</Value2>
+        <Value>15</Value>
+        <Value2>1</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-05-11T00:00:00</From>
+      <From>2026-01-01T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>Momentum_V2_StopModes NQ 1A</Name>
+      <Name>MomentumSlopeStrategy_V2_StopModes NQ 1B</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-05-16T00:00:00</To>
+      <To>2026-05-13T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
       <Gtd>1800-01-01T00:00:00</Gtd>
       <Template />
       <TimeInForce>Gtc</TimeInForce>
+      <BacktestCommissionTemplate>NinjaTrader Brokerage Lifetime</BacktestCommissionTemplate>
       <BarsPeriodParameter>
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">0</Max>
@@ -674,7 +675,7 @@
       <EntriesPerDirection>1</EntriesPerDirection>
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
-      <IncludeCommission>false</IncludeCommission>
+      <IncludeCommission>true</IncludeCommission>
       <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
@@ -691,15 +692,15 @@
       <OrderFillResolutionValue>1</OrderFillResolutionValue>
       <RestartsWithinMinutes>3</RestartsWithinMinutes>
       <SetOrderQuantity>Strategy</SetOrderQuantity>
-      <Slippage>0</Slippage>
+      <Slippage>2</Slippage>
       <StartBehavior>WaitUntilFlat</StartBehavior>
       <StopTargetHandling>PerEntryExecution</StopTargetHandling>
       <SupportsOptimizationGraph>true</SupportsOptimizationGraph>
       <TestPeriod>28</TestPeriod>
-      <TradingHoursSerializable />
+      <TradingHoursSerializable>CME US Index Futures RTH</TradingHoursSerializable>
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
-      <EnableTrinityFilter>false</EnableTrinityFilter>
+      <EnableTrinityFilter>true</EnableTrinityFilter>
       <DebugEntryFilters>false</DebugEntryFilters>
       <Contracts>1</Contracts>
       <Preset>Custom</Preset>
@@ -730,9 +731,9 @@
       <HystConsecutive>2</HystConsecutive>
       <HystCiRisePerBar>0.5</HystCiRisePerBar>
       <HystAdxDropPerBar>0.7</HystAdxDropPerBar>
-      <AtrStopMult>0.75</AtrStopMult>
+      <AtrStopMult>0.9</AtrStopMult>
       <AtrStopLen>14</AtrStopLen>
-      <MinStopTicks>44</MinStopTicks>
+      <MinStopTicks>48</MinStopTicks>
       <RiskReward>1.25</RiskReward>
       <StopModeSelection>BarNTrailing</StopModeSelection>
       <TrailingNBars>1</TrailingNBars>
@@ -750,17 +751,17 @@
       <ResetOnNewSession>true</ResetOnNewSession>
       <GuardsIgnoreHistorical>true</GuardsIgnoreHistorical>
       <EnableTimeFilter>true</EnableTimeFilter>
-      <StartTime1>94000</StartTime1>
-      <EndTime1>154500</EndTime1>
+      <StartTime1>95000</StartTime1>
+      <EndTime1>113000</EndTime1>
       <BlockOpen>true</BlockOpen>
       <OpenBlockStart>93000</OpenBlockStart>
-      <OpenBlockEnd>93900</OpenBlockEnd>
-      <BlockNews>true</BlockNews>
+      <OpenBlockEnd>94900</OpenBlockEnd>
+      <BlockNews>false</BlockNews>
       <NewsBlockStart>95600</NewsBlockStart>
       <NewsBlockEnd>100300</NewsBlockEnd>
-      <BlockLunch>false</BlockLunch>
-      <LunchBlockStart>113000</LunchBlockStart>
-      <LunchBlockEnd>132000</LunchBlockEnd>
+      <BlockLunch>true</BlockLunch>
+      <LunchBlockStart>145000</LunchBlockStart>
+      <LunchBlockEnd>151000</LunchBlockEnd>
       <FlattenNearEnd>false</FlattenNearEnd>
       <FlattenBufferSeconds>300</FlattenBufferSeconds>
     </MomentumSlopeStrategy_V2_StopModes>
