@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <StrategyTemplate>
-  <StrategyType>NinjaTrader.NinjaScript.Strategies.V3_Compression_Sniper_V3C</StrategyType>
+  <StrategyType>NinjaTrader.NinjaScript.Strategies.V3_Value_Fader_V3C</StrategyType>
   <OptimizerType>NinjaTrader.NinjaScript.Optimizers.DefaultOptimizer</OptimizerType>
   <OptimizerParameters>
     <ArrayOfParameterWrapper xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -46,11 +46,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:boolean">true</Max>
-        <Min xsi:type="xsd:boolean">true</Min>
+        <Max xsi:type="xsd:boolean">false</Max>
+        <Min xsi:type="xsd:boolean">false</Min>
         <Name>DebugV3CGate</Name>
         <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>True</ValueSerializable>
+        <ValueSerializable>False</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -66,91 +66,55 @@
         <Increment>1</Increment>
         <Max xsi:type="xsd:double">1.25</Max>
         <Min xsi:type="xsd:double">1.25</Min>
-        <Name>TargetAtr</Name>
+        <Name>StopAtr</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>1.25</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">0.9</Max>
-        <Min xsi:type="xsd:double">0.9</Min>
-        <Name>StopAtr</Name>
-        <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>0.9</ValueSerializable>
+        <Max xsi:type="xsd:int">10</Max>
+        <Min xsi:type="xsd:int">10</Min>
+        <Name>MinTargetTicks</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>10</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">20</Max>
         <Min xsi:type="xsd:int">20</Min>
-        <Name>MaxSessionTrades</Name>
+        <Name>BollingerPeriod</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>20</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">3</Max>
-        <Min xsi:type="xsd:int">3</Min>
-        <Name>CooldownBarsAfterExit</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>3</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">8</Max>
-        <Min xsi:type="xsd:int">8</Min>
-        <Name>MinStopTicksFloor</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>8</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">4</Max>
-        <Min xsi:type="xsd:int">4</Min>
-        <Name>MaxConsecutiveLosses</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>4</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">9</Max>
-        <Min xsi:type="xsd:int">9</Min>
-        <Name>FastEmaPeriod</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>9</ValueSerializable>
-      </Parameter>
-      <Parameter>
-        <EnumValuesSerializable />
-        <Increment>1</Increment>
-        <Max xsi:type="xsd:int">21</Max>
-        <Min xsi:type="xsd:int">21</Min>
-        <Name>SlowEmaPeriod</Name>
-        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>21</ValueSerializable>
+        <Max xsi:type="xsd:double">2</Max>
+        <Min xsi:type="xsd:double">2</Min>
+        <Name>BollingerDev</Name>
+        <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>2</ValueSerializable>
       </Parameter>
     </ArrayOfParameter>
   </OptimizationParameters>
   <Strategy>
-    <V3_Compression_Sniper_V3C xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <V3_Value_Fader_V3C xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <IsVisible>true</IsVisible>
       <calculate2>OnBarClose</calculate2>
       <AreLinesConfigurable>true</AreLinesConfigurable>
       <ArePlotsConfigurable>true</ArePlotsConfigurable>
       <BarsPeriodSerializable>
-        <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
+        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>40</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>20</Value>
-        <Value2>60</Value2>
+        <Value>5</Value>
+        <Value2>1</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnBarClose</Calculate>
@@ -160,7 +124,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>V3_Compression_Sniper_V3C NQ 2A</Name>
+      <Name>V3_Value_Fader_V3C ES 3A</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -190,7 +154,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
-      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
+      <InstrumentOrInstrumentList>ES JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -202,7 +166,7 @@
       <NumberRestartAttempts>4</NumberRestartAttempts>
       <OptimizationPeriod>10</OptimizationPeriod>
       <OrderFillResolution>Standard</OrderFillResolution>
-      <OrderFillResolutionType>Tick</OrderFillResolutionType>
+      <OrderFillResolutionType>Minute</OrderFillResolutionType>
       <OrderFillResolutionValue>1</OrderFillResolutionValue>
       <RestartsWithinMinutes>3</RestartsWithinMinutes>
       <SetOrderQuantity>Strategy</SetOrderQuantity>
@@ -216,17 +180,13 @@
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>false</EnableTrinityFilter>
       <DebugV3CGate>false</DebugV3CGate>
-      <AccountNameFilter>SimV3C-NQ-2A;SimV3C-ES-2A</AccountNameFilter>
+      <AccountNameFilter>SimV3C-NQ-3A;SimV3C-ES-3A</AccountNameFilter>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog</TradeLogFolder>
       <Contracts>1</Contracts>
-      <TargetAtr>1.25</TargetAtr>
-      <StopAtr>0.9</StopAtr>
-      <MaxSessionTrades>20</MaxSessionTrades>
-      <CooldownBarsAfterExit>3</CooldownBarsAfterExit>
-      <MinStopTicksFloor>8</MinStopTicksFloor>
-      <MaxConsecutiveLosses>4</MaxConsecutiveLosses>
-      <FastEmaPeriod>9</FastEmaPeriod>
-      <SlowEmaPeriod>21</SlowEmaPeriod>
-    </V3_Compression_Sniper_V3C>
+      <StopAtr>1.25</StopAtr>
+      <MinTargetTicks>10</MinTargetTicks>
+      <BollingerPeriod>20</BollingerPeriod>
+      <BollingerDev>2</BollingerDev>
+    </V3_Value_Fader_V3C>
   </Strategy>
 </StrategyTemplate>
