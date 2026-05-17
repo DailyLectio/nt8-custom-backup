@@ -158,6 +158,23 @@ namespace NinjaTrader.NinjaScript.Strategies
                  GroupName = "4. Guards", Order = 2)]
         public double DailyLossLimit { get; set; } = 0;
 
+        [NinjaScriptProperty, Range(0, 20)]
+        [Display(Name = "Max Contracts Override (0 = off)",
+                 Description = "Strategy-level hard cap on total contracts per fill (Leg1+Leg2 combined). " +
+                               "ApexMaxContracts from the CSV takes precedence when > 0. " +
+                               "Set to 2 on any Apex-funded account as a safety floor.",
+                 GroupName = "4. Guards", Order = 3)]
+        public int MaxContracts { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0.0, 1.0)]
+        [Display(Name = "Leg2 Trail Activation (% of target, 0 = off)",
+                 Description = "Once Leg1 fills and the Leg2 runner profit reaches this fraction of the " +
+                               "Leg2 target distance, switches to a 0.75-ATR trailing stop instead of " +
+                               "waiting for the fixed VWAP target. 0.5 = activate at 50% of target. " +
+                               "0 = feature off, fixed target only.",
+                 GroupName = "4. Guards", Order = 4)]
+        public double Leg2TrailActivationPct { get; set; } = 0.5;
+
         // --- Time ---
         [NinjaScriptProperty]
         [Display(Name = "Enable Time Filter", GroupName = "5. Time", Order = 0)]
@@ -189,6 +206,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private volatile bool   allowFadeLong    = false;
         private volatile bool   allowFadeShort   = false;
         private volatile int    faderSizePct     = 0;
+        private volatile int    apexMaxContracts = 0;
         private volatile bool   staleDataFlag    = true;
         private volatile bool   parseFailed      = true;
         private volatile int    twoSidedFlag     = 0;
@@ -214,9 +232,14 @@ namespace NinjaTrader.NinjaScript.Strategies
         private double sessionStartProfit = 0;
 
         // Two-leg runner state
-        private bool   leg1Hit        = false;
-        private int    currentLeg2Qty = 1;   // dynamic threshold for leg1 detection
-        private string activeLeg2     = "";  // tracks which entry label is the runner
+        private bool   leg1Hit          = false;
+        private int    currentLeg2Qty   = 1;     // dynamic threshold for leg1 detection
+        private string activeLeg2       = "";    // tracks which entry label is the runner
+
+        // Leg2 trailing activation state
+        private double leg2TargetPrice  = 0.0;   // VWAP target captured at entry
+        private bool   leg2TrailActive  = false;  // true once profit gate is crossed
+        private double leg2TrailingStop = 0.0;   // ratcheting stop, initialized to free-trade pivot
 
         // =====================================================================
         // HELPERS
@@ -675,8 +698,9 @@ namespace NinjaTrader.NinjaScript.Strategies
                     allowFadeShort = GetI(row, "AllowFadeShort") == 1;
                     // FIX: Fader uses Pine size column per spec Section 6 bot permission table.
                     // AllowPine_SizePct is the correct column for fade-style permissions.
-                    faderSizePct   = GetI(row, "AllowPine_SizePct");
-                    staleDataFlag  = GetI(row, "StaleDataFlag") == 1;
+                    faderSizePct     = GetI(row, "AllowPine_SizePct");
+                    apexMaxContracts = GetI(row, "ApexMaxContracts");
+                    staleDataFlag    = GetI(row, "StaleDataFlag") == 1;
                     twoSidedFlag   = GetI(row, "TwoSidedFlag");
 
                     // double fields — not volatile, protected by fileLock above
@@ -797,6 +821,9 @@ namespace NinjaTrader.NinjaScript.Strategies
                 leg1Hit            = false;
                 currentLeg2Qty     = 1;
                 activeLeg2         = "";
+                leg2TargetPrice    = 0.0;
+                leg2TrailActive    = false;
+                leg2TrailingStop   = 0.0;
                 sessionStartProfit = SystemPerformance.AllTrades
                                          .TradesPerformance.Currency.CumProfit;
             }
@@ -806,8 +833,10 @@ namespace NinjaTrader.NinjaScript.Strategies
             {
                 if (Position.MarketPosition == MarketPosition.Long)  ExitLong ("TransitionExit", "");
                 else                                                  ExitShort("TransitionExit", "");
-                leg1Hit    = false;
-                activeLeg2 = "";
+                leg1Hit          = false;
+                activeLeg2       = "";
+                leg2TrailActive  = false;
+                leg2TrailingStop = 0.0;
                 return;
             }
 
@@ -823,8 +852,10 @@ namespace NinjaTrader.NinjaScript.Strategies
                         ExitLong(Position.Quantity, "IlliquidExit", activeLeg2.Length > 0 ? activeLeg2 : "");
                     else
                         ExitShort(Position.Quantity, "IlliquidExit", activeLeg2.Length > 0 ? activeLeg2 : "");
-                    leg1Hit    = false;
-                    activeLeg2 = "";
+                    leg1Hit          = false;
+                    activeLeg2       = "";
+                    leg2TrailActive  = false;
+                    leg2TrailingStop = 0.0;
                     return;
                 }
 
@@ -836,6 +867,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     double pivot = Position.MarketPosition == MarketPosition.Long
                         ? RT(Position.AveragePrice + 4 * TickSize)
                         : RT(Position.AveragePrice - 4 * TickSize);
+                    leg2TrailingStop = pivot; // floor for the ratchet
 
                     if (activeLeg2 == FadeLEntry2)
                         SetStopLoss(FadeLEntry2, CalculationMode.Price, pivot, false);
@@ -843,8 +875,48 @@ namespace NinjaTrader.NinjaScript.Strategies
                         SetStopLoss(FadeSEntry2, CalculationMode.Price, pivot, false);
                 }
 
-                // Once Leg1 is hit and runner is free, nothing else to manage —
-                // fixed profit target handles the Leg2 exit.
+                // ── Leg2 trailing activation (once free-trade pivot is live) ─
+                if (leg1Hit && Leg2TrailActivationPct > 0
+                    && activeLeg2.Length > 0 && leg2TargetPrice > 0)
+                {
+                    double leg2Avg   = Position.AveragePrice;
+                    double targetDist = Position.MarketPosition == MarketPosition.Long
+                        ? leg2TargetPrice - leg2Avg
+                        : leg2Avg - leg2TargetPrice;
+
+                    if (targetDist > 0)
+                    {
+                        double currentProfit = Position.MarketPosition == MarketPosition.Long
+                            ? Close[0] - leg2Avg
+                            : leg2Avg - Close[0];
+
+                        if (!leg2TrailActive && currentProfit >= targetDist * Leg2TrailActivationPct)
+                            leg2TrailActive = true; // gate crossed — engage trail from here
+
+                        if (leg2TrailActive)
+                        {
+                            if (Position.MarketPosition == MarketPosition.Long)
+                            {
+                                double candidate = RT(High[0] - atr[0] * 0.75);
+                                if (candidate > leg2TrailingStop)
+                                {
+                                    leg2TrailingStop = candidate;
+                                    SetStopLoss(activeLeg2, CalculationMode.Price, leg2TrailingStop, false);
+                                }
+                            }
+                            else if (Position.MarketPosition == MarketPosition.Short)
+                            {
+                                double candidate = RT(Low[0] + atr[0] * 0.75);
+                                if (leg2TrailingStop == 0 || candidate < leg2TrailingStop)
+                                {
+                                    leg2TrailingStop = candidate;
+                                    SetStopLoss(activeLeg2, CalculationMode.Price, leg2TrailingStop, false);
+                                }
+                            }
+                        }
+                    }
+                }
+
                 return;
             }
 
@@ -911,8 +983,11 @@ namespace NinjaTrader.NinjaScript.Strategies
                     double leg1Target = RT(price + distToVwap * 0.50);
                     double leg2Target = RT(vwap);
 
-                    int maxC    = CalcMaxContracts();
-                    int sz      = ScaleByConfidence(maxC, effectiveSizePct);
+                    int maxC = CalcMaxContracts();
+                    int sz   = ScaleByConfidence(maxC, effectiveSizePct);
+                    // Hard cap — CSV column wins; strategy-level param is the fallback
+                    if (apexMaxContracts > 0) sz = Math.Min(sz, apexMaxContracts);
+                    else if (MaxContracts > 0) sz = Math.Min(sz, MaxContracts);
                     int leg1Qty = Math.Max(1, sz / 2);
                     int leg2Qty = Math.Max(1, sz - leg1Qty);
 
@@ -924,8 +999,11 @@ namespace NinjaTrader.NinjaScript.Strategies
                     EnterLong(leg1Qty, FadeLEntry1);
                     EnterLong(leg2Qty, FadeLEntry2);
 
-                    currentLeg2Qty = leg2Qty;
-                    activeLeg2     = FadeLEntry2;
+                    currentLeg2Qty   = leg2Qty;
+                    activeLeg2       = FadeLEntry2;
+                    leg2TargetPrice  = leg2Target;
+                    leg2TrailActive  = false;
+                    leg2TrailingStop = 0.0;
 
                     string trigger = atLowEdge ? string.Format("EDGE:{0:F2}", lowEdge) : "BOLLINGER_FALLBACK";
                     Print(string.Format(
@@ -947,8 +1025,11 @@ namespace NinjaTrader.NinjaScript.Strategies
                     double leg1Target = RT(price - distToVwap * 0.50);
                     double leg2Target = RT(vwap);
 
-                    int maxC    = CalcMaxContracts();
-                    int sz      = ScaleByConfidence(maxC, effectiveSizePct);
+                    int maxC = CalcMaxContracts();
+                    int sz   = ScaleByConfidence(maxC, effectiveSizePct);
+                    // Hard cap — CSV column wins; strategy-level param is the fallback
+                    if (apexMaxContracts > 0) sz = Math.Min(sz, apexMaxContracts);
+                    else if (MaxContracts > 0) sz = Math.Min(sz, MaxContracts);
                     int leg1Qty = Math.Max(1, sz / 2);
                     int leg2Qty = Math.Max(1, sz - leg1Qty);
 
@@ -960,8 +1041,11 @@ namespace NinjaTrader.NinjaScript.Strategies
                     EnterShort(leg1Qty, FadeSEntry1);
                     EnterShort(leg2Qty, FadeSEntry2);
 
-                    currentLeg2Qty = leg2Qty;
-                    activeLeg2     = FadeSEntry2;
+                    currentLeg2Qty   = leg2Qty;
+                    activeLeg2       = FadeSEntry2;
+                    leg2TargetPrice  = leg2Target;
+                    leg2TrailActive  = false;
+                    leg2TrailingStop = 0.0;
 
                     string trigger = highEdgePrice > 0
                         ? string.Format("EDGE:{0:F2}", highEdgePrice) : "BOLLINGER_FALLBACK";

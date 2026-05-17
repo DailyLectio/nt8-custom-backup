@@ -50,13 +50,23 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="Wait Bricks (Hysteresis Entry)", Description="Wait X bricks in Expansion before firing", GroupName="2. Risk Management", Order=2)]
         public int WaitBricks { get; set; } = 3;
 
+        [NinjaScriptProperty, Range(0.0, 1.0)]
+        [Display(Name="Leg2 Profit Gate (% of Leg1 target)", Description="Leg2 fires only after Leg1 has reached this fraction of its target distance. 0.5 = 50%. Set to 0 to restore simultaneous entry.", GroupName="2. Risk Management", Order=3)]
+        public double Leg2ProfitGatePct { get; set; } = 0.5;
+
         // ===== 2. INTERNAL STATE =====
         private ATR atr;
         private int bricksInExpansion = 0;
-        
+
         private double leg2TrailingStop = 0.0;
         private bool leg1Hit = false;
         private int oppositeBrickCount = 0;
+
+        // Leg2 deferred entry state
+        private bool   awaitingLeg2   = false;
+        private double leg1EntryPrice  = 0.0;
+        private double leg1TargetPrice = 0.0;
+        private int    tradeDir        = 0;   // 1 = long, -1 = short
 
         // Stage 1 trade logger
         private V3CTradeLogger _logger;
@@ -84,8 +94,12 @@ namespace NinjaTrader.NinjaScript.Strategies
         private void ClearLocals()
         {
             leg2TrailingStop = 0.0;
-            leg1Hit = false;
+            leg1Hit          = false;
             oppositeBrickCount = 0;
+            awaitingLeg2     = false;
+            leg1EntryPrice   = 0.0;
+            leg1TargetPrice  = 0.0;
+            tradeDir         = 0;
         }
 
         protected override void OnBarUpdate()
@@ -120,29 +134,34 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                     if (isGreenBrick && allowLong)
                     {
-                        double stp = Close[0] - (riskTicks * TickSize);
+                        double stp  = Close[0] - (riskTicks * TickSize);
                         double tgt1 = Close[0] + (riskTicks * TickSize);
 
                         SetStopLoss("Leg1", CalculationMode.Price, stp, false);
-                        SetStopLoss("Leg2", CalculationMode.Price, stp, false);
                         SetProfitTarget("Leg1", CalculationMode.Price, tgt1);
-
                         EnterLong(TotalContracts / 2, "Leg1");
-                        EnterLong(TotalContracts / 2, "Leg2");
+
+                        // Leg2 is deferred — fires only when Leg1 profit >= Leg2ProfitGatePct × target
                         leg2TrailingStop = stp;
+                        leg1EntryPrice   = Close[0];
+                        leg1TargetPrice  = tgt1;
+                        awaitingLeg2     = true;
+                        tradeDir         = 1;
                     }
                     else if (isRedBrick && allowShort)
                     {
-                        double stp = Close[0] + (riskTicks * TickSize);
+                        double stp  = Close[0] + (riskTicks * TickSize);
                         double tgt1 = Close[0] - (riskTicks * TickSize);
 
                         SetStopLoss("Leg1", CalculationMode.Price, stp, false);
-                        SetStopLoss("Leg2", CalculationMode.Price, stp, false);
                         SetProfitTarget("Leg1", CalculationMode.Price, tgt1);
-
                         EnterShort(TotalContracts / 2, "Leg1");
-                        EnterShort(TotalContracts / 2, "Leg2");
+
                         leg2TrailingStop = stp;
+                        leg1EntryPrice   = Close[0];
+                        leg1TargetPrice  = tgt1;
+                        awaitingLeg2     = true;
+                        tradeDir         = -1;
                     }
                 }
             }
@@ -150,32 +169,62 @@ namespace NinjaTrader.NinjaScript.Strategies
             // 3. MULTI-LEG RISK & PARACHUTE
             if (Position.MarketPosition != MarketPosition.Flat)
             {
-                if (!leg1Hit && Position.Quantity <= TotalContracts / 2)
+                // A. DEFERRED LEG2 ENTRY — fire when Leg1 profit reaches the gate
+                if (awaitingLeg2)
+                {
+                    if (!expansionAllowed)
+                    {
+                        // Regime changed before gate — abandon Leg2
+                        awaitingLeg2 = false;
+                    }
+                    else
+                    {
+                        double targetDist    = Math.Abs(leg1TargetPrice - leg1EntryPrice);
+                        double currentProfit = tradeDir == 1
+                            ? Close[0] - leg1EntryPrice
+                            : leg1EntryPrice - Close[0];
+
+                        if (targetDist > 0 && currentProfit >= targetDist * Leg2ProfitGatePct)
+                        {
+                            SetStopLoss("Leg2", CalculationMode.Price, leg2TrailingStop, false);
+                            if (tradeDir == 1) EnterLong(TotalContracts / 2, "Leg2");
+                            else               EnterShort(TotalContracts / 2, "Leg2");
+                            awaitingLeg2 = false;
+                        }
+                    }
+                }
+
+                // B. LEG1 EXIT DETECTION — only meaningful after Leg2 has entered
+                if (!leg1Hit && !awaitingLeg2 && Position.Quantity <= TotalContracts / 2)
                 {
                     leg1Hit = true; // Free Trade Pivot
-                    leg2TrailingStop = Position.MarketPosition == MarketPosition.Long 
-                        ? Position.AveragePrice + (4 * TickSize) 
+                    leg2TrailingStop = Position.MarketPosition == MarketPosition.Long
+                        ? Position.AveragePrice + (4 * TickSize)
                         : Position.AveragePrice - (4 * TickSize);
                     SetStopLoss("Leg2", CalculationMode.Price, leg2TrailingStop, false);
                 }
 
-                // A. THE WOBBLE EXIT (UniRenko Reversal Parachute)
-                bool isRedBrick = Close[0] < Open[0];
+                // C. WOBBLE EXIT (UniRenko Reversal Parachute)
+                bool isRedBrick   = Close[0] < Open[0];
                 bool isGreenBrick = Close[0] > Open[0];
 
-                if (Position.MarketPosition == MarketPosition.Long && isRedBrick) oppositeBrickCount++;
+                if (Position.MarketPosition == MarketPosition.Long  && isRedBrick)   oppositeBrickCount++;
                 else if (Position.MarketPosition == MarketPosition.Short && isGreenBrick) oppositeBrickCount++;
-                else oppositeBrickCount = 0; 
+                else oppositeBrickCount = 0;
 
-                // 1 UniRenko reversal brick is enough to kill a runner in thin liquidity
-                if (oppositeBrickCount >= 1) 
+                if (oppositeBrickCount >= 1)
                 {
-                    if (Position.MarketPosition == MarketPosition.Long) ExitLong(Position.Quantity, "Wobble Eject", "Leg2");
-                    if (Position.MarketPosition == MarketPosition.Short) ExitShort(Position.Quantity, "Wobble Eject", "Leg2");
+                    // Exit from whichever leg is still open
+                    string fromSignal = awaitingLeg2 ? "Leg1" : "Leg2";
+                    if (Position.MarketPosition == MarketPosition.Long)
+                        ExitLong(Position.Quantity, "Wobble Eject", fromSignal);
+                    if (Position.MarketPosition == MarketPosition.Short)
+                        ExitShort(Position.Quantity, "Wobble Eject", fromSignal);
+                    awaitingLeg2 = false;
                     return;
                 }
 
-                // B. STEP-TRAIL THE RUNNER
+                // D. STEP-TRAIL THE RUNNER (only after Leg1 has exited)
                 if (leg1Hit)
                 {
                     double trailDistance = (atr[0] * 1.25);

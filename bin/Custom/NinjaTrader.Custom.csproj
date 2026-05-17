@@ -569,7 +569,6 @@
     <Compile Include="Strategies\MomentumV3D.cs" />
     <Compile Include="Strategies\ADXDIV3D.cs" />
     <Compile Include="Strategies\SniperV3D.cs" />
-    <Compile Include="Strategies\FaderV3D.cs" />
     <Compile Include="Strategies\ExpansionV3D.cs" />
     <Compile Include="Strategies\ExpansionV3DB.cs" />
     <Compile Include="Strategies\FaderV3DB.cs" />
@@ -600,7 +599,6 @@
     <Compile Include="Indicators\V3CTradeLogger.cs" />
     <Compile Include="Strategies\ADXDIV3C.cs" />
     <Compile Include="Strategies\MomoV3C.cs" />
-    <Compile Include="Strategies\V3_Expansion_Rider_V3C.cs" />
     <Compile Include="Indicators\RegimeDirectionNT8.cs" />
     <Compile Include="Indicators\V3DStrategyTradeLogger.cs" />
     <Compile Include="Strategies\AdxDiCrossBracketOG_V2.cs" />

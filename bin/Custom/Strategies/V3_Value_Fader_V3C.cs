@@ -94,7 +94,12 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         protected override void OnBarUpdate()
         {
-            if (CurrentBar < BollingerPeriod + 2) return;
+            if (CurrentBar < BollingerPeriod + MinReversalBars + 1) return;
+
+            // Track consecutive reversal bricks for entry confirmation
+            if      (Close[0] > Open[0]) { longReversalCount++;  shortReversalCount = 0; }
+            else if (Close[0] < Open[0]) { shortReversalCount++; longReversalCount  = 0; }
+            else                         { longReversalCount = 0; shortReversalCount = 0; }
 
             bool fadeAllowed = IsFadeAllowed(out bool allowLong, out bool allowShort);
 
@@ -103,27 +108,25 @@ namespace NinjaTrader.NinjaScript.Strategies
             // =========================================================================
             if (Position.MarketPosition == MarketPosition.Flat && fadeAllowed)
             {
-                // Brick Physics
                 bool isGreenBrick = Close[0] > Open[0];
-                bool isRedBrick = Close[0] < Open[0];
-                
-                bool wasRedBrick = Close[1] < Open[1];
-                bool wasGreenBrick = Close[1] > Open[1];
+                bool isRedBrick   = Close[0] < Open[0];
 
                 int riskTicks = Math.Max(1, (int)Math.Round((atr[0] * StopAtr) / TickSize));
 
                 // ---------------------------------------------------------------------
-                // LONG FADE: We hit the Lower Band, now printing a Green Reversal
+                // LONG FADE: band touched MinReversalBars+ bars ago, then N green bricks
+                // Requires MinReversalBars consecutive green bricks ending on current bar.
+                // Band-touch window is pushed back to accommodate the reversal lookback.
                 // ---------------------------------------------------------------------
-                bool touchedLowerEdge = Low[1] <= bb.Lower[1] || Low[2] <= bb.Lower[2];
-                
-                if (allowLong && touchedLowerEdge && wasRedBrick && isGreenBrick)
+                bool touchedLowerEdge = Low[MinReversalBars]     <= bb.Lower[MinReversalBars]
+                                     || Low[MinReversalBars + 1] <= bb.Lower[MinReversalBars + 1];
+
+                if (allowLong && touchedLowerEdge && isGreenBrick && longReversalCount >= MinReversalBars)
                 {
-                    // Calculate distance to the Mean (Middle Band)
                     double distanceToMeanTicks = (bb.Middle[0] - Close[0]) / TickSize;
                     int targetTicks = Math.Max(1, (int)Math.Round(distanceToMeanTicks));
 
-                    if (targetTicks >= MinTargetTicks) // Only take it if room exists
+                    if (targetTicks >= MinTargetTicks)
                     {
                         SetStopLoss("FadeL", CalculationMode.Ticks, riskTicks, false);
                         SetProfitTarget("FadeL", CalculationMode.Ticks, targetTicks);
@@ -132,17 +135,17 @@ namespace NinjaTrader.NinjaScript.Strategies
                 }
 
                 // ---------------------------------------------------------------------
-                // SHORT FADE: We hit the Upper Band, now printing a Red Reversal
+                // SHORT FADE: band touched MinReversalBars+ bars ago, then N red bricks
                 // ---------------------------------------------------------------------
-                bool touchedUpperEdge = High[1] >= bb.Upper[1] || High[2] >= bb.Upper[2];
+                bool touchedUpperEdge = High[MinReversalBars]     >= bb.Upper[MinReversalBars]
+                                     || High[MinReversalBars + 1] >= bb.Upper[MinReversalBars + 1];
 
-                if (allowShort && touchedUpperEdge && wasGreenBrick && isRedBrick)
+                if (allowShort && touchedUpperEdge && isRedBrick && shortReversalCount >= MinReversalBars)
                 {
-                    // Calculate distance to the Mean (Middle Band)
                     double distanceToMeanTicks = (Close[0] - bb.Middle[0]) / TickSize;
                     int targetTicks = Math.Max(1, (int)Math.Round(distanceToMeanTicks));
 
-                    if (targetTicks >= MinTargetTicks) // Only take it if room exists
+                    if (targetTicks >= MinTargetTicks)
                     {
                         SetStopLoss("FadeS", CalculationMode.Ticks, riskTicks, false);
                         SetProfitTarget("FadeS", CalculationMode.Ticks, targetTicks);
