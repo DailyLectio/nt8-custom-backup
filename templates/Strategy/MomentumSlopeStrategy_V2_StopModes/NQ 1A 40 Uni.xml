@@ -629,28 +629,28 @@
       <BarsPeriodSerializable>
         <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>44</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>80</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>22</Value>
-        <Value2>66</Value2>
+        <Value>40</Value>
+        <Value2>120</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-05-12T00:00:00</From>
+      <From>2026-05-09T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>Momentum_V2_StopModes ES Uni 22 </Name>
+      <Name>Momentum_V2_StopModes 40 Uni NQ 1A</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-05-17T00:00:00</To>
+      <To>2026-05-14T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -675,7 +675,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
-      <InstrumentOrInstrumentList>ES JUN26</InstrumentOrInstrumentList>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -757,9 +757,9 @@
       <OpenBlockEnd>93900</OpenBlockEnd>
       <BlockNews>true</BlockNews>
       <NewsBlockStart>95600</NewsBlockStart>
-      <NewsBlockEnd>100300</NewsBlockEnd>
+      <NewsBlockEnd>112900</NewsBlockEnd>
       <BlockLunch>true</BlockLunch>
-      <LunchBlockStart>114500</LunchBlockStart>
+      <LunchBlockStart>115500</LunchBlockStart>
       <LunchBlockEnd>122500</LunchBlockEnd>
       <FlattenNearEnd>false</FlattenNearEnd>
       <FlattenBufferSeconds>300</FlattenBufferSeconds>

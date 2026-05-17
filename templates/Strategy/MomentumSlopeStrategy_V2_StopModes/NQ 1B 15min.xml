@@ -69,7 +69,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>Preset</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2_StopModes+ChartPreset, 1f90919cd0e84ef6bfcc376761928354, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2_StopModes+ChartPreset, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Custom</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -89,7 +89,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SideAnchor</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2_StopModes+AnchorMode, 1f90919cd0e84ef6bfcc376761928354, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2_StopModes+AnchorMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>None</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -235,7 +235,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2_StopModes+ExitSlopeMode, 1f90919cd0e84ef6bfcc376761928354, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2_StopModes+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Hysteresis</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -363,7 +363,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>StopModeSelection</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2_StopModes+StopMode, 1f90919cd0e84ef6bfcc376761928354, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2_StopModes+StopMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>AtrStep</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -645,7 +645,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>Momentum_V2 NQ 1B 15min</Name>
+      <Name>Momentum_V2 NQ 1B </Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -700,7 +700,7 @@
       <TradingHoursSerializable>CME US Index Futures RTH</TradingHoursSerializable>
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
-      <EnableTrinityFilter>false</EnableTrinityFilter>
+      <EnableTrinityFilter>true</EnableTrinityFilter>
       <DebugEntryFilters>false</DebugEntryFilters>
       <Contracts>1</Contracts>
       <Preset>Custom</Preset>
@@ -746,23 +746,23 @@
       <DailyProfitTarget>1000</DailyProfitTarget>
       <DailyLossLimit>500</DailyLossLimit>
       <MaxWins>5</MaxWins>
-      <MaxLosses>3</MaxLosses>
+      <MaxLosses>10</MaxLosses>
       <FlattenOnTrigger>true</FlattenOnTrigger>
       <ResetOnNewSession>true</ResetOnNewSession>
       <GuardsIgnoreHistorical>true</GuardsIgnoreHistorical>
       <EnableTimeFilter>true</EnableTimeFilter>
-      <StartTime1>95000</StartTime1>
-      <EndTime1>113000</EndTime1>
+      <StartTime1>93000</StartTime1>
+      <EndTime1>150000</EndTime1>
       <BlockOpen>true</BlockOpen>
       <OpenBlockStart>93000</OpenBlockStart>
-      <OpenBlockEnd>94900</OpenBlockEnd>
+      <OpenBlockEnd>94000</OpenBlockEnd>
       <BlockNews>true</BlockNews>
-      <NewsBlockStart>105500</NewsBlockStart>
-      <NewsBlockEnd>103500</NewsBlockEnd>
+      <NewsBlockStart>95500</NewsBlockStart>
+      <NewsBlockEnd>112900</NewsBlockEnd>
       <BlockLunch>true</BlockLunch>
-      <LunchBlockStart>145000</LunchBlockStart>
-      <LunchBlockEnd>151000</LunchBlockEnd>
-      <FlattenNearEnd>false</FlattenNearEnd>
+      <LunchBlockStart>113000</LunchBlockStart>
+      <LunchBlockEnd>122500</LunchBlockEnd>
+      <FlattenNearEnd>true</FlattenNearEnd>
       <FlattenBufferSeconds>300</FlattenBufferSeconds>
     </MomentumSlopeStrategy_V2_StopModes>
   </Strategy>
