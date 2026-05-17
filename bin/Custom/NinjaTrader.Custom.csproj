@@ -607,6 +607,9 @@
     <Compile Include="Indicators\NT8TradeExportAutoWriter.cs" />
     <Compile Include="Strategies\MomentumSlopeOG_V2_StopModes.cs" />
     <Compile Include="Strategies\V3DPermissionMode.cs" />
+    <Compile Include="Strategies\FaderV3D.cs" />
+    <Compile Include="Strategies\V3_Expansion_Rider_V3C.cs" />
+    <Compile Include="Strategies\V3_Value_Fader_V3C.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
