@@ -36,14 +36,14 @@
     <ArrayOfParameter xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <Parameter>
         <EnumValuesSerializable>
-          <string>B_FullTrinity</string>
+          <string>C_SoftTrinity</string>
         </EnumValuesSerializable>
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>PermissionMode</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.V3DPermissionMode, e80cc402b8bb4fb59900325599b82861, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
-        <ValueSerializable>B_FullTrinity</ValueSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.V3DPermissionMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ValueSerializable>C_SoftTrinity</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -160,7 +160,7 @@
         <Min xsi:type="xsd:int">2</Min>
         <Name>MaxConsecutiveLosses</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>10</ValueSerializable>
+        <ValueSerializable>2</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -230,7 +230,7 @@
       <Calculate>OnBarClose</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2099-12-01T00:00:00</From>
+      <From>2026-05-11T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -239,7 +239,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>1800-01-01T00:00:00</To>
+      <To>2026-05-16T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -264,6 +264,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
+      <InstrumentOrInstrumentList>ES JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -291,13 +292,13 @@
       <PermissionMode>C_SoftTrinity</PermissionMode>
       <BaselineSizePct>50</BaselineSizePct>
       <SoftSizePctFloor>50</SoftSizePctFloor>
-      <AccountNameFilter>SimV3D-ES-4C</AccountNameFilter>
-      <ConfiguredStrategyName>Sniper_V3D ES 4C</ConfiguredStrategyName>
+      <AccountNameFilter>SimV3D-NQ-4A;SimV3D-NQ-4B;SimV3D-NQ-4C;SimV3D-ES-4A;SimV3D-ES-4B;SimV3D-ES-4C</AccountNameFilter>
+      <ConfiguredStrategyName>Sniper_V3D</ConfiguredStrategyName>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
       <TargetAtr>0.75</TargetAtr>
       <StopAtr>1</StopAtr>
       <AtrPeriod>14</AtrPeriod>
-      <TickValueDollars>5</TickValueDollars>
+      <TickValueDollars>12.5</TickValueDollars>
       <FastEmaPeriod>9</FastEmaPeriod>
       <SlowEmaPeriod>21</SlowEmaPeriod>
       <IbExtensionMin>0.35</IbExtensionMin>
