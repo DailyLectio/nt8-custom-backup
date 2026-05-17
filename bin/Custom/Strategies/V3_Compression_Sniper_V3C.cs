@@ -77,6 +77,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="Max Consecutive Losses", Description="Opens circuit breaker after N consecutive stop-outs.", GroupName="2. Risk Management", Order=6)]
         public int MaxConsecutiveLosses { get; set; } = 4; // [PATCH P1] NEW
 
+        // ===== 5. SAME-DIRECTION CAP =====
+        [NinjaScriptProperty, Range(0, 20)]
+        [Display(Name="Max Same-Direction Trades", Description="Caps consecutive same-direction entries per session. 0 = OFF (no limit). Counter resets on a direction flip and at session start. Week-2 baseline = 0.", GroupName="5. Same-Direction Cap", Order=0)]
+        public int MaxSameDirTrades { get; set; } = 0;
+
         // ===== 3. INDICATOR TUNING =====
         [NinjaScriptProperty, Range(1, 200)]
         [Display(Name="Fast EMA Period", Description="The trigger line to cross back over.", GroupName="3. Indicator Tuning", Order=0)]
@@ -97,6 +102,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         private int _consecutiveLosses    = 0;
         private int _lastExitBar          = -99;
         private bool _sessionCircuitOpen  = false;
+
+        // Same-direction cap state (SF-27). Param default 0 = OFF.
+        private int  _sameDirCount  = 0;
+        private int  _lastEntryDir  = 0;   // 1 = long, -1 = short
+        private bool _dirRegistered = false;
 
         protected override void OnStateChange()
         {
@@ -129,6 +139,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             _consecutiveLosses   = 0;
             _lastExitBar         = -99;
             _sessionCircuitOpen  = false;
+            ResetSameDirCounter();
 
             DebugGate("New session started - counters reset.");
         }
@@ -184,7 +195,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     bool touchedSlowEma  = Low[1] <= slowEma[1];
                     bool closedAboveFast = Close[0] > fastEma[0] && Close[1] <= fastEma[1];
 
-                    if (touchedSlowEma && closedAboveFast)
+                    if (touchedSlowEma && closedAboveFast && !SameDirBlocked(1))
                     {
                         SetStopLoss("SnipeL",   CalculationMode.Ticks, riskTicks,   false);
                         SetProfitTarget("SnipeL", CalculationMode.Ticks, rewardTicks);
@@ -204,7 +215,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     bool touchedSlowEma  = High[1] >= slowEma[1];
                     bool closedBelowFast = Close[0] < fastEma[0] && Close[1] >= fastEma[1];
 
-                    if (touchedSlowEma && closedBelowFast)
+                    if (touchedSlowEma && closedBelowFast && !SameDirBlocked(-1))
                     {
                         SetStopLoss("SnipeS",   CalculationMode.Ticks, riskTicks,   false);
                         SetProfitTarget("SnipeS", CalculationMode.Ticks, rewardTicks);
@@ -275,10 +286,41 @@ namespace NinjaTrader.NinjaScript.Strategies
                 Print($"{Time[0]} {Name}: {message}");
         }
 
+        // ===== SAME-DIRECTION CAP (SF-27) =====
+        private bool SameDirBlocked(int dir)
+        {
+            return MaxSameDirTrades > 0
+                && dir == _lastEntryDir
+                && _sameDirCount >= MaxSameDirTrades;
+        }
+
+        private void RegisterDirEntry(int dir)
+        {
+            if (dir == _lastEntryDir) _sameDirCount++;
+            else { _lastEntryDir = dir; _sameDirCount = 1; }
+        }
+
+        private void ResetSameDirCounter()
+        {
+            _sameDirCount = 0;
+            _lastEntryDir = 0;
+        }
+
         protected override void OnExecutionUpdate(Execution execution, string executionId,
             double price, int quantity, MarketPosition marketPosition, string orderId, DateTime time)
         {
             _logger?.OnExecution(execution, null);
+
+            // Same-direction cap: register once per position on the first entry fill.
+            if (execution.Order != null && !_dirRegistered)
+            {
+                if (execution.Order.OrderAction == OrderAction.Buy)
+                    { RegisterDirEntry(1);  _dirRegistered = true; }
+                else if (execution.Order.OrderAction == OrderAction.SellShort)
+                    { RegisterDirEntry(-1); _dirRegistered = true; }
+            }
+            if (marketPosition == MarketPosition.Flat)
+                _dirRegistered = false;
 
             // [PATCH P1] Track exit bar and consecutive losses for circuit breaker
             if (execution.Order != null &&

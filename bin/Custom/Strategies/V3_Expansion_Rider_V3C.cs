@@ -94,6 +94,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="Cooldown Minutes", Description="Minutes to wait after going flat before a new entry is allowed. Default 5.", GroupName="4. Entry Cooldown", Order=1)]
         public int CooldownMinutes { get; set; } = 5;
 
+        // ===== 5. SAME-DIRECTION CAP =====
+        [NinjaScriptProperty, Range(0, 20)]
+        [Display(Name="Max Same-Direction Trades", Description="Caps consecutive same-direction entries per session. 0 = OFF (no limit). Counter resets on a direction flip and at session start. Week-2 baseline = 0.", GroupName="5. Same-Direction Cap", Order=0)]
+        public int MaxSameDirTrades { get; set; } = 0;
+
         // ===== 2. INTERNAL STATE =====
         private ATR atr;
         private int bricksInExpansion = 0;
@@ -110,6 +115,11 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         // Time gate + entry cooldown state (C1/C2)
         private DateTime lastExitTime = DateTime.MinValue;
+
+        // Same-direction cap state (SF-27). Param default 0 = OFF.
+        private int  _sameDirCount  = 0;
+        private int  _lastEntryDir  = 0;   // 1 = long, -1 = short
+        private bool _dirRegistered = false;
 
         // Stage 1 trade logger
         private V3CTradeLogger _logger;
@@ -149,6 +159,8 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (CurrentBar < 20) return;
 
+            if (Bars.IsFirstBarOfSession) ResetSameDirCounter();
+
             // 1. V3C REGIME GATEKEEPER
             bool expansionAllowed = IsExpansionAllowed(out bool allowLong, out bool allowShort);
             bool contractsValid = TotalContracts >= 2 && TotalContracts % 2 == 0;
@@ -181,7 +193,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     bool isRedBrick = Close[0] < Open[0];
                     double riskTicks = (atr[0] * InitialRiskAtr) / TickSize;
 
-                    if (isGreenBrick && allowLong)
+                    if (isGreenBrick && allowLong && !SameDirBlocked(1))
                     {
                         double stp  = Close[0] - (riskTicks * TickSize);
                         double tgt1 = Close[0] + (riskTicks * TickSize);
@@ -197,7 +209,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                         awaitingLeg2     = true;
                         tradeDir         = 1;
                     }
-                    else if (isRedBrick && allowShort)
+                    else if (isRedBrick && allowShort && !SameDirBlocked(-1))
                     {
                         double stp  = Close[0] + (riskTicks * TickSize);
                         double tgt1 = Close[0] - (riskTicks * TickSize);
@@ -405,6 +417,26 @@ namespace NinjaTrader.NinjaScript.Strategies
             return (Time[0] - lastExitTime).TotalMinutes >= CooldownMinutes;
         }
 
+        // ===== SAME-DIRECTION CAP (SF-27) =====
+        private bool SameDirBlocked(int dir)
+        {
+            return MaxSameDirTrades > 0
+                && dir == _lastEntryDir
+                && _sameDirCount >= MaxSameDirTrades;
+        }
+
+        private void RegisterDirEntry(int dir)
+        {
+            if (dir == _lastEntryDir) _sameDirCount++;
+            else { _lastEntryDir = dir; _sameDirCount = 1; }
+        }
+
+        private void ResetSameDirCounter()
+        {
+            _sameDirCount = 0;
+            _lastEntryDir = 0;
+        }
+
         // =========================================================================
         // STAGE 1 TRADE LOGGING — delegates to V3CTradeLogger
         // =========================================================================
@@ -414,9 +446,21 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             _logger?.OnExecution(execution, null);
 
+            // Same-direction cap: register once per position on the first entry fill (Leg1).
+            if (execution.Order != null && !_dirRegistered)
+            {
+                if (execution.Order.OrderAction == OrderAction.Buy)
+                    { RegisterDirEntry(1);  _dirRegistered = true; }
+                else if (execution.Order.OrderAction == OrderAction.SellShort)
+                    { RegisterDirEntry(-1); _dirRegistered = true; }
+            }
+
             // C2: stamp the moment the position goes fully flat — starts the entry cooldown.
             if (marketPosition == MarketPosition.Flat)
+            {
                 lastExitTime = time;
+                _dirRegistered = false;
+            }
         }
 
         protected override void OnOrderUpdate(Order order, double limitPrice, double stopPrice,
