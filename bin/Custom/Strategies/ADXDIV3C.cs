@@ -254,6 +254,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         private double trailingStopShort = double.NaN;
         private V3CTradeLogger _logger;
 
+        // Same-direction cap state (SF-27). Param default 0 = OFF.
+        private int  _sameDirCount  = 0;
+        private int  _lastEntryDir  = 0;   // 1 = long, -1 = short
+        private bool _dirRegistered = false;
+
         private double RT(double p) => Instrument.MasterInstrument.RoundToTickSize(p);
 
         private double BarNStopLong() {
@@ -280,6 +285,31 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (AllowRthAm && hhmm >= RthAmStartHHmm && hhmm <= RthAmEndHHmm) allowed = true;
             if (AllowRthPm && hhmm >= RthPmStartHHmm && hhmm <= RthPmEndHHmm) allowed = true;
             return allowed;
+        }
+
+        // ===== 5. SAME-DIRECTION CAP =====
+        [NinjaScriptProperty, Range(0, 20)]
+        [Display(Name = "Max Same-Direction Trades", Description = "Caps consecutive same-direction entries per session. 0 = OFF (no limit). Counter resets on a direction flip and at session start. Week-2 baseline = 0.", GroupName = "5. Same-Direction Cap", Order = 1)]
+        public int MaxSameDirTrades { get; set; } = 0;
+
+        // ===== SAME-DIRECTION CAP HELPERS (SF-27) =====
+        private bool SameDirBlocked(int dir)
+        {
+            return MaxSameDirTrades > 0
+                && dir == _lastEntryDir
+                && _sameDirCount >= MaxSameDirTrades;
+        }
+
+        private void RegisterDirEntry(int dir)
+        {
+            if (dir == _lastEntryDir) _sameDirCount++;
+            else { _lastEntryDir = dir; _sameDirCount = 1; }
+        }
+
+        private void ResetSameDirCounter()
+        {
+            _sameDirCount = 0;
+            _lastEntryDir = 0;
         }
 
         protected override void OnStateChange()
@@ -326,6 +356,8 @@ namespace NinjaTrader.NinjaScript.Strategies
             diPlusSeries[0] = 100.0 * (sumDmPlus[0] / sTr); diMinusSeries[0] = 100.0 * (sumDmMinus[0] / sTr);
 
             if (CurrentBar < Math.Max(AdxPeriod, AtrPeriod) + 2) return;
+
+            if (Bars.IsFirstBarOfSession) ResetSameDirCounter();
 
             bool crossUp = diPlusSeries[0] > diMinusSeries[0] && diPlusSeries[1] <= diMinusSeries[1];
             bool crossDn = diPlusSeries[0] < diMinusSeries[0] && diPlusSeries[1] >= diMinusSeries[1];
@@ -385,11 +417,11 @@ namespace NinjaTrader.NinjaScript.Strategies
                 }
                 // =========================================================================
 
-                if (allowLongHud && EntryTimeAllowed() && adx[0] > LevelRange && crossUp) 
+                if (allowLongHud && EntryTimeAllowed() && adx[0] > LevelRange && crossUp && !SameDirBlocked(1))
                 {
                     SubmitLongWithCatStops();
                 }
-                else if (allowShortHud && EntryTimeAllowed() && adx[0] > LevelRange && crossDn) 
+                else if (allowShortHud && EntryTimeAllowed() && adx[0] > LevelRange && crossDn && !SameDirBlocked(-1))
                 {
                     SubmitShortWithCatStops();
                 }
@@ -463,6 +495,17 @@ namespace NinjaTrader.NinjaScript.Strategies
             DateTime time)
         {
             _logger?.OnExecution(execution, null);
+
+            // Same-direction cap: register once per position on the first entry fill.
+            if (execution.Order != null && !_dirRegistered)
+            {
+                if (execution.Order.OrderAction == OrderAction.Buy)
+                    { RegisterDirEntry(1);  _dirRegistered = true; }
+                else if (execution.Order.OrderAction == OrderAction.SellShort)
+                    { RegisterDirEntry(-1); _dirRegistered = true; }
+            }
+            if (marketPosition == MarketPosition.Flat)
+                _dirRegistered = false;
         }
 
         protected override void OnOrderUpdate(Order order, double limitPrice, double stopPrice,

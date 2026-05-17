@@ -53,6 +53,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="Min Reversal Bars", Description="Consecutive reversal bricks required after band touch before entry fires. Default 2 filters premature entries.", GroupName="2. Risk Management", Order=3)]
         public int MinReversalBars { get; set; } = 2;
 
+        // ===== 5. SAME-DIRECTION CAP =====
+        [NinjaScriptProperty, Range(0, 20)]
+        [Display(Name="Max Same-Direction Trades", Description="Caps consecutive same-direction entries per session. 0 = OFF (no limit). Counter resets on a direction flip and at session start. Week-2 baseline = 0.", GroupName="5. Same-Direction Cap", Order=0)]
+        public int MaxSameDirTrades { get; set; } = 0;
+
         // ===== 3. INDICATOR TUNING =====
         [NinjaScriptProperty, Range(5, 100)]
         [Display(Name="Bollinger Period", Description="Defines the moving Mean value.", GroupName="3. Value Mapper", Order=0)]
@@ -62,12 +67,48 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="Bollinger StdDev", Description="Defines the extreme Edges of the bracket.", GroupName="3. Value Mapper", Order=1)]
         public double BollingerDev { get; set; } = 2.0;
 
+        // ===== 4. TIME GATE (C1) =====
+        // Blocks NEW entries during up to three configurable HHmm windows.
+        // Existing-position management is never affected.
+        [NinjaScriptProperty]
+        [Display(Name="Enable Time Blocks", Description="When true, new entries are blocked during the configured HHmm windows below.", GroupName="4. Time Gate", Order=0)]
+        public bool EnableTimeBlocks { get; set; } = false;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 1 Start (HHmm)", Description="Start of blocked entry window, 24h HHmm (e.g. 1000). 0 = window unused.", GroupName="4. Time Gate", Order=1)]
+        public int Block1Start { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 1 End (HHmm)", Description="End of blocked entry window, exclusive (e.g. 1130). 0 = window unused.", GroupName="4. Time Gate", Order=2)]
+        public int Block1End { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 2 Start (HHmm)", Description="Second blocked window start. 0 = unused.", GroupName="4. Time Gate", Order=3)]
+        public int Block2Start { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 2 End (HHmm)", Description="Second blocked window end, exclusive. 0 = unused.", GroupName="4. Time Gate", Order=4)]
+        public int Block2End { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 3 Start (HHmm)", Description="Third blocked window start. 0 = unused.", GroupName="4. Time Gate", Order=5)]
+        public int Block3Start { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 3 End (HHmm)", Description="Third blocked window end, exclusive. 0 = unused.", GroupName="4. Time Gate", Order=6)]
+        public int Block3End { get; set; } = 0;
+
         // ===== INTERNAL STATE =====
         private ATR atr;
         private Bollinger bb;
         private V3CTradeLogger _logger;
         private int longReversalCount  = 0;
         private int shortReversalCount = 0;
+
+        // Same-direction cap state (SF-27). Param default 0 = OFF.
+        private int  _sameDirCount  = 0;
+        private int  _lastEntryDir  = 0;   // 1 = long, -1 = short
+        private bool _dirRegistered = false;
 
         protected override void OnStateChange()
         {
@@ -96,6 +137,8 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (CurrentBar < BollingerPeriod + MinReversalBars + 1) return;
 
+            if (Bars.IsFirstBarOfSession) ResetSameDirCounter();
+
             // Track consecutive reversal bricks for entry confirmation
             if      (Close[0] > Open[0]) { longReversalCount++;  shortReversalCount = 0; }
             else if (Close[0] < Open[0]) { shortReversalCount++; longReversalCount  = 0; }
@@ -113,6 +156,9 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 int riskTicks = Math.Max(1, (int)Math.Round((atr[0] * StopAtr) / TickSize));
 
+                bool timeBlocked = InBlockedWindow();
+                if (timeBlocked) DebugGate("Blocked: inside configured time block");
+
                 // ---------------------------------------------------------------------
                 // LONG FADE: band touched MinReversalBars+ bars ago, then N green bricks
                 // Requires MinReversalBars consecutive green bricks ending on current bar.
@@ -121,7 +167,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 bool touchedLowerEdge = Low[MinReversalBars]     <= bb.Lower[MinReversalBars]
                                      || Low[MinReversalBars + 1] <= bb.Lower[MinReversalBars + 1];
 
-                if (allowLong && touchedLowerEdge && isGreenBrick && longReversalCount >= MinReversalBars)
+                if (allowLong && touchedLowerEdge && isGreenBrick && longReversalCount >= MinReversalBars && !SameDirBlocked(1) && !timeBlocked)
                 {
                     double distanceToMeanTicks = (bb.Middle[0] - Close[0]) / TickSize;
                     int targetTicks = Math.Max(1, (int)Math.Round(distanceToMeanTicks));
@@ -140,7 +186,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 bool touchedUpperEdge = High[MinReversalBars]     >= bb.Upper[MinReversalBars]
                                      || High[MinReversalBars + 1] >= bb.Upper[MinReversalBars + 1];
 
-                if (allowShort && touchedUpperEdge && isRedBrick && shortReversalCount >= MinReversalBars)
+                if (allowShort && touchedUpperEdge && isRedBrick && shortReversalCount >= MinReversalBars && !SameDirBlocked(-1) && !timeBlocked)
                 {
                     double distanceToMeanTicks = (Close[0] - bb.Middle[0]) / TickSize;
                     int targetTicks = Math.Max(1, (int)Math.Round(distanceToMeanTicks));
@@ -240,11 +286,62 @@ namespace NinjaTrader.NinjaScript.Strategies
                 Print($"{Time[0]} {Name} V3C Gate: {message}");
         }
 
+        // ===== SAME-DIRECTION CAP (SF-27) =====
+        private bool SameDirBlocked(int dir)
+        {
+            return MaxSameDirTrades > 0
+                && dir == _lastEntryDir
+                && _sameDirCount >= MaxSameDirTrades;
+        }
+
+        private void RegisterDirEntry(int dir)
+        {
+            if (dir == _lastEntryDir) _sameDirCount++;
+            else { _lastEntryDir = dir; _sameDirCount = 1; }
+        }
+
+        private void ResetSameDirCounter()
+        {
+            _sameDirCount = 0;
+            _lastEntryDir = 0;
+        }
+
+        // ===== C1: TIME GATE =====
+        // Returns true if the current bar time falls inside any enabled blocked window.
+        private bool InBlockedWindow()
+        {
+            if (!EnableTimeBlocks) return false;
+
+            int hhmm = Time[0].Hour * 100 + Time[0].Minute;
+            return IsInBlock(hhmm, Block1Start, Block1End)
+                || IsInBlock(hhmm, Block2Start, Block2End)
+                || IsInBlock(hhmm, Block3Start, Block3End);
+        }
+
+        private bool IsInBlock(int hhmm, int start, int end)
+        {
+            if (start == 0 && end == 0) return false;          // unused window
+            if (end > start) return hhmm >= start && hhmm < end;
+            if (end < start) return hhmm >= start || hhmm < end; // window wraps midnight
+            return false;
+        }
+
         protected override void OnExecutionUpdate(Execution execution, string executionId,
             double price, int quantity, MarketPosition marketPosition, string orderId,
             DateTime time)
         {
             _logger?.OnExecution(execution, null);
+
+            // Same-direction cap: register once per position on the first entry fill.
+            if (execution.Order != null && !_dirRegistered)
+            {
+                if (execution.Order.OrderAction == OrderAction.Buy)
+                    { RegisterDirEntry(1);  _dirRegistered = true; }
+                else if (execution.Order.OrderAction == OrderAction.SellShort)
+                    { RegisterDirEntry(-1); _dirRegistered = true; }
+            }
+            if (marketPosition == MarketPosition.Flat)
+                _dirRegistered = false;
         }
 
         protected override void OnOrderUpdate(Order order, double limitPrice, double stopPrice,

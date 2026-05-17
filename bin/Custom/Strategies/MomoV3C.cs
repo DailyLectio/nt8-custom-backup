@@ -548,6 +548,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (Bars.IsFirstBarOfSession)
             {
                 cumPV = 0; cumVol = 0; hystFailCount = 0;
+                ResetSameDirCounter();
                 if (ResetOnNewSession)
                 {
                     sessionPnLBaseline = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit;
@@ -665,9 +666,9 @@ namespace NinjaTrader.NinjaScript.Strategies
                 bool doLong  = UseDiCrossEntry ? crossUp   : (SideAnchor == AnchorMode.None ? true : Close[0] >= anchor);
                 bool doShort = UseDiCrossEntry ? crossDown : (SideAnchor == AnchorMode.None ? true : Close[0] <= anchor);
 
-                if (doLong && anchorLongOK && AllowLongs)
+                if (doLong && anchorLongOK && AllowLongs && !SameDirBlocked(1))
                     SubmitLongWithStops();
-                else if (doShort && anchorShortOK && AllowShorts)
+                else if (doShort && anchorShortOK && AllowShorts && !SameDirBlocked(-1))
                     SubmitShortWithStops();
             }
 
@@ -751,11 +752,51 @@ namespace NinjaTrader.NinjaScript.Strategies
             EnterShort(execSeries, Contracts, SEntry);
         }
 
+        // ===== 5. SAME-DIRECTION CAP =====
+        [NinjaScriptProperty, Range(0, 20)]
+        [Display(Name = "Max Same-Direction Trades", Description = "Caps consecutive same-direction entries per session. 0 = OFF (no limit). Counter resets on a direction flip and at session start. Week-2 baseline = 0.", GroupName = "5. Same-Direction Cap", Order = 1)]
+        public int MaxSameDirTrades { get; set; } = 0;
+
+        // Same-direction cap state (SF-27). Param default 0 = OFF.
+        private int  _sameDirCount  = 0;
+        private int  _lastEntryDir  = 0;   // 1 = long, -1 = short
+        private bool _dirRegistered = false;
+
+        private bool SameDirBlocked(int dir)
+        {
+            return MaxSameDirTrades > 0
+                && dir == _lastEntryDir
+                && _sameDirCount >= MaxSameDirTrades;
+        }
+
+        private void RegisterDirEntry(int dir)
+        {
+            if (dir == _lastEntryDir) _sameDirCount++;
+            else { _lastEntryDir = dir; _sameDirCount = 1; }
+        }
+
+        private void ResetSameDirCounter()
+        {
+            _sameDirCount = 0;
+            _lastEntryDir = 0;
+        }
+
         protected override void OnExecutionUpdate(Execution execution, string executionId,
             double price, int quantity, MarketPosition marketPosition, string orderId,
             DateTime time)
         {
             _logger?.OnExecution(execution, null);
+
+            // Same-direction cap: register once per position on the first entry fill.
+            if (execution.Order != null && !_dirRegistered)
+            {
+                if (execution.Order.OrderAction == OrderAction.Buy)
+                    { RegisterDirEntry(1);  _dirRegistered = true; }
+                else if (execution.Order.OrderAction == OrderAction.SellShort)
+                    { RegisterDirEntry(-1); _dirRegistered = true; }
+            }
+            if (marketPosition == MarketPosition.Flat)
+                _dirRegistered = false;
         }
 
         protected override void OnOrderUpdate(Order order, double limitPrice, double stopPrice,

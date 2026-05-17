@@ -54,6 +54,51 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="Leg2 Profit Gate (% of Leg1 target)", Description="Leg2 fires only after Leg1 has reached this fraction of its target distance. 0.5 = 50%. Set to 0 to restore simultaneous entry.", GroupName="2. Risk Management", Order=3)]
         public double Leg2ProfitGatePct { get; set; } = 0.5;
 
+        // ===== 3. TIME GATE (C1) =====
+        // Blocks NEW entries during up to three configurable HHmm windows.
+        // Position management (Leg2, wobble exit, trailing) is never affected.
+        [NinjaScriptProperty]
+        [Display(Name="Enable Time Blocks", Description="When true, new entries are blocked during the configured HHmm windows below.", GroupName="3. Time Gate", Order=0)]
+        public bool EnableTimeBlocks { get; set; } = false;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 1 Start (HHmm)", Description="Start of blocked entry window, 24h HHmm (e.g. 1000). 0 = window unused.", GroupName="3. Time Gate", Order=1)]
+        public int Block1Start { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 1 End (HHmm)", Description="End of blocked entry window, exclusive (e.g. 1130). 0 = window unused.", GroupName="3. Time Gate", Order=2)]
+        public int Block1End { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 2 Start (HHmm)", Description="Second blocked window start. 0 = unused.", GroupName="3. Time Gate", Order=3)]
+        public int Block2Start { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 2 End (HHmm)", Description="Second blocked window end, exclusive. 0 = unused.", GroupName="3. Time Gate", Order=4)]
+        public int Block2End { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 3 Start (HHmm)", Description="Third blocked window start. 0 = unused.", GroupName="3. Time Gate", Order=5)]
+        public int Block3Start { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 3 End (HHmm)", Description="Third blocked window end, exclusive. 0 = unused.", GroupName="3. Time Gate", Order=6)]
+        public int Block3End { get; set; } = 0;
+
+        // ===== 4. ENTRY COOLDOWN (C2) =====
+        [NinjaScriptProperty]
+        [Display(Name="Enable Entry Cooldown", Description="When true, a new entry is blocked until Cooldown Minutes have elapsed since the last position closed flat.", GroupName="4. Entry Cooldown", Order=0)]
+        public bool EnableEntryCooldown { get; set; } = true;
+
+        [NinjaScriptProperty, Range(0, 120)]
+        [Display(Name="Cooldown Minutes", Description="Minutes to wait after going flat before a new entry is allowed. Default 5.", GroupName="4. Entry Cooldown", Order=1)]
+        public int CooldownMinutes { get; set; } = 5;
+
+        // ===== 5. SAME-DIRECTION CAP =====
+        [NinjaScriptProperty, Range(0, 20)]
+        [Display(Name="Max Same-Direction Trades", Description="Caps consecutive same-direction entries per session. 0 = OFF (no limit). Counter resets on a direction flip and at session start. Week-2 baseline = 0.", GroupName="5. Same-Direction Cap", Order=0)]
+        public int MaxSameDirTrades { get; set; } = 0;
+
         // ===== 2. INTERNAL STATE =====
         private ATR atr;
         private int bricksInExpansion = 0;
@@ -67,6 +112,14 @@ namespace NinjaTrader.NinjaScript.Strategies
         private double leg1EntryPrice  = 0.0;
         private double leg1TargetPrice = 0.0;
         private int    tradeDir        = 0;   // 1 = long, -1 = short
+
+        // Time gate + entry cooldown state (C1/C2)
+        private DateTime lastExitTime = DateTime.MinValue;
+
+        // Same-direction cap state (SF-27). Param default 0 = OFF.
+        private int  _sameDirCount  = 0;
+        private int  _lastEntryDir  = 0;   // 1 = long, -1 = short
+        private bool _dirRegistered = false;
 
         // Stage 1 trade logger
         private V3CTradeLogger _logger;
@@ -106,6 +159,8 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (CurrentBar < 20) return;
 
+            if (Bars.IsFirstBarOfSession) ResetSameDirCounter();
+
             // 1. V3C REGIME GATEKEEPER
             bool expansionAllowed = IsExpansionAllowed(out bool allowLong, out bool allowShort);
             bool contractsValid = TotalContracts >= 2 && TotalContracts % 2 == 0;
@@ -126,13 +181,19 @@ namespace NinjaTrader.NinjaScript.Strategies
             {
                 ClearLocals();
 
-                if (expansionAllowed && bricksInExpansion >= WaitBricks)
+                bool timeBlocked = InBlockedWindow();
+                bool cooldownOk  = CooldownElapsed();
+
+                if (timeBlocked)  DebugGate("Blocked: inside configured time block");
+                if (!cooldownOk)  DebugGate("Blocked: entry cooldown active");
+
+                if (expansionAllowed && bricksInExpansion >= WaitBricks && !timeBlocked && cooldownOk)
                 {
                     bool isGreenBrick = Close[0] > Open[0];
                     bool isRedBrick = Close[0] < Open[0];
                     double riskTicks = (atr[0] * InitialRiskAtr) / TickSize;
 
-                    if (isGreenBrick && allowLong)
+                    if (isGreenBrick && allowLong && !SameDirBlocked(1))
                     {
                         double stp  = Close[0] - (riskTicks * TickSize);
                         double tgt1 = Close[0] + (riskTicks * TickSize);
@@ -148,7 +209,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                         awaitingLeg2     = true;
                         tradeDir         = 1;
                     }
-                    else if (isRedBrick && allowShort)
+                    else if (isRedBrick && allowShort && !SameDirBlocked(-1))
                     {
                         double stp  = Close[0] + (riskTicks * TickSize);
                         double tgt1 = Close[0] - (riskTicks * TickSize);
@@ -327,6 +388,55 @@ namespace NinjaTrader.NinjaScript.Strategies
                 Print($"{Time[0]} {Name} V3C Gate: {message}");
         }
 
+        // ===== C1: TIME GATE =====
+        // Returns true if the current bar time falls inside any enabled blocked window.
+        private bool InBlockedWindow()
+        {
+            if (!EnableTimeBlocks) return false;
+
+            int hhmm = Time[0].Hour * 100 + Time[0].Minute;
+            return IsInBlock(hhmm, Block1Start, Block1End)
+                || IsInBlock(hhmm, Block2Start, Block2End)
+                || IsInBlock(hhmm, Block3Start, Block3End);
+        }
+
+        private bool IsInBlock(int hhmm, int start, int end)
+        {
+            if (start == 0 && end == 0) return false;          // unused window
+            if (end > start) return hhmm >= start && hhmm < end;
+            if (end < start) return hhmm >= start || hhmm < end; // window wraps midnight
+            return false;
+        }
+
+        // ===== C2: ENTRY COOLDOWN =====
+        // Returns true if enough time has elapsed since the last flat to allow a new entry.
+        private bool CooldownElapsed()
+        {
+            if (!EnableEntryCooldown) return true;
+            if (lastExitTime == DateTime.MinValue) return true;   // no prior exit this run
+            return (Time[0] - lastExitTime).TotalMinutes >= CooldownMinutes;
+        }
+
+        // ===== SAME-DIRECTION CAP (SF-27) =====
+        private bool SameDirBlocked(int dir)
+        {
+            return MaxSameDirTrades > 0
+                && dir == _lastEntryDir
+                && _sameDirCount >= MaxSameDirTrades;
+        }
+
+        private void RegisterDirEntry(int dir)
+        {
+            if (dir == _lastEntryDir) _sameDirCount++;
+            else { _lastEntryDir = dir; _sameDirCount = 1; }
+        }
+
+        private void ResetSameDirCounter()
+        {
+            _sameDirCount = 0;
+            _lastEntryDir = 0;
+        }
+
         // =========================================================================
         // STAGE 1 TRADE LOGGING — delegates to V3CTradeLogger
         // =========================================================================
@@ -335,6 +445,22 @@ namespace NinjaTrader.NinjaScript.Strategies
             DateTime time)
         {
             _logger?.OnExecution(execution, null);
+
+            // Same-direction cap: register once per position on the first entry fill (Leg1).
+            if (execution.Order != null && !_dirRegistered)
+            {
+                if (execution.Order.OrderAction == OrderAction.Buy)
+                    { RegisterDirEntry(1);  _dirRegistered = true; }
+                else if (execution.Order.OrderAction == OrderAction.SellShort)
+                    { RegisterDirEntry(-1); _dirRegistered = true; }
+            }
+
+            // C2: stamp the moment the position goes fully flat — starts the entry cooldown.
+            if (marketPosition == MarketPosition.Flat)
+            {
+                lastExitTime = time;
+                _dirRegistered = false;
+            }
         }
 
         protected override void OnOrderUpdate(Order order, double limitPrice, double stopPrice,
