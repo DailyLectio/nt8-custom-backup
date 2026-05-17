@@ -79,6 +79,105 @@
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>3</ValueSerializable>
       </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:double">0.5</Max>
+        <Min xsi:type="xsd:double">0.5</Min>
+        <Name>Leg2ProfitGatePct</Name>
+        <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0.5</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:boolean">false</Max>
+        <Min xsi:type="xsd:boolean">false</Min>
+        <Name>EnableTimeBlocks</Name>
+        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>False</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">0</Max>
+        <Min xsi:type="xsd:int">0</Min>
+        <Name>Block1Start</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">0</Max>
+        <Min xsi:type="xsd:int">0</Min>
+        <Name>Block1End</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">0</Max>
+        <Min xsi:type="xsd:int">0</Min>
+        <Name>Block2Start</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">0</Max>
+        <Min xsi:type="xsd:int">0</Min>
+        <Name>Block2End</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">0</Max>
+        <Min xsi:type="xsd:int">0</Min>
+        <Name>Block3Start</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">0</Max>
+        <Min xsi:type="xsd:int">0</Min>
+        <Name>Block3End</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:boolean">true</Max>
+        <Min xsi:type="xsd:boolean">true</Min>
+        <Name>EnableEntryCooldown</Name>
+        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>True</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">5</Max>
+        <Min xsi:type="xsd:int">5</Min>
+        <Name>CooldownMinutes</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>5</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">0</Max>
+        <Min xsi:type="xsd:int">0</Min>
+        <Name>MaxSameDirTrades</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0</ValueSerializable>
+      </Parameter>
     </ArrayOfParameter>
   </OptimizationParameters>
   <Strategy>
@@ -106,7 +205,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>V3_Expansion_Rider_V3C NQ 1A</Name>
+      <Name>V3_Expansion_Rider_V3C NQ 1B</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -160,13 +259,24 @@
       <TradingHoursSerializable />
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
-      <EnableTrinityFilter>false</EnableTrinityFilter>
+      <EnableTrinityFilter>true</EnableTrinityFilter>
       <DebugV3CGate>false</DebugV3CGate>
-      <AccountNameFilter>SimV3C-NQ-1A;SimV3C-ES-1A</AccountNameFilter>
+      <AccountNameFilter>SimV3C-NQ-1B;SimV3C-ES-1B</AccountNameFilter>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog</TradeLogFolder>
       <TotalContracts>2</TotalContracts>
       <InitialRiskAtr>1.5</InitialRiskAtr>
       <WaitBricks>3</WaitBricks>
+      <Leg2ProfitGatePct>0.5</Leg2ProfitGatePct>
+      <EnableTimeBlocks>true</EnableTimeBlocks>
+      <Block1Start>955</Block1Start>
+      <Block1End>1129</Block1End>
+      <Block2Start>0</Block2Start>
+      <Block2End>0</Block2End>
+      <Block3Start>0</Block3Start>
+      <Block3End>0</Block3End>
+      <EnableEntryCooldown>false</EnableEntryCooldown>
+      <CooldownMinutes>3</CooldownMinutes>
+      <MaxSameDirTrades>0</MaxSameDirTrades>
     </V3_Expansion_Rider_V3C>
   </Strategy>
 </StrategyTemplate>
