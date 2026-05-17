@@ -47,6 +47,11 @@ namespace NinjaTrader.NinjaScript.Indicators
 {
     public class TradeLogExporter_V3D : Indicator
     {
+        private string botName = "";
+        private string modelVersion = "";
+        private string leaderSymbolOverride = "";
+        private string accountNameFilter = "";
+
         // ---------------------------------------------------------------
         // Configuration — set BotName to match the strategy on this chart
         // ---------------------------------------------------------------
@@ -55,14 +60,22 @@ namespace NinjaTrader.NinjaScript.Indicators
             Name = "Bot Name",
             Description = "Name of the V3D strategy on this chart (e.g. Momentum_V3D)",
             Order = 1, GroupName = "V3D Trade Log")]
-        public string BotName { get; set; }
+        public string BotName
+        {
+            get { return botName ?? ""; }
+            set { botName = value ?? ""; }
+        }
 
         [NinjaScriptProperty]
         [Display(
             Name = "Model Version",
             Description = "V3D only. Do not set this legacy exporter to V3C.",
             Order = 2, GroupName = "V3D Trade Log")]
-        public string ModelVersion { get; set; }
+        public string ModelVersion
+        {
+            get { return modelVersion ?? ""; }
+            set { modelVersion = value ?? ""; }
+        }
 
         [NinjaScriptProperty]
         [Display(
@@ -70,14 +83,22 @@ namespace NinjaTrader.NinjaScript.Indicators
             Description = "Optional. If the HUD registers under a key other than 'NQ'/'ES' " +
                           "(e.g. 'NQ JUN26'), enter it here. Leave blank to use auto-detection.",
             Order = 3, GroupName = "V3D Trade Log")]
-        public string LeaderSymbolOverride { get; set; }
+        public string LeaderSymbolOverride
+        {
+            get { return leaderSymbolOverride ?? ""; }
+            set { leaderSymbolOverride = value ?? ""; }
+        }
 
         [NinjaScriptProperty]
         [Display(
             Name = "Account Name Filter",
             Description = "V3D only: exact NT8 account allow-list. Defaults to all baked SimV3D accounts; V3C accounts are blocked.",
             Order = 4, GroupName = "V3D Trade Log")]
-        public string AccountNameFilter { get; set; }
+        public string AccountNameFilter
+        {
+            get { return accountNameFilter ?? ""; }
+            set { accountNameFilter = value ?? ""; }
+        }
         // ---------------------------------------------------------------
         private const string BASE_PATH =
             @"C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog\";
@@ -129,6 +150,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                 Name             = "Trade Log Exporter (V3D)";
                 BotName          = "Unknown_Bot";
                 ModelVersion     = "V3D";
+                LeaderSymbolOverride = "";
                 AccountNameFilter = "SimV3D-ES-1A;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-3A;SimV3D-ES-4A;SimV3D-ES-5A;SimV3D-NQ-1A;SimV3D-NQ-1B;SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-3A;SimV3D-NQ-3B;SimV3D-NQ-4A;SimV3D-NQ-4B;SimV3D-NQ-5A;SimV3D-NQ-5B;SimV3D-NQ-5C";
                 Calculate        = Calculate.OnBarClose;
                 IsOverlay        = true;
@@ -565,6 +587,9 @@ namespace NinjaTrader.NinjaScript.Indicators
 
 		public TradeLogExporter_V3D TradeLogExporter_V3D(ISeries<double> input, string botName, string modelVersion, string leaderSymbolOverride)
 		{
+			botName = botName ?? "";
+			modelVersion = modelVersion ?? "";
+			leaderSymbolOverride = leaderSymbolOverride ?? "";
 			if (cacheTradeLogExporter_V3D != null)
 				for (int idx = 0; idx < cacheTradeLogExporter_V3D.Length; idx++)
 					if (cacheTradeLogExporter_V3D[idx] != null && cacheTradeLogExporter_V3D[idx].BotName == botName && cacheTradeLogExporter_V3D[idx].ModelVersion == modelVersion && cacheTradeLogExporter_V3D[idx].LeaderSymbolOverride == leaderSymbolOverride && cacheTradeLogExporter_V3D[idx].EqualsInput(input))
