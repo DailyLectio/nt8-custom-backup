@@ -49,6 +49,10 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="Minimum Target Ticks", Description="Ignore setups if the Mean is too close.", GroupName="2. Risk Management", Order=2)]
         public int MinTargetTicks { get; set; } = 10;
 
+        [NinjaScriptProperty, Range(1, 5)]
+        [Display(Name="Min Reversal Bars", Description="Consecutive reversal bricks required after band touch before entry fires. Default 2 filters premature entries.", GroupName="2. Risk Management", Order=3)]
+        public int MinReversalBars { get; set; } = 2;
+
         // ===== 3. INDICATOR TUNING =====
         [NinjaScriptProperty, Range(5, 100)]
         [Display(Name="Bollinger Period", Description="Defines the moving Mean value.", GroupName="3. Value Mapper", Order=0)]
@@ -62,6 +66,8 @@ namespace NinjaTrader.NinjaScript.Strategies
         private ATR atr;
         private Bollinger bb;
         private V3CTradeLogger _logger;
+        private int longReversalCount  = 0;
+        private int shortReversalCount = 0;
 
         protected override void OnStateChange()
         {

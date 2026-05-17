@@ -217,6 +217,14 @@ namespace NinjaTrader.NinjaScript.Strategies
                  GroupName = "5. Guards", Order = 2)]
         public double DailyLossLimit { get; set; } = 0;
 
+        [NinjaScriptProperty, Range(0, 20)]
+        [Display(Name = "Max Contracts Override (0 = off)",
+                 Description = "Strategy-level hard cap on contracts per fill. " +
+                               "ApexMaxContracts from the CSV takes precedence when > 0. " +
+                               "Set to 2 on any Apex-funded account as a safety floor.",
+                 GroupName = "5. Guards", Order = 3)]
+        public int MaxContracts { get; set; } = 0;
+
         // --- Time ---
         [NinjaScriptProperty]
         [Display(Name = "Enable Time Filter", GroupName = "6. Time", Order = 0)]
@@ -252,6 +260,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private volatile bool   allowLong        = false;
         private volatile bool   allowShort       = false;
         private volatile int    momoSizePct      = 0;
+        private volatile int    apexMaxContracts = 0;
         private volatile bool   staleDataFlag    = true;
         private          double velocity3P       = 0.0;
         private volatile int    stateAgeBars     = 0;
@@ -785,6 +794,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     allowLong        = GetI(row, "AllowLong")  == 1;
                     allowShort       = GetI(row, "AllowShort") == 1;
                     momoSizePct      = GetI(row, "AllowMomo_SizePct");
+                    apexMaxContracts = GetI(row, "ApexMaxContracts");
                     staleDataFlag    = GetI(row, "StaleDataFlag") == 1;
                     stateAgeBars     = GetI(row, "StateAgeBars");
                     suggestedAdxMin  = GetI(row, "SuggestedAdxMin");
@@ -1031,6 +1041,9 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             int maxC = CalcMaxContracts();
             int qty  = ScaleByConfidence(maxC, effectiveSizePct);
+            // Hard cap — CSV column wins; strategy-level param is the fallback floor
+            if (apexMaxContracts > 0) qty = Math.Min(qty, apexMaxContracts);
+            else if (MaxContracts > 0) qty = Math.Min(qty, MaxContracts);
             if (qty < 1) return;
 
             double risk = Math.Max(AtrStopMult * atrStop[0], MinStopTicks * TickSize);
@@ -1060,6 +1073,9 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             int maxC = CalcMaxContracts();
             int qty  = ScaleByConfidence(maxC, effectiveSizePct);
+            // Hard cap — CSV column wins; strategy-level param is the fallback floor
+            if (apexMaxContracts > 0) qty = Math.Min(qty, apexMaxContracts);
+            else if (MaxContracts > 0) qty = Math.Min(qty, MaxContracts);
             if (qty < 1) return;
 
             double risk = Math.Max(AtrStopMult * atrStop[0], MinStopTicks * TickSize);
