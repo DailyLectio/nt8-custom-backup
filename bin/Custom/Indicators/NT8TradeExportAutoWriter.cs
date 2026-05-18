@@ -24,6 +24,9 @@ namespace NinjaTrader.NinjaScript.Indicators
 
         private DateTime lastWriteUtc = DateTime.MinValue;
         private bool subscribed;
+        private int lastExecutionCount;
+        private int lastSystemTradeCount;
+        private int lastFallbackTradeCount;
 
         [NinjaScriptProperty]
         [Display(Name = "Output Path", Order = 1, GroupName = "EOD Export")]
@@ -147,7 +150,13 @@ namespace NinjaTrader.NinjaScript.Indicators
                 File.WriteAllText(temp, sb.ToString(), Encoding.UTF8);
                 ReplaceFile(temp, OutputPath);
                 lastWriteUtc = DateTime.UtcNow;
-                WriteStatus("OK rows=" + rows.Count + " accounts=" + allowed.Count + " updated=" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
+                WriteStatus(
+                    "OK rows=" + rows.Count +
+                    " accounts=" + allowed.Count +
+                    " executions=" + lastExecutionCount +
+                    " system_trades=" + lastSystemTradeCount +
+                    " fallback_trades=" + lastFallbackTradeCount +
+                    " updated=" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture));
             }
             catch (Exception ex)
             {
@@ -176,13 +185,16 @@ namespace NinjaTrader.NinjaScript.Indicators
         {
             DateTime today = DateTime.Today;
             List<TradeRow> rows = new List<TradeRow>();
+            lastExecutionCount = 0;
+            lastSystemTradeCount = 0;
+            lastFallbackTradeCount = 0;
 
             lock (Account.All)
             {
                 foreach (Account account in Account.All)
                 {
                     string accountName = AccountName(account);
-                    if (allowed.Count > 0 && !allowed.Contains(accountName))
+                    if (!IsAllowedAccount(account, allowed))
                         continue;
 
                     List<Cbi.Execution> todaysExecutions;
@@ -192,6 +204,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                             .Where(e => e != null && e.Time.Date == today)
                             .ToList();
                     }
+                    lastExecutionCount += todaysExecutions.Count;
 
                     foreach (var byInstrument in todaysExecutions.GroupBy(e => e.Instrument == null ? "" : e.Instrument.FullName))
                     {
@@ -200,30 +213,133 @@ namespace NinjaTrader.NinjaScript.Indicators
                             continue;
 
                         Cbi.TradeCollection trades = Cbi.SystemPerformance.Calculate(executions).AllTrades;
-                        foreach (Cbi.Trade trade in trades)
+                        int rowsBeforeSystemPerformance = rows.Count;
+                        if (trades != null)
                         {
-                            if (trade == null || trade.Entry == null || trade.Exit == null)
-                                continue;
-                            if (trade.Exit.Time.Date != today)
-                                continue;
-
-                            rows.Add(new TradeRow
+                            foreach (Cbi.Trade trade in trades)
                             {
-                                Instrument = trade.Entry.Instrument == null ? byInstrument.Key : trade.Entry.Instrument.FullName,
-                                Account = accountName,
-                                Direction = InferDirection(trade),
-                                Quantity = trade.Quantity,
-                                EntryPrice = trade.Entry.Price,
-                                ExitPrice = trade.Exit.Price,
-                                EntryTime = trade.Entry.Time,
-                                ExitTime = trade.Exit.Time,
-                                EntryName = OrderName(trade.Entry),
-                                ExitName = OrderName(trade.Exit),
-                                Profit = trade.ProfitCurrency,
-                                Commission = trade.Commission,
-                            });
+                                if (trade == null || trade.Entry == null || trade.Exit == null)
+                                    continue;
+                                if (trade.Exit.Time.Date != today)
+                                    continue;
+
+                                lastSystemTradeCount++;
+                                rows.Add(new TradeRow
+                                {
+                                    Instrument = trade.Entry.Instrument == null ? byInstrument.Key : trade.Entry.Instrument.FullName,
+                                    Account = accountName,
+                                    Direction = InferDirection(trade),
+                                    Quantity = trade.Quantity,
+                                    EntryPrice = trade.Entry.Price,
+                                    ExitPrice = trade.Exit.Price,
+                                    EntryTime = trade.Entry.Time,
+                                    ExitTime = trade.Exit.Time,
+                                    EntryName = OrderName(trade.Entry),
+                                    ExitName = OrderName(trade.Exit),
+                                    Profit = trade.ProfitCurrency,
+                                    Commission = trade.Commission,
+                                });
+                            }
+                        }
+
+                        if (rows.Count == rowsBeforeSystemPerformance)
+                        {
+                            List<TradeRow> fallbackRows = BuildFallbackRows(accountName, byInstrument.Key, executions, today);
+                            lastFallbackTradeCount += fallbackRows.Count;
+                            rows.AddRange(fallbackRows);
                         }
                     }
+                }
+            }
+
+            return rows;
+        }
+
+        private static bool IsAllowedAccount(Account account, HashSet<string> allowed)
+        {
+            if (allowed == null || allowed.Count == 0)
+                return true;
+            if (account == null)
+                return false;
+            if (!string.IsNullOrWhiteSpace(account.Name) && allowed.Contains(account.Name))
+                return true;
+            if (!string.IsNullOrWhiteSpace(account.DisplayName) && allowed.Contains(account.DisplayName))
+                return true;
+            return false;
+        }
+
+        private static List<TradeRow> BuildFallbackRows(string accountName, string instrumentName, List<Cbi.Execution> executions, DateTime today)
+        {
+            List<TradeRow> rows = new List<TradeRow>();
+            List<OpenLot> openLots = new List<OpenLot>();
+
+            foreach (Cbi.Execution execution in executions)
+            {
+                if (execution == null || execution.Order == null || execution.Instrument == null)
+                    continue;
+                if (execution.Time.Date != today)
+                    continue;
+
+                int quantity = execution.Quantity <= 0 ? 1 : execution.Quantity;
+                Cbi.OrderAction action = execution.Order.OrderAction;
+                bool entry = action == Cbi.OrderAction.Buy || action == Cbi.OrderAction.SellShort;
+                bool exit = action == Cbi.OrderAction.Sell || action == Cbi.OrderAction.BuyToCover;
+
+                if (entry)
+                {
+                    openLots.Add(new OpenLot
+                    {
+                        Direction = action == Cbi.OrderAction.SellShort ? "Short" : "Long",
+                        Quantity = quantity,
+                        Price = execution.Price,
+                        Time = execution.Time,
+                        EntryName = OrderName(execution),
+                        PointValue = execution.Instrument.MasterInstrument == null ? 1.0 : execution.Instrument.MasterInstrument.PointValue,
+                    });
+                    continue;
+                }
+
+                if (!exit)
+                    continue;
+
+                int remaining = quantity;
+                for (int i = 0; i < openLots.Count && remaining > 0;)
+                {
+                    OpenLot lot = openLots[i];
+                    if ((action == Cbi.OrderAction.Sell && lot.Direction != "Long") ||
+                        (action == Cbi.OrderAction.BuyToCover && lot.Direction != "Short"))
+                    {
+                        i++;
+                        continue;
+                    }
+
+                    int matched = Math.Min(remaining, lot.Quantity);
+                    double profit = lot.Direction == "Long"
+                        ? (execution.Price - lot.Price) * matched * lot.PointValue
+                        : (lot.Price - execution.Price) * matched * lot.PointValue;
+
+                    rows.Add(new TradeRow
+                    {
+                        Instrument = execution.Instrument.FullName ?? instrumentName,
+                        Account = accountName,
+                        Direction = lot.Direction,
+                        Quantity = matched,
+                        EntryPrice = lot.Price,
+                        ExitPrice = execution.Price,
+                        EntryTime = lot.Time,
+                        ExitTime = execution.Time,
+                        EntryName = lot.EntryName,
+                        ExitName = OrderName(execution),
+                        Profit = profit,
+                        Commission = 0,
+                    });
+
+                    lot.Quantity -= matched;
+                    remaining -= matched;
+                    if (lot.Quantity <= 0)
+                        openLots.RemoveAt(i);
+                    else
+                        i++;
                 }
             }
 
@@ -389,6 +505,16 @@ namespace NinjaTrader.NinjaScript.Indicators
             public string ExitName;
             public double Profit;
             public double Commission;
+        }
+
+        private class OpenLot
+        {
+            public string Direction;
+            public int Quantity;
+            public double Price;
+            public DateTime Time;
+            public string EntryName;
+            public double PointValue;
         }
     }
 }
