@@ -105,7 +105,7 @@
           <Calculate>OnBarClose</Calculate>
           <Displacement>0</Displacement>
           <DisplayInDataBox>false</DisplayInDataBox>
-          <From>2025-04-28T00:00:00</From>
+          <From>2025-05-18T00:00:00</From>
           <IsAutoScale>false</IsAutoScale>
           <Lines />
           <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
@@ -114,7 +114,7 @@
           <Plots />
           <ScaleJustification>Right</ScaleJustification>
           <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-          <To>2026-04-28T00:00:00</To>
+          <To>2026-05-18T00:00:00</To>
           <IsDataSeriesRequired>true</IsDataSeriesRequired>
           <IsOverlay>true</IsOverlay>
           <SelectedValueSeries>0</SelectedValueSeries>
@@ -125,7 +125,7 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>613</IndicatorId>
+          <IndicatorId>744</IndicatorId>
           <InstrumentDeserialized>ES JUN26 Globex</InstrumentDeserialized>
           <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
@@ -161,11 +161,11 @@
           <CopierIsEnabled>false</CopierIsEnabled>
           <SelectedAscending>true</SelectedAscending>
           <AllInstruments>true</AllInstruments>
-          <IsCrossEnabled>true</IsCrossEnabled>
-          <IsXEnabled>true</IsXEnabled>
+          <IsCrossEnabled>false</IsCrossEnabled>
+          <IsXEnabled>false</IsXEnabled>
           <IsATMSelectEnabled>false</IsATMSelectEnabled>
           <IsFadeEnabled>false</IsFadeEnabled>
-          <IsBuildMode>true</IsBuildMode>
+          <IsBuildMode>false</IsBuildMode>
           <IsXColumnEnabled>true</IsXColumnEnabled>
           <MultiplierMode>Multiplier</MultiplierMode>
           <LastMultiplierMode>Multiplier</LastMultiplierMode>
@@ -333,7 +333,7 @@
           <AreaOpacity>25</AreaOpacity>
           <FontSizeTopRow>2</FontSizeTopRow>
           <FontSizeB>0</FontSizeB>
-          <ThisMasterAccount>DEMO1419193</ThisMasterAccount>
+          <ThisMasterAccount>SimV3D-NQ-1A</ThisMasterAccount>
           <ColumnAudioE>true</ColumnAudioE>
           <ColumnEMAE>true</ColumnEMAE>
           <ColumnTimeStatusE>true</ColumnTimeStatusE>
@@ -399,101 +399,101 @@
             <string />
             <string />
             <string />
-            <string>APEX7678400000186|Slave|2|No|No|No|No|No|Default</string>
-            <string>APEX7678400000187|Slave|2|No|No|No|No|No|Default</string>
+            <string>APEX7678400000193|Slave|1|No|No|No|No|No|Default</string>
+            <string>APEX7678400000194|None|1|No|No|No|No|No|Default</string>
+            <string>APEX7678400000195|None|1|No|No|No|No|No|Default</string>
             <string>DEMO1419193|None|1|No|No|No|No|No|Default</string>
-            <string>Sim1|None|1|No|No|No|No|No|Default</string>
             <string>Sim101|None|1|No|No|No|No|No|Default</string>
-            <string>SimADX1|None|1|No|No|No|No|No|Default</string>
-            <string>SimADX2|None|1|No|No|No|No|No|Default</string>
-            <string>SimMomo1|None|1|No|No|No|No|No|Default</string>
-            <string>SimMomo2|None|1|No|No|No|No|No|Default</string>
-            <string>SimPine1|None|1|No|No|No|No|No|Default</string>
-            <string>SimPine2|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-ES-ADX-1A|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-ES-ADX-1B|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-ES-Momo-1A|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-ES-Momo-1B|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-ES-Pine-1A|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-ES-Pine-1B|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-NQ-ADX-1A|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-NQ-ADX-1B|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-NQ-Momo-1A|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-NQ-Momo-1B|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-NQ-Pine-1A|None|1|No|No|No|No|No|Default</string>
+            <string>Sim1OG-NQ-Pine-1B|None|1|No|No|No|No|No|Default</string>
+            <string>SimMomo-OG-ES-1A|None|1|No|No|No|No|No|Default</string>
+            <string>SimMomo-OG-ES-1B|None|1|No|No|No|No|No|Default</string>
+            <string>SimMomo-OG-ES-1C|None|1|No|No|No|No|No|Default</string>
+            <string>SimMomo-OG-NQ-1A|None|1|No|No|No|No|No|Default</string>
+            <string>SimMomo-OG-NQ-1B|None|1|No|No|No|No|No|Default</string>
+            <string>SimMomo-OG-NQ-1C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV1A-ES-1A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV1A-ES-2A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV1A-ES-3A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV1A-NQ-1A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV1A-NQ-2A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV1A-NQ-3A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-1A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-1B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-1C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-2A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-2B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-2C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-2D|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-3A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-3B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-4A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-4B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-5A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-ES-5B|None|1|No|No|No|No|No|Default</string>
             <string>SimV3C-NQ-1A|None|1|No|No|No|No|No|Default</string>
             <string>SimV3C-NQ-1B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-NQ-1C|None|1|No|No|No|No|No|Default</string>
             <string>SimV3C-NQ-2A|None|1|No|No|No|No|No|Default</string>
             <string>SimV3C-NQ-2B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-NQ-2C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3C-NQ-2D|None|1|No|No|No|No|No|Default</string>
             <string>SimV3C-NQ-3A|None|1|No|No|No|No|No|Default</string>
             <string>SimV3C-NQ-3B|None|1|No|No|No|No|No|Default</string>
             <string>SimV3C-NQ-4A|None|1|No|No|No|No|No|Default</string>
             <string>SimV3C-NQ-4B|None|1|No|No|No|No|No|Default</string>
             <string>SimV3C-NQ-5A|None|1|No|No|No|No|No|Default</string>
             <string>SimV3C-NQ-5B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-1A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-1B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-1C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-1D|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-2A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-2B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-2C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-2D|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-3A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-3B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-3C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-3D|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-4A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-4B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-4C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-4D|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-5A|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-5B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-5C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-ES-5D|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-1A|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-1B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-NQ-1C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-NQ-1D|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-2A|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-2B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-NQ-2C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-NQ-2D|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-3A|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-3B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-NQ-3C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-NQ-3D|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-4A|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-4B|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-NQ-4C|None|1|No|No|No|No|No|Default</string>
+            <string>SimV3D-NQ-4D|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-5A|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-5B|None|1|No|No|No|No|No|Default</string>
             <string>SimV3D-NQ-5C|None|1|No|No|No|No|No|Default</string>
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
+            <string>SimV3D-NQ-5D|None|1|No|No|No|No|No|Default</string>
             <string />
             <string />
             <string />
@@ -601,9 +601,10 @@
             <string />
             <string />
             <string />
-            <string>APEX7678400000186|49193.14</string>
-            <string>APEX7678400000187|48492.24</string>
-            <string>DEMO1419193|4883.22</string>
+            <string>APEX7678400000193|49115.7</string>
+            <string>APEX7678400000194|49884.5</string>
+            <string>APEX7678400000195|50690.7</string>
+            <string>DEMO1419193|4696.8</string>
             <string>Sim#1 Momo: NQ.5m.Trinity.Momentum.Universal|100000</string>
             <string>Sim#1: The Expansion Rider|100000</string>
             <string>Sim#2 ADX  NQ.5m.ADXX.Volatility.Breakout|100000</string>
@@ -611,8 +612,20 @@
             <string>Sim#3 Pine  NQ.5m.Pine.BarN.Structural|99545</string>
             <string>Sim#3 Value Fader|100000</string>
             <string>Sim#4 Pine NQ.5m.Pine.Fade.PM|100155</string>
-            <string>Sim1|92640.75</string>
-            <string>Sim101|48635.66</string>
+            <string>Sim1|92572.67</string>
+            <string>Sim101|47919.62</string>
+            <string>Sim1OG-ES-ADX-1A|100900</string>
+            <string>Sim1OG-ES-ADX-1B|100000</string>
+            <string>Sim1OG-ES-Momo-1A|100600</string>
+            <string>Sim1OG-ES-Momo-1B|100225</string>
+            <string>Sim1OG-ES-Pine-1A|99350</string>
+            <string>Sim1OG-ES-Pine-1B|100000</string>
+            <string>Sim1OG-NQ-ADX-1A|100365</string>
+            <string>Sim1OG-NQ-ADX-1B|100000</string>
+            <string>Sim1OG-NQ-Momo-1A|99540</string>
+            <string>Sim1OG-NQ-Momo-1B|100000</string>
+            <string>Sim1OG-NQ-Pine-1A|100320</string>
+            <string>Sim1OG-NQ-Pine-1B|100000</string>
             <string>Sim2|103878.95</string>
             <string>Sim3|86604.46</string>
             <string>Sim4|93435.92</string>
@@ -621,7 +634,7 @@
             <string>SimADX v4|100000</string>
             <string>SimADX_Momo_Scalper|100000</string>
             <string>SimADX_OG x0177|100388.92</string>
-            <string>SimADX1|99080</string>
+            <string>SimADX1|99345</string>
             <string>SimADX2|100000</string>
             <string>SimAlms|52318.68</string>
             <string>SimAM ES.5m.Pine.AM.MacroRunner|100000</string>
@@ -644,8 +657,14 @@
             <string>SimMomo x0179|100705</string>
             <string>SimMomo_OG1|97053.7</string>
             <string>SimMomo_OG2|99676.58</string>
-            <string>SimMomo1|97318.32</string>
-            <string>SimMomo2|96812.5</string>
+            <string>SimMomo1|97117.76</string>
+            <string>SimMomo2|95887.5</string>
+            <string>SimMomo-OG-ES-1A|99787.5</string>
+            <string>SimMomo-OG-ES-1B|101250</string>
+            <string>SimMomo-OG-ES-1C|100000</string>
+            <string>SimMomo-OG-NQ-1A|98710</string>
+            <string>SimMomo-OG-NQ-1B|100000</string>
+            <string>SimMomo-OG-NQ-1C|100000</string>
             <string>SimNQ 5m Momo Anchor Bracket Sniper|100000</string>
             <string>SimOpen:  ES.1m.Pine.Open.MicroScalp|100000</string>
             <string>SimOpen:  NQ.1m.ADX.Open.Assassin |100000</string>
@@ -655,7 +674,7 @@
             <string>SimOPEN: Open:  ES.1m.Pine.Open.Fade|100000</string>
             <string>SimPine x0178|99460</string>
             <string>SimPine1|100561.28</string>
-            <string>SimPine2|100000</string>
+            <string>SimPine2|100725</string>
             <string>SimPM:  NQ.5m.ADX.PM.CounterTrend|98150</string>
             <string>SimPM:  NQ.5m.Pine.PM.CounterTrend|101065.64</string>
             <string>SimPM:  NQ.5m.Pine.PM.TrendRunner |101070</string>
@@ -666,107 +685,88 @@
             <string>SimTrinity HUD HA|100004.1</string>
             <string>SimTrinity HUD Uni|99379.02</string>
             <string>SimTrinity001|104267.08</string>
-            <string>SimV3C-NQ-1A|100000</string>
+            <string>SimV1A - CompositeMomentum 1|100000</string>
+            <string>SimV1A - CompositeMomentum 2|100000</string>
+            <string>SimV1A - CompositeMomentum 3|100000</string>
+            <string>SimV1A - Kalman Fader 2|99680</string>
+            <string>SimV1A- Kalman Fader 1|98575</string>
+            <string>SimV1A Kalman Fader 3|99955</string>
+            <string>SimV1A Vol Fader 2|100000</string>
+            <string>SimV1A Vol Fader 3|100000</string>
+            <string>SimV1A-CompositeMomentum1|100000</string>
+            <string>SimV1A-ES-1A|100000</string>
+            <string>SimV1A-ES-2A|99100</string>
+            <string>SimV1A-ES-3A|100000</string>
+            <string>SimV1A-NQ-1A|101700</string>
+            <string>SimV1A-NQ-2A|98210</string>
+            <string>SimV1A-NQ-3A|100000</string>
+            <string>SimV1A-Vol Fader 1|100000</string>
+            <string>SimV3C-ES-1A|106200</string>
+            <string>SimV3C-ES-1B|100000</string>
+            <string>SimV3C-ES-1C|100000</string>
+            <string>SimV3C-ES-2A|103800</string>
+            <string>SimV3C-ES-2B|100000</string>
+            <string>SimV3C-ES-2C|100000</string>
+            <string>SimV3C-ES-2D|100000</string>
+            <string>SimV3C-ES-3A|98887.5</string>
+            <string>SimV3C-ES-3B|100000</string>
+            <string>SimV3C-ES-4A|98350</string>
+            <string>SimV3C-ES-4B|98362.5</string>
+            <string>SimV3C-ES-5A|97775</string>
+            <string>SimV3C-ES-5B|100000</string>
+            <string>SimV3C-NQ-1A|105240</string>
             <string>SimV3C-NQ-1B|100000</string>
-            <string>SimV3C-NQ-2A|100000</string>
-            <string>SimV3C-NQ-2B|100000</string>
-            <string>SimV3C-NQ-3A|100000</string>
+            <string>SimV3C-NQ-1C|100000</string>
+            <string>SimV3C-NQ-2A|103270</string>
+            <string>SimV3C-NQ-2B|99350</string>
+            <string>SimV3C-NQ-2C|100585</string>
+            <string>SimV3C-NQ-2D|99760</string>
+            <string>SimV3C-NQ-3A|96845</string>
             <string>SimV3C-NQ-3B|100000</string>
-            <string>SimV3C-NQ-4A|100000</string>
-            <string>SimV3C-NQ-4B|100000</string>
-            <string>SimV3C-NQ-5A|100000</string>
+            <string>SimV3C-NQ-4A|97505</string>
+            <string>SimV3C-NQ-4B|100045</string>
+            <string>SimV3C-NQ-5A|99120</string>
             <string>SimV3C-NQ-5B|100000</string>
-            <string>SimV3D-NQ-1A|100000</string>
+            <string>SimV3D-ES-1A|99125</string>
+            <string>SimV3D-ES-1B|100000</string>
+            <string>SimV3D-ES-1C|100000</string>
+            <string>SimV3D-ES-1D|100000</string>
+            <string>SimV3D-ES-2A|93012.5</string>
+            <string>SimV3D-ES-2B|100000</string>
+            <string>SimV3D-ES-2C|100000</string>
+            <string>SimV3D-ES-2D|100000</string>
+            <string>SimV3D-ES-3A|104837.5</string>
+            <string>SimV3D-ES-3B|100000</string>
+            <string>SimV3D-ES-3C|100000</string>
+            <string>SimV3D-ES-3D|100000</string>
+            <string>SimV3D-ES-4A|100000</string>
+            <string>SimV3D-ES-4B|100000</string>
+            <string>SimV3D-ES-4C|100000</string>
+            <string>SimV3D-ES-4D|100000</string>
+            <string>SimV3D-ES-5A|99125</string>
+            <string>SimV3D-ES-5B|100000</string>
+            <string>SimV3D-ES-5C|100000</string>
+            <string>SimV3D-ES-5D|100000</string>
+            <string>SimV3D-NQ-1A|99955</string>
             <string>SimV3D-NQ-1B|100000</string>
-            <string>SimV3D-NQ-2A|100000</string>
+            <string>SimV3D-NQ-1C|100000</string>
+            <string>SimV3D-NQ-1D|100000</string>
+            <string>SimV3D-NQ-2A|99510</string>
             <string>SimV3D-NQ-2B|100000</string>
-            <string>SimV3D-NQ-3A|100000</string>
-            <string>SimV3D-NQ-3B|100000</string>
+            <string>SimV3D-NQ-2C|100970</string>
+            <string>SimV3D-NQ-2D|100000</string>
+            <string>SimV3D-NQ-3A|98590</string>
+            <string>SimV3D-NQ-3B|103140</string>
+            <string>SimV3D-NQ-3C|100970</string>
+            <string>SimV3D-NQ-3D|100000</string>
             <string>SimV3D-NQ-4A|100000</string>
             <string>SimV3D-NQ-4B|100000</string>
-            <string>SimV3D-NQ-5A|100000</string>
-            <string>SimV3D-NQ-5B|100000</string>
+            <string>SimV3D-NQ-4C|100000</string>
+            <string>SimV3D-NQ-4D|100000</string>
+            <string>SimV3D-NQ-5A|99420</string>
+            <string>SimV3D-NQ-5B|99165</string>
             <string>SimV3D-NQ-5C|100000</string>
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
+            <string>SimV3D-NQ-5D|100000</string>
             <string />
             <string />
             <string />
@@ -803,9 +803,10 @@
             <string />
             <string />
             <string />
-            <string>APEX7678400000186|49193.14</string>
-            <string>APEX7678400000187|48492.24</string>
-            <string>DEMO1419193|4883.22</string>
+            <string>APEX7678400000193|49115.7</string>
+            <string>APEX7678400000194|49884.5</string>
+            <string>APEX7678400000195|50690.7</string>
+            <string>DEMO1419193|4696.8</string>
             <string>Sim#1 Momo: NQ.5m.Trinity.Momentum.Universal|100000</string>
             <string>Sim#1: The Expansion Rider|100000</string>
             <string>Sim#2 ADX  NQ.5m.ADXX.Volatility.Breakout|100000</string>
@@ -813,8 +814,20 @@
             <string>Sim#3 Pine  NQ.5m.Pine.BarN.Structural|99545</string>
             <string>Sim#3 Value Fader|100000</string>
             <string>Sim#4 Pine NQ.5m.Pine.Fade.PM|100155</string>
-            <string>Sim1|92640.75</string>
-            <string>Sim101|48635.66</string>
+            <string>Sim1|92572.67</string>
+            <string>Sim101|47919.62</string>
+            <string>Sim1OG-ES-ADX-1A|100900</string>
+            <string>Sim1OG-ES-ADX-1B|100000</string>
+            <string>Sim1OG-ES-Momo-1A|100600</string>
+            <string>Sim1OG-ES-Momo-1B|100225</string>
+            <string>Sim1OG-ES-Pine-1A|99350</string>
+            <string>Sim1OG-ES-Pine-1B|100000</string>
+            <string>Sim1OG-NQ-ADX-1A|100365</string>
+            <string>Sim1OG-NQ-ADX-1B|100000</string>
+            <string>Sim1OG-NQ-Momo-1A|99540</string>
+            <string>Sim1OG-NQ-Momo-1B|100000</string>
+            <string>Sim1OG-NQ-Pine-1A|100320</string>
+            <string>Sim1OG-NQ-Pine-1B|100000</string>
             <string>Sim2|103878.95</string>
             <string>Sim3|86604.46</string>
             <string>Sim4|93435.92</string>
@@ -823,7 +836,7 @@
             <string>SimADX v4|100000</string>
             <string>SimADX_Momo_Scalper|100000</string>
             <string>SimADX_OG x0177|100388.92</string>
-            <string>SimADX1|99080</string>
+            <string>SimADX1|99345</string>
             <string>SimADX2|100000</string>
             <string>SimAlms|52318.68</string>
             <string>SimAM ES.5m.Pine.AM.MacroRunner|100000</string>
@@ -846,8 +859,14 @@
             <string>SimMomo x0179|100705</string>
             <string>SimMomo_OG1|97053.7</string>
             <string>SimMomo_OG2|99676.58</string>
-            <string>SimMomo1|97318.32</string>
-            <string>SimMomo2|96812.5</string>
+            <string>SimMomo1|97117.76</string>
+            <string>SimMomo2|95887.5</string>
+            <string>SimMomo-OG-ES-1A|99787.5</string>
+            <string>SimMomo-OG-ES-1B|101250</string>
+            <string>SimMomo-OG-ES-1C|100000</string>
+            <string>SimMomo-OG-NQ-1A|98710</string>
+            <string>SimMomo-OG-NQ-1B|100000</string>
+            <string>SimMomo-OG-NQ-1C|100000</string>
             <string>SimNQ 5m Momo Anchor Bracket Sniper|100000</string>
             <string>SimOpen:  ES.1m.Pine.Open.MicroScalp|100000</string>
             <string>SimOpen:  NQ.1m.ADX.Open.Assassin |100000</string>
@@ -857,7 +876,7 @@
             <string>SimOPEN: Open:  ES.1m.Pine.Open.Fade|100000</string>
             <string>SimPine x0178|99460</string>
             <string>SimPine1|100561.28</string>
-            <string>SimPine2|100000</string>
+            <string>SimPine2|100725</string>
             <string>SimPM:  NQ.5m.ADX.PM.CounterTrend|98150</string>
             <string>SimPM:  NQ.5m.Pine.PM.CounterTrend|101065.64</string>
             <string>SimPM:  NQ.5m.Pine.PM.TrendRunner |101070</string>
@@ -868,107 +887,88 @@
             <string>SimTrinity HUD HA|100004.1</string>
             <string>SimTrinity HUD Uni|99379.02</string>
             <string>SimTrinity001|104267.08</string>
-            <string>SimV3C-NQ-1A|100000</string>
+            <string>SimV1A - CompositeMomentum 1|100000</string>
+            <string>SimV1A - CompositeMomentum 2|100000</string>
+            <string>SimV1A - CompositeMomentum 3|100000</string>
+            <string>SimV1A - Kalman Fader 2|99680</string>
+            <string>SimV1A- Kalman Fader 1|98575</string>
+            <string>SimV1A Kalman Fader 3|99955</string>
+            <string>SimV1A Vol Fader 2|100000</string>
+            <string>SimV1A Vol Fader 3|100000</string>
+            <string>SimV1A-CompositeMomentum1|100000</string>
+            <string>SimV1A-ES-1A|100000</string>
+            <string>SimV1A-ES-2A|99100</string>
+            <string>SimV1A-ES-3A|100000</string>
+            <string>SimV1A-NQ-1A|101700</string>
+            <string>SimV1A-NQ-2A|98210</string>
+            <string>SimV1A-NQ-3A|100000</string>
+            <string>SimV1A-Vol Fader 1|100000</string>
+            <string>SimV3C-ES-1A|106200</string>
+            <string>SimV3C-ES-1B|100000</string>
+            <string>SimV3C-ES-1C|100000</string>
+            <string>SimV3C-ES-2A|103800</string>
+            <string>SimV3C-ES-2B|100000</string>
+            <string>SimV3C-ES-2C|100000</string>
+            <string>SimV3C-ES-2D|100000</string>
+            <string>SimV3C-ES-3A|98887.5</string>
+            <string>SimV3C-ES-3B|100000</string>
+            <string>SimV3C-ES-4A|98350</string>
+            <string>SimV3C-ES-4B|98362.5</string>
+            <string>SimV3C-ES-5A|97775</string>
+            <string>SimV3C-ES-5B|100000</string>
+            <string>SimV3C-NQ-1A|105240</string>
             <string>SimV3C-NQ-1B|100000</string>
-            <string>SimV3C-NQ-2A|100000</string>
-            <string>SimV3C-NQ-2B|100000</string>
-            <string>SimV3C-NQ-3A|100000</string>
+            <string>SimV3C-NQ-1C|100000</string>
+            <string>SimV3C-NQ-2A|103270</string>
+            <string>SimV3C-NQ-2B|99350</string>
+            <string>SimV3C-NQ-2C|100585</string>
+            <string>SimV3C-NQ-2D|99760</string>
+            <string>SimV3C-NQ-3A|96845</string>
             <string>SimV3C-NQ-3B|100000</string>
-            <string>SimV3C-NQ-4A|100000</string>
-            <string>SimV3C-NQ-4B|100000</string>
-            <string>SimV3C-NQ-5A|100000</string>
+            <string>SimV3C-NQ-4A|97585</string>
+            <string>SimV3C-NQ-4B|100045</string>
+            <string>SimV3C-NQ-5A|99120</string>
             <string>SimV3C-NQ-5B|100000</string>
-            <string>SimV3D-NQ-1A|100000</string>
+            <string>SimV3D-ES-1A|99062.5</string>
+            <string>SimV3D-ES-1B|100000</string>
+            <string>SimV3D-ES-1C|100000</string>
+            <string>SimV3D-ES-1D|100000</string>
+            <string>SimV3D-ES-2A|93012.5</string>
+            <string>SimV3D-ES-2B|100000</string>
+            <string>SimV3D-ES-2C|100000</string>
+            <string>SimV3D-ES-2D|100000</string>
+            <string>SimV3D-ES-3A|104837.5</string>
+            <string>SimV3D-ES-3B|100000</string>
+            <string>SimV3D-ES-3C|100000</string>
+            <string>SimV3D-ES-3D|100000</string>
+            <string>SimV3D-ES-4A|100000</string>
+            <string>SimV3D-ES-4B|100000</string>
+            <string>SimV3D-ES-4C|100000</string>
+            <string>SimV3D-ES-4D|100000</string>
+            <string>SimV3D-ES-5A|99125</string>
+            <string>SimV3D-ES-5B|100000</string>
+            <string>SimV3D-ES-5C|100000</string>
+            <string>SimV3D-ES-5D|100000</string>
+            <string>SimV3D-NQ-1A|98965</string>
             <string>SimV3D-NQ-1B|100000</string>
-            <string>SimV3D-NQ-2A|100000</string>
+            <string>SimV3D-NQ-1C|100000</string>
+            <string>SimV3D-NQ-1D|100000</string>
+            <string>SimV3D-NQ-2A|99510</string>
             <string>SimV3D-NQ-2B|100000</string>
-            <string>SimV3D-NQ-3A|100000</string>
-            <string>SimV3D-NQ-3B|100000</string>
+            <string>SimV3D-NQ-2C|100970</string>
+            <string>SimV3D-NQ-2D|100000</string>
+            <string>SimV3D-NQ-3A|98590</string>
+            <string>SimV3D-NQ-3B|103140</string>
+            <string>SimV3D-NQ-3C|100970</string>
+            <string>SimV3D-NQ-3D|100000</string>
             <string>SimV3D-NQ-4A|100000</string>
             <string>SimV3D-NQ-4B|100000</string>
-            <string>SimV3D-NQ-5A|100000</string>
-            <string>SimV3D-NQ-5B|100000</string>
+            <string>SimV3D-NQ-4C|100000</string>
+            <string>SimV3D-NQ-4D|100000</string>
+            <string>SimV3D-NQ-5A|99420</string>
+            <string>SimV3D-NQ-5B|99165</string>
             <string>SimV3D-NQ-5C|100000</string>
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
+            <string>SimV3D-NQ-5D|100000</string>
             <string />
             <string />
             <string />
@@ -1044,6 +1044,10 @@
             <string>APEX7678400000187|50000</string>
             <string>APEX7678400000188|50000</string>
             <string>APEX7678400000189|100000</string>
+            <string>APEX7678400000190|50000</string>
+            <string>APEX7678400000193|50000</string>
+            <string>APEX7678400000194|50000</string>
+            <string>APEX7678400000195|50000</string>
             <string>APEX-76784-152|100000</string>
             <string>DEMO1419193|10000</string>
             <string>PAAPEX767840000007|50000</string>
@@ -1060,6 +1064,18 @@
             <string>Sim101|50000</string>
             <string>Sim1m EMA VWAP v1|10000</string>
             <string>Sim1m EMA VWAP v2|10000</string>
+            <string>Sim1OG-ES-ADX-1A|100000</string>
+            <string>Sim1OG-ES-ADX-1B|100000</string>
+            <string>Sim1OG-ES-Momo-1A|100000</string>
+            <string>Sim1OG-ES-Momo-1B|100000</string>
+            <string>Sim1OG-ES-Pine-1A|100000</string>
+            <string>Sim1OG-ES-Pine-1B|100000</string>
+            <string>Sim1OG-NQ-ADX-1A|100000</string>
+            <string>Sim1OG-NQ-ADX-1B|100000</string>
+            <string>Sim1OG-NQ-Momo-1A|100000</string>
+            <string>Sim1OG-NQ-Momo-1B|100000</string>
+            <string>Sim1OG-NQ-Pine-1A|100000</string>
+            <string>Sim1OG-NQ-Pine-1B|100000</string>
             <string>Sim2|100000</string>
             <string>Sim3|100000</string>
             <string>Sim4|100000</string>
@@ -1093,6 +1109,12 @@
             <string>SimMomo_OG2|100000</string>
             <string>SimMomo1|100000</string>
             <string>SimMomo2|100000</string>
+            <string>SimMomo-OG-ES-1A|100000</string>
+            <string>SimMomo-OG-ES-1B|100000</string>
+            <string>SimMomo-OG-ES-1C|100000</string>
+            <string>SimMomo-OG-NQ-1A|100000</string>
+            <string>SimMomo-OG-NQ-1B|100000</string>
+            <string>SimMomo-OG-NQ-1C|100000</string>
             <string>SimNQ 5m Momo Anchor Bracket Sniper|100000</string>
             <string>SimOpen:  ES.1m.Pine.Open.MicroScalp|100000</string>
             <string>SimOpen:  NQ.1m.ADX.Open.Assassin |100000</string>
@@ -1113,110 +1135,88 @@
             <string>SimTrinity HUD HA|100000</string>
             <string>SimTrinity HUD Uni|100000</string>
             <string>SimTrinity001|100000</string>
+            <string>SimV1A - CompositeMomentum 1|100000</string>
+            <string>SimV1A - CompositeMomentum 2|100000</string>
+            <string>SimV1A - CompositeMomentum 3|100000</string>
+            <string>SimV1A - Kalman Fader 2|100000</string>
+            <string>SimV1A- Kalman Fader 1|100000</string>
+            <string>SimV1A Kalman Fader 3|100000</string>
+            <string>SimV1A Vol Fader 2|100000</string>
+            <string>SimV1A Vol Fader 3|100000</string>
+            <string>SimV1A-CompositeMomentum1|100000</string>
+            <string>SimV1A-ES-1A|100000</string>
+            <string>SimV1A-ES-2A|100000</string>
+            <string>SimV1A-ES-3A|100000</string>
+            <string>SimV1A-NQ-1A|100000</string>
+            <string>SimV1A-NQ-2A|100000</string>
+            <string>SimV1A-NQ-3A|100000</string>
+            <string>SimV1A-Vol Fader 1|100000</string>
+            <string>SimV3C-ES-1A|100000</string>
+            <string>SimV3C-ES-1B|100000</string>
+            <string>SimV3C-ES-1C|100000</string>
+            <string>SimV3C-ES-2A|100000</string>
+            <string>SimV3C-ES-2B|100000</string>
+            <string>SimV3C-ES-2C|100000</string>
+            <string>SimV3C-ES-2D|100000</string>
+            <string>SimV3C-ES-3A|100000</string>
+            <string>SimV3C-ES-3B|100000</string>
+            <string>SimV3C-ES-4A|100000</string>
+            <string>SimV3C-ES-4B|100000</string>
+            <string>SimV3C-ES-5A|100000</string>
+            <string>SimV3C-ES-5B|100000</string>
             <string>SimV3C-NQ-1A|100000</string>
             <string>SimV3C-NQ-1B|100000</string>
+            <string>SimV3C-NQ-1C|100000</string>
             <string>SimV3C-NQ-2A|100000</string>
             <string>SimV3C-NQ-2B|100000</string>
+            <string>SimV3C-NQ-2C|100000</string>
+            <string>SimV3C-NQ-2D|100000</string>
             <string>SimV3C-NQ-3A|100000</string>
             <string>SimV3C-NQ-3B|100000</string>
             <string>SimV3C-NQ-4A|100000</string>
             <string>SimV3C-NQ-4B|100000</string>
             <string>SimV3C-NQ-5A|100000</string>
             <string>SimV3C-NQ-5B|100000</string>
+            <string>SimV3D-ES-1A|100000</string>
+            <string>SimV3D-ES-1B|100000</string>
+            <string>SimV3D-ES-1C|100000</string>
+            <string>SimV3D-ES-1D|100000</string>
+            <string>SimV3D-ES-2A|75000</string>
+            <string>SimV3D-ES-2B|100000</string>
+            <string>SimV3D-ES-2C|100000</string>
+            <string>SimV3D-ES-2D|100000</string>
+            <string>SimV3D-ES-3A|100000</string>
+            <string>SimV3D-ES-3B|100000</string>
+            <string>SimV3D-ES-3C|100000</string>
+            <string>SimV3D-ES-3D|100000</string>
+            <string>SimV3D-ES-4A|100000</string>
+            <string>SimV3D-ES-4B|100000</string>
+            <string>SimV3D-ES-4C|100000</string>
+            <string>SimV3D-ES-4D|100000</string>
+            <string>SimV3D-ES-5A|100000</string>
+            <string>SimV3D-ES-5B|100000</string>
+            <string>SimV3D-ES-5C|100000</string>
+            <string>SimV3D-ES-5D|100000</string>
             <string>SimV3D-NQ-1A|100000</string>
             <string>SimV3D-NQ-1B|100000</string>
+            <string>SimV3D-NQ-1C|100000</string>
+            <string>SimV3D-NQ-1D|100000</string>
             <string>SimV3D-NQ-2A|100000</string>
             <string>SimV3D-NQ-2B|100000</string>
+            <string>SimV3D-NQ-2C|100000</string>
+            <string>SimV3D-NQ-2D|100000</string>
             <string>SimV3D-NQ-3A|100000</string>
             <string>SimV3D-NQ-3B|100000</string>
+            <string>SimV3D-NQ-3C|100000</string>
+            <string>SimV3D-NQ-3D|100000</string>
             <string>SimV3D-NQ-4A|100000</string>
             <string>SimV3D-NQ-4B|100000</string>
+            <string>SimV3D-NQ-4C|100000</string>
+            <string>SimV3D-NQ-4D|100000</string>
             <string>SimV3D-NQ-5A|100000</string>
             <string>SimV3D-NQ-5B|100000</string>
             <string>SimV3D-NQ-5C|100000</string>
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
+            <string>SimV3D-NQ-5D|100000</string>
             <string />
             <string />
             <string />
@@ -1307,8 +1307,6 @@
             <string />
             <string />
             <string />
-            <string>APEX7678400000186|50878.1</string>
-            <string>APEX7678400000187|50222.2</string>
             <string>DEMO1419193|22521.73</string>
             <string>Sim#1 Momo: NQ.5m.Trinity.Momentum.Universal|100000</string>
             <string>Sim#1: The Expansion Rider|100000</string>
@@ -1327,7 +1325,7 @@
             <string>SimADX v4|100000</string>
             <string>SimADX_Momo_Scalper|100000</string>
             <string>SimADX_OG x0177|101234.48</string>
-            <string>SimADX1|100000</string>
+            <string>SimADX1|100110</string>
             <string>SimADX2|100000</string>
             <string>SimAlms|52318.68</string>
             <string>SimAM ES.5m.Pine.AM.MacroRunner|100000</string>
@@ -1361,7 +1359,7 @@
             <string>SimOPEN: Open:  ES.1m.Pine.Open.Fade|100000</string>
             <string>SimPine x0178|100375</string>
             <string>SimPine1|100561.28</string>
-            <string>SimPine2|100000</string>
+            <string>SimPine2|101505</string>
             <string>SimPM:  NQ.5m.ADX.PM.CounterTrend|100000</string>
             <string>SimPM:  NQ.5m.Pine.PM.CounterTrend|101065.64</string>
             <string>SimPM:  NQ.5m.Pine.PM.TrendRunner |101070</string>
@@ -1372,31 +1370,33 @@
             <string>SimTrinity HUD HA|100095.5</string>
             <string>SimTrinity HUD Uni|101374.88</string>
             <string>SimTrinity001|105056.41</string>
-            <string>SimV3C-NQ-1A|100000</string>
+            <string>SimV1A- Kalman Fader 1|100820</string>
+            <string>SimV1A Vol Fader 2|100000</string>
+            <string>SimV1A-CompositeMomentum1|100000</string>
+            <string>SimV1A-Vol Fader 1|100000</string>
+            <string>SimV3C-NQ-1A|105515</string>
             <string>SimV3C-NQ-1B|100000</string>
-            <string>SimV3C-NQ-2A|100000</string>
-            <string>SimV3C-NQ-2B|100000</string>
+            <string>SimV3C-NQ-2A|103270</string>
+            <string>SimV3C-NQ-2B|100710</string>
+            <string>SimV3C-NQ-2C|100585</string>
+            <string>SimV3C-NQ-2D|100000</string>
             <string>SimV3C-NQ-3A|100000</string>
             <string>SimV3C-NQ-3B|100000</string>
-            <string>SimV3C-NQ-4A|100000</string>
-            <string>SimV3C-NQ-4B|100000</string>
-            <string>SimV3C-NQ-5A|100000</string>
+            <string>SimV3C-NQ-4A|100350</string>
+            <string>SimV3C-NQ-4B|100045</string>
+            <string>SimV3C-NQ-5A|101065</string>
             <string>SimV3C-NQ-5B|100000</string>
-            <string>SimV3D-NQ-1A|100000</string>
+            <string>SimV3D-NQ-1A|105630</string>
             <string>SimV3D-NQ-1B|100000</string>
             <string>SimV3D-NQ-2A|100000</string>
             <string>SimV3D-NQ-2B|100000</string>
-            <string>SimV3D-NQ-3A|100000</string>
-            <string>SimV3D-NQ-3B|100000</string>
+            <string>SimV3D-NQ-3A|102525</string>
+            <string>SimV3D-NQ-3B|104150</string>
             <string>SimV3D-NQ-4A|100000</string>
             <string>SimV3D-NQ-4B|100000</string>
             <string>SimV3D-NQ-5A|100000</string>
             <string>SimV3D-NQ-5B|100000</string>
             <string>SimV3D-NQ-5C|100000</string>
-            <string />
-            <string />
-            <string />
-            <string />
           </AllAccountAutoLiquidate>
           <AllAccountDailyGoal>
             <string />
@@ -2957,12 +2957,18 @@
             <string>APEX7678400000183|2</string>
             <string>APEX7678400000184|2</string>
             <string>APEX7678400000185|2</string>
-            <string>APEX7678400000186|1</string>
-            <string>APEX7678400000187|1</string>
+            <string>APEX7678400000186|2</string>
+            <string>APEX7678400000187|2</string>
             <string>APEX7678400000188|2</string>
             <string>APEX7678400000189|2</string>
+            <string>APEX7678400000190|2</string>
+            <string>APEX7678400000191|2</string>
+            <string>APEX7678400000192|2</string>
+            <string>APEX7678400000193|1</string>
+            <string>APEX7678400000194|1</string>
+            <string>APEX7678400000195|1</string>
             <string>APEX-76784-152|2</string>
-            <string>DEMO1419193|1</string>
+            <string>DEMO1419193|2</string>
             <string>PAAPEX767840000007|2</string>
             <string>PAAPEX767840000008|2</string>
             <string>PAAPEX767840000009|2</string>
@@ -2974,17 +2980,32 @@
             <string>Sim#3 Pine  NQ.5m.Pine.BarN.Structural|2</string>
             <string>Sim#3 Value Fader|2</string>
             <string>Sim#4 Pine NQ.5m.Pine.Fade.PM|2</string>
-            <string>Sim1|1</string>
+            <string>Sim1|2</string>
+            <string>Sim101|1</string>
+            <string>Sim1OG-ES-ADX-1A|1</string>
+            <string>Sim1OG-ES-ADX-1B|1</string>
+            <string>Sim1OG-ES-Momo-1A|1</string>
+            <string>Sim1OG-ES-Momo-1B|1</string>
+            <string>Sim1OG-ES-Pine-1A|1</string>
+            <string>Sim1OG-ES-Pine-1B|1</string>
+            <string>Sim1OG-NQ-ADX-1A|1</string>
+            <string>Sim1OG-NQ-ADX-1B|1</string>
+            <string>Sim1OG-NQ-Momo-1A|1</string>
+            <string>Sim1OG-NQ-Momo-1B|1</string>
+            <string>Sim1OG-NQ-Pine-1A|1</string>
+            <string>Sim1OG-NQ-Pine-1B|1</string>
             <string>Sim2|2</string>
             <string>Sim3|2</string>
             <string>Sim4|2</string>
             <string>Sim5|2</string>
             <string>Sim6|1</string>
+            <string>SimADX Gu5|2</string>
+            <string>SimADX Pine|2</string>
             <string>SimADX v4|2</string>
             <string>SimADX_Momo_Scalper|2</string>
             <string>SimADX_OG x0177|2</string>
-            <string>SimADX1|1</string>
-            <string>SimADX2|1</string>
+            <string>SimADX1|2</string>
+            <string>SimADX2|2</string>
             <string>SimAlms|1</string>
             <string>SimAM ES.5m.Pine.AM.MacroRunner|2</string>
             <string>SimAM:  ES.1m.Momo.AM.Anchor|2</string>
@@ -3006,8 +3027,17 @@
             <string>SimMomo x0179|2</string>
             <string>SimMomo_OG1|2</string>
             <string>SimMomo_OG2|2</string>
-            <string>SimMomo1|1</string>
-            <string>SimMomo2|1</string>
+            <string>SimMomo1|2</string>
+            <string>SimMomo2|2</string>
+            <string>SimMomo3|2</string>
+            <string>SimMomo4|2</string>
+            <string>SimMomo-OG-ES-1A|1</string>
+            <string>SimMomo-OG-ES-1B|1</string>
+            <string>SimMomo-OG-ES-1C|1</string>
+            <string>SimMomo-OG-NQ-1A|1</string>
+            <string>SimMomo-OG-NQ-1B|1</string>
+            <string>SimMomo-OG-NQ-1C|1</string>
+            <string>SimMomov1.2|2</string>
             <string>SimNQ 5m Momo Anchor Bracket Sniper|2</string>
             <string>SimOpen:  ES.1m.Pine.Open.MicroScalp|2</string>
             <string>SimOpen:  NQ.1m.ADX.Open.Assassin |2</string>
@@ -3016,8 +3046,8 @@
             <string>SimOPEN: ES.1m.Pine.Open.Scalp|2</string>
             <string>SimOPEN: Open:  ES.1m.Pine.Open.Fade|2</string>
             <string>SimPine x0178|2</string>
-            <string>SimPine1|1</string>
-            <string>SimPine2|1</string>
+            <string>SimPine1|2</string>
+            <string>SimPine2|2</string>
             <string>SimPM:  NQ.5m.ADX.PM.CounterTrend|2</string>
             <string>SimPM:  NQ.5m.Pine.PM.CounterTrend|2</string>
             <string>SimPM:  NQ.5m.Pine.PM.TrendRunner |2</string>
@@ -3028,122 +3058,92 @@
             <string>SimTrinity HUD HA|2</string>
             <string>SimTrinity HUD Uni|2</string>
             <string>SimTrinity001|2</string>
+            <string>SimV1A - CompositeMomentum 1|2</string>
+            <string>SimV1A - CompositeMomentum 2|2</string>
+            <string>SimV1A - CompositeMomentum 3|2</string>
+            <string>SimV1A - Kalman Fader 2|2</string>
+            <string>SimV1A- Kalman Fader 1|2</string>
+            <string>SimV1A Kalman Fader 3|2</string>
+            <string>SimV1A Vol Fader 2|2</string>
+            <string>SimV1A Vol Fader 3|2</string>
+            <string>SimV1A-CompositeMomentum1|2</string>
+            <string>SimV1A-CompositeMomentum-NQ-1A|2</string>
+            <string>SimV1A-ES-1A|1</string>
+            <string>SimV1A-ES-2A|1</string>
+            <string>SimV1A-ES-3A|1</string>
+            <string>SimV1A-NQ-1A|1</string>
+            <string>SimV1A-NQ-2A|1</string>
+            <string>SimV1A-NQ-3A|1</string>
+            <string>SimV1A-NQ-KalmanPulse-1A|2</string>
+            <string>SimV1A-NQ-VolFader-1A|2</string>
+            <string>SimV1A-NQ-VolFader-1B|2</string>
+            <string>SimV1A-Vol Fader 1|2</string>
+            <string>SimV3C-ES-1A|1</string>
+            <string>SimV3C-ES-1B|1</string>
+            <string>SimV3C-ES-1C|1</string>
+            <string>SimV3C-ES-2A|1</string>
+            <string>SimV3C-ES-2B|1</string>
+            <string>SimV3C-ES-2C|1</string>
+            <string>SimV3C-ES-2D|1</string>
+            <string>SimV3C-ES-3A|1</string>
+            <string>SimV3C-ES-3B|1</string>
+            <string>SimV3C-ES-4A|1</string>
+            <string>SimV3C-ES-4B|1</string>
+            <string>SimV3C-ES-5A|1</string>
+            <string>SimV3C-ES-5B|1</string>
             <string>SimV3C-NQ-1A|1</string>
             <string>SimV3C-NQ-1B|1</string>
+            <string>SimV3C-NQ-1C|1</string>
             <string>SimV3C-NQ-2A|1</string>
             <string>SimV3C-NQ-2B|1</string>
+            <string>SimV3C-NQ-2C|1</string>
+            <string>SimV3C-NQ-2D|1</string>
             <string>SimV3C-NQ-3A|1</string>
             <string>SimV3C-NQ-3B|1</string>
             <string>SimV3C-NQ-4A|1</string>
             <string>SimV3C-NQ-4B|1</string>
             <string>SimV3C-NQ-5A|1</string>
             <string>SimV3C-NQ-5B|1</string>
+            <string>SimV3D-ES-1A|1</string>
+            <string>SimV3D-ES-1B|1</string>
+            <string>SimV3D-ES-1C|1</string>
+            <string>SimV3D-ES-1D|1</string>
+            <string>SimV3D-ES-2A|1</string>
+            <string>SimV3D-ES-2B|1</string>
+            <string>SimV3D-ES-2C|1</string>
+            <string>SimV3D-ES-2D|1</string>
+            <string>SimV3D-ES-3A|1</string>
+            <string>SimV3D-ES-3B|1</string>
+            <string>SimV3D-ES-3C|1</string>
+            <string>SimV3D-ES-3D|1</string>
+            <string>SimV3D-ES-4A|1</string>
+            <string>SimV3D-ES-4B|1</string>
+            <string>SimV3D-ES-4C|1</string>
+            <string>SimV3D-ES-4D|1</string>
+            <string>SimV3D-ES-5A|1</string>
+            <string>SimV3D-ES-5B|1</string>
+            <string>SimV3D-ES-5C|1</string>
+            <string>SimV3D-ES-5D|1</string>
             <string>SimV3D-NQ-1A|1</string>
             <string>SimV3D-NQ-1B|1</string>
+            <string>SimV3D-NQ-1C|1</string>
+            <string>SimV3D-NQ-1D|1</string>
             <string>SimV3D-NQ-2A|1</string>
             <string>SimV3D-NQ-2B|1</string>
+            <string>SimV3D-NQ-2C|1</string>
+            <string>SimV3D-NQ-2D|1</string>
             <string>SimV3D-NQ-3A|1</string>
             <string>SimV3D-NQ-3B|1</string>
+            <string>SimV3D-NQ-3C|1</string>
+            <string>SimV3D-NQ-3D|1</string>
             <string>SimV3D-NQ-4A|1</string>
             <string>SimV3D-NQ-4B|1</string>
+            <string>SimV3D-NQ-4C|1</string>
+            <string>SimV3D-NQ-4D|1</string>
             <string>SimV3D-NQ-5A|1</string>
             <string>SimV3D-NQ-5B|1</string>
             <string>SimV3D-NQ-5C|1</string>
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
-            <string />
+            <string>SimV3D-NQ-5D|1</string>
             <string />
             <string />
             <string />
@@ -3513,7 +3513,7 @@ Tradeify,FTDFYL,FTDYSFX,TRUE,150000,6000,EOD,0,0,,,,5
 Tradeify,TDFYSL,,FALSE,50000,2000,EOD,2500,0,,select eval account,,5
 Tradeify,TDFYSL,,FALSE,100000,3000,EOD,6000,0,,,,5
 Tradeify,TDFYSL,,FALSE,150000,4500,EOD,9000,0,,,,5</CachedCSVData>
-          <LastLoadTimestamp>2026-04-26T12:54:47.0436965-04:00</LastLoadTimestamp>
+          <LastLoadTimestamp>2026-05-16T16:59:48.6441616-04:00</LastLoadTimestamp>
           <LoadedPropFirmsList>21 Prop Firms Loaded (255)
 
 Alpha Futures (7)
@@ -3567,8 +3567,9 @@ Tradeify (19)</LoadedPropFirmsList>
         <ShowScrollBar>false</ShowScrollBar>
         <ShowSelectedDrawingMarkers>true</ShowSelectedDrawingMarkers>
         <SnapMode>Bar</SnapMode>
-        <TabName>#1 Expansion</TabName>
-        <LoadBackgroundImage>false</LoadBackgroundImage>
+        <TabName>Expansion ES 1A</TabName>
+        <LoadBackgroundImage>true</LoadBackgroundImage>
+        <BackgroundImagePath>C:\Program Files\NinjaTrader 8\backgrounds\gradient.jpg</BackgroundImagePath>
         <BackgroundImageStretch>Fill</BackgroundImageStretch>
         <ChartBackgroundSerialize>DEFAULT</ChartBackgroundSerialize>
         <ChartTextSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#00FFFFFF&lt;/SolidColorBrush&gt;</ChartTextSerialize>
@@ -3620,7 +3621,7 @@ Tradeify (19)</LoadedPropFirmsList>
     </Properties>
     <ChartPanels>
       <ChartPanel>
-        <Height>369</Height>
+        <Height>311</Height>
         <HoldChartTraderOrders>false</HoldChartTraderOrders>
         <IsMaximized>false</IsMaximized>
         <Right>
@@ -3666,8 +3667,8 @@ Tradeify (19)</LoadedPropFirmsList>
             <AutoScaleMarginLower>6</AutoScaleMarginLower>
             <AutoScaleMarginUpper>6</AutoScaleMarginUpper>
             <YAxisScalingType>Linear</YAxisScalingType>
-            <FixedScaleMaxSerialize>7223.25</FixedScaleMaxSerialize>
-            <FixedScaleMinSerialize>7147.5</FixedScaleMinSerialize>
+            <FixedScaleMaxSerialize>7454.25</FixedScaleMaxSerialize>
+            <FixedScaleMinSerialize>7375</FixedScaleMinSerialize>
             <IsInverted>false</IsInverted>
           </ChartScaleProperties>
         </Overlay>
