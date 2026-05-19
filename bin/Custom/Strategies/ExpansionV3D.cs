@@ -822,16 +822,21 @@ namespace NinjaTrader.NinjaScript.Strategies
                 int leg2Qty  = Math.Max(1, sz - leg1Qty);
 
                 double riskTicks = (atr[0] * InitialRiskAtr) / TickSize;
+                // Bracket distance in whole ticks. Ticks mode anchors the stop and
+                // target to the actual entry fill price, so a session-open gap can
+                // never leave the stop on the wrong side of the market — which gets
+                // the whole OCO bracket rejected and kills the strategy.
+                int riskTicksI = Math.Max(1, (int)Math.Round(riskTicks));
 
                 if (greenBrick && DirectionLongAllowed())
                 {
-                    double stp  = RT(Close[0] - riskTicks * TickSize);
-                    double tgt1 = RT(Close[0] + riskTicks * TickSize);
+                    double stp  = RT(Close[0] - riskTicksI * TickSize);
+                    double tgt1 = RT(Close[0] + riskTicksI * TickSize);
 
-                    SetStopLoss(Leg1L, CalculationMode.Price, stp,  false);
-                    SetStopLoss(Leg2L, CalculationMode.Price, stp,  false);
-                    CaptureInitialStopForLog(stp, "LONG");
-                    SetProfitTarget(Leg1L, CalculationMode.Price, tgt1);
+                    SetStopLoss(Leg1L, CalculationMode.Ticks, riskTicksI, false);
+                    SetStopLoss(Leg2L, CalculationMode.Ticks, riskTicksI, false);
+                    CaptureInitialStopTicksForLog(riskTicksI, "LONG");
+                    SetProfitTarget(Leg1L, CalculationMode.Ticks, riskTicksI);
                     // Leg2: no fixed target — trail manages it
 
                     EnterLong(leg1Qty, Leg1L);
@@ -847,13 +852,13 @@ namespace NinjaTrader.NinjaScript.Strategies
                 }
                 else if (redBrick && DirectionShortAllowed())
                 {
-                    double stp  = RT(Close[0] + riskTicks * TickSize);
-                    double tgt1 = RT(Close[0] - riskTicks * TickSize);
+                    double stp  = RT(Close[0] + riskTicksI * TickSize);
+                    double tgt1 = RT(Close[0] - riskTicksI * TickSize);
 
-                    SetStopLoss(Leg1S, CalculationMode.Price, stp,  false);
-                    SetStopLoss(Leg2S, CalculationMode.Price, stp,  false);
-                    CaptureInitialStopForLog(stp, "SHORT");
-                    SetProfitTarget(Leg1S, CalculationMode.Price, tgt1);
+                    SetStopLoss(Leg1S, CalculationMode.Ticks, riskTicksI, false);
+                    SetStopLoss(Leg2S, CalculationMode.Ticks, riskTicksI, false);
+                    CaptureInitialStopTicksForLog(riskTicksI, "SHORT");
+                    SetProfitTarget(Leg1S, CalculationMode.Ticks, riskTicksI);
 
                     EnterShort(leg1Qty, Leg1S);
                     EnterShort(leg2Qty, Leg2S);

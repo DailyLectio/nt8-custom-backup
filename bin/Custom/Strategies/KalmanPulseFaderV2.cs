@@ -379,6 +379,16 @@ namespace NinjaTrader.NinjaScript.Strategies
                         double pivot = Position.MarketPosition == MarketPosition.Long
                             ? RT(activeEntryPrice + BreakEvenPlusTicks * TickSize)
                             : RT(activeEntryPrice - BreakEvenPlusTicks * TickSize);
+                        // A fast move can satisfy the breakeven trigger while price
+                        // is still short of the BE+ pivot (when BreakEvenAfterAtr*ATR
+                        // is less than BreakEvenPlusTicks). Submitting a stop through
+                        // the market gets it rejected, and RealtimeErrorHandling
+                        // .StopCancelClose then kills the strategy. Clamp the pivot
+                        // to one tick on the protective side of the current price.
+                        if (Position.MarketPosition == MarketPosition.Long)
+                            pivot = Math.Min(pivot, RT(curPrice - TickSize));
+                        else
+                            pivot = Math.Max(pivot, RT(curPrice + TickSize));
                         if (activeLeg2 == KPL2) SetStopLoss(KPL2, CalculationMode.Price, pivot, false);
                         else if (activeLeg2 == KPS2) SetStopLoss(KPS2, CalculationMode.Price, pivot, false);
                         leg2StopAtBreakeven = true;

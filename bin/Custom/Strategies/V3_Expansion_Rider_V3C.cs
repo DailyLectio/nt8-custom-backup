@@ -192,14 +192,19 @@ namespace NinjaTrader.NinjaScript.Strategies
                     bool isGreenBrick = Close[0] > Open[0];
                     bool isRedBrick = Close[0] < Open[0];
                     double riskTicks = (atr[0] * InitialRiskAtr) / TickSize;
+                    // Whole-tick bracket distance. Ticks mode anchors the stop and
+                    // target to the actual entry fill, so a session-open gap can't
+                    // leave the stop on the wrong side of the market — that gets the
+                    // OCO bracket rejected and the strategy terminates itself.
+                    int riskTicksI = Math.Max(1, (int)Math.Round(riskTicks));
 
                     if (isGreenBrick && allowLong && !SameDirBlocked(1))
                     {
-                        double stp  = Close[0] - (riskTicks * TickSize);
-                        double tgt1 = Close[0] + (riskTicks * TickSize);
+                        double stp  = Close[0] - (riskTicksI * TickSize);
+                        double tgt1 = Close[0] + (riskTicksI * TickSize);
 
-                        SetStopLoss("Leg1", CalculationMode.Price, stp, false);
-                        SetProfitTarget("Leg1", CalculationMode.Price, tgt1);
+                        SetStopLoss("Leg1", CalculationMode.Ticks, riskTicksI, false);
+                        SetProfitTarget("Leg1", CalculationMode.Ticks, riskTicksI);
                         EnterLong(TotalContracts / 2, "Leg1");
 
                         // Leg2 is deferred — fires only when Leg1 profit >= Leg2ProfitGatePct × target
@@ -211,11 +216,11 @@ namespace NinjaTrader.NinjaScript.Strategies
                     }
                     else if (isRedBrick && allowShort && !SameDirBlocked(-1))
                     {
-                        double stp  = Close[0] + (riskTicks * TickSize);
-                        double tgt1 = Close[0] - (riskTicks * TickSize);
+                        double stp  = Close[0] + (riskTicksI * TickSize);
+                        double tgt1 = Close[0] - (riskTicksI * TickSize);
 
-                        SetStopLoss("Leg1", CalculationMode.Price, stp, false);
-                        SetProfitTarget("Leg1", CalculationMode.Price, tgt1);
+                        SetStopLoss("Leg1", CalculationMode.Ticks, riskTicksI, false);
+                        SetProfitTarget("Leg1", CalculationMode.Ticks, riskTicksI);
                         EnterShort(TotalContracts / 2, "Leg1");
 
                         leg2TrailingStop = stp;

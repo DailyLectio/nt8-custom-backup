@@ -257,6 +257,19 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         private double RT(double p) => Instrument.MasterInstrument.RoundToTickSize(p);
 
+        // A trail update can propose a stop on the wrong side of the market when
+        // price snaps back through the trail or gaps. NT rejects a stop placed
+        // through the market and spams the log every price change. Clamp to one
+        // tick on the protective side before submitting.
+        private void SetStopSafe(string signal, double price, bool isLong)
+        {
+            if (double.IsNaN(price)) return;
+            double clamped = isLong
+                ? Math.Min(price, RT(Close[0] - TickSize))
+                : Math.Max(price, RT(Close[0] + TickSize));
+            SetStopLoss(signal, CalculationMode.Price, clamped, false);
+        }
+
         // ---- BarN reference levels ----
         private double BarNStopLong()
         {
@@ -681,7 +694,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                             trailingStopLong = double.IsNaN(trailingStopLong)
                                 ? proposed
                                 : Math.Max(trailingStopLong, proposed);
-                            SetStopLoss(LEntry, CalculationMode.Price, trailingStopLong, false);
+                            SetStopSafe(LEntry, trailingStopLong, true);
                         }
                         break;
 
@@ -692,7 +705,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                             trailingStopLong = double.IsNaN(trailingStopLong)
                                 ? emaStp
                                 : Math.Max(trailingStopLong, emaStp);
-                            SetStopLoss(LEntry, CalculationMode.Price, trailingStopLong, false);
+                            SetStopSafe(LEntry, trailingStopLong, true);
                         }
                         break;
 
@@ -716,7 +729,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                                 ? be
                                 : Math.Max(trailingStopLong, be);
                         }
-                        SetStopLoss(LEntry, CalculationMode.Price, trailingStopLong, false);
+                        SetStopSafe(LEntry, trailingStopLong, true);
                         }
                         break;
 
@@ -743,7 +756,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                             trailingStopShort = double.IsNaN(trailingStopShort)
                                 ? proposed
                                 : Math.Min(trailingStopShort, proposed);
-                            SetStopLoss(SEntry, CalculationMode.Price, trailingStopShort, false);
+                            SetStopSafe(SEntry, trailingStopShort, false);
                         }
                         break;
 
@@ -754,7 +767,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                             trailingStopShort = double.IsNaN(trailingStopShort)
                                 ? emaStp
                                 : Math.Min(trailingStopShort, emaStp);
-                            SetStopLoss(SEntry, CalculationMode.Price, trailingStopShort, false);
+                            SetStopSafe(SEntry, trailingStopShort, false);
                         }
                         break;
 
@@ -778,7 +791,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                                 ? be
                                 : Math.Min(trailingStopShort, be);
                         }
-                        SetStopLoss(SEntry, CalculationMode.Price, trailingStopShort, false);
+                        SetStopSafe(SEntry, trailingStopShort, false);
                         }
                         break;
 
