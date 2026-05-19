@@ -51,7 +51,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SelectedHudLane</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momo_V3C+MomoHudLane, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momo_V3C+MomoHudLane, aaf161f246174c2689c6078d09dc20b5, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>DefaultUniversal</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -80,7 +80,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>Preset</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momo_V3C+ChartPreset, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momo_V3C+ChartPreset, aaf161f246174c2689c6078d09dc20b5, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Custom</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -118,7 +118,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SideAnchor</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momo_V3C+AnchorMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momo_V3C+AnchorMode, aaf161f246174c2689c6078d09dc20b5, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>None</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -264,7 +264,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momo_V3C+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momo_V3C+ExitSlopeMode, aaf161f246174c2689c6078d09dc20b5, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Simple</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -582,6 +582,15 @@
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>300</ValueSerializable>
       </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">0</Max>
+        <Min xsi:type="xsd:int">0</Min>
+        <Name>MaxSameDirTrades</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>0</ValueSerializable>
+      </Parameter>
     </ArrayOfParameter>
   </OptimizationParameters>
   <Strategy>
@@ -663,10 +672,10 @@
       <TradingHoursSerializable />
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
-      <EnableTrinityFilter>false</EnableTrinityFilter>
+      <EnableTrinityFilter>true</EnableTrinityFilter>
       <SelectedHudLane>DefaultUniversal</SelectedHudLane>
-      <UseDualSeries>true</UseDualSeries>
-      <AccountNameFilter>SimV3C-NQ-4B;SimV3C-ES-4B</AccountNameFilter>
+      <UseDualSeries>false</UseDualSeries>
+      <AccountNameFilter>SimV3C-NQ-4A;SimV3C-ES-4A</AccountNameFilter>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog</TradeLogFolder>
       <Contracts>1</Contracts>
       <Preset>Custom</Preset>
@@ -681,7 +690,7 @@
       <AdxPeriod>14</AdxPeriod>
       <UseDiCrossEntry>true</UseDiCrossEntry>
       <UseAdxEntryThreshold>true</UseAdxEntryThreshold>
-      <AdxEntryThreshold>18</AdxEntryThreshold>
+      <AdxEntryThreshold>20</AdxEntryThreshold>
       <UseCiEntryThreshold>false</UseCiEntryThreshold>
       <CiEntryThreshold>60</CiEntryThreshold>
       <UseSlopeGateOnEntry>false</UseSlopeGateOnEntry>
@@ -725,6 +734,7 @@
       <Block3End>70000</Block3End>
       <FlattenNearEnd>false</FlattenNearEnd>
       <FlattenBufferSeconds>300</FlattenBufferSeconds>
+      <MaxSameDirTrades>0</MaxSameDirTrades>
     </Momo_V3C>
   </Strategy>
 </StrategyTemplate>
