@@ -27,6 +27,9 @@ namespace NinjaTrader.NinjaScript.Indicators
 
         private DateTime lastWriteUtc = DateTime.MinValue;
         private bool subscribed;
+        // account -> strategy name, loaded from the registry each WriteExport so
+        // the Strategy column is stamped at source (no more NT_STRATEGY_BLANK).
+        private Dictionary<string, string> strategyByAccount = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
         private int lastExecutionCount;
         private int lastSystemTradeCount;
         private int lastFallbackTradeCount;
@@ -144,7 +147,11 @@ namespace NinjaTrader.NinjaScript.Indicators
                     Directory.CreateDirectory(dir);
 
                 HashSet<string> allowed = BuildAllowedAccounts();
+                strategyByAccount = LoadRegistryStrategies(
+                    string.IsNullOrWhiteSpace(RegistryPath) ? DefaultRegistryPath : RegistryPath);
                 List<TradeRow> rows = BuildTodayRows(allowed);
+                foreach (TradeRow tr in rows)
+                    tr.Strategy = LookupStrategy(tr.Account);
                 rows.Sort((a, b) =>
                 {
                     int c = a.EntryTime.CompareTo(b.EntryTime);
@@ -401,6 +408,53 @@ namespace NinjaTrader.NinjaScript.Indicators
             return accounts;
         }
 
+        // Builds an account -> strategy map from accounts_registry.json so the
+        // exporter can stamp the Strategy column at source (eliminates the
+        // NT_STRATEGY_BLANK data-quality flag). The registry is the single
+        // source of truth for taxonomy (dev-log SF-22). Each account block is
+        // flat (no nested braces), so a per-block regex is reliable. Aliases
+        // are mapped too so NT display-name variants resolve (SF-34).
+        private static Dictionary<string, string> LoadRegistryStrategies(string path)
+        {
+            Dictionary<string, string> map = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+            try
+            {
+                if (string.IsNullOrWhiteSpace(path) || !File.Exists(path))
+                    return map;
+
+                string text = File.ReadAllText(path);
+                foreach (Match block in Regex.Matches(text,
+                    "\"(?<account>Sim[^\"]+)\"\\s*:\\s*\\{(?<body>[^{}]*)\\}", RegexOptions.Singleline))
+                {
+                    string account = block.Groups["account"].Value.Trim();
+                    string body = block.Groups["body"].Value;
+                    Match sm = Regex.Match(body, "\"strategy\"\\s*:\\s*\"(?<strat>[^\"]*)\"");
+                    if (account.Length == 0 || !sm.Success)
+                        continue;
+
+                    string strat = sm.Groups["strat"].Value.Trim();
+                    map[account] = strat;
+
+                    Match am = Regex.Match(body, "\"account_aliases\"\\s*:\\s*\\[(?<aliases>[^\\]]*)\\]", RegexOptions.Singleline);
+                    if (am.Success)
+                        foreach (Match alias in Regex.Matches(am.Groups["aliases"].Value, "\"(?<a>[^\"]+)\""))
+                            map[alias.Groups["a"].Value.Trim()] = strat;
+                }
+            }
+            catch
+            {
+            }
+            return map;
+        }
+
+        private string LookupStrategy(string account)
+        {
+            string s;
+            if (account != null && strategyByAccount.TryGetValue(account, out s))
+                return s ?? "";
+            return "";
+        }
+
         private static void ReplaceFile(string temp, string target)
         {
             if (File.Exists(target))
@@ -510,7 +564,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                 tradeNumber.ToString(CultureInfo.InvariantCulture),
                 Csv(row.Instrument),
                 Csv(row.Account),
-                "",
+                Csv(row.Strategy),
                 Csv(row.Direction),
                 row.Quantity.ToString(CultureInfo.InvariantCulture),
                 Num(row.EntryPrice),
@@ -554,6 +608,7 @@ namespace NinjaTrader.NinjaScript.Indicators
         {
             public string Instrument;
             public string Account;
+            public string Strategy;
             public string Direction;
             public int Quantity;
             public double EntryPrice;
