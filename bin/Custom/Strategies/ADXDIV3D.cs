@@ -881,6 +881,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 int maxC = CalcMaxContracts();
                 int effectiveSizePct = EffectiveSizePct(adxDiSizePct > 0 ? adxDiSizePct : 50);
                 int qty  = ScaleByConfidence(maxC, effectiveSizePct);
+                qty = Math.Min(qty, 2);  // 2026-05-19: hard Apex 2-contract cap
                 if (qty < 1) return;
 
                 if (crossUp && DirectionLongAllowed() && diGapLong >= MinDiGap)

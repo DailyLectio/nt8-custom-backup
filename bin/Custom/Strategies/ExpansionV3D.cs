@@ -826,6 +826,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 int maxC     = CalcMaxContracts();
                 int sz       = ScaleByConfidence(maxC, effectiveSizePct);
+                sz = Math.Min(sz, 2);  // 2026-05-19: hard Apex 2-contract cap
                 int leg1Qty  = Math.Max(1, sz / 2);
                 int leg2Qty  = Math.Max(1, sz - leg1Qty);
 

@@ -439,6 +439,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 int maxC = CalcMaxContracts();
                 int qty  = ScaleByConfidence(maxC, sniperSizePct);
+                qty = Math.Min(qty, 2);  // 2026-05-19: hard Apex 2-contract cap
 
                 // ── LONG SNIPE: VERSION B strict adjacent 2-bar sequence ───
                 // Bar[1]: Low touched slow EMA AND close was at/below fast EMA
