@@ -95,6 +95,10 @@ namespace NinjaTrader.NinjaScript.Strategies
         public void OnExecution(Execution execution, double price, int quantity,
             MarketPosition marketPosition, DateTime time)
         {
+            // 2026-05-19 EOD: per-model V3D trade logger retired — superseded by
+            // NT8TradeExportAutoWriter (Regime Development Log SF-29). Disabled.
+            return;
+#pragma warning disable CS0162
             if (execution == null || execution.Order == null || quantity <= 0)
                 return;
             if (!IsConfiguredAccount(execution))

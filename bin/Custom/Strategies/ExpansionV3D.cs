@@ -322,6 +322,10 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         private void ConfigureStage1TradeLog()
         {
+            // 2026-05-19 EOD: inline Stage1 per-model trade logger retired —
+            // superseded by NT8TradeExportAutoWriter (Regime Development Log SF-29).
+            return;
+#pragma warning disable CS0162
             string dir = Path.Combine(@"C:\Users\Valued Customer\NT8_Regimes", Stage1ModelVersion, "TradeLog");
             tradeLogPath = Path.Combine(dir, ResolveStage1BotName() + "_TradeLog.csv");
             EnsureStage1TradeLogHeader();
@@ -345,6 +349,10 @@ namespace NinjaTrader.NinjaScript.Strategies
             Execution execution, double price, int quantity,
             MarketPosition marketPosition, DateTime time)
         {
+            // 2026-05-19 EOD: inline Stage1 per-model trade logger retired —
+            // superseded by NT8TradeExportAutoWriter (Regime Development Log SF-29).
+            return;
+#pragma warning disable CS0162
             if (execution == null || execution.Order == null || quantity <= 0)
                 return;
 
