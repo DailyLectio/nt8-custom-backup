@@ -16,8 +16,11 @@ namespace NinjaTrader.NinjaScript.Indicators
 {
     public class NT8TradeExportAutoWriter : Indicator
     {
+        // Exit reason / Is code exit appended 2026-05-18: canonical exit-label taxonomy
+        // is normalised here at the exporter so downstream reporting never sees the
+        // duplicate raw spellings (WOBBLEEJECT/WOBBLE_EJECT, STOPX/STOP_HIT).
         private const string Header =
-            "Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,MAE,MFE,ETD,Bars,";
+            "Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,MAE,MFE,ETD,Bars,Exit reason,Is code exit";
         private const string DefaultRegistryPath = @"C:\Users\Valued Customer\NT8_Regimes\accounts_registry.json";
         private const string EmbeddedAccountFilter =
             "Sim1OG-ES-ADX-1A;Sim1OG-ES-ADX-1B;Sim1OG-ES-Momo-1A;Sim1OG-ES-Momo-1B;Sim1OG-ES-Pine-1A;Sim1OG-ES-Pine-1B;Sim1OG-NQ-ADX-1A;Sim1OG-NQ-ADX-1B;Sim1OG-NQ-Momo-1A;Sim1OG-NQ-Momo-1B;Sim1OG-NQ-Pine-1A;Sim1OG-NQ-Pine-1B;SimMomoOG-ES-1A;SimMomoOG-ES-1B;SimMomoOG-NQ-1A;SimMomoOG-NQ-1B;SimV1A-ES-1A;SimV1A-ES-2A;SimV1A-ES-3A;SimV1A-NQ-1A;SimV1A-NQ-2A;SimV1A-NQ-3A;SimV1A-NQ-CompMomo-1A;SimV1A-NQ-CompMomo-1A1C;SimV1A-NQ-CompMomo-1B;SimV1A-NQ-KalmanFader-1A;SimV1A-NQ-KalmanFader-1B;SimV1A-NQ-KalmanFader-1C;SimV1A-NQ-VolFader-1A;SimV1A-NQ-VolFader-1B;SimV1A-NQ-VolFader-1C;SimV3C-ES-1A;SimV3C-ES-2A;SimV3C-ES-3A;SimV3C-ES-4A;SimV3C-ES-5A;SimV3C-NQ-1A;SimV3C-NQ-1B;SimV3C-NQ-1C;SimV3C-NQ-2A;SimV3C-NQ-2B;SimV3C-NQ-2C;SimV3C-NQ-2D;SimV3C-NQ-3A;SimV3C-NQ-3B;SimV3C-NQ-4A;SimV3C-NQ-4B;SimV3C-NQ-5A;SimV3C-NQ-5B;SimV3D-ES-1A;SimV3D-ES-1B;SimV3D-ES-1C;SimV3D-ES-1D;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-2C;SimV3D-ES-2D;SimV3D-ES-3A;SimV3D-ES-3B;SimV3D-ES-3C;SimV3D-ES-3D;SimV3D-ES-4A;SimV3D-ES-4B;SimV3D-ES-4C;SimV3D-ES-4D;SimV3D-ES-5A;SimV3D-ES-5B;SimV3D-ES-5C;SimV3D-ES-5D;SimV3D-NQ-1A;SimV3D-NQ-1B;SimV3D-NQ-1C;SimV3D-NQ-1D;SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-2C;SimV3D-NQ-2D;SimV3D-NQ-3A;SimV3D-NQ-3B;SimV3D-NQ-3C;SimV3D-NQ-3D;SimV3D-NQ-4A;SimV3D-NQ-4B;SimV3D-NQ-4C;SimV3D-NQ-4D;SimV3D-NQ-5A;SimV3D-NQ-5B;SimV3D-NQ-5C;SimV3D-NQ-5D";
@@ -58,7 +61,11 @@ namespace NinjaTrader.NinjaScript.Indicators
                 IsOverlay = true;
                 DisplayInDataBox = false;
                 IsSuspendedWhileInactive = false;
-                OutputPath = @"C:\Users\Valued Customer\Downloads\tradeexport.csv";
+                // Writes the dated file the NT8_Regimes EOD pipeline expects.
+                // {date} is substituted with today's yyyy-MM-dd at write time
+                // (see ResolveOutputPath). Both nt_trade_export_reconcile.py and
+                // regime_daily_join.py read Exports\DayTrades\trades_<date>.csv.
+                OutputPath = @"C:\Users\Valued Customer\NT8_Regimes\Exports\DayTrades\trades_{date}.csv";
                 RegistryPath = DefaultRegistryPath;
                 UseRegistryAccountFilter = true;
                 RefreshSeconds = 30;
@@ -115,6 +122,15 @@ namespace NinjaTrader.NinjaScript.Indicators
             WriteExport();
         }
 
+        // Substitutes {date} in OutputPath with today's date (yyyy-MM-dd) so the
+        // exporter writes the dated file the EOD pipeline expects, e.g.
+        // ...\Exports\DayTrades\trades_2026-05-19.csv. Added 2026-05-19.
+        private string ResolveOutputPath()
+        {
+            string p = OutputPath ?? "";
+            return p.Replace("{date}", DateTime.Today.ToString("yyyy-MM-dd"));
+        }
+
         private void WriteExport()
         {
             try
@@ -122,7 +138,8 @@ namespace NinjaTrader.NinjaScript.Indicators
                 if (string.IsNullOrWhiteSpace(OutputPath))
                     return;
 
-                string dir = Path.GetDirectoryName(OutputPath);
+                string outputPath = ResolveOutputPath();
+                string dir = Path.GetDirectoryName(outputPath);
                 if (!string.IsNullOrWhiteSpace(dir) && !Directory.Exists(dir))
                     Directory.CreateDirectory(dir);
 
@@ -146,9 +163,9 @@ namespace NinjaTrader.NinjaScript.Indicators
                     sb.AppendLine(ToCsvLine(i + 1, rows[i], running));
                 }
 
-                string temp = OutputPath + ".tmp";
+                string temp = outputPath + ".tmp";
                 File.WriteAllText(temp, sb.ToString(), Encoding.UTF8);
-                ReplaceFile(temp, OutputPath);
+                ReplaceFile(temp, outputPath);
                 lastWriteUtc = DateTime.UtcNow;
                 WriteStatus(
                     "OK rows=" + rows.Count +
@@ -410,7 +427,7 @@ namespace NinjaTrader.NinjaScript.Indicators
             {
                 if (string.IsNullOrWhiteSpace(OutputPath))
                     return;
-                File.WriteAllText(OutputPath + ".status.txt", message + Environment.NewLine, Encoding.UTF8);
+                File.WriteAllText(ResolveOutputPath() + ".status.txt", message + Environment.NewLine, Encoding.UTF8);
             }
             catch
             {
@@ -445,8 +462,49 @@ namespace NinjaTrader.NinjaScript.Indicators
             return execution.Order.Name ?? "";
         }
 
+        // -------------------------------------------------------------------
+        // Canonical exit-label taxonomy.  Added 2026-05-18.
+        //
+        // The raw NinjaTrader order/signal name varies by strategy and version
+        // (WOBBLEEJECT vs WOBBLE_EJECT, STOPX vs STOP_HIT, etc.).  This method
+        // is the single normalisation point so every consumer sees one label
+        // set.  Rules:
+        //   * WOBBLE*                -> WOBBLE_EJECT
+        //   * STOP* on a winning trade  -> TRAIL_EXIT   (trailing stop on a runner)
+        //   * STOP* on a losing trade   -> STOP_HIT     (protective stop)
+        //   * ENVELOPE* / ENVBREAK*  -> ENVELOPE_BREAK_EXIT  (code event, SF-12)
+        //   * SESSION / FLATTEN / EOD / MANUAL -> SESSION_CLOSE (code event)
+        //   * *CANCEL*               -> STOP_CANCEL_CLOSE (code event)
+        // The TRAIL_EXIT split exists so STOP_HIT stops conflating winning
+        // trailing-stop exits with losing protective-stop exits.
+        private static string NormalizeExitReason(string rawExitName, double profit)
+        {
+            string n = (rawExitName ?? "").Trim().ToUpperInvariant();
+            if (n.Length == 0)                                       return "";
+            if (n.Contains("ENVELOPE") || n.Contains("ENVBREAK"))    return "ENVELOPE_BREAK_EXIT";
+            if (n.Contains("CANCEL"))                                return "STOP_CANCEL_CLOSE";
+            if (n.Contains("SESSION") || n.Contains("FLATTEN")
+                || n.Contains("EOD") || n.Contains("MANUAL"))        return "SESSION_CLOSE";
+            if (n.Contains("TARGET") || n.Contains("PROFITTARGET"))  return "TARGET_HIT";
+            if (n.Contains("WOBBLE"))                                return "WOBBLE_EJECT";
+            if (n.Contains("SLOPE"))                                 return "SLOPE_EXIT";
+            if (n.Contains("STOP"))                                  return profit > 0 ? "TRAIL_EXIT" : "STOP_HIT";
+            if (n == "CLOSE")                                        return "CLOSE";
+            return n;
+        }
+
+        // Code events are platform/session artefacts, not strategy decisions.
+        // Reporting excludes them from clean P&L (dev-log SF-12).
+        private static bool IsCodeExit(string canonicalExitReason)
+        {
+            return canonicalExitReason == "ENVELOPE_BREAK_EXIT"
+                || canonicalExitReason == "SESSION_CLOSE"
+                || canonicalExitReason == "STOP_CANCEL_CLOSE";
+        }
+
         private static string ToCsvLine(int tradeNumber, TradeRow row, double running)
         {
+            string exitReason = NormalizeExitReason(row.ExitName, row.Profit);
             return string.Join(",", new[]
             {
                 tradeNumber.ToString(CultureInfo.InvariantCulture),
@@ -468,7 +526,8 @@ namespace NinjaTrader.NinjaScript.Indicators
                 "",
                 "",
                 "",
-                ""
+                Csv(exitReason),
+                IsCodeExit(exitReason) ? "1" : "0"
             });
         }
 
