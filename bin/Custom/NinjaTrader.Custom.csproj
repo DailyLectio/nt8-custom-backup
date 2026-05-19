@@ -604,7 +604,7 @@
     <Compile Include="Strategies\AdxDiCrossBracketOG_V2.cs" />
     <Compile Include="Strategies\AdxDiCrossStrategyPineTrail_V2.cs" />
     <Compile Include="Strategies\MomentumSlopeOG_V2.cs" />
-    <Compile Include="Indicators\NT8TradeExportAutoWriter.cs" />
+    <Compile Include="Indicators\%40%40NT8TradeExportAutoWriter.cs" />
     <Compile Include="Strategies\MomentumSlopeOG_V2_StopModes.cs" />
     <Compile Include="Strategies\V3DPermissionMode.cs" />
     <Compile Include="Strategies\FaderV3D.cs" />
