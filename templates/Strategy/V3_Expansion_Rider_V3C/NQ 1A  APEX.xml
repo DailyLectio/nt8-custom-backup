@@ -274,9 +274,9 @@
       <Block2End>0</Block2End>
       <Block3Start>0</Block3Start>
       <Block3End>0</Block3End>
-      <EnableEntryCooldown>false</EnableEntryCooldown>
+      <EnableEntryCooldown>true</EnableEntryCooldown>
       <CooldownMinutes>3</CooldownMinutes>
-      <MaxSameDirTrades>0</MaxSameDirTrades>
+      <MaxSameDirTrades>2</MaxSameDirTrades>
     </V3_Expansion_Rider_V3C>
   </Strategy>
 </StrategyTemplate>
