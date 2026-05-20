@@ -713,7 +713,6 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             int maxC    = CalcMaxContracts();
             int leg1Qty = ScaleByConfidence(maxC, momoSizePct);
-            leg1Qty = Math.Min(leg1Qty, 2);  // 2026-05-19: hard Apex 2-contract cap
             if (leg1Qty < 1) return;
 
             double risk     = Math.Max(AtrStopMult * atrStop[0], MinStopTicks * TickSize);
@@ -728,7 +727,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             // Leg2 fires only at high confidence
             bool highConf = regimeConfidence >= ConfidenceScaleThreshold;
-            if (highConf && leg1Qty < 2)
+            if (highConf)
             {
                 int leg2Qty = Math.Max(1, leg1Qty / 2); // half the Leg1 size
                 SetStopLoss(LEntry2, CalculationMode.Price, stp, false);
@@ -751,7 +750,6 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             int maxC    = CalcMaxContracts();
             int leg1Qty = ScaleByConfidence(maxC, momoSizePct);
-            leg1Qty = Math.Min(leg1Qty, 2);  // 2026-05-19: hard Apex 2-contract cap
             if (leg1Qty < 1) return;
 
             double risk    = Math.Max(AtrStopMult * atrStop[0], MinStopTicks * TickSize);
@@ -764,7 +762,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             EnterShort(leg1Qty, SEntry1);
 
             bool highConf = regimeConfidence >= ConfidenceScaleThreshold;
-            if (highConf && leg1Qty < 2)
+            if (highConf)
             {
                 int leg2Qty = Math.Max(1, leg1Qty / 2);
                 SetStopLoss(SEntry2, CalculationMode.Price, stp, false);

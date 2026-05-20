@@ -577,7 +577,6 @@
     <Compile Include="Strategies\V3_Compression_Sniper_V3C.cs" />
     <Compile Include="Strategies\%40%40ADXDIV3DC.cs" />
     <Compile Include="Strategies\MomoV3CB.cs" />
-    <Compile Include="Strategies\MomentumV3DB.cs" />
     <Compile Include="Indicators\%40%40TradeLogExporterV3D.cs" />
     <Compile Include="Indicators\TradeLogExporter_V3D.cs" />
     <Compile Include="Strategies\MomentumExpansion_5m.cs" />

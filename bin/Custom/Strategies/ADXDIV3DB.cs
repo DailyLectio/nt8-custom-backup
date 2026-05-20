@@ -717,7 +717,6 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 int maxC = CalcMaxContracts();
                 int qty  = ScaleByConfidence(maxC, adxDiSizePct);
-                qty = Math.Min(qty, 2);  // 2026-05-19: hard Apex 2-contract cap
 
                 // ── LONG ENTRY: condition transitioned to 1.0 or 0.5 ──────
                 // condition[1] != target AND condition[0] == target = fresh transition

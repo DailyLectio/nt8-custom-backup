@@ -819,7 +819,6 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 int maxC = CalcMaxContracts();
                 int qty  = ScaleByConfidence(maxC, effectiveSizePct);
-                qty = Math.Min(qty, 2);  // 2026-05-19: hard Apex 2-contract cap
 
                 // ── LONG SNIPE: dip-buy pattern ────────────────────────────
                 // VERSION A coherent 3-bar sequence:

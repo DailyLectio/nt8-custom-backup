@@ -221,9 +221,9 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "Max Contracts Override (0 = off)",
                  Description = "Strategy-level hard cap on contracts per fill. " +
                                "ApexMaxContracts from the CSV takes precedence when > 0. " +
-                               "Default 2 = Apex-funded safety floor; set 0 to disable.",
+                               "Set to 2 on any Apex-funded account as a safety floor.",
                  GroupName = "5. Guards", Order = 3)]
-        public int MaxContracts { get; set; } = 2;
+        public int MaxContracts { get; set; } = 0;
 
         // --- Time ---
         [NinjaScriptProperty]
