@@ -609,6 +609,9 @@
     <Compile Include="Strategies\FaderV3D.cs" />
     <Compile Include="Strategies\V3_Expansion_Rider_V3C.cs" />
     <Compile Include="Strategies\V3_Value_Fader_V3C.cs" />
+    <Compile Include="Strategies\ApexContractCapGuard.cs" />
+    <Compile Include="Strategies\MomentumV3DB.cs" />
+    <Compile Include="Indicators\RegimeScorecardHUD.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
