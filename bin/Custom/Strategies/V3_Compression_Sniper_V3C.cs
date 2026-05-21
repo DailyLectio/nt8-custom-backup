@@ -2,6 +2,7 @@
 // ============================================================================
 // V3_Compression_Sniper_V3C â€” PATCHED VERSION
 // Audit Date: 2026-05-06
+// Fix Date:   2026-05-21
 // Changes vs. original V3C:
 //   [P1] Added MaxSessionTrades + CooldownBarsAfterExit session guard
 //   [P1] Added MaxConsecutiveLosses circuit breaker
@@ -10,6 +11,17 @@
 //   [P3] Added MinStopTicksFloor parameter (default 8 ticks)
 //   [P4] Bars.IsFirstBarOfSession resets all session-scoped counters
 //   [INFO] DebugV3CGate should be set True during all test sessions
+// 2026-05-21 APEX RATE-LIMIT FIX:
+//   [FIX] RealtimeErrorHandling changed StopCancelClose -> IgnoreAllErrors
+//         Root cause: Apex rate-limits stop/target submissions on order fill;
+//         StopCancelClose responded by firing a burst of cancel requests, each
+//         also rate-limited, generating hundreds of error dialogs and terminating
+//         the strategy. IgnoreAllErrors breaks the cascade.
+//   [FIX] OnOrderUpdate now detects rate-limit rejections by comment text,
+//         sets _needStopRearm / _needTargetRearm flags, and logs clearly.
+//   [FIX] OnBarUpdate re-submits rejected stop/target orders on the next bar
+//         using cached riskTicks/rewardTicks from the entry that triggered them.
+//   [FIX] Entry-order rate-limit rejections correct _sessionTradeCount.
 // ============================================================================
 #region Using declarations
 using System;
@@ -108,6 +120,13 @@ namespace NinjaTrader.NinjaScript.Strategies
         private int  _lastEntryDir  = 0;   // 1 = long, -1 = short
         private bool _dirRegistered = false;
 
+        // [FIX] Apex rate-limit resilience — track pending stop/target re-arms
+        private bool _needStopRearm   = false;  // set true when stop order is rate-limit rejected
+        private bool _needTargetRearm = false;  // set true when target order is rate-limit rejected
+        private int  _rearmRiskTicks  = 0;      // cached ticks for re-arm
+        private int  _rearmRewardTicks = 0;     // cached ticks for re-arm
+        private string _rearmSignalName = "";   // "SnipeL" or "SnipeS"
+
         protected override void OnStateChange()
         {
             if (State == State.SetDefaults)
@@ -121,7 +140,10 @@ namespace NinjaTrader.NinjaScript.Strategies
                 ExitOnSessionCloseSeconds                   = 30;
                 IsFillLimitOnTouch                          = false;
                 TraceOrders                                 = false;
-                RealtimeErrorHandling                       = RealtimeErrorHandling.StopCancelClose;
+                // [FIX] IgnoreAllErrors prevents Apex rate-limit rejections from cascading into
+                // a flood of cancel requests and strategy self-termination. Rejection detection
+                // and re-arm logic in OnOrderUpdate/OnBarUpdate replace the default safety net.
+                RealtimeErrorHandling                       = RealtimeErrorHandling.IgnoreAllErrors;
             }
             else if (State == State.DataLoaded)
             {
@@ -150,6 +172,25 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             if (Bars.IsFirstBarOfSession)
                 ResetSessionCounters();
+
+            // [FIX] Re-arm stop/target orders that were rate-limit rejected by Apex on a prior bar.
+            // Only fires when in a live position with pending re-arm flags.
+            if ((_needStopRearm || _needTargetRearm) && Position.MarketPosition != MarketPosition.Flat)
+            {
+                if (_needStopRearm)
+                {
+                    SetStopLoss(_rearmSignalName, CalculationMode.Ticks, _rearmRiskTicks, false);
+                    Print($"{Time[0]} {Name}: [REARM] Re-submitted stop for '{_rearmSignalName}' ({_rearmRiskTicks}t) after rate-limit rejection.");
+                    _needStopRearm = false;
+                }
+                if (_needTargetRearm)
+                {
+                    SetProfitTarget(_rearmSignalName, CalculationMode.Ticks, _rearmRewardTicks);
+                    Print($"{Time[0]} {Name}: [REARM] Re-submitted target for '{_rearmSignalName}' ({_rearmRewardTicks}t) after rate-limit rejection.");
+                    _needTargetRearm = false;
+                }
+                return; // Skip entry logic this bar — orders are being re-armed
+            }
 
             bool compressionAllowed = IsCompressionAllowed(out bool allowLong, out bool allowShort);
 
@@ -202,6 +243,12 @@ namespace NinjaTrader.NinjaScript.Strategies
                         EnterLong(Contracts, "SnipeL");
                         enteredThisBar = true;        // [PATCH P2] Block short on same bar
                         _sessionTradeCount++;
+                        // [FIX] Cache for re-arm if stop/target hit Apex rate limit
+                        _rearmSignalName  = "SnipeL";
+                        _rearmRiskTicks   = riskTicks;
+                        _rearmRewardTicks = rewardTicks;
+                        _needStopRearm    = false;
+                        _needTargetRearm  = false;
                         DebugGate($"Long entry #{_sessionTradeCount} | Risk={riskTicks}t Target={rewardTicks}t");
                     }
                 }
@@ -221,6 +268,12 @@ namespace NinjaTrader.NinjaScript.Strategies
                         SetProfitTarget("SnipeS", CalculationMode.Ticks, rewardTicks);
                         EnterShort(Contracts, "SnipeS");
                         _sessionTradeCount++;
+                        // [FIX] Cache for re-arm if stop/target hit Apex rate limit
+                        _rearmSignalName  = "SnipeS";
+                        _rearmRiskTicks   = riskTicks;
+                        _rearmRewardTicks = rewardTicks;
+                        _needStopRearm    = false;
+                        _needTargetRearm  = false;
                         DebugGate($"Short entry #{_sessionTradeCount} | Risk={riskTicks}t Target={rewardTicks}t");
                     }
                 }
@@ -360,6 +413,45 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (orderState == OrderState.Working)
                 _logger?.OnStopOrderSubmitted(order);
+
+            // [FIX] Detect Apex rate-limit rejections and flag for re-arm rather than terminating.
+            // With RealtimeErrorHandling.IgnoreAllErrors the strategy stays alive; we handle recovery here.
+            if (orderState == OrderState.Rejected && order != null)
+            {
+                bool isRateLimit = (comment != null && comment.IndexOf("rate limit", StringComparison.OrdinalIgnoreCase) >= 0)
+                                || (comment != null && comment.IndexOf("Rate limit", StringComparison.Ordinal) >= 0);
+
+                string orderName = order.Name ?? "";
+                bool isStop   = orderName.IndexOf("stop",   StringComparison.OrdinalIgnoreCase) >= 0;
+                bool isTarget = orderName.IndexOf("target", StringComparison.OrdinalIgnoreCase) >= 0
+                             || orderName.IndexOf("profit", StringComparison.OrdinalIgnoreCase) >= 0;
+
+                if (isRateLimit)
+                {
+                    // Rate-limit rejection — set re-arm flags; OnBarUpdate will re-submit next bar
+                    if (isStop)
+                    {
+                        _needStopRearm = true;
+                        Print($"{Time[0]} {Name}: [RATE-LIMIT] Stop order '{orderName}' rejected by Apex — flagged for re-arm next bar.");
+                    }
+                    else if (isTarget)
+                    {
+                        _needTargetRearm = true;
+                        Print($"{Time[0]} {Name}: [RATE-LIMIT] Target order '{orderName}' rejected by Apex — flagged for re-arm next bar.");
+                    }
+                    else
+                    {
+                        // Entry order rate-limited — decrement session count and log
+                        if (_sessionTradeCount > 0) _sessionTradeCount--;
+                        Print($"{Time[0]} {Name}: [RATE-LIMIT] Entry order '{orderName}' rejected by Apex — session count corrected to {_sessionTradeCount}.");
+                    }
+                }
+                else
+                {
+                    // Genuine (non-rate-limit) rejection — log clearly for review
+                    Print($"{Time[0]} {Name}: [ORDER REJECTED] Name='{orderName}' Error={error} Comment='{comment}' — NOT rate-limit; investigate.");
+                }
+            }
         }
     }
 }
