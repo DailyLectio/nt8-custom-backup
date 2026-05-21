@@ -566,7 +566,6 @@
     <Compile Include="Strategies\ADXXV3C.cs" />
     <Compile Include="Strategies\PineV3C.cs" />
     <Compile Include="Indicators\ValueAreaExporter.cs" />
-    <Compile Include="Strategies\MomentumV3D.cs" />
     <Compile Include="Strategies\ADXDIV3D.cs" />
     <Compile Include="Strategies\SniperV3D.cs" />
     <Compile Include="Strategies\ExpansionV3D.cs" />
@@ -609,9 +608,7 @@
     <Compile Include="Strategies\V3_Expansion_Rider_V3C.cs" />
     <Compile Include="Strategies\V3_Value_Fader_V3C.cs" />
     <Compile Include="Strategies\ApexContractCapGuard.cs" />
-    <Compile Include="Strategies\MomentumV3DB.cs" />
     <Compile Include="Indicators\RegimeScorecardHUD.cs" />
-    <Compile Include="Strategies\ExpansionV3DR2.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">

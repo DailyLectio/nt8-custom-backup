@@ -1,7 +1,31 @@
 // CC BY-NC 4.0
-// Expansion_V3D.cs  — V3D Institutional Regime Matrix  — Version A
+// Expansion_V3D_R2.cs  — V3D Institutional Regime Matrix  — REV 2 (2026-05-22)
 // ─────────────────────────────────────────────────────────────────
-// REGIME TARGET : TREND_EXPANSION only.  No entries in any other state.
+// WHAT CHANGED FROM Expansion_V3D (REV 1):
+//   REV 1 entry was "3 bricks elapsed -> any green brick = long, any red brick
+//   = short" — no strength, no direction confirmation, no chop filter. Forensic
+//   on SimV3D-NQ-1A (2026-05-21) showed PF 0.90 / net -$10,845: 72 of 160
+//   positions stopped out at 19% win, the bleed concentrated in NQ SHORT and the
+//   09:30-11:29 window. The brick-color trigger was the defect.
+//
+//   REV 2 replaces the entry trigger with the proven MomentumSlope OG V2 stack
+//   (DI+/DI- crossover + ADX strength threshold + optional CI ceiling + optional
+//   CI-falling/ADX-rising slope confirmation + optional VWAP anchor), while
+//   PRESERVING the REV 1 trade-management layer wholesale: two-leg structure,
+//   HybridBarN->tick trail, wobble-eject, regime-degradation trail tightening,
+//   TRANSITION emergency-flat, Apex $1,500 sizing ceiling, supervisor permission
+//   read (now with MaxRowAgeSec wall-clock staleness), V3D trade logger.
+//
+//   Designed to "breathe" on heavy UniRenko (NQ 40-80-120, ES 22-44-66) — the
+//   same charts REV 1 / V3C Expansion use. ADX/DI/CI behave BETTER on heavy
+//   UniRenko than on time bars: the brick rule already filters chop, so ADX
+//   stays low in chop and rises sharply on real expansion. Operator decisions
+//   2026-05-22: CI ceiling OFF by default (gating on CI too restrictive), VWAP
+//   anchor OFF by default (OG testing favoured off), slope confirmation OFF by
+//   default — base entry is DI cross + ADX threshold, letting the heavy UniRenko
+//   chart do the chop-filtering. All three are available as toggles for testing.
+//
+// REGIME TARGET : TREND_EXPANSION (B/C mode gate). A-mode = baseline, no regime gate.
 // CHART TYPE    : UniRenko (primary).  Calculate.OnBarClose.
 // INSTRUMENT    : NQ / ES  (MNQ / MES supported via leader-symbol map).
 //
@@ -67,7 +91,7 @@ using NinjaTrader.NinjaScript.Strategies;
 
 namespace NinjaTrader.NinjaScript.Strategies
 {
-    public class Expansion_V3D : Strategy
+    public class Expansion_V3D_R2 : Strategy
     {
         // =====================================================================
         // PARAMETERS
@@ -94,11 +118,11 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         [NinjaScriptProperty]
         [Display(Name = "Account Name Filter", Description = "V3D only: exact NT8 account name allow-list for this strategy class. Separate multiple baked accounts with semicolons.", GroupName = "0b. Trade Logging", Order = 0)]
-        public string AccountNameFilter { get; set; } = "SimV3D-NQ-1A;SimV3D-NQ-1B;SimV3D-NQ-1C;SimV3D-ES-1A;SimV3D-ES-1B;SimV3D-ES-1C";
+        public string AccountNameFilter { get; set; } = "SimV3D-NQ-1A-R2;SimV3D-ES-1A-R2";
 
         [NinjaScriptProperty]
         [Display(Name = "Configured Strategy Name", Description = "V3D only: exported strategy identity. Leave as the baked default unless intentionally renaming the tab.", GroupName = "0b. Trade Logging", Order = 1)]
-        public string ConfiguredStrategyName { get; set; } = "Expansion_V3D";
+        public string ConfiguredStrategyName { get; set; } = "Expansion_V3D_R2";
 
         [NinjaScriptProperty]
         [Display(Name = "Trade Log Folder", Description = "V3D only: internal strategy-owned export folder. External V3D trade-log exporter indicators are not required.", GroupName = "0b. Trade Logging", Order = 2)]
@@ -127,6 +151,80 @@ namespace NinjaTrader.NinjaScript.Strategies
         [NinjaScriptProperty, Range(50, 100)]
         [Display(Name = "Min Regime Confidence", GroupName = "3. Signal", Order = 1)]
         public int MinConfidence { get; set; } = 75;
+
+        // --- R2 Entry Signal (MomentumSlope OG V2 stack, tuned for heavy UniRenko) ---
+        [NinjaScriptProperty, Range(2, 100)]
+        [Display(Name = "ADX Period", GroupName = "3b. R2 Entry", Order = 0)]
+        public int AdxPeriod { get; set; } = 14;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Use ADX Threshold", Description = "Primary expansion gate. Heavy UniRenko already filters chop, so ADX is the main discriminator.", GroupName = "3b. R2 Entry", Order = 1)]
+        public bool UseAdxThreshold { get; set; } = true;
+
+        [NinjaScriptProperty, Range(0.0, 100.0)]
+        [Display(Name = "ADX Entry Threshold", Description = "NQ default 20; consider 18 for ES (smaller bricks).", GroupName = "3b. R2 Entry", Order = 2)]
+        public double AdxEntryThreshold { get; set; } = 20.0;
+
+        [NinjaScriptProperty, Range(2, 200)]
+        [Display(Name = "CI Period", GroupName = "3b. R2 Entry", Order = 3)]
+        public int CiPeriod { get; set; } = 14;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Use CI Ceiling (OFF by default)", Description = "Operator 2026-05-22: gating on CI found too restrictive. Left OFF; enable to test 45/55/60.", GroupName = "3b. R2 Entry", Order = 4)]
+        public bool UseCiEntryThreshold { get; set; } = false;
+
+        [NinjaScriptProperty, Range(0.0, 100.0)]
+        [Display(Name = "CI Entry Ceiling", Description = "When enabled, block entries with CI above this. 60 avoids only the upper-chop band.", GroupName = "3b. R2 Entry", Order = 5)]
+        public double CiEntryThreshold { get; set; } = 60.0;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Use Slope Confirmation", Description = "CI falling AND ADX rising over N bars = expansion phase transition. OFF by default.", GroupName = "3b. R2 Entry", Order = 6)]
+        public bool UseSlopeGate { get; set; } = false;
+
+        [NinjaScriptProperty, Range(1, 50)]
+        [Display(Name = "CI Slope Bars", GroupName = "3b. R2 Entry", Order = 7)]
+        public int CiSlopeBars { get; set; } = 3;
+
+        [NinjaScriptProperty, Range(1, 50)]
+        [Display(Name = "ADX Slope Bars", GroupName = "3b. R2 Entry", Order = 8)]
+        public int AdxSlopeBars { get; set; } = 3;
+
+        [NinjaScriptProperty, Range(0.0, 100.0)]
+        [Display(Name = "Min CI Decrease (slope)", GroupName = "3b. R2 Entry", Order = 9)]
+        public double CiDecreaseMin { get; set; } = 3.0;
+
+        [NinjaScriptProperty, Range(0.0, 100.0)]
+        [Display(Name = "Min ADX Increase (slope)", GroupName = "3b. R2 Entry", Order = 10)]
+        public double AdxIncreaseMin { get; set; } = 3.0;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Use VWAP Anchor (OFF by default)", Description = "Require LONG above / SHORT below session VWAP. OG testing favoured OFF.", GroupName = "3b. R2 Entry", Order = 11)]
+        public bool UseVwapAnchor { get; set; } = false;
+
+        // --- R2 A-mode failsafe gates (forensic-driven; B/C use supervisor gates) ---
+        [NinjaScriptProperty]
+        [Display(Name = "Block NQ AM window (A-mode)", Description = "Block the 10:00-11:29 NQ window that bled -$31k in the REV1 forensic.", GroupName = "3c. R2 Failsafe", Order = 0)]
+        public bool BlockNQAmTimeWindow { get; set; } = true;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name = "AM Block Start (HHmmss)", GroupName = "3c. R2 Failsafe", Order = 1)]
+        public int AmBlockStartHHmmss { get; set; } = 100000;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name = "AM Block End (HHmmss, exclusive)", GroupName = "3c. R2 Failsafe", Order = 2)]
+        public int AmBlockEndHHmmss { get; set; } = 112900;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Enforce 15:45 Cutoff", GroupName = "3c. R2 Failsafe", Order = 3)]
+        public bool EnforceCutoff1545 { get; set; } = true;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Allow Short on NQ (A-mode)", Description = "SF-13/14: NQ short-trend chronically weak. OFF by default.", GroupName = "3c. R2 Failsafe", Order = 4)]
+        public bool AllowShortNQ { get; set; } = false;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Blocked Phases A (csv)", Description = "A-mode phase block; B/C use supervisor BlockedPhases.", GroupName = "3c. R2 Failsafe", Order = 5)]
+        public string BlockedPhasesACsv { get; set; } = "OPENING_AUCTION,FIRST_ACCEPTANCE,MID_MORNING_DISCOVERY,POST_IB_MACRO";
 
         // --- Trail ---
         [NinjaScriptProperty, Range(1, 20)]
@@ -208,6 +306,13 @@ namespace NinjaTrader.NinjaScript.Strategies
         // INDICATORS
         // =====================================================================
         private ATR atr;
+        private ADX adxInd;                 // R2: ADX strength
+        private DM  dmInd;                  // R2: DI+/DI- crossover
+        private Series<double> ciSeries;    // R2: Choppiness Index history (for slope gate)
+        private double sessionCumPV  = 0.0; // R2: session VWAP accumulator (price*vol)
+        private double sessionCumVol = 0.0; // R2: session VWAP accumulator (vol)
+        private readonly HashSet<string> blockedPhasesA =
+            new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
         // =====================================================================
         // RUNTIME STATE
@@ -300,11 +405,33 @@ namespace NinjaTrader.NinjaScript.Strategies
             currentLeg2Qty     = 1;
         }
 
+        // R2: Choppiness Index over `period` bars (0..100). High = chop, low = trending.
+        // Computed inline (no indicator dependency) so it works identically on UniRenko.
+        private double ComputeCI(int period)
+        {
+            if (CurrentBar < period + 1) return 50.0;
+            double sumTR = 0.0;
+            double hh = double.MinValue, ll = double.MaxValue;
+            for (int i = 0; i < period; i++)
+            {
+                double tr = Math.Max(High[i] - Low[i],
+                            Math.Max(Math.Abs(High[i] - Close[i + 1]),
+                                     Math.Abs(Low[i]  - Close[i + 1])));
+                sumTR += tr;
+                if (High[i] > hh) hh = High[i];
+                if (Low[i]  < ll) ll = Low[i];
+            }
+            double range = hh - ll;
+            if (range <= 1e-9 || sumTR <= 1e-9) return 100.0;
+            double ci = 100.0 * Math.Log10(sumTR / range) / Math.Log10(period);
+            return Math.Max(0.0, Math.Min(100.0, ci));
+        }
+
         // =====================================================================
         // STAGE 1 RAW TRADE LOG
         // =====================================================================
         private const string Stage1ModelVersion = "V3D";
-        private const string Stage1BotName = "V3D_Expansion_A";
+        private const string Stage1BotName = "V3D_Expansion_R2_A";
         private const string Stage1DefaultAbMode = "A";
         private const string Stage1TradeLogHeader =
             "trade_date,entry_time,exit_time,model_version,account," +
@@ -580,7 +707,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (State == State.SetDefaults)
             {
-                Name                         = "Expansion_V3D";
+                Name                         = "Expansion_V3D_R2";
                 Calculate                    = Calculate.OnBarClose;
                 EntriesPerDirection          = 2;   // Leg1 + Leg2
                 EntryHandling                = EntryHandling.AllEntries;
@@ -596,6 +723,15 @@ namespace NinjaTrader.NinjaScript.Strategies
                 leaderSymbol   = GetLeaderSymbol(Instrument.MasterInstrument.Name);
                 matrixFile     = Path.Combine(DataFolderPath, leaderSymbol + "_RegimeMatrix_Latest.csv");
                 atr            = ATR(AtrPeriod);
+                adxInd         = ADX(AdxPeriod);     // R2 entry stack
+                dmInd          = DM(AdxPeriod);      // R2 entry stack
+                ciSeries       = new Series<double>(this);
+                blockedPhasesA.Clear();
+                foreach (string p in (BlockedPhasesACsv ?? "").Split(','))
+                {
+                    string t = p.Trim();
+                    if (t.Length > 0) blockedPhasesA.Add(t);
+                }
                 SetupFileWatcher();
                 v3dTradeLogger = new V3DStrategyTradeLogger(this, AccountNameFilter, ConfiguredStrategyName, "V3D", TradeLogFolder, ResolveStage1BotName(), ResolveStage1AbMode());
                 ConfigureStage1TradeLog();
@@ -772,6 +908,16 @@ namespace NinjaTrader.NinjaScript.Strategies
                 consecutiveLosers  = 0;
                 sessionStartProfit = SystemPerformance.AllTrades
                                          .TradesPerformance.Currency.CumProfit;
+                sessionCumPV  = 0.0;   // R2: reset session VWAP accumulator
+                sessionCumVol = 0.0;
+            }
+
+            // ── R2: session VWAP accumulation (used only if UseVwapAnchor) ──
+            {
+                double typ = (High[0] + Low[0] + Close[0]) / 3.0;
+                double vol = Math.Max(1.0, Volume[0]);
+                sessionCumPV  += typ * vol;
+                sessionCumVol += vol;
             }
 
             // ── Regime change: reset loser count + brick counter ───────────
@@ -820,15 +966,13 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (EnforceFullTrinityGates() && velocityConfirmed != 1) return;
                 // Gate 6: state age — no one-bar pokes
                 if (EnforceFullTrinityGates() && stateAgeBars < 2) return;
-                // Gate 7: hysteresis
-                if (bricksInExpansion < WaitBricks) return;
-                // Gate 8: circuit breaker
+                // Gate 7: circuit breaker
                 if (consecutiveLosers >= MaxConsecutiveLosses) return;
-                // Gate 9: SizePct — Mode A/C can supply a controlled floor
+                // Gate 8: SizePct — Mode A/C can supply a controlled floor
                 int effectiveSizePct = EffectiveSizePct(expansionSizePct);
                 if (effectiveSizePct <= 0) return;
 
-                // Gate 10: daily P&L guard (optional — 0 disables each leg)
+                // Gate 9: daily P&L guard (optional — 0 disables each leg)
                 if (DailyGoal > 0 || DailyLossLimit > 0)
                 {
                     double dailyPnL = SystemPerformance.AllTrades
@@ -838,8 +982,51 @@ namespace NinjaTrader.NinjaScript.Strategies
                     if (DailyLossLimit > 0 && dailyPnL <= -DailyLossLimit) return;
                 }
 
-                bool greenBrick = Close[0] > Open[0];
-                bool redBrick   = Close[0] < Open[0];
+                // ── R2 A-MODE FAILSAFE GATES (forensic-driven; B/C use supervisor gates above) ──
+                if (IsBaselineMode())
+                {
+                    if (blockedPhasesA.Contains(phase)) return;
+                    if (BlockNQAmTimeWindow && leaderSymbol == "NQ"
+                        && ToTime(Time[0]) >= AmBlockStartHHmmss
+                        && ToTime(Time[0]) <  AmBlockEndHHmmss) return;
+                }
+                // 15:45 ET hard cutoff (all modes)
+                if (EnforceCutoff1545 && ToTime(Time[0]) >= 154500) return;
+
+                // ── R2 ENTRY SIGNAL: MomentumSlope OG V2 stack on UniRenko bricks ──
+                double adxVal = adxInd[0];
+                ciSeries[0]   = ComputeCI(CiPeriod);
+
+                bool crossUp   = CrossAbove(dmInd.DiPlus, dmInd.DiMinus, 1);
+                bool crossDown = CrossBelow(dmInd.DiPlus, dmInd.DiMinus, 1);
+
+                // ADX strength filter (primary expansion gate — heavy UniRenko already filters chop)
+                if (UseAdxThreshold && adxVal < AdxEntryThreshold) return;
+
+                // CI ceiling (OPTIONAL — OFF by default per operator 2026-05-22)
+                if (UseCiEntryThreshold && ciSeries[0] > CiEntryThreshold) return;
+
+                // Slope confirmation (OPTIONAL — CI falling AND ADX rising = expansion phase transition)
+                if (UseSlopeGate && CurrentBar > Math.Max(CiSlopeBars, AdxSlopeBars))
+                {
+                    double ciDrop  = ciSeries[CiSlopeBars] - ciSeries[0];   // positive if CI fell
+                    double adxRise = adxVal - adxInd[AdxSlopeBars];          // positive if ADX rose
+                    if (!(ciDrop >= CiDecreaseMin && adxRise >= AdxIncreaseMin)) return;
+                }
+
+                // VWAP anchor (OPTIONAL — OFF by default; OG testing favoured off)
+                bool anchorLongOk = true, anchorShortOk = true;
+                if (UseVwapAnchor)
+                {
+                    double vwap = (sessionCumVol > 0) ? sessionCumPV / sessionCumVol : Close[0];
+                    anchorLongOk  = Close[0] >= vwap;
+                    anchorShortOk = Close[0] <= vwap;
+                }
+
+                bool greenBrick = crossUp   && anchorLongOk;     // R2: DI cross replaces brick color
+                bool redBrick   = crossDown && anchorShortOk;
+                // NQ short suppression (SF-13/14) — A-mode default; B/C still honour supervisor allowShort
+                if (IsBaselineMode() && leaderSymbol == "NQ" && !AllowShortNQ) redBrick = false;
 
                 int maxC     = CalcMaxContracts();
                 int sz       = ScaleByConfidence(maxC, effectiveSizePct);

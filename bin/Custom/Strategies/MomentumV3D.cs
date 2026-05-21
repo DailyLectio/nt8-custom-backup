@@ -96,7 +96,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         [NinjaScriptProperty]
         [Display(Name = "Account Name Filter", Description = "V3D only: exact NT8 account name allow-list for this strategy class. Separate multiple baked accounts with semicolons.", GroupName = "0b. Trade Logging", Order = 0)]
-        public string AccountNameFilter { get; set; } = "SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-2C;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-2C";
+        public string AccountNameFilter { get; set; } = "SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-2C;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-2C;SimV3D-NQ-2A-R2;SimV3D-ES-2A-R2";
 
         [NinjaScriptProperty]
         [Display(Name = "Configured Strategy Name", Description = "V3D only: exported strategy identity. Leave as the baked default unless intentionally renaming the tab.", GroupName = "0b. Trade Logging", Order = 1)]
@@ -166,6 +166,35 @@ namespace NinjaTrader.NinjaScript.Strategies
                                "Default 65: compression is less certain than expansion but must be directional.",
                  GroupName = "3. Signal", Order = 6)]
         public int MinConfidence { get; set; } = 65;
+
+        // --- R2 Options (2026-05-22; defaults preserve legacy behavior; opt-in on -R2 accounts) ---
+        [NinjaScriptProperty]
+        [Display(Name = "Use CI Ceiling", Description = "Legacy gates entries on CI<=ciMax. Operator 2026-05-22 found CI gating too restrictive — set FALSE on R2 variants. Default TRUE preserves legacy.", GroupName = "3d. R2 Options", Order = 0)]
+        public bool UseCiCeiling { get; set; } = true;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Block NQ AM window", Description = "Block the configurable NQ morning window (R2 failsafe). Default OFF preserves legacy.", GroupName = "3d. R2 Options", Order = 1)]
+        public bool BlockNQAmTimeWindow { get; set; } = false;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name = "AM Block Start (HHmmss)", GroupName = "3d. R2 Options", Order = 2)]
+        public int AmBlockStartHHmmss { get; set; } = 100000;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name = "AM Block End (HHmmss, exclusive)", GroupName = "3d. R2 Options", Order = 3)]
+        public int AmBlockEndHHmmss { get; set; } = 112900;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Enforce 15:45 Cutoff", Description = "Hard no-new-entry after 15:45 ET. Default OFF preserves legacy IsInTime() behavior.", GroupName = "3d. R2 Options", Order = 4)]
+        public bool EnforceCutoff1545 { get; set; } = false;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Allow Short on NQ", Description = "SF-13/14: NQ short-trend weak. Set FALSE on R2 variants. Default TRUE preserves legacy.", GroupName = "3d. R2 Options", Order = 5)]
+        public bool AllowShortNQ { get; set; } = true;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Blocked Phases (csv)", Description = "Block entries in these supervisor phases (R2 failsafe). Empty = legacy (no phase block).", GroupName = "3d. R2 Options", Order = 6)]
+        public string BlockedPhasesACsv { get; set; } = "";
 
         // --- Exit ---
         [NinjaScriptProperty]
@@ -249,6 +278,8 @@ namespace NinjaTrader.NinjaScript.Strategies
         // =====================================================================
         private string   matrixFile         = "";
         private string   leaderSymbol       = "";
+        private readonly HashSet<string> blockedPhasesA =
+            new HashSet<string>(StringComparer.OrdinalIgnoreCase);   // R2: parsed from BlockedPhasesACsv
         private DateTime lastFileWriteUtc   = DateTime.MinValue;
         private DateTime lastFileCheck      = DateTime.MinValue;
         private const int MinCheckSeconds   = 15;
@@ -688,6 +719,12 @@ namespace NinjaTrader.NinjaScript.Strategies
             else if (State == State.DataLoaded)
             {
                 leaderSymbol = GetLeaderSymbol(Instrument.MasterInstrument.Name);
+                blockedPhasesA.Clear();   // R2: parse BlockedPhasesACsv
+                foreach (string p in (BlockedPhasesACsv ?? "").Split(','))
+                {
+                    string t = p.Trim();
+                    if (t.Length > 0) blockedPhasesA.Add(t);
+                }
                 matrixFile   = Path.Combine(DataFolderPath, leaderSymbol + "_RegimeMatrix_Latest.csv");
 
                 adx     = ADX(AdxPeriod);
@@ -959,6 +996,12 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (consecutiveLosers >= MaxConsecutiveLosses) return;
                 if (!IsInTime())                       return;
 
+                // R2 failsafe gates (toggle-controlled; defaults preserve legacy)
+                if (EnforceCutoff1545 && ToTime(Time[0]) >= 154500) return;
+                if (BlockNQAmTimeWindow && leaderSymbol == "NQ"
+                    && ToTime(Time[0]) >= AmBlockStartHHmmss && ToTime(Time[0]) < AmBlockEndHHmmss) return;
+                if (blockedPhasesA.Count > 0 && blockedPhasesA.Contains(phase)) return;
+
                 // ADD: conflict score gate — high conflict means model is contradicting itself
                 if (EnforceFullTrinityGates() && conflictScore >= 0.40) return;
                 if (IsSoftMode() && conflictScore >= 0.55) return;
@@ -979,13 +1022,13 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 double ciMax    = ActiveCiMax();
                 double adxFloor = ActiveAdxFloor();
-                bool   ciOk     = ci[0]  <= ciMax;
+                bool   ciOk     = !UseCiCeiling || (ci[0]  <= ciMax);   // R2: CI ceiling now optional
                 bool   adxOk    = adx[0] >= adxFloor;
 
                 if (ciOk && adxOk)
                 {
                     if (crossUp   && DirectionLongAllowed())  SubmitLongWithStops();
-                    if (crossDown && DirectionShortAllowed()) SubmitShortWithStops();
+                    if (crossDown && DirectionShortAllowed() && !(leaderSymbol == "NQ" && !AllowShortNQ)) SubmitShortWithStops();   // R2: NQ short suppression
                 }
             }
 
