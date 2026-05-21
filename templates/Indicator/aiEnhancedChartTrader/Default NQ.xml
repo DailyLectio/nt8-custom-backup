@@ -7,15 +7,15 @@
       <AreLinesConfigurable>false</AreLinesConfigurable>
       <ArePlotsConfigurable>false</ArePlotsConfigurable>
       <BarsPeriodSerializable>
-        <BarsPeriodTypeSerialize>9</BarsPeriodTypeSerialize>
+        <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>80</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>1</Value>
-        <Value2>1</Value2>
+        <Value>40</Value>
+        <Value2>120</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnEachTick</Calculate>
@@ -1470,7 +1470,7 @@
       <DrawVerticalGridLines>true</DrawVerticalGridLines>
       <DrawOnPricePanel>true</DrawOnPricePanel>
       <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-      <IndicatorId>2828</IndicatorId>
+      <IndicatorId>10833</IndicatorId>
       <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
       <MaxSerialized>0</MaxSerialized>
       <MinSerialized>0</MinSerialized>
@@ -1591,7 +1591,7 @@
       <TrailingStopFeaturesEnabled>true</TrailingStopFeaturesEnabled>
       <TrailingStopShowFT>true</TrailingStopShowFT>
       <TrailingStopShowATR>true</TrailingStopShowATR>
-      <ATRMultiplier>1.5</ATRMultiplier>
+      <ATRMultiplier>1.25</ATRMultiplier>
       <TrailingStopShowHighLow>true</TrailingStopShowHighLow>
       <TrailingStopHighLowBB>3</TrailingStopHighLowBB>
       <NumberOfCustomTrailingStops>3</NumberOfCustomTrailingStops>
@@ -1694,7 +1694,7 @@
       <LastSelectedInd>2</LastSelectedInd>
       <ShowHideAccountButton>true</ShowHideAccountButton>
       <HideAccountEnabled>false</HideAccountEnabled>
-      <CloseButtonType>BE</CloseButtonType>
+      <CloseButtonType>Close Partial</CloseButtonType>
       <CloseButtonNumber>1</CloseButtonNumber>
       <PercentClose1>50</PercentClose1>
       <PercentClose2>33</PercentClose2>
@@ -1829,7 +1829,7 @@
       <TimeSlicedIntervalVariance>20</TimeSlicedIntervalVariance>
       <TimeSlicedLeftoverAction>Fill</TimeSlicedLeftoverAction>
       <RiskRewardButtonEnabled>true</RiskRewardButtonEnabled>
-      <RiskRewardOrdersEnabled>true</RiskRewardOrdersEnabled>
+      <RiskRewardOrdersEnabled>false</RiskRewardOrdersEnabled>
       <RiskRewardEnabled>true</RiskRewardEnabled>
       <RiskRewardPlanIsEnabled>true</RiskRewardPlanIsEnabled>
       <PositionSizingButtonsPermission>true</PositionSizingButtonsPermission>
@@ -1842,10 +1842,10 @@
       <PositionSizingAccountSizeOverride>0</PositionSizingAccountSizeOverride>
       <KeepTargetQuantityProportional>true</KeepTargetQuantityProportional>
       <PositionSizingMinSize>1</PositionSizingMinSize>
-      <PositionSizingMaxSize>4</PositionSizingMaxSize>
+      <PositionSizingMaxSize>2</PositionSizingMaxSize>
       <PositionSizingQ1>true</PositionSizingQ1>
       <PositionSizingQ2>true</PositionSizingQ2>
-      <RestrictMax>true</RestrictMax>
+      <RestrictMax>false</RestrictMax>
       <StandardChartTrader>true</StandardChartTrader>
       <PositionSizingMode>Currency</PositionSizingMode>
       <IcebergEntryOrdersPermission>false</IcebergEntryOrdersPermission>
