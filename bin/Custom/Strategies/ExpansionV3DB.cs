@@ -454,6 +454,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (bricksInExpansion < WaitBricks)            return;
                 if (consecutiveLosers >= MaxConsecutiveLosses) return;
                 if (expansionSizePct <= 0)                     return;
+                if (ToTime(Time[0]) >= 154500)                 return;   // ported 2026-05-22 (orphan reconcile, Cat 2: 15:45 ET hard cutoff)
 
                 // ── VERSION B GATE: velocity confirmation ──────────────────
                 // abs(Velocity3P_ATR) must exceed the threshold.

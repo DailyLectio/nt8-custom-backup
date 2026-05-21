@@ -5,35 +5,35 @@
     <MaxValue>-1.7976931348623157E+308</MaxValue>
     <MinValue>1.7976931348623157E+308</MinValue>
     <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
-    <GlobalLastSeenSerialize>0</GlobalLastSeenSerialize>
-    <GlobalWorkspace>Sandbox Regime V3D Test A</GlobalWorkspace>
-    <IsLocked>false</IsLocked>
+    <GlobalLastSeenSerialize>638865397591206234</GlobalLastSeenSerialize>
+    <GlobalWorkspace>Trinity Regime Matrix</GlobalWorkspace>
+    <IsLocked>true</IsLocked>
     <PanelIndex>0</PanelIndex>
     <ZOrderType>Normal</ZOrderType>
     <EndAnchor>
-      <SlotIndex>5045</SlotIndex>
+      <SlotIndex>0</SlotIndex>
       <DisplayName>End</DisplayName>
       <IsBrowsable>false</IsBrowsable>
-      <Time>2026-01-27T09:06:00</Time>
-      <Price>25979</Price>
+      <Time>2025-06-16T09:24:15</Time>
+      <Price>6154.2559392141256</Price>
       <IsXPropertiesVisible>true</IsXPropertiesVisible>
       <IsYPropertyVisible>true</IsYPropertyVisible>
     </EndAnchor>
     <StartAnchor>
-      <SlotIndex>5006</SlotIndex>
+      <SlotIndex>1711</SlotIndex>
       <DisplayName>Anchor</DisplayName>
       <IsBrowsable>true</IsBrowsable>
-      <Time>2026-05-21T10:27:00</Time>
-      <Price>7434.4748373983739</Price>
+      <Time>2026-04-17T09:48:28.801</Time>
+      <Price>7137.25</Price>
       <IsXPropertiesVisible>false</IsXPropertiesVisible>
       <IsYPropertyVisible>true</IsYPropertyVisible>
     </StartAnchor>
     <Stroke>
       <IsOpacityVisible>true</IsOpacityVisible>
-      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</BrushSerialize>
-      <DashStyleHelper>Dot</DashStyleHelper>
+      <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFACD&lt;/SolidColorBrush&gt;</BrushSerialize>
+      <DashStyleHelper>Solid</DashStyleHelper>
       <Opacity>100</Opacity>
-      <Width>4</Width>
+      <Width>6</Width>
     </Stroke>
     <IsPriceMarkerVisible>true</IsPriceMarkerVisible>
     <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.HorizontalLine</FullTypeName>

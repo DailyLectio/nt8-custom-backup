@@ -45,6 +45,10 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "V3D Test Mode", Description = "A=baseline/no Trinity gate, B=full Trinity, C=soft Trinity diagnostics.", GroupName = "1. Regime", Order = 1)]
         public V3DPermissionMode PermissionMode { get; set; } = V3DPermissionMode.B_FullTrinity;
 
+        [NinjaScriptProperty, Range(0, 3600)]
+        [Display(Name = "Max Row Age Seconds (staleness)", Description = "Force-stale if matrix row TimestampET is older than this many seconds. 0 = disabled. Default 150. A-mode bypasses staleness gate by design.", GroupName = "1. Regime", Order = 4)]
+        public int MaxRowAgeSec { get; set; } = 150;
+
         [NinjaScriptProperty, Range(1, 100)]
         [Display(Name = "Baseline SizePct", Description = "Sizing used in Mode A when supervisor SizePct is intentionally ignored.", GroupName = "1. Regime", Order = 2)]
         public int BaselineSizePct { get; set; } = 50;
@@ -689,6 +693,19 @@ namespace NinjaTrader.NinjaScript.Strategies
                     twoSidedFlag   = GetI(row, "TwoSidedFlag");
                     ibWidthAtr     = GetD(row, "IBWidthATR");          // ib_width_atr projected into Latest
                     suggestedAdxMin= GetI(row, "SuggestedAdxMin");    // from HMM column in Latest.csv
+                    // Wall-clock staleness check (added 2026-05-22): force-stale if row TimestampET older than MaxRowAgeSec.
+                    if (MaxRowAgeSec > 0)
+                    {
+                        DateTime rowTime;
+                        if (DateTime.TryParseExact(Get(row, "TimestampET"),
+                                "yyyy-MM-dd HH:mm:ss",
+                                System.Globalization.CultureInfo.InvariantCulture,
+                                System.Globalization.DateTimeStyles.None, out rowTime))
+                        {
+                            if ((DateTime.Now - rowTime).TotalSeconds > MaxRowAgeSec)
+                                staleDataFlag = true;
+                        }
+                    }
                     parseFailed    = false;
                     return;
                 }

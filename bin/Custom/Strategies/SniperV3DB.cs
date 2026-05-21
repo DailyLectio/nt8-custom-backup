@@ -154,6 +154,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private volatile int    regimeConfidence = 0;
         private volatile bool   staleDataFlag    = true;
         private volatile bool   parseFailed      = true;
+        private volatile bool   simTestingMode   = false;   // ported 2026-05-22 (orphan reconcile, Cat 2)
         private          double ibExtensionPct   = 0.0;
 
         private Dictionary<string, int> headerIdx = new Dictionary<string, int>();
@@ -333,6 +334,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     sniperSizePct    = GetI(row, "AllowSniper_SizePct");
                     regimeConfidence = (int)GetD(row, "RegimeConfidence");
                     staleDataFlag    = GetI(row, "StaleDataFlag") == 1;
+                    simTestingMode   = GetI(row, "SimTestingMode") == 1;   // ported 2026-05-22 (orphan reconcile, Cat 2)
 
                     lock (fileLock)
                     {
@@ -413,9 +415,12 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (finalRegime != "TREND_COMPRESSION")        return;
                 if (consecutiveLosers >= MaxConsecutiveLosses) return;
                 if (!IsInTime())                               return;
+                if (ToTime(Time[0]) >= 154500)                 return;   // ported 2026-05-22 (orphan reconcile, Cat 2: 15:45 ET hard cutoff)
                 if (ibExtensionPct < IbExtensionMin || ibExtensionPct > IbExtensionMax) return;
                 if (sniperSizePct <= 0)                        return;
-                if (regimeConfidence < MinConfidence)          return;
+                // ported 2026-05-22 (orphan reconcile, Cat 2: sim-test confidence override; behaviour unchanged unless supervisor emits SimTestingMode=1)
+                int activeMinConfidence = simTestingMode ? Math.Min(MinConfidence, 25) : MinConfidence;
+                if (regimeConfidence < activeMinConfidence)    return;
 
                 if (DailyGoal > 0 || DailyLossLimit > 0)
                 {

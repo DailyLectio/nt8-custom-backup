@@ -1,6 +1,10 @@
 // CC BY-NC 4.0
 // Fader_V3D_B.cs  — V3D Institutional Regime Matrix  — Version B
 // ─────────────────────────────────────────────────────────────────
+// ENTRY REGIMES (ported 2026-05-22, orphan reconcile Cat 3):
+//   Entries are allowed in ROTATION_LIQUID plus HMM-confirmed TREND_EXPANSION fades.
+//   Hard 15:45 ET entry cutoff (Cat 2).
+//
 // A/B TEST PURPOSE
 //   Version A sets Leg2 profit target at the VWAP price captured at entry time.
 //   That snapshot is fixed — if VWAP drifts during the trade, the target does not move.
@@ -520,10 +524,12 @@ namespace NinjaTrader.NinjaScript.Strategies
             leg2VwapAtEntry = 0; lastUpdatedVwap = 0;
 
             if (parseFailed || staleDataFlag)              return;
-            if (finalRegime != "ROTATION_LIQUID")          return;
+            // ported 2026-05-22 (orphan reconcile, Cat 3): accept TREND_EXPANSION fades alongside ROTATION_LIQUID
+            if (finalRegime != "ROTATION_LIQUID" && finalRegime != "TREND_EXPANSION") return;
             if (twoSidedFlag != 1)                         return;
             if (consecutiveLosers >= MaxConsecutiveLosses) return;
             if (!IsInTime())                               return;
+            if (ToTime(Time[0]) >= 154500)                 return;   // ported 2026-05-22 (orphan reconcile, Cat 2: 15:45 ET hard cutoff)
             if (faderSizePct <= 0)                         return;
 
             if (DailyGoal > 0 || DailyLossLimit > 0)
