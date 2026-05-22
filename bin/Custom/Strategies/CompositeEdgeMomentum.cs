@@ -163,6 +163,38 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "End Time (HHmmss)", GroupName = "6. Time", Order = 2)]
         public int EndTime { get; set; } = 155500;
 
+        // --- Entry Score (Phase 1 renovation, 2026-05-22 — see dev-log TL-04) ---
+        // The original entry required all 6 gates as a hard AND, which never fired
+        // (zero trades). Phase 1 converts the 5 confirmation gates into a weighted
+        // 0-100 score; ADX>floor and the HMM crash-block remain HARD pre-filters.
+        // Enter when score >= threshold; position is also SIZED by the score
+        // (effective size = min(HMM size pct, score)). Weights are tunable for
+        // calibration. Phase 2 (regimeConfidence/HMM blend) is deferred.
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name = "Entry Score Threshold (0-100)", GroupName = "7. Entry Score", Order = 0,
+                 Description = "Minimum weighted confirmation score to enter. Default 50.")]
+        public int EntryScoreThreshold { get; set; } = 50;
+
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name = "Weight: BB Recovery/Rejection", GroupName = "7. Entry Score", Order = 1)]
+        public int WeightBbRecovery { get; set; } = 25;
+
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name = "Weight: RSI Cross", GroupName = "7. Entry Score", Order = 2)]
+        public int WeightRsiCross { get; set; } = 25;
+
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name = "Weight: MACD Histogram Expanding", GroupName = "7. Entry Score", Order = 3)]
+        public int WeightMacd { get; set; } = 20;
+
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name = "Weight: DEMA Trend", GroupName = "7. Entry Score", Order = 4)]
+        public int WeightDema { get; set; } = 20;
+
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name = "Weight: SuperTrend", GroupName = "7. Entry Score", Order = 5)]
+        public int WeightSuperTrend { get; set; } = 10;
+
         // =====================================================================
         // INDICATORS
         // =====================================================================
@@ -683,14 +715,24 @@ namespace NinjaTrader.NinjaScript.Strategies
                                 Close[1] > Open[1]; // previous bar confirms direction
             bool macdLongSignal = macdHist > macdHistPrev;
 
-            if (gateB_long && gateC_long && gateD_long && rsiLongCross && macdLongSignal)
+            // Phase 1 (2026-05-22): weighted confirmation score replaces the 6-way hard AND.
+            // ADX>floor (Gate A above) and the HMM crash-block (hmmSizePct>0 above) stay HARD.
+            int longScore = (gateD_long      ? WeightBbRecovery  : 0)
+                          + (rsiLongCross    ? WeightRsiCross    : 0)
+                          + (macdLongSignal  ? WeightMacd        : 0)
+                          + (gateB_long      ? WeightDema        : 0)
+                          + (gateC_long      ? WeightSuperTrend  : 0);
+
+            if (longScore >= EntryScoreThreshold)
             {
                 double stopPrice  = RT(price - atrVal * AtrStopMult);
                 double leg1Target = RT(price + atrVal * Leg1TpMult);
                 double leg2Target = RT(price + atrVal * Leg2TpMult);
 
                 int maxC    = CalcMaxContracts();
-                int sz      = ScaleByConfidence(maxC, hmmSizePct);
+                // Size by the score, capped by the HMM size pct (high score + good HMM = full size).
+                int sizePct = Math.Min(hmmSizePct, longScore);
+                int sz      = ScaleByConfidence(maxC, sizePct);
                 int leg1Qty = Math.Max(1, sz / 2);
                 int leg2Qty = Math.Max(1, sz - leg1Qty);
 
@@ -727,14 +769,22 @@ namespace NinjaTrader.NinjaScript.Strategies
                                   Close[1] < Open[1];
             bool macdShortSignal = macdHist < macdHistPrev;
 
-            if (gateB_short && gateC_short && gateD_short && rsiShortCross && macdShortSignal)
+            // Phase 1 (2026-05-22): weighted confirmation score (mirror of LONG).
+            int shortScore = (gateD_short     ? WeightBbRecovery  : 0)
+                           + (rsiShortCross   ? WeightRsiCross    : 0)
+                           + (macdShortSignal ? WeightMacd        : 0)
+                           + (gateB_short     ? WeightDema        : 0)
+                           + (gateC_short     ? WeightSuperTrend  : 0);
+
+            if (shortScore >= EntryScoreThreshold)
             {
                 double stopPrice  = RT(price + atrVal * AtrStopMult);
                 double leg1Target = RT(price - atrVal * Leg1TpMult);
                 double leg2Target = RT(price - atrVal * Leg2TpMult);
 
                 int maxC    = CalcMaxContracts();
-                int sz      = ScaleByConfidence(maxC, hmmSizePct);
+                int sizePct = Math.Min(hmmSizePct, shortScore);
+                int sz      = ScaleByConfidence(maxC, sizePct);
                 int leg1Qty = Math.Max(1, sz / 2);
                 int leg2Qty = Math.Max(1, sz - leg1Qty);
 

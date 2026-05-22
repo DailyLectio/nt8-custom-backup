@@ -549,10 +549,12 @@ namespace NinjaTrader.NinjaScript.Indicators
 
         // Code events are platform/session artefacts, not strategy decisions.
         // Reporting excludes them from clean P&L (dev-log SF-12).
+        // SF-47 (2026-05-22): ENVELOPE_BREAK_EXIT removed — post-BUG-007 it is an
+        // intentional protective fade-invalidation exit (a real strategy decision),
+        // not a reload/bar-init artefact. Treated as a real exit, like StopX (SF-30).
         private static bool IsCodeExit(string canonicalExitReason)
         {
-            return canonicalExitReason == "ENVELOPE_BREAK_EXIT"
-                || canonicalExitReason == "SESSION_CLOSE"
+            return canonicalExitReason == "SESSION_CLOSE"
                 || canonicalExitReason == "STOP_CANCEL_CLOSE";
         }
 

@@ -6,7 +6,7 @@
     <MinValue>1.7976931348623157E+308</MinValue>
     <DisplayOnChartsMenus>true</DisplayOnChartsMenus>
     <GlobalLastSeenSerialize>0</GlobalLastSeenSerialize>
-    <GlobalWorkspace>New 5-UNI-1m</GlobalWorkspace>
+    <GlobalWorkspace>Sandbox Regime V3C Test A</GlobalWorkspace>
     <IsLocked>false</IsLocked>
     <PanelIndex>0</PanelIndex>
     <ZOrderType>Normal</ZOrderType>
@@ -20,11 +20,11 @@
       <IsYPropertyVisible>true</IsYPropertyVisible>
     </EndAnchor>
     <StartAnchor>
-      <SlotIndex>5045</SlotIndex>
+      <SlotIndex>369</SlotIndex>
       <DisplayName>Anchor</DisplayName>
       <IsBrowsable>true</IsBrowsable>
-      <Time>2026-01-27T09:06:00</Time>
-      <Price>25979</Price>
+      <Time>2026-05-22T10:20:00</Time>
+      <Price>7488.63</Price>
       <IsXPropertiesVisible>false</IsXPropertiesVisible>
       <IsYPropertyVisible>true</IsYPropertyVisible>
     </StartAnchor>
@@ -33,7 +33,7 @@
       <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</BrushSerialize>
       <DashStyleHelper>Dot</DashStyleHelper>
       <Opacity>100</Opacity>
-      <Width>4</Width>
+      <Width>2</Width>
     </Stroke>
     <IsPriceMarkerVisible>true</IsPriceMarkerVisible>
     <FullTypeName>NinjaTrader.NinjaScript.DrawingTools.HorizontalLine</FullTypeName>
