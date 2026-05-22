@@ -137,35 +137,6 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "Min Regime Confidence", GroupName = "3. Signal", Order = 6)]
         public int MinConfidence { get; set; } = 65;
 
-        // --- R2 Options (2026-05-22; defaults preserve legacy behavior) ---
-        [NinjaScriptProperty]
-        [Display(Name = "Use CI Ceiling", Description = "Legacy gates entries on CI<=ciMax. Operator 2026-05-22 found CI gating too restrictive. Default TRUE preserves legacy.", GroupName = "3d. R2 Options", Order = 0)]
-        public bool UseCiCeiling { get; set; } = true;
-
-        [NinjaScriptProperty]
-        [Display(Name = "Block NQ AM window", Description = "Block the configurable NQ morning window (R2 failsafe). Default OFF preserves legacy.", GroupName = "3d. R2 Options", Order = 1)]
-        public bool BlockNQAmTimeWindow { get; set; } = false;
-
-        [NinjaScriptProperty, Range(0, 235959)]
-        [Display(Name = "AM Block Start (HHmmss)", GroupName = "3d. R2 Options", Order = 2)]
-        public int AmBlockStartHHmmss { get; set; } = 100000;
-
-        [NinjaScriptProperty, Range(0, 235959)]
-        [Display(Name = "AM Block End (HHmmss, exclusive)", GroupName = "3d. R2 Options", Order = 3)]
-        public int AmBlockEndHHmmss { get; set; } = 112900;
-
-        [NinjaScriptProperty]
-        [Display(Name = "Enforce 15:45 Cutoff", Description = "Hard no-new-entry after 15:45 ET. Default OFF preserves legacy IsInTime() behavior.", GroupName = "3d. R2 Options", Order = 4)]
-        public bool EnforceCutoff1545 { get; set; } = false;
-
-        [NinjaScriptProperty]
-        [Display(Name = "Allow Short on NQ", Description = "SF-13/14: NQ short-trend weak. Default TRUE preserves legacy.", GroupName = "3d. R2 Options", Order = 5)]
-        public bool AllowShortNQ { get; set; } = true;
-
-        [NinjaScriptProperty]
-        [Display(Name = "Blocked Phases (csv)", Description = "Block entries in these supervisor phases. Empty = legacy (no phase block).", GroupName = "3d. R2 Options", Order = 6)]
-        public string BlockedPhasesACsv { get; set; } = "";
-
         [NinjaScriptProperty]
         [Display(Name = "Slope Exit Mode", GroupName = "4. Exit", Order = 0)]
         public ExitSlopeMode SlopeExit { get; set; } = ExitSlopeMode.Hysteresis;
@@ -231,8 +202,6 @@ namespace NinjaTrader.NinjaScript.Strategies
         // =====================================================================
         private string   matrixFile         = "";
         private string   leaderSymbol       = "";
-        private readonly HashSet<string> blockedPhasesA =
-            new HashSet<string>(StringComparer.OrdinalIgnoreCase);   // R2: parsed from BlockedPhasesACsv
         private DateTime lastFileWriteUtc   = DateTime.MinValue;
         private DateTime lastFileCheck      = DateTime.MinValue;
         private const int MinCheckSeconds   = 15;
@@ -363,12 +332,6 @@ namespace NinjaTrader.NinjaScript.Strategies
             else if (State == State.DataLoaded)
             {
                 leaderSymbol = GetLeaderSymbol(Instrument.MasterInstrument.Name);
-                blockedPhasesA.Clear();   // R2: parse BlockedPhasesACsv
-                foreach (string p in (BlockedPhasesACsv ?? "").Split(','))
-                {
-                    string t = p.Trim();
-                    if (t.Length > 0) blockedPhasesA.Add(t);
-                }
                 matrixFile   = Path.Combine(DataFolderPath, leaderSymbol + "_RegimeMatrix_Latest.csv");
 
                 adx     = ADX(AdxPeriod);
@@ -637,11 +600,6 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (parseFailed || staleDataFlag)      return;
                 if (consecutiveLosers >= MaxConsecutiveLosses) return;
                 if (!IsInTime())                       return;
-                // R2 failsafe gates (toggle-controlled; defaults preserve legacy)
-                if (EnforceCutoff1545 && ToTime(Time[0]) >= 154500) return;
-                if (BlockNQAmTimeWindow && leaderSymbol == "NQ"
-                    && ToTime(Time[0]) >= AmBlockStartHHmmss && ToTime(Time[0]) < AmBlockEndHHmmss) return;
-                if (blockedPhasesA.Count > 0 && blockedPhasesA.Contains(phase)) return;
                 if (conflictScore >= 0.40)             return;
                 if (regimeConfidence < MinConfidence)  return;
 
@@ -656,13 +614,13 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 double ciMax    = ActiveCiMax();
                 double adxFloor = ActiveAdxFloor();
-                bool   ciOk     = !UseCiCeiling || (ci[0]  <= ciMax);   // R2: CI ceiling now optional
+                bool   ciOk     = ci[0]  <= ciMax;
                 bool   adxOk    = adx[0] >= adxFloor;
 
                 if (ciOk && adxOk)
                 {
                     if (crossUp   && allowLong)  SubmitLongWithStops();
-                    if (crossDown && allowShort && !(leaderSymbol == "NQ" && !AllowShortNQ)) SubmitShortWithStops();   // R2: NQ short suppression
+                    if (crossDown && allowShort) SubmitShortWithStops();
                 }
             }
 

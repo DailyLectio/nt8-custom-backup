@@ -353,6 +353,15 @@ namespace NinjaTrader.NinjaScript.Strategies
             { "SimV3D-ES-5A", "ADX_DI_V3D" },
             { "SimV3D-ES-5B", "ADX_DI_V3D" },
             { "SimV3D-ES-5C", "ADX_DI_V3D" },
+            // R2 variants (2026-05-22) — distinct strategy_name so the raw export
+            // self-describes even though Momentum_V3D R2 shares MomentumV3D.cs with
+            // the legacy 2A/2B/2C lanes. Account is the primary key; this makes the
+            // strategy_name column authoritative too. Expansion_V3D_R2 is its own
+            // class but mapped here for consistency.
+            { "SimV3D-NQ-1A-R2", "Expansion_V3D_R2" },
+            { "SimV3D-ES-1A-R2", "Expansion_V3D_R2" },
+            { "SimV3D-NQ-2A-R2", "Momentum_V3D_R2" },
+            { "SimV3D-ES-2A-R2", "Momentum_V3D_R2" },
         };
 
         public static string ResolveStrategyName(string accountName)

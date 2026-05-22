@@ -1,8 +1,22 @@
 // CC BY-NC 4.0
-// Momentum_V3D.cs  — V3D Institutional Regime Matrix  — Version A
+// Momentum_V3D_R2.cs  — V3D Institutional Regime Matrix  — REV 2 (2026-05-22)
 // ─────────────────────────────────────────────────────────────────
+// WHAT THIS IS: a standalone R2 variant of Momentum_V3D, separate class so it
+// appears as its own NT8 strategy and runs on its own accounts
+// (SimV3D-NQ-2A-R2 / SimV3D-ES-2A-R2). Entry engine is IDENTICAL to legacy
+// Momentum_V3D (it already used the MomentumSlope OG V2 stack: DI cross +
+// CI/ADX dual-confirmation + slope exit). The difference is CONFIGURATION,
+// baked in here as defaults (legacy file keeps its legacy defaults untouched):
+//   - UseCiCeiling      = FALSE  (operator 2026-05-22: CI gating too restrictive)
+//   - BlockNQAmTimeWindow = TRUE (10:00-11:29 NQ failsafe, forensic-driven)
+//   - EnforceCutoff1545 = TRUE   (hard 15:45 ET no-new-entry)
+//   - AllowShortNQ      = FALSE  (SF-13/14 NQ short-trend weak)
+//   - BlockedPhasesACsv = OPENING_AUCTION,FIRST_ACCEPTANCE,MID_MORNING_DISCOVERY,POST_IB_MACRO
+//   - MaxRowAgeSec      = 150    (wall-clock staleness, inherited)
+// Run parallel-sim vs the legacy 2A lane; promote only on same-window outperformance.
+//
 // REGIME TARGET : TREND_COMPRESSION (primary), TREND_EXPANSION (secondary, reduced CI ceiling).
-// CHART TYPE    : 1-minute candles.  Calculate.OnPriceChange.
+// CHART TYPE    : 1-minute candles (NQ) / 3-minute candles (ES).  Calculate.OnPriceChange.
 // INSTRUMENT    : NQ / ES  (MNQ / MES supported via leader-symbol map).
 //
 // SIGNAL ARCHITECTURE — DI cross + CI/ADX dual-confirmation + slope exit
@@ -64,7 +78,7 @@ using NinjaTrader.NinjaScript.Strategies;
 
 namespace NinjaTrader.NinjaScript.Strategies
 {
-    public class Momentum_V3D : Strategy
+    public class Momentum_V3D_R2 : Strategy
     {
         // =====================================================================
         // ENUMS
@@ -96,11 +110,11 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         [NinjaScriptProperty]
         [Display(Name = "Account Name Filter", Description = "V3D only: exact NT8 account name allow-list for this strategy class. Separate multiple baked accounts with semicolons.", GroupName = "0b. Trade Logging", Order = 0)]
-        public string AccountNameFilter { get; set; } = "SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-2C;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-2C";
+        public string AccountNameFilter { get; set; } = "SimV3D-NQ-2A-R2;SimV3D-ES-2A-R2";
 
         [NinjaScriptProperty]
         [Display(Name = "Configured Strategy Name", Description = "V3D only: exported strategy identity. Leave as the baked default unless intentionally renaming the tab.", GroupName = "0b. Trade Logging", Order = 1)]
-        public string ConfiguredStrategyName { get; set; } = "Momentum_V3D";
+        public string ConfiguredStrategyName { get; set; } = "Momentum_V3D_R2";
 
         [NinjaScriptProperty]
         [Display(Name = "Trade Log Folder", Description = "V3D only: internal strategy-owned export folder. External V3D trade-log exporter indicators are not required.", GroupName = "0b. Trade Logging", Order = 2)]
@@ -166,6 +180,35 @@ namespace NinjaTrader.NinjaScript.Strategies
                                "Default 65: compression is less certain than expansion but must be directional.",
                  GroupName = "3. Signal", Order = 6)]
         public int MinConfidence { get; set; } = 65;
+
+        // --- R2 Options (2026-05-22; defaults preserve legacy behavior; opt-in on -R2 accounts) ---
+        [NinjaScriptProperty]
+        [Display(Name = "Use CI Ceiling", Description = "R2 default OFF (operator 2026-05-22: CI gating too restrictive). Enable to test 45/55/60.", GroupName = "3d. R2 Options", Order = 0)]
+        public bool UseCiCeiling { get; set; } = false;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Block NQ AM window", Description = "R2 default ON: blocks the 10:00-11:29 NQ window (forensic-driven failsafe).", GroupName = "3d. R2 Options", Order = 1)]
+        public bool BlockNQAmTimeWindow { get; set; } = true;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name = "AM Block Start (HHmmss)", GroupName = "3d. R2 Options", Order = 2)]
+        public int AmBlockStartHHmmss { get; set; } = 100000;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name = "AM Block End (HHmmss, exclusive)", GroupName = "3d. R2 Options", Order = 3)]
+        public int AmBlockEndHHmmss { get; set; } = 112900;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Enforce 15:45 Cutoff", Description = "R2 default ON: hard no-new-entry after 15:45 ET.", GroupName = "3d. R2 Options", Order = 4)]
+        public bool EnforceCutoff1545 { get; set; } = true;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Allow Short on NQ", Description = "R2 default OFF (SF-13/14: NQ short-trend weak).", GroupName = "3d. R2 Options", Order = 5)]
+        public bool AllowShortNQ { get; set; } = false;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Blocked Phases (csv)", Description = "R2 default blocks the four bleed phases from the forensic.", GroupName = "3d. R2 Options", Order = 6)]
+        public string BlockedPhasesACsv { get; set; } = "OPENING_AUCTION,FIRST_ACCEPTANCE,MID_MORNING_DISCOVERY,POST_IB_MACRO";
 
         // --- Exit ---
         [NinjaScriptProperty]
@@ -249,6 +292,8 @@ namespace NinjaTrader.NinjaScript.Strategies
         // =====================================================================
         private string   matrixFile         = "";
         private string   leaderSymbol       = "";
+        private readonly HashSet<string> blockedPhasesA =
+            new HashSet<string>(StringComparer.OrdinalIgnoreCase);   // R2: parsed from BlockedPhasesACsv
         private DateTime lastFileWriteUtc   = DateTime.MinValue;
         private DateTime lastFileCheck      = DateTime.MinValue;
         private const int MinCheckSeconds   = 15;
@@ -400,7 +445,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         // STAGE 1 RAW TRADE LOG
         // =====================================================================
         private const string Stage1ModelVersion = "V3D";
-        private const string Stage1BotName = "V3D_Momentum_A";
+        private const string Stage1BotName = "V3D_Momentum_R2_A";
         private const string Stage1DefaultAbMode = "A";
         private const string Stage1TradeLogHeader =
             "trade_date,entry_time,exit_time,model_version,account," +
@@ -676,7 +721,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (State == State.SetDefaults)
             {
-                Name                         = "Momentum_V3D";
+                Name                         = "Momentum_V3D_R2";
                 Calculate                    = Calculate.OnPriceChange;
                 EntriesPerDirection          = 1;
                 EntryHandling                = EntryHandling.AllEntries;
@@ -688,6 +733,12 @@ namespace NinjaTrader.NinjaScript.Strategies
             else if (State == State.DataLoaded)
             {
                 leaderSymbol = GetLeaderSymbol(Instrument.MasterInstrument.Name);
+                blockedPhasesA.Clear();   // R2: parse BlockedPhasesACsv
+                foreach (string p in (BlockedPhasesACsv ?? "").Split(','))
+                {
+                    string t = p.Trim();
+                    if (t.Length > 0) blockedPhasesA.Add(t);
+                }
                 matrixFile   = Path.Combine(DataFolderPath, leaderSymbol + "_RegimeMatrix_Latest.csv");
 
                 adx     = ADX(AdxPeriod);
@@ -959,6 +1010,12 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (consecutiveLosers >= MaxConsecutiveLosses) return;
                 if (!IsInTime())                       return;
 
+                // R2 failsafe gates (toggle-controlled; defaults preserve legacy)
+                if (EnforceCutoff1545 && ToTime(Time[0]) >= 154500) return;
+                if (BlockNQAmTimeWindow && leaderSymbol == "NQ"
+                    && ToTime(Time[0]) >= AmBlockStartHHmmss && ToTime(Time[0]) < AmBlockEndHHmmss) return;
+                if (blockedPhasesA.Count > 0 && blockedPhasesA.Contains(phase)) return;
+
                 // ADD: conflict score gate — high conflict means model is contradicting itself
                 if (EnforceFullTrinityGates() && conflictScore >= 0.40) return;
                 if (IsSoftMode() && conflictScore >= 0.55) return;
@@ -979,13 +1036,13 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 double ciMax    = ActiveCiMax();
                 double adxFloor = ActiveAdxFloor();
-                bool   ciOk     = ci[0]  <= ciMax;
+                bool   ciOk     = !UseCiCeiling || (ci[0]  <= ciMax);   // R2: CI ceiling now optional
                 bool   adxOk    = adx[0] >= adxFloor;
 
                 if (ciOk && adxOk)
                 {
                     if (crossUp   && DirectionLongAllowed())  SubmitLongWithStops();
-                    if (crossDown && DirectionShortAllowed()) SubmitShortWithStops();
+                    if (crossDown && DirectionShortAllowed() && !(leaderSymbol == "NQ" && !AllowShortNQ)) SubmitShortWithStops();   // R2: NQ short suppression
                 }
             }
 
