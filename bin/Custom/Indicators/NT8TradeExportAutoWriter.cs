@@ -603,7 +603,10 @@ namespace NinjaTrader.NinjaScript.Indicators
         private static string Money(double value)
         {
             string text = Math.Abs(value).ToString("C2", CultureInfo.GetCultureInfo("en-US"));
-            return value < 0 ? "(" + text + ")" : text;
+            string formatted = value < 0 ? "(" + text + ")" : text;
+            // C2 emits thousands-commas ($1,625.00); route through Csv so values
+            // >= $1,000 are quoted and don't shift CSV columns (owed since 05-19 reconcile fix).
+            return Csv(formatted);
         }
 
         private class TradeRow
