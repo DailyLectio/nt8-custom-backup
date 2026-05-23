@@ -531,19 +531,45 @@ namespace NinjaTrader.NinjaScript.Indicators
         //   * *CANCEL*               -> STOP_CANCEL_CLOSE (code event)
         // The TRAIL_EXIT split exists so STOP_HIT stops conflating winning
         // trailing-stop exits with losing protective-stop exits.
+        // Reverse-signal exits: a stop-and-reverse auto-close inherits the REVERSING
+        // entry's signal name (dev-log 2026-05-23 / Exit_Reason_Taxonomy_Coverage_Review).
+        // When one of these entry-signal names appears as an EXIT reason, the position
+        // was flipped by the opposite-direction entry. Exact-match only (LE/SE etc. are
+        // short — Contains would false-positive). Extend when a strategy adds a signal
+        // name; a miss just falls through to raw (no regression). Must mirror the same
+        // set in regime_daily_join.normalize_exit_reason.
+        private static readonly HashSet<string> ReverseSignalNames = new HashSet<string>
+        {
+            "EXPL1","EXPL2","EXPS1","EXPS2",
+            "FADEL1","FADEL2","FADES1","FADES2",
+            "FADEBL1","FADEBL2","FADEBS1","FADEBS2","FADEL","FADES",
+            "SNIPEL","SNIPES","SNIPEBL","SNIPEBS",
+            "ADXDIL","ADXDIS","ADXDICL","ADXDICS",
+            "MOMOL","MOMOS",
+            "LE","SE"
+        };
+
         private static string NormalizeExitReason(string rawExitName, double profit)
         {
             string n = (rawExitName ?? "").Trim().ToUpperInvariant();
             if (n.Length == 0)                                       return "";
-            if (n.Contains("ENVELOPE") || n.Contains("ENVBREAK"))    return "ENVELOPE_BREAK_EXIT";
+            if (n.Contains("ENVELOPE") || n.Contains("ENVBREAK")
+                || n.Contains("TRENDBREAK"))                         return "ENVELOPE_BREAK_EXIT";  // fader fade-invalidation family
             if (n.Contains("CANCEL"))                                return "STOP_CANCEL_CLOSE";
             if (n.Contains("SESSION") || n.Contains("FLATTEN")
                 || n.Contains("EOD") || n.Contains("MANUAL"))        return "SESSION_CLOSE";
             if (n.Contains("TARGET") || n.Contains("PROFITTARGET"))  return "TARGET_HIT";
             if (n.Contains("WOBBLE"))                                return "WOBBLE_EJECT";
             if (n.Contains("SLOPE"))                                 return "SLOPE_EXIT";
+            if (n.Contains("CIRCUIT") || n.Contains("REVERSAL"))     return "CIRCUIT_BREAKER";  // momentum reversal-against-position family
+            if (n.Contains("TRANSITION") || n.Contains("REGIME"))    return "REGIME_EXIT";
+            if (n.Contains("ILLIQUID"))                              return "ILLIQUID_EXIT";
+            if (n.Contains("CONDEXIT"))                              return "COND_EXIT";
+            if (n.Contains("GUARD") || n.Contains("KILL"))           return "GUARD_FLAT";  // protective force-flatten family
+            if (n.Contains("TIMEEXIT"))                              return "TIME_EXIT";
             if (n.Contains("STOP"))                                  return profit > 0 ? "TRAIL_EXIT" : "STOP_HIT";
             if (n == "CLOSE")                                        return "CLOSE";
+            if (ReverseSignalNames.Contains(n))                      return "REVERSE_EXIT";
             return n;
         }
 
@@ -645,18 +671,18 @@ namespace NinjaTrader.NinjaScript.Indicators
 	public partial class Indicator : NinjaTrader.Gui.NinjaScript.IndicatorRenderBase
 	{
 		private NT8TradeExportAutoWriter[] cacheNT8TradeExportAutoWriter;
-		public NT8TradeExportAutoWriter NT8TradeExportAutoWriter(string outputPath, string accountFilter, int refreshSeconds)
+		public NT8TradeExportAutoWriter NT8TradeExportAutoWriter(string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
 		{
-			return NT8TradeExportAutoWriter(Input, outputPath, accountFilter, refreshSeconds);
+			return NT8TradeExportAutoWriter(Input, outputPath, accountFilter, useRegistryAccountFilter, registryPath, refreshSeconds);
 		}
 
-		public NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input, string outputPath, string accountFilter, int refreshSeconds)
+		public NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input, string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
 		{
 			if (cacheNT8TradeExportAutoWriter != null)
 				for (int idx = 0; idx < cacheNT8TradeExportAutoWriter.Length; idx++)
-					if (cacheNT8TradeExportAutoWriter[idx] != null && cacheNT8TradeExportAutoWriter[idx].OutputPath == outputPath && cacheNT8TradeExportAutoWriter[idx].AccountFilter == accountFilter && cacheNT8TradeExportAutoWriter[idx].RefreshSeconds == refreshSeconds && cacheNT8TradeExportAutoWriter[idx].EqualsInput(input))
+					if (cacheNT8TradeExportAutoWriter[idx] != null && cacheNT8TradeExportAutoWriter[idx].OutputPath == outputPath && cacheNT8TradeExportAutoWriter[idx].AccountFilter == accountFilter && cacheNT8TradeExportAutoWriter[idx].UseRegistryAccountFilter == useRegistryAccountFilter && cacheNT8TradeExportAutoWriter[idx].RegistryPath == registryPath && cacheNT8TradeExportAutoWriter[idx].RefreshSeconds == refreshSeconds && cacheNT8TradeExportAutoWriter[idx].EqualsInput(input))
 						return cacheNT8TradeExportAutoWriter[idx];
-			return CacheIndicator<NT8TradeExportAutoWriter>(new NT8TradeExportAutoWriter(){ OutputPath = outputPath, AccountFilter = accountFilter, RefreshSeconds = refreshSeconds }, input, ref cacheNT8TradeExportAutoWriter);
+			return CacheIndicator<NT8TradeExportAutoWriter>(new NT8TradeExportAutoWriter(){ OutputPath = outputPath, AccountFilter = accountFilter, UseRegistryAccountFilter = useRegistryAccountFilter, RegistryPath = registryPath, RefreshSeconds = refreshSeconds }, input, ref cacheNT8TradeExportAutoWriter);
 		}
 	}
 }
@@ -665,14 +691,14 @@ namespace NinjaTrader.NinjaScript.MarketAnalyzerColumns
 {
 	public partial class MarketAnalyzerColumn : MarketAnalyzerColumnBase
 	{
-		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(string outputPath, string accountFilter, int refreshSeconds)
+		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
 		{
-			return indicator.NT8TradeExportAutoWriter(Input, outputPath, accountFilter, refreshSeconds);
+			return indicator.NT8TradeExportAutoWriter(Input, outputPath, accountFilter, useRegistryAccountFilter, registryPath, refreshSeconds);
 		}
 
-		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input , string outputPath, string accountFilter, int refreshSeconds)
+		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input , string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
 		{
-			return indicator.NT8TradeExportAutoWriter(input, outputPath, accountFilter, refreshSeconds);
+			return indicator.NT8TradeExportAutoWriter(input, outputPath, accountFilter, useRegistryAccountFilter, registryPath, refreshSeconds);
 		}
 	}
 }
@@ -681,14 +707,14 @@ namespace NinjaTrader.NinjaScript.Strategies
 {
 	public partial class Strategy : NinjaTrader.Gui.NinjaScript.StrategyRenderBase
 	{
-		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(string outputPath, string accountFilter, int refreshSeconds)
+		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
 		{
-			return indicator.NT8TradeExportAutoWriter(Input, outputPath, accountFilter, refreshSeconds);
+			return indicator.NT8TradeExportAutoWriter(Input, outputPath, accountFilter, useRegistryAccountFilter, registryPath, refreshSeconds);
 		}
 
-		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input , string outputPath, string accountFilter, int refreshSeconds)
+		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input , string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
 		{
-			return indicator.NT8TradeExportAutoWriter(input, outputPath, accountFilter, refreshSeconds);
+			return indicator.NT8TradeExportAutoWriter(input, outputPath, accountFilter, useRegistryAccountFilter, registryPath, refreshSeconds);
 		}
 	}
 }
