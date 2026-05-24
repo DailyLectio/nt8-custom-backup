@@ -615,6 +615,7 @@
     <Compile Include="Strategies\MomentumV3DR2.cs" />
     <Compile Include="Strategies\SniperV3DB.cs" />
     <Compile Include="Strategies\VC3B_Compression_LIVE.cs" />
+    <Compile Include="Strategies\VC3_Expansion_NQ_LIVE.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">

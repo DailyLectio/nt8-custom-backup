@@ -1,0 +1,547 @@
+// CC BY-NC 4.0
+// ============================================================================
+// VC3_Expansion_NQ_LIVE — LIVE clone of V3_Expansion_Rider_V3C
+// Cloned: 2026-05-23 (for SimV3C-NQ-1A live Apex testing, MNQ)
+// Same 2-leg expansion engine as the parent, plus operator-adjustable limiters
+// derived from the 2-week NQ-1A study:
+//   - TIME GATE extended 3->4 blocked windows. Week-1 defaults block:
+//       0930-0935 (enforce 09:35 start — regime/HMM not live until ~09:35),
+//       1000-1200 (mid-morning dead zone), 1330-1400, 1430-1500.
+//     => allowed lanes: 09:35-09:59, 12:00-13:29, 14:00-14:29, 15:00-close.
+//   - HMM GATE (NEW): block-list on hud.HMMMicro. Week-1 blocks "TrendDown"
+//     (TrendDn = NOT TRADE — structurally weak for NQ Expansion; confirmed by
+//     the 2-wk data and operator's longer-run experience). Read-only HUD access
+//     (tethered, non-contaminating). Regime/Trinity gate stays OFF (proven Mode-1A).
+//   - Start 09:35 (not 09:30): the HUD can't classify TrendDown pre-0935, so the
+//     un-gateable open sliver (~+$11/day MNQ) is skipped to keep the rule airtight.
+//   Sizing: TotalContracts=2 = 2 MNQ (1/leg — the bracket minimum). $1,000 Apex
+//   daily: 2-wk worst window day ~-$200 MNQ, never near the limit.
+//   UNVERIFIED: NOT compiled by Claude. F5-compile + sim-replay before live.
+//   Verify on sim: hud.HMMMicro emits exact "TrendDown"; chart session TZ = ET.
+// ---- inherited parent header ----
+// Stage 1 trade logging added 2026-05-04 — matches V3D per-bot log schema.
+// Uses V3CTradeLogger (shared helper, must be compiled first).
+#region Using declarations
+using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Windows.Media;
+using NinjaTrader.Cbi;
+using NinjaTrader.Gui;
+using NinjaTrader.NinjaScript;
+using NinjaTrader.NinjaScript.Indicators;
+using NinjaTrader.NinjaScript.Strategies;
+using NinjaTrader.Data;
+using NinjaTrader.Core.FloatingPoint;
+#endregion
+
+namespace NinjaTrader.NinjaScript.Strategies
+{
+    public class VC3_Expansion_NQ_LIVE : Strategy
+    {
+        // ===== 0. V3C REGIME GATE (OFF = proven NQ-1A Mode-1A baseline) =====
+        [NinjaScriptProperty]
+        [Display(Name="Enable Regime Gate (Trinity)", Description="ON = require V3C TREND_EXPANSION regime. OFF = ungated baseline (proven NQ-1A config). The LIVE bot uses the HMM block-list below, not this gate.", GroupName="0. V3C Regime Gate", Order=0)]
+        public bool EnableTrinityFilter { get; set; } = false;
+
+        [NinjaScriptProperty]
+        [Display(Name="Debug V3C Gate", GroupName="0. V3C Regime Gate", Order=1)]
+        public bool DebugV3CGate { get; set; } = false;
+
+        // ===== 0c. HMM BLOCK-LIST GATE (LIVE; read-only HUD, tethered/non-contaminating) =====
+        [NinjaScriptProperty]
+        [Display(Name="Enable HMM Block Gate", Description="ON = block new entries when hud.HMMMicro matches a state in 'HMM Blocked States'. Reads the HUD read-only; independent of the Trinity gate.", GroupName="0c. HMM Gate", Order=0)]
+        public bool EnableHMMGate { get; set; } = true;
+
+        [NinjaScriptProperty]
+        [Display(Name="HMM Blocked States", Description="Comma-separated hud.HMMMicro values that BLOCK entry (TrendDn = NOT TRADE). Default: TrendDown. If the HUD is missing/UNKNOWN the gate fails OPEN (trades) — we start at 09:35 when the regime is live.", GroupName="0c. HMM Gate", Order=1)]
+        public string HMMBlockedStates { get; set; } = "TrendDown";
+
+        // ===== 0b. STAGE 1 TRADE LOGGING =====
+        [NinjaScriptProperty]
+        [Display(Name="Account Name Filter", Description="Exact NT8 account name. Trade log only writes when account matches.", GroupName="0b. Trade Logging", Order=0)]
+        public string AccountNameFilter { get; set; } = "";
+
+        [NinjaScriptProperty]
+        [Display(Name="Trade Log Folder", Description="Folder where per-account TradeLog CSV is written.", GroupName="0b. Trade Logging", Order=1)]
+        public string TradeLogFolder { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog";
+
+        // ===== 1. SETTINGS =====
+        [NinjaScriptProperty, Range(2, 100)]
+        [Display(Name="Total Contracts (Must be even)", GroupName="2. Risk Management", Order=0)]
+        public int TotalContracts { get; set; } = 2;
+
+        [NinjaScriptProperty, Range(0.1, 5.0)]
+        [Display(Name="Initial Risk (ATR)", GroupName="2. Risk Management", Order=1)]
+        public double InitialRiskAtr { get; set; } = 1.5;
+
+        [NinjaScriptProperty, Range(1, 10)]
+        [Display(Name="Wait Bricks (Hysteresis Entry)", Description="Wait X bricks in Expansion before firing", GroupName="2. Risk Management", Order=2)]
+        public int WaitBricks { get; set; } = 3;
+
+        [NinjaScriptProperty, Range(0.0, 1.0)]
+        [Display(Name="Leg2 Profit Gate (% of Leg1 target)", Description="Leg2 fires only after Leg1 has reached this fraction of its target distance. 0.5 = 50%. Set to 0 to restore simultaneous entry.", GroupName="2. Risk Management", Order=3)]
+        public double Leg2ProfitGatePct { get; set; } = 0.5;
+
+        // ===== 3. TIME GATE (C1) =====
+        // Blocks NEW entries during up to three configurable HHmm windows.
+        // Position management (Leg2, wobble exit, trailing) is never affected.
+        // Week-1 defaults block: 0930-0935 (enforce 09:35 start), 1000-1200 (dead zone),
+        // 1330-1400, 1430-1500 => allowed lanes 09:35-09:59, 12:00-13:29, 14:00-14:29, 15:00-close.
+        [NinjaScriptProperty]
+        [Display(Name="Enable Time Blocks", Description="When true, new entries are blocked during the configured HHmm windows below.", GroupName="3. Time Gate", Order=0)]
+        public bool EnableTimeBlocks { get; set; } = true;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 1 Start (HHmm)", Description="Start of blocked entry window, 24h HHmm (e.g. 1000). 0 = window unused.", GroupName="3. Time Gate", Order=1)]
+        public int Block1Start { get; set; } = 930;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 1 End (HHmm)", Description="End of blocked entry window, exclusive (e.g. 1130). 0 = window unused.", GroupName="3. Time Gate", Order=2)]
+        public int Block1End { get; set; } = 935;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 2 Start (HHmm)", Description="Second blocked window start. 0 = unused.", GroupName="3. Time Gate", Order=3)]
+        public int Block2Start { get; set; } = 1000;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 2 End (HHmm)", Description="Second blocked window end, exclusive. 0 = unused.", GroupName="3. Time Gate", Order=4)]
+        public int Block2End { get; set; } = 1200;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 3 Start (HHmm)", Description="Third blocked window start. 0 = unused.", GroupName="3. Time Gate", Order=5)]
+        public int Block3Start { get; set; } = 1330;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 3 End (HHmm)", Description="Third blocked window end, exclusive. 0 = unused.", GroupName="3. Time Gate", Order=6)]
+        public int Block3End { get; set; } = 1400;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 4 Start (HHmm)", Description="Fourth blocked window start (LIVE clone addition). 0 = unused.", GroupName="3. Time Gate", Order=7)]
+        public int Block4Start { get; set; } = 1430;
+
+        [NinjaScriptProperty, Range(0, 2359)]
+        [Display(Name="Block 4 End (HHmm)", Description="Fourth blocked window end, exclusive. 0 = unused.", GroupName="3. Time Gate", Order=8)]
+        public int Block4End { get; set; } = 1500;
+
+        // ===== 4. ENTRY COOLDOWN (C2) =====
+        [NinjaScriptProperty]
+        [Display(Name="Enable Entry Cooldown", Description="When true, a new entry is blocked until Cooldown Minutes have elapsed since the last position closed flat.", GroupName="4. Entry Cooldown", Order=0)]
+        public bool EnableEntryCooldown { get; set; } = true;
+
+        [NinjaScriptProperty, Range(0, 120)]
+        [Display(Name="Cooldown Minutes", Description="Minutes to wait after going flat before a new entry is allowed. Default 5.", GroupName="4. Entry Cooldown", Order=1)]
+        public int CooldownMinutes { get; set; } = 5;
+
+        // ===== 5. SAME-DIRECTION CAP =====
+        [NinjaScriptProperty, Range(0, 20)]
+        [Display(Name="Max Same-Direction Trades", Description="Caps consecutive same-direction entries per session. 0 = OFF (no limit). Counter resets on a direction flip and at session start. Week-2 baseline = 0.", GroupName="5. Same-Direction Cap", Order=0)]
+        public int MaxSameDirTrades { get; set; } = 0;
+
+        // ===== 2. INTERNAL STATE =====
+        private ATR atr;
+        private int bricksInExpansion = 0;
+
+        private double leg2TrailingStop = 0.0;
+        private bool leg1Hit = false;
+        private int oppositeBrickCount = 0;
+
+        // Leg2 deferred entry state
+        private bool   awaitingLeg2   = false;
+        private double leg1EntryPrice  = 0.0;
+        private double leg1TargetPrice = 0.0;
+        private int    tradeDir        = 0;   // 1 = long, -1 = short
+
+        // Time gate + entry cooldown state (C1/C2)
+        private DateTime lastExitTime = DateTime.MinValue;
+
+        // Same-direction cap state (SF-27). Param default 0 = OFF.
+        private int  _sameDirCount  = 0;
+        private int  _lastEntryDir  = 0;   // 1 = long, -1 = short
+        private bool _dirRegistered = false;
+
+        // Stage 1 trade logger
+        private V3CTradeLogger _logger;
+
+        protected override void OnStateChange()
+        {
+            if (State == State.SetDefaults)
+            {
+                Description                                 = "VC3_Expansion_NQ_LIVE: NQ-1A clone, MNQ, time blocks + HMM block-list (TrendDn=NOT TRADE).";
+                Name                                        = "VC3_Expansion_NQ_LIVE";
+                Calculate                                   = Calculate.OnBarClose;
+                EntriesPerDirection                         = 2;
+                EntryHandling                               = EntryHandling.AllEntries;
+                IsExitOnSessionCloseStrategy                = true;
+                ExitOnSessionCloseSeconds                   = 30;
+                IsFillLimitOnTouch                          = false;
+            }
+            else if (State == State.DataLoaded)
+            {
+                atr = ATR(14);
+                _logger = new V3CTradeLogger(this, AccountNameFilter, "V3C", TradeLogFolder);
+            }
+        }
+
+        private void ClearLocals()
+        {
+            leg2TrailingStop = 0.0;
+            leg1Hit          = false;
+            oppositeBrickCount = 0;
+            awaitingLeg2     = false;
+            leg1EntryPrice   = 0.0;
+            leg1TargetPrice  = 0.0;
+            tradeDir         = 0;
+        }
+
+        protected override void OnBarUpdate()
+        {
+            if (CurrentBar < 20) return;
+
+            if (Bars.IsFirstBarOfSession) ResetSameDirCounter();
+
+            // 1. V3C REGIME GATEKEEPER
+            bool expansionAllowed = IsExpansionAllowed(out bool allowLong, out bool allowShort);
+            bool contractsValid = TotalContracts >= 2 && TotalContracts % 2 == 0;
+
+            if (!contractsValid)
+            {
+                DebugGate("Blocked: TotalContracts must be even and at least 2");
+                expansionAllowed = false;
+            }
+
+            if (expansionAllowed)
+                bricksInExpansion++;
+            else
+                bricksInExpansion = 0;
+
+            // 2. ENTRY LOGIC
+            if (Position.MarketPosition == MarketPosition.Flat)
+            {
+                ClearLocals();
+
+                bool timeBlocked = InBlockedWindow();
+                bool cooldownOk  = CooldownElapsed();
+                bool hmmBlocked  = IsHmmBlocked();
+
+                if (timeBlocked)  DebugGate("Blocked: inside configured time block");
+                if (!cooldownOk)  DebugGate("Blocked: entry cooldown active");
+
+                if (expansionAllowed && bricksInExpansion >= WaitBricks && !timeBlocked && cooldownOk && !hmmBlocked)
+                {
+                    bool isGreenBrick = Close[0] > Open[0];
+                    bool isRedBrick = Close[0] < Open[0];
+                    double riskTicks = (atr[0] * InitialRiskAtr) / TickSize;
+                    // Whole-tick bracket distance. Ticks mode anchors the stop and
+                    // target to the actual entry fill, so a session-open gap can't
+                    // leave the stop on the wrong side of the market — that gets the
+                    // OCO bracket rejected and the strategy terminates itself.
+                    int riskTicksI = Math.Max(1, (int)Math.Round(riskTicks));
+
+                    if (isGreenBrick && allowLong && !SameDirBlocked(1))
+                    {
+                        double stp  = Close[0] - (riskTicksI * TickSize);
+                        double tgt1 = Close[0] + (riskTicksI * TickSize);
+
+                        SetStopLoss("Leg1", CalculationMode.Ticks, riskTicksI, false);
+                        SetProfitTarget("Leg1", CalculationMode.Ticks, riskTicksI);
+                        EnterLong(TotalContracts / 2, "Leg1");
+
+                        // Leg2 is deferred — fires only when Leg1 profit >= Leg2ProfitGatePct × target
+                        leg2TrailingStop = stp;
+                        leg1EntryPrice   = Close[0];
+                        leg1TargetPrice  = tgt1;
+                        awaitingLeg2     = true;
+                        tradeDir         = 1;
+                    }
+                    else if (isRedBrick && allowShort && !SameDirBlocked(-1))
+                    {
+                        double stp  = Close[0] + (riskTicksI * TickSize);
+                        double tgt1 = Close[0] - (riskTicksI * TickSize);
+
+                        SetStopLoss("Leg1", CalculationMode.Ticks, riskTicksI, false);
+                        SetProfitTarget("Leg1", CalculationMode.Ticks, riskTicksI);
+                        EnterShort(TotalContracts / 2, "Leg1");
+
+                        leg2TrailingStop = stp;
+                        leg1EntryPrice   = Close[0];
+                        leg1TargetPrice  = tgt1;
+                        awaitingLeg2     = true;
+                        tradeDir         = -1;
+                    }
+                }
+            }
+
+            // 3. MULTI-LEG RISK & PARACHUTE
+            if (Position.MarketPosition != MarketPosition.Flat)
+            {
+                // A. DEFERRED LEG2 ENTRY — fire when Leg1 profit reaches the gate
+                if (awaitingLeg2)
+                {
+                    if (!expansionAllowed)
+                    {
+                        // Regime changed before gate — abandon Leg2
+                        awaitingLeg2 = false;
+                    }
+                    else
+                    {
+                        double targetDist    = Math.Abs(leg1TargetPrice - leg1EntryPrice);
+                        double currentProfit = tradeDir == 1
+                            ? Close[0] - leg1EntryPrice
+                            : leg1EntryPrice - Close[0];
+
+                        if (targetDist > 0 && currentProfit >= targetDist * Leg2ProfitGatePct)
+                        {
+                            SetStopLoss("Leg2", CalculationMode.Price, leg2TrailingStop, false);
+                            if (tradeDir == 1) EnterLong(TotalContracts / 2, "Leg2");
+                            else               EnterShort(TotalContracts / 2, "Leg2");
+                            awaitingLeg2 = false;
+                        }
+                    }
+                }
+
+                // B. LEG1 EXIT DETECTION — only meaningful after Leg2 has entered
+                if (!leg1Hit && !awaitingLeg2 && Position.Quantity <= TotalContracts / 2)
+                {
+                    leg1Hit = true; // Free Trade Pivot
+                    leg2TrailingStop = Position.MarketPosition == MarketPosition.Long
+                        ? Position.AveragePrice + (4 * TickSize)
+                        : Position.AveragePrice - (4 * TickSize);
+                    SetStopLoss("Leg2", CalculationMode.Price, leg2TrailingStop, false);
+                }
+
+                // C. WOBBLE EXIT (UniRenko Reversal Parachute)
+                bool isRedBrick   = Close[0] < Open[0];
+                bool isGreenBrick = Close[0] > Open[0];
+
+                if (Position.MarketPosition == MarketPosition.Long  && isRedBrick)   oppositeBrickCount++;
+                else if (Position.MarketPosition == MarketPosition.Short && isGreenBrick) oppositeBrickCount++;
+                else oppositeBrickCount = 0;
+
+                if (oppositeBrickCount >= 1)
+                {
+                    // Exit from whichever leg is still open
+                    string fromSignal = awaitingLeg2 ? "Leg1" : "Leg2";
+                    if (Position.MarketPosition == MarketPosition.Long)
+                        ExitLong(Position.Quantity, "Wobble Eject", fromSignal);
+                    if (Position.MarketPosition == MarketPosition.Short)
+                        ExitShort(Position.Quantity, "Wobble Eject", fromSignal);
+                    awaitingLeg2 = false;
+                    return;
+                }
+
+                // D. STEP-TRAIL THE RUNNER (only after Leg1 has exited)
+                if (leg1Hit)
+                {
+                    double trailDistance = (atr[0] * 1.25);
+                    if (Position.MarketPosition == MarketPosition.Long)
+                    {
+                        double candidate = High[0] - trailDistance;
+                        if (candidate > leg2TrailingStop) { leg2TrailingStop = candidate; SetStopLoss("Leg2", CalculationMode.Price, leg2TrailingStop, false); }
+                    }
+                    else if (Position.MarketPosition == MarketPosition.Short)
+                    {
+                        double candidate = Low[0] + trailDistance;
+                        if (candidate < leg2TrailingStop || leg2TrailingStop == 0) { leg2TrailingStop = candidate; SetStopLoss("Leg2", CalculationMode.Price, leg2TrailingStop, false); }
+                    }
+                }
+            }
+        }
+
+        private bool IsExpansionAllowed(out bool allowLong, out bool allowShort)
+        {
+            allowLong = false;
+            allowShort = false;
+
+            if (!EnableTrinityFilter)
+            {
+                allowLong = true;
+                allowShort = true;
+                return true;
+            }
+
+            Indicators.RegimeMatrixHUD_V3C hud = GetV3CHud();
+
+            if (hud == null)
+            {
+                DebugGate("Blocked: HUD missing");
+                return false;
+            }
+
+            if (hud.StaleDataFlag)
+            {
+                DebugGate("Blocked: stale data");
+                return false;
+            }
+
+            if (!string.Equals(hud.FinalRegime, "TREND_EXPANSION", StringComparison.OrdinalIgnoreCase))
+            {
+                DebugGate("Blocked: FinalRegime=" + hud.FinalRegime);
+                return false;
+            }
+
+            if (!hud.IsExpansionBotAllowed)
+            {
+                DebugGate("Blocked: ExpansionBot OFF");
+                return false;
+            }
+
+            allowLong = hud.AllowLong;
+            allowShort = hud.AllowShort;
+
+            if (!allowLong && !allowShort)
+            {
+                DebugGate("Blocked: direction not allowed");
+                return false;
+            }
+
+            return true;
+        }
+
+        private Indicators.RegimeMatrixHUD_V3C GetV3CHud()
+        {
+            string chartSymbol = Instrument.MasterInstrument.Name;
+            string leaderSymbol = GetLeaderSymbol(chartSymbol);
+
+            Indicators.RegimeMatrixHUD_V3C hudInstance = null;
+
+            if (!Indicators.RegimeMatrixHUD_V3C.InstancesV3C.TryGetValue(chartSymbol, out hudInstance))
+                Indicators.RegimeMatrixHUD_V3C.InstancesV3C.TryGetValue(leaderSymbol, out hudInstance);
+
+            return hudInstance;
+        }
+
+        private string GetLeaderSymbol(string sym)
+        {
+            if (string.IsNullOrEmpty(sym))
+                return sym;
+
+            sym = sym.Trim().ToUpper();
+
+            if (sym == "MES") return "ES";
+            if (sym == "MNQ") return "NQ";
+            if (sym == "MGC") return "GC";
+            if (sym == "MCL") return "CL";
+            if (sym == "MSI") return "SI";
+
+            return sym;
+        }
+
+        private void DebugGate(string message)
+        {
+            if (DebugV3CGate)
+                Print($"{Time[0]} {Name} V3C Gate: {message}");
+        }
+
+        // ===== C1: TIME GATE =====
+        // Returns true if the current bar time falls inside any enabled blocked window.
+        private bool InBlockedWindow()
+        {
+            if (!EnableTimeBlocks) return false;
+
+            int hhmm = Time[0].Hour * 100 + Time[0].Minute;
+            return IsInBlock(hhmm, Block1Start, Block1End)
+                || IsInBlock(hhmm, Block2Start, Block2End)
+                || IsInBlock(hhmm, Block3Start, Block3End)
+                || IsInBlock(hhmm, Block4Start, Block4End);
+        }
+
+        // ===== HMM BLOCK-LIST GATE (LIVE) =====
+        // Returns true if the live HUD's HMMMicro state is in the operator's blocked set.
+        // Read-only HUD access; fails OPEN (returns false) when the HUD is missing/UNKNOWN.
+        private bool IsHmmBlocked()
+        {
+            if (!EnableHMMGate) return false;
+            if (string.IsNullOrEmpty(HMMBlockedStates)) return false;
+
+            Indicators.RegimeMatrixHUD_V3C hud = GetV3CHud();
+            if (hud == null) { DebugGate("HMM gate: HUD missing — fail open (trade allowed)."); return false; }
+
+            string state = (hud.HMMMicro ?? "").Trim();
+            if (string.IsNullOrEmpty(state) || string.Equals(state, "UNKNOWN", StringComparison.OrdinalIgnoreCase))
+                { DebugGate("HMM gate: state UNKNOWN — fail open (trade allowed)."); return false; }
+
+            foreach (string blocked in HMMBlockedStates.Split(','))
+            {
+                if (string.Equals(blocked.Trim(), state, StringComparison.OrdinalIgnoreCase))
+                {
+                    DebugGate("Blocked: HMM state '" + state + "' is in the block-list.");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool IsInBlock(int hhmm, int start, int end)
+        {
+            if (start == 0 && end == 0) return false;          // unused window
+            if (end > start) return hhmm >= start && hhmm < end;
+            if (end < start) return hhmm >= start || hhmm < end; // window wraps midnight
+            return false;
+        }
+
+        // ===== C2: ENTRY COOLDOWN =====
+        // Returns true if enough time has elapsed since the last flat to allow a new entry.
+        private bool CooldownElapsed()
+        {
+            if (!EnableEntryCooldown) return true;
+            if (lastExitTime == DateTime.MinValue) return true;   // no prior exit this run
+            return (Time[0] - lastExitTime).TotalMinutes >= CooldownMinutes;
+        }
+
+        // ===== SAME-DIRECTION CAP (SF-27) =====
+        private bool SameDirBlocked(int dir)
+        {
+            return MaxSameDirTrades > 0
+                && dir == _lastEntryDir
+                && _sameDirCount >= MaxSameDirTrades;
+        }
+
+        private void RegisterDirEntry(int dir)
+        {
+            if (dir == _lastEntryDir) _sameDirCount++;
+            else { _lastEntryDir = dir; _sameDirCount = 1; }
+        }
+
+        private void ResetSameDirCounter()
+        {
+            _sameDirCount = 0;
+            _lastEntryDir = 0;
+        }
+
+        // =========================================================================
+        // STAGE 1 TRADE LOGGING — delegates to V3CTradeLogger
+        // =========================================================================
+        protected override void OnExecutionUpdate(Execution execution, string executionId,
+            double price, int quantity, MarketPosition marketPosition, string orderId,
+            DateTime time)
+        {
+            _logger?.OnExecution(execution, null);
+
+            // Same-direction cap: register once per position on the first entry fill (Leg1).
+            if (execution.Order != null && !_dirRegistered)
+            {
+                if (execution.Order.OrderAction == OrderAction.Buy)
+                    { RegisterDirEntry(1);  _dirRegistered = true; }
+                else if (execution.Order.OrderAction == OrderAction.SellShort)
+                    { RegisterDirEntry(-1); _dirRegistered = true; }
+            }
+
+            // C2: stamp the moment the position goes fully flat — starts the entry cooldown.
+            if (marketPosition == MarketPosition.Flat)
+            {
+                lastExitTime = time;
+                _dirRegistered = false;
+            }
+        }
+
+        protected override void OnOrderUpdate(Order order, double limitPrice, double stopPrice,
+            int quantity, int filled, double averageFillPrice, OrderState orderState,
+            DateTime time, ErrorCode error, string comment)
+        {
+            // Capture initial stop price as soon as the stop order is live
+            if (orderState == OrderState.Working)
+                _logger?.OnStopOrderSubmitted(order);
+        }
+    }
+}
