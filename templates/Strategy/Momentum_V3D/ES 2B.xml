@@ -391,6 +391,7 @@
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath>C:\Users\Valued Customer\NT8_Regimes\V3D</DataFolderPath>
       <PermissionMode>B_FullTrinity</PermissionMode>
+      <MaxRowAgeSec>1800</MaxRowAgeSec>
       <BaselineSizePct>50</BaselineSizePct>
       <SoftSizePctFloor>50</SoftSizePctFloor>
       <AccountNameFilter>SimV3D-NQ-2B;SimV3D-ES-2B</AccountNameFilter>

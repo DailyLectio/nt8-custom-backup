@@ -298,7 +298,7 @@
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath> </DataFolderPath>
       <PermissionMode>C_SoftTrinity</PermissionMode>
-      <MaxRowAgeSec>150</MaxRowAgeSec>
+      <MaxRowAgeSec>1800</MaxRowAgeSec>
       <BaselineSizePct>50</BaselineSizePct>
       <SoftSizePctFloor>50</SoftSizePctFloor>
       <AccountNameFilter />

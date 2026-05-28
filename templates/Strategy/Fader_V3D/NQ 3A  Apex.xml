@@ -289,7 +289,7 @@
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath />
       <PermissionMode>A_Baseline</PermissionMode>
-      <MaxRowAgeSec>150</MaxRowAgeSec>
+      <MaxRowAgeSec>1800</MaxRowAgeSec>
       <BaselineSizePct>50</BaselineSizePct>
       <SoftSizePctFloor>50</SoftSizePctFloor>
       <AccountNameFilter />

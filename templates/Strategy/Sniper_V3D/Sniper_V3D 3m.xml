@@ -260,6 +260,7 @@
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath>C:\Users\Valued Customer\NT8_Regimes\V3D</DataFolderPath>
+      <MaxRowAgeSec>1800</MaxRowAgeSec>
       <TargetAtr>0.75</TargetAtr>
       <StopAtr>1</StopAtr>
       <AtrPeriod>14</AtrPeriod>
