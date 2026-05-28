@@ -94,7 +94,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         public string DataFolderPath { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V3D";
         [NinjaScriptProperty]
         [Display(Name = "V3D Test Mode", Description = "A=baseline/no Trinity gate, B=full Trinity, C=soft Trinity diagnostics.", GroupName = "1. Regime", Order = 1)]
-        public V3DPermissionMode PermissionMode { get; set; } = V3DPermissionMode.B_FullTrinity;
+        public V3DPermissionMode PermissionMode { get; set; } = V3DPermissionMode.A_Baseline;
 
         [NinjaScriptProperty, Range(0, 3600)]
         [Display(Name = "Max Row Age Seconds (staleness)", Description = "Force-stale if matrix row TimestampET is older than this many seconds. 0 = disabled. Default 150. A-mode bypasses staleness gate by design.", GroupName = "1. Regime", Order = 4)]

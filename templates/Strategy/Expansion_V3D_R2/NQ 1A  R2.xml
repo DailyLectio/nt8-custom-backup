@@ -42,7 +42,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>PermissionMode</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.V3DPermissionMode, 7f956c78829f4cefb52c1d00becedeb1, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.V3DPermissionMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>B_FullTrinity</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -344,13 +344,13 @@
       <BarsPeriodSerializable>
         <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>44</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>80</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>22</Value>
-        <Value2>66</Value2>
+        <Value>40</Value>
+        <Value2>120</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnBarClose</Calculate>
@@ -359,8 +359,8 @@
       <From>2026-05-03T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
-      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-      <Name>Expansion_V3D_R2 ES 1A  R2</Name>
+      <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
+      <Name>Expansion_V3D_R2 NQ 1A  R2</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -390,7 +390,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
-      <InstrumentOrInstrumentList>ES JUN26</InstrumentOrInstrumentList>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -424,7 +424,7 @@
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3D\TradeLog</TradeLogFolder>
       <InitialRiskAtr>1.5</InitialRiskAtr>
       <AtrPeriod>14</AtrPeriod>
-      <TickValueDollars>12.5</TickValueDollars>
+      <TickValueDollars>5</TickValueDollars>
       <WaitBricks>3</WaitBricks>
       <MinConfidence>75</MinConfidence>
       <AdxPeriod>14</AdxPeriod>
