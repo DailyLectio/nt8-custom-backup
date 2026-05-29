@@ -82,7 +82,7 @@
       <string>G|0|2000|True|3630|25|25|3630|2000</string>
       <string>T|0|1000|True|3600|25|25|4550|1000</string>
       <string>CAC40|0|2000|True|3400|10|10|4250|2000</string>
-      <string>FDXM|0|500|True|10441|25|25|10441|500</string>
+      <string>FDXM|0|500|True|10375|25|25|10375|500</string>
       <string>BZ|0|1000|True|7482|10|10|8230|1000</string>
       <string>TN|0|500|True|2550|25|25|2805|500</string>
       <string>RTY|0|500|True|10638|50|50|11702|500</string>
@@ -140,6 +140,6 @@
       <string>1OZ|0|50|True|274|1|1|302|50</string>
       <string>FXXP|0|1000|True|2456|25|25|2456|1000</string>
     </MasterInstrumentsSerializable>
-    <Version>15517</Version>
+    <Version>15518</Version>
   </Risk>
 </NinjaTrader>
