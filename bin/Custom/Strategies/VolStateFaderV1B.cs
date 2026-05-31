@@ -67,6 +67,12 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "ATR Percentile Lookback", GroupName = "1. ATR Regime", Order = 7)]
         public int PercentileLookback { get; set; } = 100;
 
+        [NinjaScriptProperty]
+        [Display(Name = "Allow All Vol Regimes For Entry",
+                 GroupName = "1. ATR Regime", Order = 8,
+                 Description = "Open-test mode. false=original compression/exhaustion-only behavior. true=do not hard-block entries or exits by internal volatility regime.")]
+        public bool AllowAllVolRegimesForEntry { get; set; } = false;
+
         // =====================================================================
         // PARAMETERS — SIGNAL (unchanged)
         // =====================================================================
@@ -302,6 +308,18 @@ namespace NinjaTrader.NinjaScript.Strategies
             return false;
         }
 
+        private string RegimeLabel(int regime)
+        {
+            switch (regime)
+            {
+                case REGIME_COMPRESSION: return "COMP";
+                case REGIME_EXHAUSTION:  return "EXHST";
+                case REGIME_EXPANSION:   return "EXP";
+                case REGIME_HIGH_VOL:    return "HIGHVOL";
+                default:                 return "UNKNOWN";
+            }
+        }
+
         private int ClassifyRegime()
         {
             double atrVal  = atr[0];
@@ -426,7 +444,8 @@ namespace NinjaTrader.NinjaScript.Strategies
             currentRegime = ClassifyRegime();
 
             // ── Emergency regime exit ─────────────────────────────────────────
-            if (Position.MarketPosition != MarketPosition.Flat &&
+            if (!AllowAllVolRegimesForEntry &&
+                Position.MarketPosition != MarketPosition.Flat &&
                 (currentRegime == REGIME_EXPANSION || currentRegime == REGIME_HIGH_VOL))
             {
                 if (Position.MarketPosition == MarketPosition.Long) ExitLong("RegimeBreakExit", "");
@@ -467,7 +486,10 @@ namespace NinjaTrader.NinjaScript.Strategies
             // ── Entry gates ───────────────────────────────────────────────────
             leg1Hit = false; leg1JustHit = false; currentLeg2Qty = 1; activeLeg2 = "";
 
-            if (currentRegime != REGIME_COMPRESSION && currentRegime != REGIME_EXHAUSTION) return;
+            if (!AllowAllVolRegimesForEntry &&
+                currentRegime != REGIME_COMPRESSION &&
+                currentRegime != REGIME_EXHAUSTION)
+                return;
             if (GetAtrPercentile() > 80) return;
             if (consecutiveLosers >= MaxConsecutiveLosses) return;
             if (!IsInTime()) return;
@@ -528,7 +550,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 Print(string.Format("[VSF_V1B] LONG | Regime:{0} | Bias:{1} | FP:{2} | " +
                     "Qty:{3}+{4} | Stop:{5:F2} | T1:{6:F2} | T2:{7:F2}",
-                    currentRegime == REGIME_COMPRESSION ? "COMP" : "EXHST",
+                    RegimeLabel(currentRegime),
                     HUDMessengerV1B.CurrentDailyBias,
                     RequireFootprintConfirmation ? "ON" : "OFF",
                     leg1Qty, leg2Qty, stopPrice, leg1Target, leg2Target));
@@ -560,7 +582,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 Print(string.Format("[VSF_V1B] SHORT | Regime:{0} | Bias:{1} | FP:{2} | " +
                     "Qty:{3}+{4} | Stop:{5:F2} | T1:{6:F2} | T2:{7:F2}",
-                    currentRegime == REGIME_COMPRESSION ? "COMP" : "EXHST",
+                    RegimeLabel(currentRegime),
                     HUDMessengerV1B.CurrentDailyBias,
                     RequireFootprintConfirmation ? "ON" : "OFF",
                     leg1Qty, leg2Qty, stopPrice, leg1Target, leg2Target));
