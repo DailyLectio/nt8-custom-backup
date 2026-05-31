@@ -423,7 +423,7 @@
       <Leg1TpMult>1.5</Leg1TpMult>
       <Leg2TpMult>2.5</Leg2TpMult>
       <TickValueDollars>12.5</TickValueDollars>
-      <MaxConsecutiveLosses>2</MaxConsecutiveLosses>
+      <MaxConsecutiveLosses>10</MaxConsecutiveLosses>
       <DailyGoal>0</DailyGoal>
       <DailyLossLimit>0</DailyLossLimit>
       <EnableTimeFilter>true</EnableTimeFilter>
