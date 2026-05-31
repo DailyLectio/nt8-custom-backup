@@ -262,7 +262,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
-      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
+      <InstrumentOrInstrumentList>MNQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -290,7 +290,7 @@
       <DebugV3CGate>false</DebugV3CGate>
       <EnableHMMGate>true</EnableHMMGate>
       <HMMBlockedStates>TrendDown</HMMBlockedStates>
-      <AccountNameFilter />
+      <AccountNameFilter>SimExpansion-NQ-1A -LIVE</AccountNameFilter>
       <TradeLogFolder />
       <TotalContracts>2</TotalContracts>
       <InitialRiskAtr>1.5</InitialRiskAtr>
