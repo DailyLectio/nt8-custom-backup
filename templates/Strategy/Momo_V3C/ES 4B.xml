@@ -675,7 +675,7 @@
       <EnableTrinityFilter>true</EnableTrinityFilter>
       <SelectedHudLane>DefaultUniversal</SelectedHudLane>
       <UseDualSeries>false</UseDualSeries>
-      <AccountNameFilter>SimV3C-NQ-4A;SimV3C-ES-4A</AccountNameFilter>
+      <AccountNameFilter>SimV3C-NQ-4B;SimV3C-ES-4B</AccountNameFilter>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog</TradeLogFolder>
       <Contracts>1</Contracts>
       <Preset>Custom</Preset>
