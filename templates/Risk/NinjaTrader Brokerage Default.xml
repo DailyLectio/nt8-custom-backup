@@ -41,7 +41,7 @@
       <string>SI|0|1000|True|47272|25|25|52000|1000</string>
       <string>QO|0|500|True|19558|10|10|21513|500</string>
       <string>QI|0|1250|True|20136|10|10|22150|1250</string>
-      <string>MGC|0|50|True|2748|25|25|3032|50</string>
+      <string>MGC|0|50|True|2689|25|25|2958|50</string>
       <string>CL|0|1000|True|10817|20|20|11899|1000</string>
       <string>NG|0|1000|True|3028|25|25|3331|1000</string>
       <string>HO|0|1000|True|21673|10|10|23841|1000</string>
@@ -140,6 +140,6 @@
       <string>1OZ|0|50|True|274|1|1|302|50</string>
       <string>FXXP|0|1000|True|2456|25|25|2456|1000</string>
     </MasterInstrumentsSerializable>
-    <Version>15521</Version>
+    <Version>15524</Version>
   </Risk>
 </NinjaTrader>
