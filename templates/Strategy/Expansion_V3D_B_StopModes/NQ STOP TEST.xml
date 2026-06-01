@@ -90,14 +90,14 @@
       </Parameter>
       <Parameter>
         <EnumValuesSerializable>
-          <string>AtrStatic</string>
+          <string>BarNTrailing</string>
         </EnumValuesSerializable>
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>StopModeSelection</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Expansion_V3D_B_StopModes+StopMode, eed44494cc5d4a97bfe4de68f5f59c42, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
-        <ValueSerializable>AtrStatic</ValueSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Expansion_V3D_B_StopModes+StopMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ValueSerializable>BarNTrailing</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -192,11 +192,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">2</Max>
-        <Min xsi:type="xsd:int">2</Min>
+        <Max xsi:type="xsd:int">10</Max>
+        <Min xsi:type="xsd:int">10</Min>
         <Name>MaxConsecutiveLosses</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>2</ValueSerializable>
+        <ValueSerializable>10</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -239,7 +239,7 @@
       <Calculate>OnBarClose</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2099-12-01T00:00:00</From>
+      <From>2026-05-07T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -248,7 +248,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>1800-01-01T00:00:00</To>
+      <To>2026-06-01T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -273,6 +273,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -304,7 +305,7 @@
       <TickValueDollars>5</TickValueDollars>
       <AtrStopMult>0.75</AtrStopMult>
       <AtrStopLen>14</AtrStopLen>
-      <MinStopTicks>2</MinStopTicks>
+      <MinStopTicks>44</MinStopTicks>
       <RiskReward>1.5</RiskReward>
       <StopModeSelection>BarNTrailing</StopModeSelection>
       <TrailingNBars>1</TrailingNBars>
@@ -316,7 +317,7 @@
       <WaitBricks>3</WaitBricks>
       <MinConfidence>75</MinConfidence>
       <MinVelocityAtr>0.5</MinVelocityAtr>
-      <WobbleBricks>1</WobbleBricks>
+      <WobbleBricks>2</WobbleBricks>
       <MaxConsecutiveLosses>10</MaxConsecutiveLosses>
       <DailyGoal>0</DailyGoal>
       <DailyLossLimit>0</DailyLossLimit>
