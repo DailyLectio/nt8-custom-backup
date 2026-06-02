@@ -58,12 +58,7 @@
     <TradingHoursSerializable />
     <Brackets>
       <Bracket>
-        <Quantity>1</Quantity>
-        <StopLoss>44</StopLoss>
-        <Target>44</Target>
-      </Bracket>
-      <Bracket>
-        <Quantity>1</Quantity>
+        <Quantity>2</Quantity>
         <StopLoss>44</StopLoss>
         <Target>66</Target>
       </Bracket>
@@ -79,7 +74,7 @@
     <ReverseAtTarget>false</ReverseAtTarget>
     <UseMitForProfit>false</UseMitForProfit>
     <UseStopLimitForStopLossOrders>false</UseStopLimitForStopLossOrders>
-    <AtmSelector>e2b2a97c282d4fb99c313064345eaa09</AtmSelector>
+    <AtmSelector>7d3561d367a4412bbb706cc68cb33a57</AtmSelector>
     <OnBehalfOf />
     <ReverseAtStopStrategyId>-1</ReverseAtStopStrategyId>
     <ReverseAtTargetStrategyId>-1</ReverseAtTargetStrategyId>

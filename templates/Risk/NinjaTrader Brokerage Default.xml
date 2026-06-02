@@ -35,7 +35,6 @@
       <string>ZB|0|500|True|3700|25|25|4070|500</string>
       <string>ZF|0|500|True|1250|50|50|1375|500</string>
       <string>ZQ|0|500|True|225|10|10|247|500</string>
-      <string>GE|0|500|True|870|50|50|957|500</string>
       <string>HG|0|1000|True|12000|25|25|13200|1000</string>
       <string>GC|0|500|True|27348|10|10|30083|500</string>
       <string>SI|0|1000|True|47272|25|25|52000|1000</string>
@@ -48,11 +47,7 @@
       <string>RB|0|1000|True|11434|10|10|12578|1000</string>
       <string>QM|0|500|True|6087|10|10|6694|500</string>
       <string>QG|0|500|True|758|10|10|839|500</string>
-      <string>SB|0|500|True|737|50|50|837|500</string>
-      <string>CC|0|1000|True|4422|10|10|4422|1000</string>
-      <string>KC|0|1000|True|7206|200|200|7609|1000</string>
       <string>CT|0|1000|True|1089|10|10|1336|1000</string>
-      <string>DX|0|500|True|1988|25|25|2186.8|500</string>
       <string>FDAX|0|2000|True|52883|10|10|52883|2000</string>
       <string>FESX|0|1000|True|4878|25|25|4878|1000</string>
       <string>FGBL|0|1000|True|2250|25|25|2250|1000</string>
@@ -71,33 +66,18 @@
       <string>XC|0|100|True|193|10|10|214|100</string>
       <string>XK|0|250|True|400|10|10|440|250</string>
       <string>XW|0|250|True|330|10|10|363|250</string>
-      <string>OJ|0|1000|True|2481|25|25|4775|1000</string>
-      <string>YI|0|500|True|3056|25|25|3056|500</string>
-      <string>YG|0|500|True|2195|25|25|2195|500</string>
       <string>FGBX|0|1000|True|4408|25|25|4408|1000</string>
-      <string>KE|0|1000|True|1900|25|25|2090|1000</string>
-      <string>VX|0|2000|True|12705|25|25|12705|2000</string>
-      <string>Z|0|1000|True|3098|25|25|3365|1000</string>
-      <string>B|0|2000|True|4780|25|25|4780|2000</string>
-      <string>G|0|2000|True|3630|25|25|3630|2000</string>
-      <string>T|0|1000|True|3600|25|25|4550|1000</string>
-      <string>CAC40|0|2000|True|3400|10|10|4250|2000</string>
       <string>FDXM|0|500|True|10575|25|25|10575|500</string>
       <string>BZ|0|1000|True|9547|10|10|10527|1000</string>
       <string>TN|0|500|True|2550|25|25|2805|500</string>
       <string>RTY|0|500|True|10638|50|50|11702|500</string>
       <string>BTC|0|20000|True|99030|20|20|108933|20000</string>
-      <string>MME|0|1000|True|4722|25|25|4722|1000</string>
-      <string>HSI|0|20000|True|88790|5|5|110988|20000</string>
-      <string>MHI|0|2000|True|17757|10|10|22197|2000</string>
       <string>MISF|0|50|True|450|25|50|495|50</string>
       <string>MES|0|50|True|2414|100|100|2657|50</string>
       <string>MYM|0|50|True|1507|101|100|1656|50</string>
       <string>M2K|0|50|True|1063|100|100|1171|50</string>
       <string>MNQ|0|100|True|3653|100|100|4021|100</string>
-      <string>VXM|0|1000|True|1000|10|10|1320|1000</string>
       <string>SIL|0|250|True|9422|5|10|10365|250</string>
-      <string>6R|0|2310|True|6200|5|5|6820|2310</string>
       <string>6L|0|500|True|1100|25|25|1210|500</string>
       <string>6Z|0|1000|True|1980|5|5|1980|1000</string>
       <string>FSXE|0|100|True|486|50|50|486|100</string>
@@ -115,7 +95,6 @@
       <string>LB5|0|50|True|1408|25|25|1408|50</string>
       <string>TEC|0|10|True|768|25|25|768|10</string>
       <string>LTEC|0|50|True|7686|25|25|7686|50</string>
-      <string>OIL|0|100|True|710|25|25|710|100</string>
       <string>MHG|0|200|True|1200|25|50|1320|200</string>
       <string>Z3N|0|500|True|1840|25|25|2000|500</string>
       <string>BIP|0|50|True|260|25|25|260|50</string>
@@ -123,7 +102,6 @@
       <string>BCH|0|50|True|356|25|25|356|50</string>
       <string>BIT|0|25|True|379|25|25|379|25</string>
       <string>DOG|0|50|True|1307|25|25|1307|50</string>
-      <string>NET|0|25|True|140|25|25|155|25</string>
       <string>ETI|0|20000|True|16289|25|25|16289|20000</string>
       <string>GOL|0|50|True|230|25|25|230|50</string>
       <string>LC|0|50|True|302|25|25|302|50</string>
@@ -140,6 +118,6 @@
       <string>1OZ|0|50|True|274|1|1|302|50</string>
       <string>FXXP|0|1000|True|2479|25|25|2479|1000</string>
     </MasterInstrumentsSerializable>
-    <Version>15534</Version>
+    <Version>15536</Version>
   </Risk>
 </NinjaTrader>
