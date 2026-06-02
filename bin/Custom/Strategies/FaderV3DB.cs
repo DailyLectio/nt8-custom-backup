@@ -45,6 +45,13 @@ using NinjaTrader.NinjaScript.Strategies;
 
 namespace NinjaTrader.NinjaScript.Strategies
 {
+    public enum FaderV3DBTradeDirectionMode
+    {
+        LongAndShort,
+        LongOnly,
+        ShortOnly
+    }
+
     public class Fader_V3D_B : Strategy
     {
         // =====================================================================
@@ -102,6 +109,12 @@ namespace NinjaTrader.NinjaScript.Strategies
                                "Prevents excessive target updates on micro-drifts. Default: 4.",
                  GroupName = "3. Signal", Order = 2)]
         public int VwapUpdateThresholdTicks { get; set; } = 4;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Trade Direction",
+                 Description = "Long And Short = current behavior. Long Only blocks short entries. Short Only blocks long entries.",
+                 GroupName = "3b. Direction Filter", Order = 0)]
+        public FaderV3DBTradeDirectionMode TradeDirection { get; set; } = FaderV3DBTradeDirectionMode.LongAndShort;
         // ──────────────────────────────────────────────────────────────────
 
         [NinjaScriptProperty, Range(0, 10)]
@@ -213,6 +226,15 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             return Math.Max(1, (int)Math.Floor(maxQty * sizePct / 100.0));
         }
+
+        private void ApplyTradeDirectionFilter(ref bool entryAllowLong, ref bool entryAllowShort)
+        {
+            if (TradeDirection == FaderV3DBTradeDirectionMode.LongOnly)
+                entryAllowShort = false;
+            else if (TradeDirection == FaderV3DBTradeDirectionMode.ShortOnly)
+                entryAllowLong = false;
+        }
+
         private V3DStrategyTradeLogger v3dTradeLogger;
 
 
@@ -546,6 +568,10 @@ namespace NinjaTrader.NinjaScript.Strategies
             bool wasGreen = Close[1] > Open[1];
             bool wasRed   = Close[1] < Open[1];
 
+            bool entryAllowLong  = allowFadeLong;
+            bool entryAllowShort = allowFadeShort;
+            ApplyTradeDirectionFilter(ref entryAllowLong, ref entryAllowShort);
+
             double atrVal = atr[0];
             double price  = Close[0];
             double vwap   = sessionVwap > 0 ? sessionVwap : bb.Middle[0];
@@ -555,7 +581,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             bool bollingerLowTouch = (ibLow <= 0 && pdVal <= 0) &&
                                      (Low[1] <= bb.Lower[1] || Low[2] <= bb.Lower[2]);
 
-            if (allowFadeLong && (atLowEdge || bollingerLowTouch) && wasRed && greenBar)
+            if (entryAllowLong && (atLowEdge || bollingerLowTouch) && wasRed && greenBar)
             {
                 double distToVwap = vwap - price;
                 if (distToVwap / TickSize >= MinTargetTicks)
@@ -590,7 +616,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                         faderSizePct, leg1Qty, leg2Qty, stopPrice, leg1Target, leg2Target));
                 }
             }
-            else if (allowFadeShort && (atHighEdge(price, atrVal) || bollingerHighTouch()) && wasGreen && redBar)
+            else if (entryAllowShort && (atHighEdge(price, atrVal) || bollingerHighTouch()) && wasGreen && redBar)
             {
                 double highEdgePrice;
                 NearStructuralEdgeHigh(price, atrVal, out highEdgePrice);
