@@ -37,6 +37,13 @@ using NinjaTrader.Core.FloatingPoint;
 
 namespace NinjaTrader.NinjaScript.Strategies
 {
+    public enum VC3ExpansionTradeDirectionMode
+    {
+        LongAndShort,
+        LongOnly,
+        ShortOnly
+    }
+
     public class VC3_Expansion_NQ_LIVE : Strategy
     {
         // ===== 0. V3C REGIME GATE (OFF = proven NQ-1A Mode-1A baseline) =====
@@ -82,6 +89,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         [NinjaScriptProperty, Range(0.0, 1.0)]
         [Display(Name="Leg2 Profit Gate (% of Leg1 target)", Description="Leg2 fires only after Leg1 has reached this fraction of its target distance. 0.5 = 50%. Set to 0 to restore simultaneous entry.", GroupName="2. Risk Management", Order=3)]
         public double Leg2ProfitGatePct { get; set; } = 0.5;
+
+        // ===== 2b. DIRECTION FILTER =====
+        [NinjaScriptProperty]
+        [Display(Name="Trade Direction", Description="Long And Short = current behavior. Long Only blocks short entries. Short Only blocks long entries.", GroupName="2b. Direction Filter", Order=0)]
+        public VC3ExpansionTradeDirectionMode TradeDirection { get; set; } = VC3ExpansionTradeDirectionMode.LongAndShort;
 
         // ===== 3. TIME GATE (C1) =====
         // Blocks NEW entries during up to three configurable HHmm windows.
@@ -202,6 +214,14 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             // 1. V3C REGIME GATEKEEPER
             bool expansionAllowed = IsExpansionAllowed(out bool allowLong, out bool allowShort);
+            ApplyTradeDirectionFilter(ref allowLong, ref allowShort);
+
+            if (expansionAllowed && !allowLong && !allowShort)
+            {
+                DebugGate("Blocked: trade direction filter");
+                expansionAllowed = false;
+            }
+
             bool contractsValid = TotalContracts >= 2 && TotalContracts % 2 == 0;
 
             if (!contractsValid)
@@ -431,6 +451,14 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (DebugV3CGate)
                 Print($"{Time[0]} {Name} V3C Gate: {message}");
+        }
+
+        private void ApplyTradeDirectionFilter(ref bool allowLong, ref bool allowShort)
+        {
+            if (TradeDirection == VC3ExpansionTradeDirectionMode.LongOnly)
+                allowShort = false;
+            else if (TradeDirection == VC3ExpansionTradeDirectionMode.ShortOnly)
+                allowLong = false;
         }
 
         // ===== C1: TIME GATE =====

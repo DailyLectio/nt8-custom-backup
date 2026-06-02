@@ -296,7 +296,7 @@
       <InitialRiskAtr>1.5</InitialRiskAtr>
       <WaitBricks>3</WaitBricks>
       <Leg2ProfitGatePct>0.5</Leg2ProfitGatePct>
-      <TradeDirection>LongAndShort</TradeDirection>
+      <TradeDirection>LongOnly</TradeDirection>
       <EnableTimeBlocks>true</EnableTimeBlocks>
       <Block1Start>930</Block1Start>
       <Block1End>935</Block1End>

@@ -55,6 +55,13 @@ using NinjaTrader.Core.FloatingPoint;
 
 namespace NinjaTrader.NinjaScript.Strategies
 {
+    public enum VC3BCompressionTradeDirectionMode
+    {
+        LongAndShort,
+        LongOnly,
+        ShortOnly
+    }
+
     public class VC3B_Compression_LIVE : Strategy
     {
         // ===== 0. V3C REGIME GATE (operator-adjustable; OFF = proven ES-2A Mode-A baseline) =====
@@ -146,6 +153,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         [NinjaScriptProperty, Range(1, 20)]
         [Display(Name="Max Consecutive Losses", Description="Opens circuit breaker after N consecutive stop-outs.", GroupName="2. Risk Management", Order=6)]
         public int MaxConsecutiveLosses { get; set; } = 4; // [PATCH P1] NEW
+
+        // ===== 2b. DIRECTION FILTER =====
+        [NinjaScriptProperty]
+        [Display(Name="Trade Direction", Description="Long And Short = current behavior. Long Only blocks short entries. Short Only blocks long entries.", GroupName="2b. Direction Filter", Order=0)]
+        public VC3BCompressionTradeDirectionMode TradeDirection { get; set; } = VC3BCompressionTradeDirectionMode.LongAndShort;
 
         // ===== 5. SAME-DIRECTION CAP =====
         [NinjaScriptProperty, Range(0, 20)]
@@ -282,6 +294,13 @@ namespace NinjaTrader.NinjaScript.Strategies
                     DebugGate("Blocked: HMM gate (state not in allowed set).");
                     compressionAllowed = false;
                 }
+            }
+
+            ApplyTradeDirectionFilter(ref allowLong, ref allowShort);
+            if (compressionAllowed && !allowLong && !allowShort)
+            {
+                DebugGate("Blocked: trade direction filter");
+                compressionAllowed = false;
             }
 
             // =========================================================================
@@ -427,6 +446,14 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (DebugV3CGate)
                 Print($"{Time[0]} {Name}: {message}");
+        }
+
+        private void ApplyTradeDirectionFilter(ref bool allowLong, ref bool allowShort)
+        {
+            if (TradeDirection == VC3BCompressionTradeDirectionMode.LongOnly)
+                allowShort = false;
+            else if (TradeDirection == VC3BCompressionTradeDirectionMode.ShortOnly)
+                allowLong = false;
         }
 
         // ===== LIVE LIMITER HELPERS =====
