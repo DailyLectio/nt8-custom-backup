@@ -7,21 +7,21 @@
       <AreLinesConfigurable>false</AreLinesConfigurable>
       <ArePlotsConfigurable>false</ArePlotsConfigurable>
       <BarsPeriodSerializable>
-        <BarsPeriodTypeSerialize>4</BarsPeriodTypeSerialize>
+        <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>10</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>1</Value>
-        <Value2>1</Value2>
+        <Value>5</Value>
+        <Value2>15</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnEachTick</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>false</DisplayInDataBox>
-      <From>2026-04-01T00:00:00</From>
+      <From>2026-05-09T00:00:00</From>
       <IsAutoScale>false</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
@@ -1456,10 +1456,2410 @@
           <Name>AIECTP 100</Name>
           <PlotStyle>Line</PlotStyle>
         </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 101</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 102</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 103</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 104</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 105</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 106</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 107</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 108</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 109</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 110</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 111</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 112</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 113</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 114</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 115</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 116</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 117</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 118</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 119</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 120</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 121</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 122</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 123</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 124</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 125</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 126</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 127</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 128</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 129</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 130</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 131</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 132</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 133</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 134</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 135</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 136</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 137</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 138</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 139</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 140</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 141</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 142</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 143</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 144</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 145</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 146</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 147</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 148</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 149</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 150</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 151</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 152</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 153</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 154</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 155</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 156</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 157</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 158</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 159</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 160</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 161</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 162</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 163</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 164</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 165</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 166</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 167</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 168</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 169</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 170</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 171</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 172</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 173</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 174</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 175</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 176</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 177</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 178</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 179</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 180</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 181</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 182</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 183</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 184</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 185</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 186</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 187</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 188</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 189</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 190</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 191</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 192</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 193</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 194</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 195</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 196</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 197</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 198</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 199</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 200</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 201</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 202</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 203</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 204</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 205</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 206</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 207</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 208</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 209</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 210</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 211</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 212</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 213</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 214</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 215</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 216</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 217</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 218</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 219</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 220</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 221</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 222</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 223</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 224</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 225</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 226</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 227</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 228</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 229</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 230</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 231</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 232</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 233</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 234</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 235</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 236</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 237</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 238</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 239</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 240</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 241</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 242</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 243</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 244</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 245</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 246</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 247</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 248</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 249</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 250</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 251</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 252</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 253</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 254</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 255</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 256</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 257</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 258</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 259</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 260</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 261</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 262</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 263</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 264</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 265</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 266</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 267</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 268</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 269</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 270</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 271</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 272</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 273</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 274</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 275</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 276</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 277</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 278</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 279</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 280</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 281</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 282</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 283</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 284</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 285</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 286</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 287</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 288</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 289</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 290</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 291</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 292</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 293</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 294</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 295</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 296</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 297</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 298</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 299</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
+        <Plot>
+          <IsOpacityVisible>false</IsOpacityVisible>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Solid</DashStyleHelper>
+          <Opacity>100</Opacity>
+          <Width>1</Width>
+          <AutoWidth>false</AutoWidth>
+          <Max>1.7976931348623157E+308</Max>
+          <Min>-1.7976931348623157E+308</Min>
+          <Name>AIECTP 300</Name>
+          <PlotStyle>Line</PlotStyle>
+        </Plot>
       </Plots>
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-04-04T00:00:00</To>
+      <To>2026-06-03T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -1470,11 +3870,11 @@
       <DrawVerticalGridLines>true</DrawVerticalGridLines>
       <DrawOnPricePanel>true</DrawOnPricePanel>
       <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-      <IndicatorId>3875</IndicatorId>
-      <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
+      <IndicatorId>3813</IndicatorId>
+      <InstrumentDeserialized>ES JUN26 Globex</InstrumentDeserialized>
       <MaxSerialized>0</MaxSerialized>
       <MinSerialized>0</MinSerialized>
-      <ZOrder>30813</ZOrder>
+      <ZOrder>30449</ZOrder>
       <BidAskEnabled>true</BidAskEnabled>
       <ScreenshotEmailE>false</ScreenshotEmailE>
       <DuplicateButtonsPermission>false</DuplicateButtonsPermission>
@@ -1497,21 +3897,23 @@
       <OneClickOrdersEnabled2>false</OneClickOrdersEnabled2>
       <OneClickWidthOn>60</OneClickWidthOn>
       <OneClickWidthOff>10</OneClickWidthOff>
-      <TotalIndicatorsOnChart>6</TotalIndicatorsOnChart>
-      <TotalIndicatorsOnChartString>785|788|794|797|4865|6024</TotalIndicatorsOnChartString>
+      <TotalIndicatorsOnChart>5</TotalIndicatorsOnChart>
+      <TotalIndicatorsOnChartString>3789|3801|3804|3807|3813</TotalIndicatorsOnChartString>
       <OneClickWidthChangeHeight>0</OneClickWidthChangeHeight>
       <BuyOneClickColor1S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF1E90FF&lt;/SolidColorBrush&gt;</BuyOneClickColor1S>
       <SellOneClickColor1S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</SellOneClickColor1S>
       <OnOpacity22>20</OnOpacity22>
       <ActivateWithKeys>false</ActivateWithKeys>
+      <OneClickStickyMode>true</OneClickStickyMode>
+      <OneClickWheelSwitchesDirection>true</OneClickWheelSwitchesDirection>
       <OneClickStatus>Long</OneClickStatus>
       <ButtonsEnabled>true</ButtonsEnabled>
       <ButtonHighlightMode>On</ButtonHighlightMode>
-      <ColorButtonsOffS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</ColorButtonsOffS>
+      <ColorButtonsOff2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF696969&lt;/SolidColorBrush&gt;</ColorButtonsOff2S>
       <OnOpacity>40</OnOpacity>
       <ButtonSize>18</ButtonSize>
-      <MinButtonW>100</MinButtonW>
       <SpaceBetweenButtons>6</SpaceBetweenButtons>
+      <ChartMenuTextSize>1</ChartMenuTextSize>
       <ButtonsHideEnabled>true</ButtonsHideEnabled>
       <CrossHairEnabled>false</CrossHairEnabled>
       <CrossHairXEnabled>true</CrossHairXEnabled>
@@ -1549,40 +3951,32 @@
       <AllTrailingStopsIndicator>
         <int>-1</int>
         <int>-1</int>
-        <int>-1</int>
       </AllTrailingStopsIndicator>
       <AllTrailingStopsPlot>
-        <int>-1</int>
         <int>-1</int>
         <int>-1</int>
       </AllTrailingStopsPlot>
       <AllTrailingStopsIndicator2>
         <int>-1</int>
         <int>-1</int>
-        <int>-1</int>
       </AllTrailingStopsIndicator2>
       <AllTrailingStopsPlot2>
-        <int>-1</int>
         <int>-1</int>
         <int>-1</int>
       </AllTrailingStopsPlot2>
       <AllTrailingStopsOffsets>
         <int>1</int>
         <int>1</int>
-        <int>1</int>
       </AllTrailingStopsOffsets>
       <AllTrailingStopsGeneratedName>
-        <string />
         <string />
         <string />
       </AllTrailingStopsGeneratedName>
       <AllTrailingStopsIndicatorName>
         <string />
         <string />
-        <string />
       </AllTrailingStopsIndicatorName>
       <AllTrailingStopsIndicator2Name>
-        <string />
         <string />
         <string />
       </AllTrailingStopsIndicator2Name>
@@ -1593,12 +3987,11 @@
       <TrailingStopShowATR>true</TrailingStopShowATR>
       <ATRMultiplier>1.5</ATRMultiplier>
       <TrailingStopShowHighLow>true</TrailingStopShowHighLow>
-      <TrailingStopHighLowBB>3</TrailingStopHighLowBB>
-      <NumberOfCustomTrailingStops>3</NumberOfCustomTrailingStops>
+      <TrailingStopHighLowBB>2</TrailingStopHighLowBB>
+      <NumberOfCustomTrailingStops>2</NumberOfCustomTrailingStops>
       <AllTrailingStops>
         <string>Custom 1</string>
         <string>Custom 2</string>
-        <string>Custom 3</string>
       </AllTrailingStops>
       <TrailingStopStartMode>Immediately</TrailingStopStartMode>
       <TrailingStopChangeMode>Immediately</TrailingStopChangeMode>
@@ -1618,21 +4011,27 @@
       <MTFBasePeriodType1>Minute</MTFBasePeriodType1>
       <MTFBarsPeriod1>1</MTFBarsPeriod1>
       <InitialExitsType>Default</InitialExitsType>
+      <BETriggerTicks>0</BETriggerTicks>
+      <ShowBETriggerOnPlan>true</ShowBETriggerOnPlan>
+      <StopAfterT1Mode>None</StopAfterT1Mode>
+      <StopAfterT1Offset>0</StopAfterT1Offset>
+      <InitialExitHLBars>2</InitialExitHLBars>
+      <InitialExitHLOffsetTicks>1</InitialExitHLOffsetTicks>
+      <InitialExitHLMinStopTicks>12</InitialExitHLMinStopTicks>
       <InitialStopLossATRM>1.5</InitialStopLossATRM>
       <Target1ATRM>1.5</Target1ATRM>
       <Target2ATRM>2</Target2ATRM>
       <Target3ATRM>2.5</Target3ATRM>
       <FixedTicks>20</FixedTicks>
       <TSOffsetATR>1</TSOffsetATR>
-      <TSOffsetBar>1</TSOffsetBar>
+      <TSOffsetBar>4</TSOffsetBar>
       <ShowMoveAllExits>true</ShowMoveAllExits>
       <MarketPlanActiveSaved>false</MarketPlanActiveSaved>
       <MarketPlanActive>false</MarketPlanActive>
       <IsPlanInProgress>0</IsPlanInProgress>
-      <MoveAllExitsType>Click</MoveAllExitsType>
       <StopLossMoveOffset>1</StopLossMoveOffset>
-      <IcebergStopMoveOffset>2</IcebergStopMoveOffset>
-      <IcebergTargetMoveOffset>1</IcebergTargetMoveOffset>
+      <MoveAllExitsStopOffset>0</MoveAllExitsStopOffset>
+      <MoveAllExitsTargetOffset>0</MoveAllExitsTargetOffset>
       <ShowLastPriceAll>true</ShowLastPriceAll>
       <LastPriceLineStroke>
         <IsOpacityVisible>true</IsOpacityVisible>
@@ -1667,7 +4066,7 @@
       <SpaceBetweenBars>20</SpaceBetweenBars>
       <CurrentSetting2>20</CurrentSetting2>
       <SpaceBetweenBars2>10</SpaceBetweenBars2>
-      <ThisBarMarginRight>12</ThisBarMarginRight>
+      <ThisBarMarginRight>200</ThisBarMarginRight>
       <UseFixedVerticalScale>true</UseFixedVerticalScale>
       <UseYScroll>false</UseYScroll>
       <ScaleTicks>50</ScaleTicks>
@@ -1689,8 +4088,9 @@
       <ClickToAdjustMarginEnabled>false</ClickToAdjustMarginEnabled>
       <SimBackColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFD8BFD8&lt;/SolidColorBrush&gt;</SimBackColorS>
       <LiveBackColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFB0E0E6&lt;/SolidColorBrush&gt;</LiveBackColorS>
+      <ScaleIntoExistingATM>false</ScaleIntoExistingATM>
       <ShowATMResetButton>true</ShowATMResetButton>
-      <LastATMSelectedS>1 NQ</LastATMSelectedS>
+      <LastATMSelectedS>2C NQ 66 88</LastATMSelectedS>
       <LastSelectedInd>2</LastSelectedInd>
       <ShowHideAccountButton>true</ShowHideAccountButton>
       <HideAccountEnabled>false</HideAccountEnabled>
@@ -1702,6 +4102,13 @@
       <ClosePartialTargetsEnabled>true</ClosePartialTargetsEnabled>
       <CloseAllEntryFirst>true</CloseAllEntryFirst>
       <MoveOrdersNewLeft>260</MoveOrdersNewLeft>
+      <OrderColorDisplayMode2>Buy / Sell</OrderColorDisplayMode2>
+      <OrderBuySideColorS6>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF0A329B&lt;/SolidColorBrush&gt;</OrderBuySideColorS6>
+      <OrderSellSideColorS6>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF690A0F&lt;/SolidColorBrush&gt;</OrderSellSideColorS6>
+      <PanelExpandedState>false</PanelExpandedState>
+      <OrderBuySellTargetColorS6>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF006400&lt;/SolidColorBrush&gt;</OrderBuySellTargetColorS6>
+      <OrderBuySellStopColorS6>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFC82323&lt;/SolidColorBrush&gt;</OrderBuySellStopColorS6>
+      <OrderPendingSideColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF505050&lt;/SolidColorBrush&gt;</OrderPendingSideColorS>
       <OrderStopMarketColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFC0CB&lt;/SolidColorBrush&gt;</OrderStopMarketColorS>
       <OrderStopLimitColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFEE82EE&lt;/SolidColorBrush&gt;</OrderStopLimitColorS>
       <OrderTriggerPendingS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFF00&lt;/SolidColorBrush&gt;</OrderTriggerPendingS>
@@ -1713,25 +4120,27 @@
       <OrderChangeColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFA500&lt;/SolidColorBrush&gt;</OrderChangeColorS>
       <CustomOrderBuyColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF006400&lt;/SolidColorBrush&gt;</CustomOrderBuyColorS>
       <CustomOrderSellColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF640000&lt;/SolidColorBrush&gt;</CustomOrderSellColorS>
-      <VersionNumber>25. 12. 16. 1</VersionNumber>
-      <HideVersion>true</HideVersion>
+      <VersionNumber>26. 5. 29. 1</VersionNumber>
       <ThisSummaryTypeMode>Ticks</ThisSummaryTypeMode>
       <ThisSummaryExitOrderMode>Points</ThisSummaryExitOrderMode>
       <OrderSummaryColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF4B0082&lt;/SolidColorBrush&gt;</OrderSummaryColorS>
       <AttachButtonsHoverEnabled>true</AttachButtonsHoverEnabled>
+      <AtmNameButtonEnabled>true</AtmNameButtonEnabled>
+      <AtmNameMaxChars>0</AtmNameMaxChars>
       <TextFont66>
         <Bold>true</Bold>
         <FamilySerialize>Calibri</FamilySerialize>
         <Italic>true</Italic>
         <Size>11</Size>
       </TextFont66>
+      <OrderFlagRounding>6</OrderFlagRounding>
       <ScaleByOrders>false</ScaleByOrders>
+      <ResetOrderFlagDisplay>false</ResetOrderFlagDisplay>
       <AttachmentOrdersEnabled>true</AttachmentOrdersEnabled>
       <LinkButtonsEnabled>true</LinkButtonsEnabled>
       <AllowOrderQuantityAdjustment>false</AllowOrderQuantityAdjustment>
       <SplitStopDisplay>true</SplitStopDisplay>
       <SplitTargetDisplay2>true</SplitTargetDisplay2>
-      <MoveOrderSnap>8</MoveOrderSnap>
       <ShowOrdersOffChart>true</ShowOrdersOffChart>
       <HiddenOrdersOpacity>50</HiddenOrdersOpacity>
       <LinkButtonsIsOn>false</LinkButtonsIsOn>
@@ -1742,6 +4151,7 @@
       <ShowCommissionsOptions>true</ShowCommissionsOptions>
       <ShowCloseButton>true</ShowCloseButton>
       <ShowBEButton>true</ShowBEButton>
+      <RenderDiagMode>0</RenderDiagMode>
       <BEOffset>2</BEOffset>
       <BEMoveStops>true</BEMoveStops>
       <BEMoveTargets>true</BEMoveTargets>
@@ -1749,6 +4159,15 @@
       <ProfitAndLossType>Currency</ProfitAndLossType>
       <ProfitAndLossType3>All</ProfitAndLossType3>
       <ProfitAndLossEntry>Hide</ProfitAndLossEntry>
+      <PNLBackgroundColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</PNLBackgroundColorS>
+      <PNLProfitColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF32CD32&lt;/SolidColorBrush&gt;</PNLProfitColorS>
+      <PNLLossColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</PNLLossColorS>
+      <PNLFlatTextColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</PNLFlatTextColorS>
+      <ChartPNLProfitColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF32CD32&lt;/SolidColorBrush&gt;</ChartPNLProfitColorS>
+      <ChartPNLLossColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</ChartPNLLossColorS>
+      <ChartPNLBackgroundColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF000000&lt;/SolidColorBrush&gt;</ChartPNLBackgroundColorS>
+      <ChartPNLFlatColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF696969&lt;/SolidColorBrush&gt;</ChartPNLFlatColorS>
+      <RightClickEntryMode>Simple</RightClickEntryMode>
       <ClickEntryOrdersEnabled>true</ClickEntryOrdersEnabled>
       <OCOButtonEnabled>true</OCOButtonEnabled>
       <ClickUPColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF006400&lt;/SolidColorBrush&gt;</ClickUPColorS>
@@ -1791,6 +4210,7 @@
       <TrendSignalPlotIndicator>-1</TrendSignalPlotIndicator>
       <TrendSignalPlotPlot>-1</TrendSignalPlotPlot>
       <HotKeysEnabled>false</HotKeysEnabled>
+      <HotKeyModifier>Left Ctrl</HotKeyModifier>
       <KeyOrderPanel>C</KeyOrderPanel>
       <KeyBuyMarket>V</KeyBuyMarket>
       <KeySellMarket>B</KeySellMarket>
@@ -1840,7 +4260,6 @@
       <PositionSizingDollarsRiskI>10</PositionSizingDollarsRiskI>
       <PositionSizingPercentRiskI>0.5</PositionSizingPercentRiskI>
       <PositionSizingAccountSizeOverride>0</PositionSizingAccountSizeOverride>
-      <KeepTargetQuantityProportional>true</KeepTargetQuantityProportional>
       <PositionSizingMinSize>1</PositionSizingMinSize>
       <PositionSizingMaxSize>4</PositionSizingMaxSize>
       <PositionSizingQ1>true</PositionSizingQ1>
@@ -1878,6 +4297,8 @@
       <PriceBasedRenkoMode>Known Close</PriceBasedRenkoMode>
       <PriceBasedEntryOrdersCancelIf>false</PriceBasedEntryOrdersCancelIf>
       <PriceBasedEntryButtonLabel />
+      <PriceBasedLiveEntryButtonFunctionality>Trailing Mode</PriceBasedLiveEntryButtonFunctionality>
+      <PriceBasedInitialTrailingEnabled>true</PriceBasedInitialTrailingEnabled>
       <UseTimeFilter>false</UseTimeFilter>
       <StartT>9:33</StartT>
       <EndT>11:30</EndT>
@@ -1901,7 +4322,7 @@
       <UseOCOStopEntry>false</UseOCOStopEntry>
       <UseSLMStopEntry>false</UseSLMStopEntry>
       <SLOffsetPriceEntry>0</SLOffsetPriceEntry>
-      <OffsetTicks>1</OffsetTicks>
+      <OffsetTicks>3</OffsetTicks>
       <LevelsEnabled>true</LevelsEnabled>
       <Brush03>
         <IsOpacityVisible>true</IsOpacityVisible>
@@ -1951,8 +4372,8 @@
       <Limit2EntryBasis>Offer</Limit2EntryBasis>
       <Limit1EntryType>Limit</Limit1EntryType>
       <Limit2EntryType>Limit</Limit2EntryType>
-      <LimitOrderOffset4>2</LimitOrderOffset4>
-      <LimitOrderOffset5>5</LimitOrderOffset5>
+      <LimitOrderOffset4>1</LimitOrderOffset4>
+      <LimitOrderOffset5>3</LimitOrderOffset5>
       <AttachmentOrdersButtonOK>true</AttachmentOrdersButtonOK>
       <AttachEntriesEnabled>true</AttachEntriesEnabled>
       <AttachExitsEnabled>true</AttachExitsEnabled>
@@ -2013,6 +4434,9 @@
       <ATMLabel011>Core 3</ATMLabel011>
       <ATMLabel012>Core 4</ATMLabel012>
       <ATMPreviewButtonEnabled>true</ATMPreviewButtonEnabled>
+      <ModifiedDetailsBoxEnabled>false</ModifiedDetailsBoxEnabled>
+      <SinglePlanWhenOrderResting>true</SinglePlanWhenOrderResting>
+      <StopStrategyManagementDisabled>true</StopStrategyManagementDisabled>
       <ThisSummary44TypeMode>Market Entry Orders</ThisSummary44TypeMode>
       <ColorBuyPlan2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF7F&lt;/SolidColorBrush&gt;</ColorBuyPlan2S>
       <ColorSellPlan2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDC143C&lt;/SolidColorBrush&gt;</ColorSellPlan2S>
@@ -2020,7 +4444,7 @@
       <ScaleByATM>false</ScaleByATM>
       <ShowPlanSeconds333>15</ShowPlanSeconds333>
       <PlanEnabled>true</PlanEnabled>
-      <LastPlanDirection>Long</LastPlanDirection>
+      <LastPlanDirection>Short</LastPlanDirection>
       <BarUpOutlineStroke>
         <IsOpacityVisible>true</IsOpacityVisible>
         <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFF0F8FF&lt;/SolidColorBrush&gt;</BrushSerialize>
@@ -2042,6 +4466,13 @@
         <Opacity>100</Opacity>
         <Width>2</Width>
       </BarNeOutlineStroke>
+      <StopStrategyStroke>
+        <IsOpacityVisible>true</IsOpacityVisible>
+        <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDAA520&lt;/SolidColorBrush&gt;</BrushSerialize>
+        <DashStyleHelper>Dash</DashStyleHelper>
+        <Opacity>100</Opacity>
+        <Width>1</Width>
+      </StopStrategyStroke>
       <PlanningWidthAd2>80</PlanningWidthAd2>
       <PlanDetailsName>true</PlanDetailsName>
       <PlanDetailsUnits>true</PlanDetailsUnits>
@@ -2068,10 +4499,26 @@
       <FreePTTicks>60</FreePTTicks>
       <FreeSLEnabled>true</FreeSLEnabled>
       <FreePTEnabled>true</FreePTEnabled>
-      <LastQuantity>1</LastQuantity>
-      <LastAccount>Playback101</LastAccount>
+      <LastQuantity>3</LastQuantity>
+      <LastAccount>APEX7678400000197</LastAccount>
       <OrderPanelOn>true</OrderPanelOn>
-      <ChartTraderWidth>250</ChartTraderWidth>
+      <ChartTraderWidth>361</ChartTraderWidth>
+      <PanelFontFamily>Calibri</PanelFontFamily>
+      <CollapsibleSectionsEnabled>true</CollapsibleSectionsEnabled>
+      <CollapseAllButtonEnabled>true</CollapseAllButtonEnabled>
+      <ButtonHeight>28</ButtonHeight>
+      <PrimaryControlHeight>26</PrimaryControlHeight>
+      <SectionSpacing>2</SectionSpacing>
+      <PrimaryFontSize>14</PrimaryFontSize>
+      <SecondaryControlHeight>21</SecondaryControlHeight>
+      <ControlGap>3</ControlGap>
+      <PanelButtonFontSize>12</PanelButtonFontSize>
+      <HeaderSpacing>5</HeaderSpacing>
+      <HeaderFontSize>11</HeaderFontSize>
+      <MarketDataFontSize>12</MarketDataFontSize>
+      <AllowKeyboardQtyEntry>true</AllowKeyboardQtyEntry>
+      <SavedSectionStates>pnl=1,setup=1,position=1,trailstop=1,market=1,limit1=1,click=1,stopprice=1,bidask=1</SavedSectionStates>
+      <SavedScrollPosition>0</SavedScrollPosition>
       <ColorBuyEMA2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF005000&lt;/SolidColorBrush&gt;</ColorBuyEMA2S>
       <ColorBuyEMAS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</ColorBuyEMAS>
       <ColorSellEMA2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF500000&lt;/SolidColorBrush&gt;</ColorSellEMA2S>
@@ -2112,10 +4559,11 @@
         <Size>12</Size>
       </TextFont8>
       <SpaceBetweenGroups>20</SpaceBetweenGroups>
+      <ResetOrderPanelDisplay>false</ResetOrderPanelDisplay>
       <FinalATMMode>KeepSelectedAtmStrategyTemplateOnOrderSubmission</FinalATMMode>
       <ThisTIF1>Gtc</ThisTIF1>
-      <OrderModControl>Contract Type</OrderModControl>
-      <ContractTypeMode>Mini</ContractTypeMode>
+      <OrderModControl2>Contract Type</OrderModControl2>
+      <ContractTypeMode>Micro</ContractTypeMode>
       <ThisTIF2>Gtc</ThisTIF2>
       <AttachmentOrdersPermission>true</AttachmentOrdersPermission>
       <EssentialToolsPermission>true</EssentialToolsPermission>
