@@ -159,7 +159,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         // ===== 6. CONSECUTIVE LOSS LIMIT =====
         [NinjaScriptProperty, Range(0, 20)]
-        [Display(Name="Max Consecutive Losses", Description="Blocks new entries after this many consecutive losing flat-to-flat trade cycles in the current session. A loss is total realized PnL below 0 after the whole position closes. 0 = OFF. Default 1.", GroupName="6. Consecutive Loss Limit", Order=0)]
+        [Display(Name="Max Consecutive Losses", Description="Session loss cap: blocks new entries after this many losing flat-to-flat trade cycles in the current session. A loss is total realized PnL below 0 after the whole position closes. 0 = OFF. Default 1.", GroupName="6. Consecutive Loss Limit", Order=0)]
         public int MaxConsecutiveLosses { get; set; } = 1;
 
         // ===== 7. PER-LEG TRAILING STOPS =====
@@ -262,8 +262,9 @@ namespace NinjaTrader.NinjaScript.Strategies
         private int  _lastEntryDir  = 0;   // 1 = long, -1 = short
         private bool _dirRegistered = false;
 
-        // Consecutive loss limit state. Param default 1 = stop after first losing flat-to-flat cycle.
-        private int _consecutiveLossCount = 0;
+        // Session loss cap state. Param default 1 = stop after first losing flat-to-flat cycle.
+        private int _sessionLossCount = 0;
+        private int _lastProcessedTradeCount = 0;
         private double _cycleStartCumProfit = 0.0;
         private bool _cycleInProgress = false;
 
@@ -307,6 +308,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 _logger = new V3CTradeLogger(this, AccountNameFilter, "V3C", TradeLogFolder);
                 _cycleStartCumProfit = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit;
+                _lastProcessedTradeCount = SystemPerformance.AllTrades.Count;
             }
         }
 
@@ -342,8 +344,10 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (Bars.IsFirstBarOfSession)
             {
                 ResetSameDirCounter();
-                ResetConsecutiveLossCounter();
+                ResetSessionLossCounter();
             }
+
+            UpdateSessionLossCounterFromClosedCycle();
 
             // 1. V3C REGIME GATEKEEPER
             bool expansionAllowed = IsExpansionAllowed(out bool allowLong, out bool allowShort);
@@ -884,27 +888,37 @@ namespace NinjaTrader.NinjaScript.Strategies
         private bool ConsecutiveLossBlocked()
         {
             return MaxConsecutiveLosses > 0
-                && _consecutiveLossCount >= MaxConsecutiveLosses;
+                && _sessionLossCount >= MaxConsecutiveLosses;
         }
 
-        private void UpdateConsecutiveLossCounter()
+        private void UpdateSessionLossCounterFromClosedCycle()
         {
+            if (!_cycleInProgress || Position.MarketPosition != MarketPosition.Flat)
+                return;
+
+            int tradeCount = SystemPerformance.AllTrades.Count;
+            if (tradeCount <= _lastProcessedTradeCount)
+                return;
+
             double cyclePnL = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit - _cycleStartCumProfit;
 
             if (cyclePnL < 0)
-                _consecutiveLossCount++;
-            else
-                _consecutiveLossCount = 0;
+                _sessionLossCount++;
+
+            if (DebugV3CGate)
+                Print($"{Time[0]} {Name} Loss cap: closed cycle PnL={cyclePnL:F2}, sessionLossCount={_sessionLossCount}, max={MaxConsecutiveLosses}");
 
             _cycleInProgress = false;
             _cycleStartCumProfit = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit;
+            _lastProcessedTradeCount = tradeCount;
         }
 
-        private void ResetConsecutiveLossCounter()
+        private void ResetSessionLossCounter()
         {
-            _consecutiveLossCount = 0;
+            _sessionLossCount = 0;
             _cycleInProgress = Position.MarketPosition != MarketPosition.Flat;
             _cycleStartCumProfit = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit;
+            _lastProcessedTradeCount = SystemPerformance.AllTrades.Count;
         }
 
         // =========================================================================
@@ -944,9 +958,6 @@ namespace NinjaTrader.NinjaScript.Strategies
             // C2: stamp the moment the position goes fully flat — starts the entry cooldown.
             if (marketPosition == MarketPosition.Flat)
             {
-                if (_cycleInProgress)
-                    UpdateConsecutiveLossCounter();
-
                 lastExitTime = time;
                 _dirRegistered = false;
             }

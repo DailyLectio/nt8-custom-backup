@@ -27,6 +27,13 @@ namespace NinjaTrader.NinjaScript.Strategies
             AtrStep      = 3
         }
 
+        public enum TradeDirectionMode
+        {
+            LongAndShort,
+            LongOnly,
+            ShortOnly
+        }
+
         // =========================================================================
         // 1. TRINITY COMMAND CENTER (The HUD Master Switch)
         // =========================================================================
@@ -124,6 +131,10 @@ namespace NinjaTrader.NinjaScript.Strategies
         [NinjaScriptProperty, Range(0.1, double.MaxValue)]
         [Display(Name = "ATR Multiplier", GroupName = "Parameters", Order = 7)]
         public double AtrMultiplier { get; set; } = 1.0;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Trade Direction", Description = "Long And Short = current behavior. Long Only blocks short entries. Short Only blocks long entries.", GroupName = "Parameters", Order = 8)]
+        public TradeDirectionMode TradeDirection { get; set; } = TradeDirectionMode.LongAndShort;
 
         [NinjaScriptProperty]
         [Display(Name = "Stop Mode", GroupName = "Stops", Order = 8)]
@@ -312,6 +323,14 @@ namespace NinjaTrader.NinjaScript.Strategies
             _lastEntryDir = 0;
         }
 
+        private void ApplyTradeDirectionFilter(ref bool allowLong, ref bool allowShort)
+        {
+            if (TradeDirection == TradeDirectionMode.LongOnly)
+                allowShort = false;
+            else if (TradeDirection == TradeDirectionMode.ShortOnly)
+                allowLong = false;
+        }
+
         protected override void OnStateChange()
         {
             if (State == State.SetDefaults) {
@@ -416,6 +435,8 @@ namespace NinjaTrader.NinjaScript.Strategies
                     }
                 }
                 // =========================================================================
+
+                ApplyTradeDirectionFilter(ref allowLongHud, ref allowShortHud);
 
                 if (allowLongHud && EntryTimeAllowed() && adx[0] > LevelRange && crossUp && !SameDirBlocked(1))
                 {
