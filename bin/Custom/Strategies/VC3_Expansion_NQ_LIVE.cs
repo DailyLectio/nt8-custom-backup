@@ -44,6 +44,13 @@ namespace NinjaTrader.NinjaScript.Strategies
         ShortOnly
     }
 
+    public enum VC3ExpansionTrailMode
+    {
+        Off,
+        BarNTrailing,
+        AtrStep
+    }
+
     public class VC3_Expansion_NQ_LIVE : Strategy
     {
         // ===== 0. V3C REGIME GATE (OFF = proven NQ-1A Mode-1A baseline) =====
@@ -150,11 +157,93 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="Max Same-Direction Trades", Description="Caps consecutive same-direction entries per session. 0 = OFF (no limit). Counter resets on a direction flip and at session start. Week-2 baseline = 0.", GroupName="5. Same-Direction Cap", Order=0)]
         public int MaxSameDirTrades { get; set; } = 0;
 
+        // ===== 6. CONSECUTIVE LOSS LIMIT =====
+        [NinjaScriptProperty, Range(0, 20)]
+        [Display(Name="Max Consecutive Losses", Description="Blocks new entries after this many consecutive losing flat-to-flat trade cycles in the current session. A loss is total realized PnL below 0 after the whole position closes. 0 = OFF. Default 1.", GroupName="6. Consecutive Loss Limit", Order=0)]
+        public int MaxConsecutiveLosses { get; set; } = 1;
+
+        // ===== 7. PER-LEG TRAILING STOPS =====
+        [NinjaScriptProperty]
+        [Display(Name="Leg1 Trail Mode", Description="Off = initial stop/target only. BarNTrailing = N-bar stop with offset. AtrStep = BE+ step, then ATR trail.", GroupName="7. Leg1 Trail", Order=0)]
+        public VC3ExpansionTrailMode Leg1TrailMode { get; set; } = VC3ExpansionTrailMode.Off;
+
+        [NinjaScriptProperty, Range(1, 50)]
+        [Display(Name="Leg1 Trailing N Bars", GroupName="7. Leg1 Trail", Order=1)]
+        public int Leg1TrailingNBars { get; set; } = 1;
+
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name="Leg1 Trailing Offset (ticks)", GroupName="7. Leg1 Trail", Order=2)]
+        public int Leg1TrailingOffsetTicks { get; set; } = 5;
+
+        [NinjaScriptProperty, Range(0.0, double.MaxValue)]
+        [Display(Name="Leg1 Step 1 trigger (ATR)", GroupName="7. Leg1 Trail", Order=3)]
+        public double Leg1Step1ATR { get; set; } = 0.50;
+
+        [NinjaScriptProperty, Range(0.0, double.MaxValue)]
+        [Display(Name="Leg1 Step 2 trigger (ATR)", GroupName="7. Leg1 Trail", Order=4)]
+        public double Leg1Step2ATR { get; set; } = 1.00;
+
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name="Leg1 BE Plus (ticks)", GroupName="7. Leg1 Trail", Order=5)]
+        public int Leg1BreakevenPlusTicks { get; set; } = 5;
+
+        [NinjaScriptProperty, Range(0.1, double.MaxValue)]
+        [Display(Name="Leg1 Trail ATR Mult", GroupName="7. Leg1 Trail", Order=6)]
+        public double Leg1TrailAtrMult { get; set; } = 1.0;
+
+        [NinjaScriptProperty]
+        [Display(Name="Leg2 Trail Mode", Description="Off keeps the original runner trail. BarNTrailing = N-bar stop with offset. AtrStep = BE+ step, then ATR trail.", GroupName="8. Leg2 Trail", Order=0)]
+        public VC3ExpansionTrailMode Leg2TrailMode { get; set; } = VC3ExpansionTrailMode.Off;
+
+        [NinjaScriptProperty, Range(1, 50)]
+        [Display(Name="Leg2 Trailing N Bars", GroupName="8. Leg2 Trail", Order=1)]
+        public int Leg2TrailingNBars { get; set; } = 1;
+
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name="Leg2 Trailing Offset (ticks)", GroupName="8. Leg2 Trail", Order=2)]
+        public int Leg2TrailingOffsetTicks { get; set; } = 5;
+
+        [NinjaScriptProperty, Range(0.0, double.MaxValue)]
+        [Display(Name="Leg2 Step 1 trigger (ATR)", GroupName="8. Leg2 Trail", Order=3)]
+        public double Leg2Step1ATR { get; set; } = 0.50;
+
+        [NinjaScriptProperty, Range(0.0, double.MaxValue)]
+        [Display(Name="Leg2 Step 2 trigger (ATR)", GroupName="8. Leg2 Trail", Order=4)]
+        public double Leg2Step2ATR { get; set; } = 1.00;
+
+        [NinjaScriptProperty, Range(0, 100)]
+        [Display(Name="Leg2 BE Plus (ticks)", GroupName="8. Leg2 Trail", Order=5)]
+        public int Leg2BreakevenPlusTicks { get; set; } = 5;
+
+        [NinjaScriptProperty, Range(0.1, double.MaxValue)]
+        [Display(Name="Leg2 Trail ATR Mult", GroupName="8. Leg2 Trail", Order=6)]
+        public double Leg2TrailAtrMult { get; set; } = 1.0;
+
+        // ===== 9. SLOW STOP X (ADX/DI EXIT) =====
+        [NinjaScriptProperty]
+        [Display(Name="Use Stop X (Slow ADX/DI exit)", Description="When true, a secondary 30/60 minute ADX/DI check can exit open positions. Long exits on ADX below level or DI- cross above DI+. Short exits on ADX below level or DI+ cross above DI-.", GroupName="9. Stop X", Order=0)]
+        public bool UseSlowStopX { get; set; } = false;
+
+        [NinjaScriptProperty, Range(30, 60)]
+        [Display(Name="Stop X Minutes (30 or 60)", GroupName="9. Stop X", Order=1)]
+        public int SlowStopXMinutes { get; set; } = 30;
+
+        [NinjaScriptProperty, Range(1, int.MaxValue)]
+        [Display(Name="Stop X ADX Period", GroupName="9. Stop X", Order=2)]
+        public int SlowStopXAdxPeriod { get; set; } = 14;
+
+        [NinjaScriptProperty, Range(0.0, double.MaxValue)]
+        [Display(Name="Stop X ADX Min Level", GroupName="9. Stop X", Order=3)]
+        public double SlowStopXAdxMinLevel { get; set; } = 20;
+
         // ===== 2. INTERNAL STATE =====
         private ATR atr;
+        private ADX slowStopXAdx;
         private int bricksInExpansion = 0;
 
         private double leg2TrailingStop = 0.0;
+        private double leg1ManagedStop = double.NaN;
+        private double leg2ManagedStop = double.NaN;
         private bool leg1Hit = false;
         private int oppositeBrickCount = 0;
 
@@ -162,6 +251,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private bool   awaitingLeg2   = false;
         private double leg1EntryPrice  = 0.0;
         private double leg1TargetPrice = 0.0;
+        private double leg2EntryPrice  = 0.0;
         private int    tradeDir        = 0;   // 1 = long, -1 = short
 
         // Time gate + entry cooldown state (C1/C2)
@@ -171,6 +261,22 @@ namespace NinjaTrader.NinjaScript.Strategies
         private int  _sameDirCount  = 0;
         private int  _lastEntryDir  = 0;   // 1 = long, -1 = short
         private bool _dirRegistered = false;
+
+        // Consecutive loss limit state. Param default 1 = stop after first losing flat-to-flat cycle.
+        private int _consecutiveLossCount = 0;
+        private double _cycleStartCumProfit = 0.0;
+        private bool _cycleInProgress = false;
+
+        // Slow Stop X ADX/DI state (secondary 30/60 minute series).
+        private double _slowSumTr = 0.0;
+        private double _slowSumDmPlus = 0.0;
+        private double _slowSumDmMinus = 0.0;
+        private double _slowDiPlus = 0.0;
+        private double _slowDiMinus = 0.0;
+        private double _slowPrevDiPlus = 0.0;
+        private double _slowPrevDiMinus = 0.0;
+        private bool _slowStopXExitLong = false;
+        private bool _slowStopXExitShort = false;
 
         // Stage 1 trade logger
         private V3CTradeLogger _logger;
@@ -188,29 +294,56 @@ namespace NinjaTrader.NinjaScript.Strategies
                 ExitOnSessionCloseSeconds                   = 30;
                 IsFillLimitOnTouch                          = false;
             }
+            else if (State == State.Configure)
+            {
+                if (UseSlowStopX)
+                    AddDataSeries(BarsPeriodType.Minute, SlowStopXMinutes >= 60 ? 60 : 30);
+            }
             else if (State == State.DataLoaded)
             {
                 atr = ATR(14);
+                if (UseSlowStopX && BarsArray.Length > 1)
+                    slowStopXAdx = ADX(BarsArray[1], SlowStopXAdxPeriod);
+
                 _logger = new V3CTradeLogger(this, AccountNameFilter, "V3C", TradeLogFolder);
+                _cycleStartCumProfit = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit;
             }
         }
 
         private void ClearLocals()
         {
             leg2TrailingStop = 0.0;
+            leg1ManagedStop  = double.NaN;
+            leg2ManagedStop  = double.NaN;
             leg1Hit          = false;
             oppositeBrickCount = 0;
             awaitingLeg2     = false;
             leg1EntryPrice   = 0.0;
             leg1TargetPrice  = 0.0;
+            leg2EntryPrice   = 0.0;
             tradeDir         = 0;
         }
 
         protected override void OnBarUpdate()
         {
+            if (BarsInProgress == 1)
+            {
+                UpdateSlowStopX();
+                return;
+            }
+
+            if (BarsInProgress != 0)
+                return;
+
             if (CurrentBar < 20) return;
 
-            if (Bars.IsFirstBarOfSession) ResetSameDirCounter();
+            ApplySlowStopXExits();
+
+            if (Bars.IsFirstBarOfSession)
+            {
+                ResetSameDirCounter();
+                ResetConsecutiveLossCounter();
+            }
 
             // 1. V3C REGIME GATEKEEPER
             bool expansionAllowed = IsExpansionAllowed(out bool allowLong, out bool allowShort);
@@ -243,11 +376,13 @@ namespace NinjaTrader.NinjaScript.Strategies
                 bool timeBlocked = InBlockedWindow();
                 bool cooldownOk  = CooldownElapsed();
                 bool hmmBlocked  = IsHmmBlocked();
+                bool lossBlocked = ConsecutiveLossBlocked();
 
                 if (timeBlocked)  DebugGate("Blocked: inside configured time block");
                 if (!cooldownOk)  DebugGate("Blocked: entry cooldown active");
+                if (lossBlocked)  DebugGate("Blocked: max consecutive losses reached");
 
-                if (expansionAllowed && bricksInExpansion >= WaitBricks && !timeBlocked && cooldownOk && !hmmBlocked)
+                if (expansionAllowed && bricksInExpansion >= WaitBricks && !timeBlocked && cooldownOk && !hmmBlocked && !lossBlocked)
                 {
                     bool isGreenBrick = Close[0] > Open[0];
                     bool isRedBrick = Close[0] < Open[0];
@@ -269,6 +404,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                         // Leg2 is deferred — fires only when Leg1 profit >= Leg2ProfitGatePct × target
                         leg2TrailingStop = stp;
+                        leg1ManagedStop  = stp;
                         leg1EntryPrice   = Close[0];
                         leg1TargetPrice  = tgt1;
                         awaitingLeg2     = true;
@@ -284,6 +420,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                         EnterShort(TotalContracts / 2, "Leg1");
 
                         leg2TrailingStop = stp;
+                        leg1ManagedStop  = stp;
                         leg1EntryPrice   = Close[0];
                         leg1TargetPrice  = tgt1;
                         awaitingLeg2     = true;
@@ -313,6 +450,8 @@ namespace NinjaTrader.NinjaScript.Strategies
                         if (targetDist > 0 && currentProfit >= targetDist * Leg2ProfitGatePct)
                         {
                             SetStopLoss("Leg2", CalculationMode.Price, leg2TrailingStop, false);
+                            leg2ManagedStop = leg2TrailingStop;
+                            leg2EntryPrice = Close[0];
                             if (tradeDir == 1) EnterLong(TotalContracts / 2, "Leg2");
                             else               EnterShort(TotalContracts / 2, "Leg2");
                             awaitingLeg2 = false;
@@ -327,6 +466,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     leg2TrailingStop = Position.MarketPosition == MarketPosition.Long
                         ? Position.AveragePrice + (4 * TickSize)
                         : Position.AveragePrice - (4 * TickSize);
+                    leg2ManagedStop = leg2TrailingStop;
                     SetStopLoss("Leg2", CalculationMode.Price, leg2TrailingStop, false);
                 }
 
@@ -350,8 +490,18 @@ namespace NinjaTrader.NinjaScript.Strategies
                     return;
                 }
 
-                // D. STEP-TRAIL THE RUNNER (only after Leg1 has exited)
-                if (leg1Hit)
+                if (!leg1Hit && Leg1TrailMode != VC3ExpansionTrailMode.Off)
+                    ApplyLegTrail("Leg1", Leg1TrailMode, Leg1TrailingNBars, Leg1TrailingOffsetTicks,
+                        Leg1Step1ATR, Leg1Step2ATR, Leg1BreakevenPlusTicks, Leg1TrailAtrMult,
+                        leg1EntryPrice, ref leg1ManagedStop);
+
+                if (!awaitingLeg2 && Leg2TrailMode != VC3ExpansionTrailMode.Off)
+                    ApplyLegTrail("Leg2", Leg2TrailMode, Leg2TrailingNBars, Leg2TrailingOffsetTicks,
+                        Leg2Step1ATR, Leg2Step2ATR, Leg2BreakevenPlusTicks, Leg2TrailAtrMult,
+                        leg2EntryPrice, ref leg2ManagedStop);
+
+                // D. Legacy runner trail (kept when the new Leg2 trail selector is Off)
+                if (leg1Hit && Leg2TrailMode == VC3ExpansionTrailMode.Off)
                 {
                     double trailDistance = (atr[0] * 1.25);
                     if (Position.MarketPosition == MarketPosition.Long)
@@ -453,12 +603,205 @@ namespace NinjaTrader.NinjaScript.Strategies
                 Print($"{Time[0]} {Name} V3C Gate: {message}");
         }
 
+        private double RT(double price)
+        {
+            return Instrument.MasterInstrument.RoundToTickSize(price);
+        }
+
+        private void SetStopSafe(string signal, double price, bool isLong)
+        {
+            if (double.IsNaN(price)) return;
+
+            double clamped = isLong
+                ? Math.Min(price, RT(Close[0] - TickSize))
+                : Math.Max(price, RT(Close[0] + TickSize));
+
+            SetStopLoss(signal, CalculationMode.Price, clamped, false);
+        }
+
+        private double BarNStopLong(int bars, int offsetTicks)
+        {
+            int n = Math.Max(1, bars);
+            double lo = Low[0];
+
+            for (int i = 1; i < n && i <= CurrentBar; i++)
+                lo = Math.Min(lo, Low[i]);
+
+            return RT(lo - TickSize * Math.Max(0, offsetTicks));
+        }
+
+        private double BarNStopShort(int bars, int offsetTicks)
+        {
+            int n = Math.Max(1, bars);
+            double hi = High[0];
+
+            for (int i = 1; i < n && i <= CurrentBar; i++)
+                hi = Math.Max(hi, High[i]);
+
+            return RT(hi + TickSize * Math.Max(0, offsetTicks));
+        }
+
+        private void ApplyLegTrail(string signal, VC3ExpansionTrailMode mode, int nBars, int offsetTicks,
+            double step1Atr, double step2Atr, int bePlusTicks, double trailAtrMult,
+            double entryPrice, ref double managedStop)
+        {
+            if (mode == VC3ExpansionTrailMode.Off || tradeDir == 0 || entryPrice <= 0)
+                return;
+
+            int bse = BarsSinceEntryExecution(0, signal, 0);
+            if (bse == -1)
+                return;
+
+            bool isLong = Position.MarketPosition == MarketPosition.Long;
+
+            switch (mode)
+            {
+                case VC3ExpansionTrailMode.BarNTrailing:
+                    if (bse >= Math.Max(1, nBars))
+                    {
+                        double proposed = isLong
+                            ? BarNStopLong(nBars, offsetTicks)
+                            : BarNStopShort(nBars, offsetTicks);
+
+                        managedStop = double.IsNaN(managedStop)
+                            ? proposed
+                            : (isLong ? Math.Max(managedStop, proposed) : Math.Min(managedStop, proposed));
+                    }
+                    break;
+
+                case VC3ExpansionTrailMode.AtrStep:
+                {
+                    double move = isLong ? Close[0] - entryPrice : entryPrice - Close[0];
+                    double step1 = Math.Max(0.0, step1Atr) * atr[0];
+                    double step2 = Math.Max(0.0, step2Atr) * atr[0];
+
+                    if (move >= step2)
+                    {
+                        double atrTrail = isLong
+                            ? RT(Close[0] - Math.Max(0.1, trailAtrMult) * atr[0])
+                            : RT(Close[0] + Math.Max(0.1, trailAtrMult) * atr[0]);
+
+                        managedStop = double.IsNaN(managedStop)
+                            ? atrTrail
+                            : (isLong ? Math.Max(managedStop, atrTrail) : Math.Min(managedStop, atrTrail));
+                    }
+                    else if (move >= step1)
+                    {
+                        double be = isLong
+                            ? RT(entryPrice + Math.Max(0, bePlusTicks) * TickSize)
+                            : RT(entryPrice - Math.Max(0, bePlusTicks) * TickSize);
+
+                        managedStop = double.IsNaN(managedStop)
+                            ? be
+                            : (isLong ? Math.Max(managedStop, be) : Math.Min(managedStop, be));
+                    }
+                    break;
+                }
+            }
+
+            SetStopSafe(signal, managedStop, isLong);
+        }
+
         private void ApplyTradeDirectionFilter(ref bool allowLong, ref bool allowShort)
         {
             if (TradeDirection == VC3ExpansionTradeDirectionMode.LongOnly)
                 allowShort = false;
             else if (TradeDirection == VC3ExpansionTradeDirectionMode.ShortOnly)
                 allowLong = false;
+        }
+
+        // ===== SLOW STOP X (ADX/DI EXIT) =====
+        private void UpdateSlowStopX()
+        {
+            if (!UseSlowStopX || BarsArray.Length < 2 || slowStopXAdx == null)
+                return;
+
+            int cb = CurrentBars[1];
+            double high0 = Highs[1][0];
+            double low0 = Lows[1][0];
+
+            if (cb == 0)
+            {
+                _slowSumTr = high0 - low0;
+                _slowSumDmPlus = 0.0;
+                _slowSumDmMinus = 0.0;
+                _slowDiPlus = 0.0;
+                _slowDiMinus = 0.0;
+                _slowPrevDiPlus = 0.0;
+                _slowPrevDiMinus = 0.0;
+                return;
+            }
+
+            double high1 = Highs[1][1];
+            double low1 = Lows[1][1];
+            double close1 = Closes[1][1];
+            double tr = Math.Max(high0 - low0, Math.Max(Math.Abs(high0 - close1), Math.Abs(low0 - close1)));
+            double upMove = high0 - high1;
+            double downMove = low1 - low0;
+            double dmPlus = (upMove > 0 && upMove > downMove) ? upMove : 0.0;
+            double dmMinus = (downMove > 0 && downMove > upMove) ? downMove : 0.0;
+
+            if (cb < SlowStopXAdxPeriod)
+            {
+                _slowSumTr += tr;
+                _slowSumDmPlus += dmPlus;
+                _slowSumDmMinus += dmMinus;
+            }
+            else
+            {
+                _slowSumTr = _slowSumTr - (_slowSumTr / SlowStopXAdxPeriod) + tr;
+                _slowSumDmPlus = _slowSumDmPlus - (_slowSumDmPlus / SlowStopXAdxPeriod) + dmPlus;
+                _slowSumDmMinus = _slowSumDmMinus - (_slowSumDmMinus / SlowStopXAdxPeriod) + dmMinus;
+            }
+
+            _slowPrevDiPlus = _slowDiPlus;
+            _slowPrevDiMinus = _slowDiMinus;
+
+            double safeTr = _slowSumTr.ApproxCompare(0) == 0 ? 1e-9 : _slowSumTr;
+            _slowDiPlus = 100.0 * (_slowSumDmPlus / safeTr);
+            _slowDiMinus = 100.0 * (_slowSumDmMinus / safeTr);
+
+            if (cb < SlowStopXAdxPeriod + 2)
+                return;
+
+            bool crossUp = _slowDiPlus > _slowDiMinus && _slowPrevDiPlus <= _slowPrevDiMinus;
+            bool crossDn = _slowDiPlus < _slowDiMinus && _slowPrevDiPlus >= _slowPrevDiMinus;
+            bool adxWeak = slowStopXAdx[0] < SlowStopXAdxMinLevel;
+
+            if (Position.MarketPosition == MarketPosition.Long && (adxWeak || crossDn))
+                _slowStopXExitLong = true;
+            else if (Position.MarketPosition == MarketPosition.Short && (adxWeak || crossUp))
+                _slowStopXExitShort = true;
+        }
+
+        private void ApplySlowStopXExits()
+        {
+            if (!UseSlowStopX)
+                return;
+
+            if (Position.MarketPosition == MarketPosition.Flat)
+            {
+                _slowStopXExitLong = false;
+                _slowStopXExitShort = false;
+                return;
+            }
+
+            if (Position.MarketPosition == MarketPosition.Long && _slowStopXExitLong)
+            {
+                ExitLong("StopX_L1", "Leg1");
+                if (!awaitingLeg2)
+                    ExitLong("StopX_L2", "Leg2");
+                awaitingLeg2 = false;
+                _slowStopXExitLong = false;
+            }
+            else if (Position.MarketPosition == MarketPosition.Short && _slowStopXExitShort)
+            {
+                ExitShort("StopX_S1", "Leg1");
+                if (!awaitingLeg2)
+                    ExitShort("StopX_S2", "Leg2");
+                awaitingLeg2 = false;
+                _slowStopXExitShort = false;
+            }
         }
 
         // ===== C1: TIME GATE =====
@@ -537,6 +880,33 @@ namespace NinjaTrader.NinjaScript.Strategies
             _lastEntryDir = 0;
         }
 
+        // ===== CONSECUTIVE LOSS LIMIT =====
+        private bool ConsecutiveLossBlocked()
+        {
+            return MaxConsecutiveLosses > 0
+                && _consecutiveLossCount >= MaxConsecutiveLosses;
+        }
+
+        private void UpdateConsecutiveLossCounter()
+        {
+            double cyclePnL = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit - _cycleStartCumProfit;
+
+            if (cyclePnL < 0)
+                _consecutiveLossCount++;
+            else
+                _consecutiveLossCount = 0;
+
+            _cycleInProgress = false;
+            _cycleStartCumProfit = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit;
+        }
+
+        private void ResetConsecutiveLossCounter()
+        {
+            _consecutiveLossCount = 0;
+            _cycleInProgress = Position.MarketPosition != MarketPosition.Flat;
+            _cycleStartCumProfit = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit;
+        }
+
         // =========================================================================
         // STAGE 1 TRADE LOGGING — delegates to V3CTradeLogger
         // =========================================================================
@@ -545,6 +915,22 @@ namespace NinjaTrader.NinjaScript.Strategies
             DateTime time)
         {
             _logger?.OnExecution(execution, null);
+
+            if (execution.Order != null
+                && (execution.Order.OrderAction == OrderAction.Buy || execution.Order.OrderAction == OrderAction.SellShort))
+            {
+                if (string.Equals(execution.Order.Name, "Leg1", StringComparison.OrdinalIgnoreCase))
+                    leg1EntryPrice = price;
+                else if (string.Equals(execution.Order.Name, "Leg2", StringComparison.OrdinalIgnoreCase))
+                    leg2EntryPrice = price;
+            }
+
+            if (execution.Order != null && !_cycleInProgress
+                && (execution.Order.OrderAction == OrderAction.Buy || execution.Order.OrderAction == OrderAction.SellShort))
+            {
+                _cycleStartCumProfit = SystemPerformance.AllTrades.TradesPerformance.Currency.CumProfit;
+                _cycleInProgress = true;
+            }
 
             // Same-direction cap: register once per position on the first entry fill (Leg1).
             if (execution.Order != null && !_dirRegistered)
@@ -558,6 +944,9 @@ namespace NinjaTrader.NinjaScript.Strategies
             // C2: stamp the moment the position goes fully flat — starts the entry cooldown.
             if (marketPosition == MarketPosition.Flat)
             {
+                if (_cycleInProgress)
+                    UpdateConsecutiveLossCounter();
+
                 lastExitTime = time;
                 _dirRegistered = false;
             }

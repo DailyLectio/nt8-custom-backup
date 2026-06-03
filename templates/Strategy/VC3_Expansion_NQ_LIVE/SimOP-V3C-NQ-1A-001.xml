@@ -87,12 +87,12 @@
       <HMMBlockedStates>TrendDown</HMMBlockedStates>
       <AccountNameFilter>SimExpansion-NQ-1A -LIVE</AccountNameFilter>
       <TradeLogFolder />
-      <TotalContracts>2</TotalContracts>
+      <TotalContracts>6</TotalContracts>
       <InitialRiskAtr>1.5</InitialRiskAtr>
-      <WaitBricks>3</WaitBricks>
+      <WaitBricks>4</WaitBricks>
       <Leg2ProfitGatePct>0.5</Leg2ProfitGatePct>
       <TradeDirection>LongAndShort</TradeDirection>
-      <EnableTimeBlocks>true</EnableTimeBlocks>
+      <EnableTimeBlocks>false</EnableTimeBlocks>
       <Block1Start>1455</Block1Start>
       <Block1End>1700</Block1End>
       <Block2Start>0</Block2Start>
@@ -104,6 +104,25 @@
       <EnableEntryCooldown>true</EnableEntryCooldown>
       <CooldownMinutes>5</CooldownMinutes>
       <MaxSameDirTrades>3</MaxSameDirTrades>
+      <MaxConsecutiveLosses>2</MaxConsecutiveLosses>
+      <Leg1TrailMode>Off</Leg1TrailMode>
+      <Leg1TrailingNBars>1</Leg1TrailingNBars>
+      <Leg1TrailingOffsetTicks>5</Leg1TrailingOffsetTicks>
+      <Leg1Step1ATR>0.5</Leg1Step1ATR>
+      <Leg1Step2ATR>1</Leg1Step2ATR>
+      <Leg1BreakevenPlusTicks>5</Leg1BreakevenPlusTicks>
+      <Leg1TrailAtrMult>1</Leg1TrailAtrMult>
+      <Leg2TrailMode>AtrStep</Leg2TrailMode>
+      <Leg2TrailingNBars>1</Leg2TrailingNBars>
+      <Leg2TrailingOffsetTicks>5</Leg2TrailingOffsetTicks>
+      <Leg2Step1ATR>0.5</Leg2Step1ATR>
+      <Leg2Step2ATR>1</Leg2Step2ATR>
+      <Leg2BreakevenPlusTicks>5</Leg2BreakevenPlusTicks>
+      <Leg2TrailAtrMult>1</Leg2TrailAtrMult>
+      <UseSlowStopX>true</UseSlowStopX>
+      <SlowStopXMinutes>60</SlowStopXMinutes>
+      <SlowStopXAdxPeriod>14</SlowStopXAdxPeriod>
+      <SlowStopXAdxMinLevel>20</SlowStopXAdxMinLevel>
     </VC3_Expansion_NQ_LIVE>
   </Strategy>
 </StrategyTemplate>
