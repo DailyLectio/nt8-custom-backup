@@ -15,7 +15,7 @@
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>60</Value>
+        <Value>30</Value>
         <Value2>120</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>

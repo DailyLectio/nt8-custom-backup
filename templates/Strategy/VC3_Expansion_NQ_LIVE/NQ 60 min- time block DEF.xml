@@ -92,7 +92,7 @@
       <WaitBricks>3</WaitBricks>
       <Leg2ProfitGatePct>0.5</Leg2ProfitGatePct>
       <TradeDirection>LongOnly</TradeDirection>
-      <EnableTimeBlocks>true</EnableTimeBlocks>
+      <EnableTimeBlocks>false</EnableTimeBlocks>
       <Block1Start>930</Block1Start>
       <Block1End>935</Block1End>
       <Block2Start>1000</Block2Start>
