@@ -617,6 +617,7 @@
     <Compile Include="Strategies\VC3B_Compression_LIVE.cs" />
     <Compile Include="Strategies\VC3_Expansion_NQ_LIVE.cs" />
     <Compile Include="Strategies\ExpansionV3DB_StopModes.cs" />
+    <Compile Include="Strategies\MomentumOG_V3.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
