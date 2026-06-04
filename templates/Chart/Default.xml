@@ -71,7 +71,7 @@
             <CandleStyle>
               <CandleStyle xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                 <IsVisible>true</IsVisible>
-                <BarWidth>4.1197771587743732</BarWidth>
+                <BarWidth>2.3912010036037121</BarWidth>
                 <ChartStyleTypeSerialize>1</ChartStyleTypeSerialize>
                 <DownBrushSerialize>DEFAULT</DownBrushSerialize>
                 <UpBrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFF0&lt;/SolidColorBrush&gt;</UpBrushSerialize>
@@ -129,7 +129,7 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>6949</IndicatorId>
+          <IndicatorId>280</IndicatorId>
           <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
           <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
@@ -143,7 +143,7 @@
           <PriceType>Close</PriceType>
         </Input>
       </Indicator>
-      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.RegressionChannel" Panel="-1" DisplayName=" (35,3)">
+      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.RegressionChannel" Panel="-1" DisplayName="RegressionChannel(35,3)">
         <RegressionChannel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <IsVisible>true</IsVisible>
           <calculate2>OnBarClose</calculate2>
@@ -168,7 +168,7 @@
           <IsAutoScale>false</IsAutoScale>
           <Lines />
           <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-          <Name> </Name>
+          <Name />
           <Panel>-1</Panel>
           <Plots>
             <Plot>
@@ -221,7 +221,7 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>6950</IndicatorId>
+          <IndicatorId>283</IndicatorId>
           <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
           <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
@@ -233,7 +233,7 @@
           <PriceType>Close</PriceType>
         </Input>
       </Indicator>
-      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.EMA" Panel="-1" DisplayName=" (25)">
+      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.EMA" Panel="-1" DisplayName="EMA(25)">
         <EMA xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <IsVisible>true</IsVisible>
           <calculate2>OnBarClose</calculate2>
@@ -258,7 +258,7 @@
           <IsAutoScale>true</IsAutoScale>
           <Lines />
           <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-          <Name> </Name>
+          <Name />
           <Panel>-1</Panel>
           <Plots>
             <Plot>
@@ -287,7 +287,7 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>6951</IndicatorId>
+          <IndicatorId>286</IndicatorId>
           <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
           <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
@@ -339,7 +339,7 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>6952</IndicatorId>
+          <IndicatorId>289</IndicatorId>
           <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
           <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
@@ -4223,11 +4223,11 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>7206</IndicatorId>
-          <InstrumentDeserialized>ES JUN26 Globex</InstrumentDeserialized>
+          <IndicatorId>299</IndicatorId>
+          <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
           <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
-          <ZOrder>30397</ZOrder>
+          <ZOrder>30321</ZOrder>
           <BidAskEnabled>true</BidAskEnabled>
           <ScreenshotEmailE>false</ScreenshotEmailE>
           <DuplicateButtonsPermission>false</DuplicateButtonsPermission>
@@ -4250,8 +4250,8 @@
           <OneClickOrdersEnabled2>false</OneClickOrdersEnabled2>
           <OneClickWidthOn>60</OneClickWidthOn>
           <OneClickWidthOff>10</OneClickWidthOff>
-          <TotalIndicatorsOnChart>5</TotalIndicatorsOnChart>
-          <TotalIndicatorsOnChartString>6950|6951|7206|7465|7737</TotalIndicatorsOnChartString>
+          <TotalIndicatorsOnChart>6</TotalIndicatorsOnChart>
+          <TotalIndicatorsOnChartString>283|286|299|302|305|320</TotalIndicatorsOnChartString>
           <OneClickWidthChangeHeight>0</OneClickWidthChangeHeight>
           <BuyOneClickColor1S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF1E90FF&lt;/SolidColorBrush&gt;</BuyOneClickColor1S>
           <SellOneClickColor1S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</SellOneClickColor1S>
@@ -4354,7 +4354,7 @@
           <ActiveAttachStopO>30</ActiveAttachStopO>
           <TrailingStopIsEnabled>true</TrailingStopIsEnabled>
           <SignalEntryType />
-          <TrailingStopType>ATR</TrailingStopType>
+          <TrailingStopType>High / Low</TrailingStopType>
           <ExitOnCloseIsReady>false</ExitOnCloseIsReady>
           <ExitOnCloseButtonEnabled>true</ExitOnCloseButtonEnabled>
           <ExitOnCloseType>Next Bar</ExitOnCloseType>
@@ -4375,9 +4375,9 @@
           <Target1ATRM>1.5</Target1ATRM>
           <Target2ATRM>2</Target2ATRM>
           <Target3ATRM>2.5</Target3ATRM>
-          <FixedTicks>20</FixedTicks>
-          <TSOffsetATR>1</TSOffsetATR>
-          <TSOffsetBar>4</TSOffsetBar>
+          <FixedTicks>41</FixedTicks>
+          <TSOffsetATR>15</TSOffsetATR>
+          <TSOffsetBar>10</TSOffsetBar>
           <ShowMoveAllExits>true</ShowMoveAllExits>
           <MarketPlanActiveSaved>false</MarketPlanActiveSaved>
           <MarketPlanActive>false</MarketPlanActive>
@@ -4443,7 +4443,7 @@
           <LiveBackColorS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFB0E0E6&lt;/SolidColorBrush&gt;</LiveBackColorS>
           <ScaleIntoExistingATM>false</ScaleIntoExistingATM>
           <ShowATMResetButton>true</ShowATMResetButton>
-          <LastATMSelectedS>2C NQ 66 88</LastATMSelectedS>
+          <LastATMSelectedS>2C NQ 44 66</LastATMSelectedS>
           <LastSelectedInd>2</LastSelectedInd>
           <ShowHideAccountButton>true</ShowHideAccountButton>
           <HideAccountEnabled>false</HideAccountEnabled>
@@ -4855,7 +4855,7 @@
           <LastQuantity>2</LastQuantity>
           <LastAccount>PRO</LastAccount>
           <OrderPanelOn>true</OrderPanelOn>
-          <ChartTraderWidth>361</ChartTraderWidth>
+          <ChartTraderWidth>396</ChartTraderWidth>
           <PanelFontFamily>Calibri</PanelFontFamily>
           <CollapsibleSectionsEnabled>true</CollapsibleSectionsEnabled>
           <CollapseAllButtonEnabled>true</CollapseAllButtonEnabled>
@@ -4871,7 +4871,7 @@
           <MarketDataFontSize>12</MarketDataFontSize>
           <AllowKeyboardQtyEntry>true</AllowKeyboardQtyEntry>
           <SavedSectionStates>pnl=1,setup=1,position=1,trailstop=1,market=1,limit1=1,click=1,stopprice=1,bidask=1</SavedSectionStates>
-          <SavedScrollPosition>0</SavedScrollPosition>
+          <SavedScrollPosition>224.40234375</SavedScrollPosition>
           <ColorBuyEMA2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF005000&lt;/SolidColorBrush&gt;</ColorBuyEMA2S>
           <ColorBuyEMAS>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</ColorBuyEMAS>
           <ColorSellEMA2S>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF500000&lt;/SolidColorBrush&gt;</ColorSellEMA2S>
@@ -4926,7 +4926,7 @@
           <PriceType>Close</PriceType>
         </Input>
       </Indicator>
-      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.BWTCoreLevels" Panel="-1" DisplayName=" (NinjaTrader.Gui.Tools.SimpleFont)">
+      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.BWTCoreLevels" Panel="-1" DisplayName="BWTCoreLevels(NinjaTrader.Gui.Tools.SimpleFont)">
         <BWTCoreLevels xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <IsVisible>true</IsVisible>
           <calculate2>OnBarClose</calculate2>
@@ -4951,7 +4951,7 @@
           <IsAutoScale>false</IsAutoScale>
           <Lines />
           <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-          <Name> </Name>
+          <Name />
           <Panel>-1</Panel>
           <Plots>
             <Plot>
@@ -5220,8 +5220,8 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>7465</IndicatorId>
-          <InstrumentDeserialized>ES JUN26 Globex</InstrumentDeserialized>
+          <IndicatorId>302</IndicatorId>
+          <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
           <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
           <ZOrder>30035</ZOrder>
@@ -5372,8 +5372,8 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>false</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>7737</IndicatorId>
-          <InstrumentDeserialized>ES SEP25 Globex</InstrumentDeserialized>
+          <IndicatorId>305</IndicatorId>
+          <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
           <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
           <ZOrder>30010</ZOrder>
@@ -5397,7 +5397,7 @@
           <PriceType>Close</PriceType>
         </Input>
       </Indicator>
-      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.ADXGu5v2" Panel="1" DisplayName=" (60,3,14,14,20,35,20,14,1)">
+      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.ADXGu5v2" Panel="1" DisplayName="ADXGu5v2(60,3,14,14,20,35,20,14,1)">
         <ADXGu5v2 xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <IsVisible>true</IsVisible>
           <calculate2>OnEachTick</calculate2>
@@ -5441,7 +5441,7 @@
             </Line>
           </Lines>
           <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-          <Name> </Name>
+          <Name />
           <Panel>1</Panel>
           <Plots>
             <Plot>
@@ -5459,7 +5459,7 @@
             <Plot>
               <IsOpacityVisible>false</IsOpacityVisible>
               <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF9ACD32&lt;/SolidColorBrush&gt;</BrushSerialize>
-              <DashStyleHelper>Dot</DashStyleHelper>
+              <DashStyleHelper>Solid</DashStyleHelper>
               <Opacity>100</Opacity>
               <Width>2</Width>
               <AutoWidth>false</AutoWidth>
@@ -5471,7 +5471,7 @@
             <Plot>
               <IsOpacityVisible>false</IsOpacityVisible>
               <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF4500&lt;/SolidColorBrush&gt;</BrushSerialize>
-              <DashStyleHelper>Dot</DashStyleHelper>
+              <DashStyleHelper>Solid</DashStyleHelper>
               <Opacity>100</Opacity>
               <Width>2</Width>
               <AutoWidth>false</AutoWidth>
@@ -5506,7 +5506,7 @@
             </Plot>
             <Plot>
               <IsOpacityVisible>false</IsOpacityVisible>
-              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
               <DashStyleHelper>Solid</DashStyleHelper>
               <Opacity>100</Opacity>
               <Width>5</Width>
@@ -5514,11 +5514,11 @@
               <Max>1.7976931348623157E+308</Max>
               <Min>-1.7976931348623157E+308</Min>
               <Name>LongEStr</Name>
-              <PlotStyle>Block</PlotStyle>
+              <PlotStyle>Dot</PlotStyle>
             </Plot>
             <Plot>
               <IsOpacityVisible>false</IsOpacityVisible>
-              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF00FF&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</BrushSerialize>
               <DashStyleHelper>Solid</DashStyleHelper>
               <Opacity>100</Opacity>
               <Width>3</Width>
@@ -5538,55 +5538,55 @@
               <Max>1.7976931348623157E+308</Max>
               <Min>-1.7976931348623157E+308</Min>
               <Name>ShortEStr</Name>
-              <PlotStyle>Block</PlotStyle>
+              <PlotStyle>Dot</PlotStyle>
             </Plot>
             <Plot>
               <IsOpacityVisible>false</IsOpacityVisible>
               <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
               <DashStyleHelper>Solid</DashStyleHelper>
               <Opacity>100</Opacity>
-              <Width>4</Width>
+              <Width>2</Width>
               <AutoWidth>false</AutoWidth>
               <Max>1.7976931348623157E+308</Max>
               <Min>-1.7976931348623157E+308</Min>
               <Name>LongX</Name>
-              <PlotStyle>Block</PlotStyle>
+              <PlotStyle>Cross</PlotStyle>
             </Plot>
             <Plot>
               <IsOpacityVisible>false</IsOpacityVisible>
-              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFA9A9A9&lt;/SolidColorBrush&gt;</BrushSerialize>
               <DashStyleHelper>Solid</DashStyleHelper>
               <Opacity>100</Opacity>
-              <Width>4</Width>
+              <Width>2</Width>
               <AutoWidth>false</AutoWidth>
               <Max>1.7976931348623157E+308</Max>
               <Min>-1.7976931348623157E+308</Min>
               <Name>ShortX</Name>
-              <PlotStyle>Block</PlotStyle>
+              <PlotStyle>Cross</PlotStyle>
             </Plot>
             <Plot>
               <IsOpacityVisible>false</IsOpacityVisible>
-              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDEB887&lt;/SolidColorBrush&gt;</BrushSerialize>
-              <DashStyleHelper>Dot</DashStyleHelper>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008B8B&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
               <Opacity>100</Opacity>
               <Width>1</Width>
               <AutoWidth>false</AutoWidth>
               <Max>1.7976931348623157E+308</Max>
               <Min>-1.7976931348623157E+308</Min>
               <Name>StopXLong</Name>
-              <PlotStyle>Cross</PlotStyle>
+              <PlotStyle>Block</PlotStyle>
             </Plot>
             <Plot>
               <IsOpacityVisible>false</IsOpacityVisible>
-              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFDEB887&lt;/SolidColorBrush&gt;</BrushSerialize>
-              <DashStyleHelper>Dot</DashStyleHelper>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFD2691E&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
               <Opacity>100</Opacity>
               <Width>1</Width>
               <AutoWidth>false</AutoWidth>
               <Max>1.7976931348623157E+308</Max>
               <Min>-1.7976931348623157E+308</Min>
               <Name>StopXShort</Name>
-              <PlotStyle>Cross</PlotStyle>
+              <PlotStyle>Block</PlotStyle>
             </Plot>
             <Plot>
               <IsOpacityVisible>false</IsOpacityVisible>
@@ -5614,10 +5614,10 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>8076</IndicatorId>
-          <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
-          <MaxSerialized>65</MaxSerialized>
-          <MinSerialized>7.1996983269486021</MinSerialized>
+          <IndicatorId>308</IndicatorId>
+          <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
+          <MaxSerialized>0</MaxSerialized>
+          <MinSerialized>0</MinSerialized>
           <ZOrder>30243</ZOrder>
           <SigLen>14</SigLen>
           <DiLen>14</DiLen>
@@ -5633,7 +5633,7 @@
           <PriceType>Close</PriceType>
         </Input>
       </Indicator>
-      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.ApexScout_v6" Panel="-1" DisplayName=" (14,60,14,False,60,20,1.5)">
+      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.ApexScout_v6" Panel="-1" DisplayName="ApexScout_v6(14,60,14,False,60,20,1.5)">
         <ApexScout_v6 xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
           <IsVisible>true</IsVisible>
           <calculate2>OnPriceChange</calculate2>
@@ -5658,7 +5658,7 @@
           <IsAutoScale>true</IsAutoScale>
           <Lines />
           <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-          <Name> </Name>
+          <Name />
           <Panel>-1</Panel>
           <Plots />
           <ScaleJustification>Right</ScaleJustification>
@@ -5674,8 +5674,8 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>8077</IndicatorId>
-          <InstrumentDeserialized>MES JUN26 Globex</InstrumentDeserialized>
+          <IndicatorId>311</IndicatorId>
+          <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
           <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
           <ZOrder>30244</ZOrder>
@@ -5691,9 +5691,9 @@
           <PriceType>Close</PriceType>
         </Input>
       </Indicator>
-      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.ChoppinessIndex" Panel="1" DisplayName=" (14)">
+      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.ChoppinessIndex" Panel="1" DisplayName="ChoppinessIndex(14)">
         <ChoppinessIndex xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-          <IsVisible>true</IsVisible>
+          <IsVisible>false</IsVisible>
           <calculate2>OnEachTick</calculate2>
           <AreLinesConfigurable>true</AreLinesConfigurable>
           <ArePlotsConfigurable>true</ArePlotsConfigurable>
@@ -5735,7 +5735,7 @@
             </Line>
           </Lines>
           <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-          <Name> </Name>
+          <Name />
           <Panel>1</Panel>
           <Plots>
             <Plot>
@@ -5764,8 +5764,8 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>8078</IndicatorId>
-          <InstrumentDeserialized>MNQ MAR26 Globex</InstrumentDeserialized>
+          <IndicatorId>314</IndicatorId>
+          <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
           <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
           <ZOrder>10004</ZOrder>
@@ -5804,9 +5804,9 @@
               <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008000&lt;/SolidColorBrush&gt;</BrushSerialize>
               <DashStyleHelper>Dash</DashStyleHelper>
               <Opacity>100</Opacity>
-              <Width>1</Width>
+              <Width>2</Width>
               <Name>Lower</Name>
-              <Value>40</Value>
+              <Value>45</Value>
             </Line>
             <Line>
               <IsOpacityVisible>false</IsOpacityVisible>
@@ -5815,7 +5815,7 @@
               <Opacity>100</Opacity>
               <Width>2</Width>
               <Name>Upper</Name>
-              <Value>50</Value>
+              <Value>60</Value>
             </Line>
           </Lines>
           <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
@@ -5835,7 +5835,7 @@
               <PlotStyle>Bar</PlotStyle>
             </Plot>
           </Plots>
-          <ScaleJustification>Right</ScaleJustification>
+          <ScaleJustification>Left</ScaleJustification>
           <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
           <To>2026-06-04T00:00:00</To>
           <IsDataSeriesRequired>true</IsDataSeriesRequired>
@@ -5848,13 +5848,90 @@
           <DrawVerticalGridLines>true</DrawVerticalGridLines>
           <DrawOnPricePanel>true</DrawOnPricePanel>
           <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-          <IndicatorId>8684</IndicatorId>
-          <InstrumentDeserialized>ES JUN25 Globex</InstrumentDeserialized>
-          <MaxSerialized>52.529907007438709</MaxSerialized>
+          <IndicatorId>317</IndicatorId>
+          <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
+          <MaxSerialized>0</MaxSerialized>
           <MinSerialized>0</MinSerialized>
           <ZOrder>10004</ZOrder>
           <Period>14</Period>
         </ChoppinessIndex>
+        <Input>
+          <PriceType>Close</PriceType>
+        </Input>
+      </Indicator>
+      <Indicator BarsIndex="0" Instrument="NQ JUN26 Globex" Name="NinjaTrader.NinjaScript.Indicators.Swing" Panel="-1" DisplayName="Swing(5)">
+        <Swing xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <IsVisible>true</IsVisible>
+          <calculate2>OnBarClose</calculate2>
+          <AreLinesConfigurable>true</AreLinesConfigurable>
+          <ArePlotsConfigurable>true</ArePlotsConfigurable>
+          <BarsPeriodSerializable>
+            <BarsPeriodTypeSerialize>9</BarsPeriodTypeSerialize>
+            <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
+            <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
+            <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
+            <MarketDataType>Last</MarketDataType>
+            <PointAndFigurePriceType>Close</PointAndFigurePriceType>
+            <ReversalType>Tick</ReversalType>
+            <Value>1</Value>
+            <Value2>1</Value2>
+          </BarsPeriodSerializable>
+          <BarsToLoad>0</BarsToLoad>
+          <Calculate>OnBarClose</Calculate>
+          <Displacement>0</Displacement>
+          <DisplayInDataBox>false</DisplayInDataBox>
+          <From>2026-06-01T00:00:00</From>
+          <IsAutoScale>true</IsAutoScale>
+          <Lines />
+          <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+          <Name>Swing</Name>
+          <Panel>-1</Panel>
+          <Plots>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>Swing high</Name>
+              <PlotStyle>Dot</PlotStyle>
+            </Plot>
+            <Plot>
+              <IsOpacityVisible>false</IsOpacityVisible>
+              <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
+              <DashStyleHelper>Solid</DashStyleHelper>
+              <Opacity>100</Opacity>
+              <Width>2</Width>
+              <AutoWidth>false</AutoWidth>
+              <Max>1.7976931348623157E+308</Max>
+              <Min>-1.7976931348623157E+308</Min>
+              <Name>Swing low</Name>
+              <PlotStyle>Dot</PlotStyle>
+            </Plot>
+          </Plots>
+          <ScaleJustification>Right</ScaleJustification>
+          <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
+          <To>2026-06-04T00:00:00</To>
+          <IsDataSeriesRequired>true</IsDataSeriesRequired>
+          <IsOverlay>true</IsOverlay>
+          <SelectedValueSeries>0</SelectedValueSeries>
+          <InputPlot>0</InputPlot>
+          <IsTradingHoursBreakLineVisible>true</IsTradingHoursBreakLineVisible>
+          <PaintPriceMarkers>true</PaintPriceMarkers>
+          <DrawHorizontalGridLines>true</DrawHorizontalGridLines>
+          <DrawVerticalGridLines>true</DrawVerticalGridLines>
+          <DrawOnPricePanel>true</DrawOnPricePanel>
+          <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
+          <IndicatorId>320</IndicatorId>
+          <InstrumentDeserialized>NQ JUN26 Globex</InstrumentDeserialized>
+          <MaxSerialized>0</MaxSerialized>
+          <MinSerialized>0</MinSerialized>
+          <ZOrder>30238</ZOrder>
+          <Strength>5</Strength>
+        </Swing>
         <Input>
           <PriceType>Close</PriceType>
         </Input>
@@ -5875,14 +5952,14 @@
           <Italic>false</Italic>
           <Size>9</Size>
         </LabelFont>
-        <BarDistance>12.1461086</BarDistance>
+        <BarDistance>7.04984426</BarDistance>
         <BarMarginRightUser>1</BarMarginRightUser>
         <ChartTraderVisibility>Collapsed</ChartTraderVisibility>
         <ShowDateRange>true</ShowDateRange>
         <ShowScrollBar>true</ShowScrollBar>
         <ShowSelectedDrawingMarkers>true</ShowSelectedDrawingMarkers>
         <SnapMode>Bar</SnapMode>
-        <TabName>SimOP-1OG-NQ-Momo-1A-001</TabName>
+        <TabName>@DATASERIES_ALL</TabName>
         <LoadBackgroundImage>false</LoadBackgroundImage>
         <BackgroundImageStretch>Fill</BackgroundImageStretch>
         <ChartBackgroundSerialize>DEFAULT</ChartBackgroundSerialize>
@@ -5935,7 +6012,7 @@
     </Properties>
     <ChartPanels>
       <ChartPanel>
-        <Height>539</Height>
+        <Height>243</Height>
         <HoldChartTraderOrders>false</HoldChartTraderOrders>
         <IsMaximized>false</IsMaximized>
         <Right>
@@ -5949,8 +6026,8 @@
             <AutoScaleMarginLower>6</AutoScaleMarginLower>
             <AutoScaleMarginUpper>6</AutoScaleMarginUpper>
             <YAxisScalingType>Linear</YAxisScalingType>
-            <FixedScaleMaxSerialize>30500.240655738558</FixedScaleMaxSerialize>
-            <FixedScaleMinSerialize>30050.15369129751</FixedScaleMinSerialize>
+            <FixedScaleMaxSerialize>30644.015364917548</FixedScaleMaxSerialize>
+            <FixedScaleMinSerialize>30376.595003322494</FixedScaleMinSerialize>
             <IsInverted>false</IsInverted>
           </ChartScaleProperties>
         </Right>
@@ -5988,7 +6065,7 @@
         </Overlay>
       </ChartPanel>
       <ChartPanel>
-        <Height>162</Height>
+        <Height>86</Height>
         <HoldChartTraderOrders>false</HoldChartTraderOrders>
         <IsMaximized>false</IsMaximized>
         <Right>
@@ -6002,8 +6079,8 @@
             <AutoScaleMarginLower>6</AutoScaleMarginLower>
             <AutoScaleMarginUpper>6</AutoScaleMarginUpper>
             <YAxisScalingType>Linear</YAxisScalingType>
-            <FixedScaleMaxSerialize>94.589747015352813</FixedScaleMaxSerialize>
-            <FixedScaleMinSerialize>0.68426055872441083</FixedScaleMinSerialize>
+            <FixedScaleMaxSerialize>57.972345837982445</FixedScaleMaxSerialize>
+            <FixedScaleMinSerialize>2.9194078265611303</FixedScaleMinSerialize>
             <IsInverted>false</IsInverted>
           </ChartScaleProperties>
         </Right>
@@ -6041,7 +6118,7 @@
         </Overlay>
       </ChartPanel>
       <ChartPanel>
-        <Height>162</Height>
+        <Height>76</Height>
         <HoldChartTraderOrders>false</HoldChartTraderOrders>
         <IsMaximized>false</IsMaximized>
         <Right>
@@ -6055,8 +6132,8 @@
             <AutoScaleMarginLower>6</AutoScaleMarginLower>
             <AutoScaleMarginUpper>6</AutoScaleMarginUpper>
             <YAxisScalingType>Linear</YAxisScalingType>
-            <FixedScaleMaxSerialize>72.335614257139383</FixedScaleMaxSerialize>
-            <FixedScaleMinSerialize>0</FixedScaleMinSerialize>
+            <FixedScaleMaxSerialize>79.31656799725296</FixedScaleMaxSerialize>
+            <FixedScaleMinSerialize>0.48345272909814696</FixedScaleMinSerialize>
             <IsInverted>false</IsInverted>
           </ChartScaleProperties>
         </Right>
@@ -6071,7 +6148,7 @@
             <AutoScaleMarginLower>6</AutoScaleMarginLower>
             <AutoScaleMarginUpper>6</AutoScaleMarginUpper>
             <YAxisScalingType>Linear</YAxisScalingType>
-            <FixedScaleMaxSerialize>0</FixedScaleMaxSerialize>
+            <FixedScaleMaxSerialize>73.142040368997726</FixedScaleMaxSerialize>
             <FixedScaleMinSerialize>0</FixedScaleMinSerialize>
             <IsInverted>false</IsInverted>
           </ChartScaleProperties>
@@ -6099,6 +6176,7 @@
         <IsVisible>true</IsVisible>
         <Actions>
           <AlertAction>
+            <Children />
             <IsExpanded>false</IsExpanded>
             <IsSelected>false</IsSelected>
             <Name>Show a pop up dialog</Name>
@@ -6124,6 +6202,7 @@
             <StopPrice>1</StopPrice>
           </AlertAction>
           <AlertAction>
+            <Children />
             <IsExpanded>false</IsExpanded>
             <IsSelected>false</IsSelected>
             <Name>Play a sound</Name>
@@ -6154,6 +6233,7 @@
         <Conditions>
           <AlertCondition>
             <LeftItem xsi:type="ChartAlertConditionItem">
+              <Children />
               <IsExpanded>false</IsExpanded>
               <IsSelected>false</IsSelected>
               <Name>Choppiness index(NQ JUN26 (1 Min Heiken-Ashi),14)</Name>
@@ -6175,6 +6255,7 @@
             <Lookback>1</Lookback>
             <Operator>CrossBelow</Operator>
             <RightItem xsi:type="ChartAlertConditionItem">
+              <Children />
               <IsExpanded>false</IsExpanded>
               <IsSelected>false</IsSelected>
               <Name>Numeric value</Name>
@@ -6198,7 +6279,7 @@
         <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
         <Id>0ed5484ecec64f5e88ffa1ea321cb934</Id>
         <IsEnabled>true</IsEnabled>
-        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <LastTimeTriggered>2026-06-04T11:47:00.9326112</LastTimeTriggered>
         <Message>@NAME triggered</Message>
         <Name>CHOP DROP!</Name>
         <Priority>Medium</Priority>
@@ -6209,6 +6290,7 @@
         <IsVisible>true</IsVisible>
         <Actions>
           <AlertAction>
+            <Children />
             <IsExpanded>false</IsExpanded>
             <IsSelected>false</IsSelected>
             <Name>Play a sound</Name>
@@ -6234,6 +6316,7 @@
             <StopPrice>1</StopPrice>
           </AlertAction>
           <AlertAction>
+            <Children />
             <IsExpanded>false</IsExpanded>
             <IsSelected>false</IsSelected>
             <Name>Show a pop up dialog</Name>
@@ -6264,9 +6347,10 @@
         <Conditions>
           <AlertCondition>
             <LeftItem xsi:type="ChartAlertConditionItem">
+              <Children />
               <IsExpanded>false</IsExpanded>
               <IsSelected>false</IsSelected>
-              <Name> (NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
+              <Name>ADXGu5v2(NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
               <OffsetType>Arithmetic</OffsetType>
               <IsStaticValue>false</IsStaticValue>
               <Value>0</Value>
@@ -6278,16 +6362,17 @@
               <TimeValue>0001-01-01T00:00:00</TimeValue>
               <Type>Indicator</Type>
               <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
-              <UnderlyingIndicatorIndexSerialize>7</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>-1</UnderlyingIndicatorIndexSerialize>
               <UnderlyingPanelIndex>1</UnderlyingPanelIndex>
               <ValueType>Close</ValueType>
             </LeftItem>
             <Lookback>1</Lookback>
             <Operator>CrossAbove</Operator>
             <RightItem xsi:type="ChartAlertConditionItem">
+              <Children />
               <IsExpanded>false</IsExpanded>
               <IsSelected>false</IsSelected>
-              <Name> (NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
+              <Name>ADXGu5v2(NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
               <OffsetType>Arithmetic</OffsetType>
               <IsStaticValue>false</IsStaticValue>
               <Value>0</Value>
@@ -6299,16 +6384,17 @@
               <TimeValue>0001-01-01T00:00:00</TimeValue>
               <Type>Indicator</Type>
               <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
-              <UnderlyingIndicatorIndexSerialize>7</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>-1</UnderlyingIndicatorIndexSerialize>
               <UnderlyingPanelIndex>1</UnderlyingPanelIndex>
               <ValueType>Close</ValueType>
             </RightItem>
           </AlertCondition>
           <AlertCondition>
             <LeftItem xsi:type="ChartAlertConditionItem">
+              <Children />
               <IsExpanded>false</IsExpanded>
               <IsSelected>false</IsSelected>
-              <Name> (NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
+              <Name>ADXGu5v2(NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
               <OffsetType>Arithmetic</OffsetType>
               <IsStaticValue>false</IsStaticValue>
               <Value>0</Value>
@@ -6320,16 +6406,17 @@
               <TimeValue>0001-01-01T00:00:00</TimeValue>
               <Type>Indicator</Type>
               <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
-              <UnderlyingIndicatorIndexSerialize>7</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>-1</UnderlyingIndicatorIndexSerialize>
               <UnderlyingPanelIndex>1</UnderlyingPanelIndex>
               <ValueType>Close</ValueType>
             </LeftItem>
             <Lookback>1</Lookback>
             <Operator>CrossAbove</Operator>
             <RightItem xsi:type="ChartAlertConditionItem">
+              <Children />
               <IsExpanded>false</IsExpanded>
               <IsSelected>false</IsSelected>
-              <Name> (NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
+              <Name>ADXGu5v2(NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
               <OffsetType>Arithmetic</OffsetType>
               <IsStaticValue>false</IsStaticValue>
               <Value>0</Value>
@@ -6341,7 +6428,7 @@
               <TimeValue>0001-01-01T00:00:00</TimeValue>
               <Type>Indicator</Type>
               <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
-              <UnderlyingIndicatorIndexSerialize>7</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>-1</UnderlyingIndicatorIndexSerialize>
               <UnderlyingPanelIndex>1</UnderlyingPanelIndex>
               <ValueType>Close</ValueType>
             </RightItem>
@@ -6351,7 +6438,7 @@
         <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
         <Id>f58bee201e254500892ba9e57bebbf7b</Id>
         <IsEnabled>true</IsEnabled>
-        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <LastTimeTriggered>2026-06-04T10:54:51.7570269</LastTimeTriggered>
         <Message>@NAME triggered</Message>
         <Name>ADX CROSS DI</Name>
         <Priority>Medium</Priority>
@@ -6362,6 +6449,7 @@
         <IsVisible>true</IsVisible>
         <Actions>
           <AlertAction>
+            <Children />
             <IsExpanded>false</IsExpanded>
             <IsSelected>false</IsSelected>
             <Name>Play a sound</Name>
@@ -6387,6 +6475,7 @@
             <StopPrice>1</StopPrice>
           </AlertAction>
           <AlertAction>
+            <Children />
             <IsExpanded>false</IsExpanded>
             <IsSelected>false</IsSelected>
             <Name>Show a pop up dialog</Name>
@@ -6417,9 +6506,10 @@
         <Conditions>
           <AlertCondition>
             <LeftItem xsi:type="ChartAlertConditionItem">
+              <Children />
               <IsExpanded>false</IsExpanded>
               <IsSelected>false</IsSelected>
-              <Name> (NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
+              <Name>ADXGu5v2(NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
               <OffsetType>Arithmetic</OffsetType>
               <IsStaticValue>false</IsStaticValue>
               <Value>0</Value>
@@ -6431,13 +6521,14 @@
               <TimeValue>0001-01-01T00:00:00</TimeValue>
               <Type>Indicator</Type>
               <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
-              <UnderlyingIndicatorIndexSerialize>7</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>-1</UnderlyingIndicatorIndexSerialize>
               <UnderlyingPanelIndex>1</UnderlyingPanelIndex>
               <ValueType>Close</ValueType>
             </LeftItem>
             <Lookback>1</Lookback>
             <Operator>CrossAbove</Operator>
             <RightItem xsi:type="ChartAlertConditionItem">
+              <Children />
               <IsExpanded>false</IsExpanded>
               <IsSelected>false</IsSelected>
               <Name>Numeric value</Name>
@@ -6458,9 +6549,10 @@
           </AlertCondition>
           <AlertCondition>
             <LeftItem xsi:type="ChartAlertConditionItem">
+              <Children />
               <IsExpanded>false</IsExpanded>
               <IsSelected>false</IsSelected>
-              <Name> (NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
+              <Name>ADXGu5v2(NQ JUN26 (1 Min Heiken-Ashi),60,3,14,14,20,35,20,14,1)</Name>
               <OffsetType>Arithmetic</OffsetType>
               <IsStaticValue>false</IsStaticValue>
               <Value>0</Value>
@@ -6472,13 +6564,14 @@
               <TimeValue>0001-01-01T00:00:00</TimeValue>
               <Type>Indicator</Type>
               <UnderlyingBarsIndexSerialize>0</UnderlyingBarsIndexSerialize>
-              <UnderlyingIndicatorIndexSerialize>7</UnderlyingIndicatorIndexSerialize>
+              <UnderlyingIndicatorIndexSerialize>-1</UnderlyingIndicatorIndexSerialize>
               <UnderlyingPanelIndex>1</UnderlyingPanelIndex>
               <ValueType>Close</ValueType>
             </LeftItem>
             <Lookback>1</Lookback>
             <Operator>CrossAbove</Operator>
             <RightItem xsi:type="ChartAlertConditionItem">
+              <Children />
               <IsExpanded>false</IsExpanded>
               <IsSelected>false</IsSelected>
               <Name>Numeric value</Name>
@@ -6502,7 +6595,7 @@
         <ForegroundSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFCCCCCC&lt;/SolidColorBrush&gt;</ForegroundSerialize>
         <Id>8ce0c0379d1d4cae93fb58554dae17c5</Id>
         <IsEnabled>true</IsEnabled>
-        <LastTimeTriggered>1800-01-01T00:00:00</LastTimeTriggered>
+        <LastTimeTriggered>2026-06-04T11:12:11.4965803</LastTimeTriggered>
         <Message>@NAME triggered</Message>
         <Name>ADX RISING</Name>
         <Priority>Medium</Priority>
@@ -6564,7 +6657,6 @@
 &lt;/Pen&gt;</StopMarketSerialize>
       </ChartTraderProperties>
     </Properties>
-    <Account>SimOP-1OG-NQ-Momo-1A-001</Account>
     <ATM>--- ES_Scalp_2C_12-12_noSL</ATM>
     <Instrument>NQ JUN26</Instrument>
     <Quantity>2</Quantity>

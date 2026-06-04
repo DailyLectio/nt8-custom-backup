@@ -201,11 +201,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "Enable Time Block 1", GroupName = "5. Time", Order = 1)]
         public bool EnableTimeBlock1 { get; set; } = true;
 
-        [NinjaScriptProperty]
+        [NinjaScriptProperty, Range(0, 235959)]
         [Display(Name = "Block 1 Start Time (HHmmss)", GroupName = "5. Time", Order = 2)]
         public int StartTime { get; set; } = 103000;
 
-        [NinjaScriptProperty]
+        [NinjaScriptProperty, Range(0, 235959)]
         [Display(Name = "Block 1 End Time (HHmmss)", GroupName = "5. Time", Order = 3)]
         public int EndTime { get; set; } = 150000;
 
@@ -213,11 +213,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "Enable Time Block 2", GroupName = "5. Time", Order = 4)]
         public bool EnableTimeBlock2 { get; set; } = false;
 
-        [NinjaScriptProperty]
+        [NinjaScriptProperty, Range(0, 235959)]
         [Display(Name = "Block 2 Start Time (HHmmss)", GroupName = "5. Time", Order = 5)]
         public int StartTime2 { get; set; } = 0;
 
-        [NinjaScriptProperty]
+        [NinjaScriptProperty, Range(0, 235959)]
         [Display(Name = "Block 2 End Time (HHmmss)", GroupName = "5. Time", Order = 6)]
         public int EndTime2 { get; set; } = 0;
 
@@ -225,11 +225,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "Enable Time Block 3", GroupName = "5. Time", Order = 7)]
         public bool EnableTimeBlock3 { get; set; } = false;
 
-        [NinjaScriptProperty]
+        [NinjaScriptProperty, Range(0, 235959)]
         [Display(Name = "Block 3 Start Time (HHmmss)", GroupName = "5. Time", Order = 8)]
         public int StartTime3 { get; set; } = 0;
 
-        [NinjaScriptProperty]
+        [NinjaScriptProperty, Range(0, 235959)]
         [Display(Name = "Block 3 End Time (HHmmss)", GroupName = "5. Time", Order = 9)]
         public int EndTime3 { get; set; } = 0;
 
@@ -237,11 +237,11 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "Enable Time Block 4", GroupName = "5. Time", Order = 10)]
         public bool EnableTimeBlock4 { get; set; } = false;
 
-        [NinjaScriptProperty]
+        [NinjaScriptProperty, Range(0, 235959)]
         [Display(Name = "Block 4 Start Time (HHmmss)", GroupName = "5. Time", Order = 11)]
         public int StartTime4 { get; set; } = 0;
 
-        [NinjaScriptProperty]
+        [NinjaScriptProperty, Range(0, 235959)]
         [Display(Name = "Block 4 End Time (HHmmss)", GroupName = "5. Time", Order = 12)]
         public int EndTime4 { get; set; } = 0;
 
