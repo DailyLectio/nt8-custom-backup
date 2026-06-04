@@ -938,10 +938,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 if (oppositeBrickCount >= WobbleBricks)
                 {
-                    if (Position.MarketPosition == MarketPosition.Long)
-                        ExitLong(Position.Quantity, "WobbleEject", Leg2L);
-                    else
-                        ExitShort(Position.Quantity, "WobbleEject", Leg2S);
+                    ExitOpenExpansionLegs("WobbleEject");
                     ClearLegState();
                     return;
                 }
@@ -1024,5 +1021,42 @@ namespace NinjaTrader.NinjaScript.Strategies
         private const string Leg2L = "ExpL2";
         private const string Leg1S = "ExpS1";
         private const string Leg2S = "ExpS2";
+
+        private void ExitOpenExpansionLegs(string exitSignal)
+        {
+            int qty = Position.Quantity;
+            if (qty <= 0) return;
+
+            bool runnerOnly = leg1Hit || currentLeg2Qty <= 0 || qty <= currentLeg2Qty;
+
+            if (Position.MarketPosition == MarketPosition.Long)
+            {
+                if (runnerOnly)
+                {
+                    ExitLong(qty, exitSignal, Leg2L);
+                }
+                else
+                {
+                    int leg2Qty = Math.Min(currentLeg2Qty, qty);
+                    int leg1Qty = qty - leg2Qty;
+                    if (leg1Qty > 0) ExitLong(leg1Qty, exitSignal, Leg1L);
+                    if (leg2Qty > 0) ExitLong(leg2Qty, exitSignal, Leg2L);
+                }
+            }
+            else if (Position.MarketPosition == MarketPosition.Short)
+            {
+                if (runnerOnly)
+                {
+                    ExitShort(qty, exitSignal, Leg2S);
+                }
+                else
+                {
+                    int leg2Qty = Math.Min(currentLeg2Qty, qty);
+                    int leg1Qty = qty - leg2Qty;
+                    if (leg1Qty > 0) ExitShort(leg1Qty, exitSignal, Leg1S);
+                    if (leg2Qty > 0) ExitShort(leg2Qty, exitSignal, Leg2S);
+                }
+            }
+        }
     }
 }

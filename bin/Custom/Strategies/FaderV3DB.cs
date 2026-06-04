@@ -489,10 +489,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             {
                 if (finalRegime == "ROTATION_ILLIQUID")
                 {
-                    if (Position.MarketPosition == MarketPosition.Long)
-                        ExitLong(Position.Quantity, "IlliquidExit", activeLeg2.Length > 0 ? activeLeg2 : "");
-                    else
-                        ExitShort(Position.Quantity, "IlliquidExit", activeLeg2.Length > 0 ? activeLeg2 : "");
+                    ExitOpenFaderLegs("IlliquidExit");
                     leg1Hit = false; activeLeg2 = ""; leg2VwapAtEntry = 0; lastUpdatedVwap = 0;
                     return;
                 }
@@ -664,5 +661,44 @@ namespace NinjaTrader.NinjaScript.Strategies
         private const string FadeLEntry2 = "FadeBL2";
         private const string FadeSEntry1 = "FadeBS1";
         private const string FadeSEntry2 = "FadeBS2";
+
+        private void ExitOpenFaderLegs(string exitSignal)
+        {
+            int qty = Position.Quantity;
+            if (qty <= 0) return;
+
+            bool runnerOnly = leg1Hit || currentLeg2Qty <= 0 || qty <= currentLeg2Qty;
+
+            if (Position.MarketPosition == MarketPosition.Long)
+            {
+                string leg2Signal = activeLeg2 == FadeLEntry2 ? activeLeg2 : FadeLEntry2;
+                if (runnerOnly)
+                {
+                    ExitLong(qty, exitSignal, leg2Signal);
+                }
+                else
+                {
+                    int leg2Qty = Math.Min(currentLeg2Qty, qty);
+                    int leg1Qty = qty - leg2Qty;
+                    if (leg1Qty > 0) ExitLong(leg1Qty, exitSignal, FadeLEntry1);
+                    if (leg2Qty > 0) ExitLong(leg2Qty, exitSignal, leg2Signal);
+                }
+            }
+            else if (Position.MarketPosition == MarketPosition.Short)
+            {
+                string leg2Signal = activeLeg2 == FadeSEntry2 ? activeLeg2 : FadeSEntry2;
+                if (runnerOnly)
+                {
+                    ExitShort(qty, exitSignal, leg2Signal);
+                }
+                else
+                {
+                    int leg2Qty = Math.Min(currentLeg2Qty, qty);
+                    int leg1Qty = qty - leg2Qty;
+                    if (leg1Qty > 0) ExitShort(leg1Qty, exitSignal, FadeSEntry1);
+                    if (leg2Qty > 0) ExitShort(leg2Qty, exitSignal, leg2Signal);
+                }
+            }
+        }
     }
 }
