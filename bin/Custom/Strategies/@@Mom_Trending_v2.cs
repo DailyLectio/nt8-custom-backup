@@ -136,8 +136,11 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if ((Position.MarketPosition == MarketPosition.Long && haOpen1m > haClose1m) || 
                     (Position.MarketPosition == MarketPosition.Short && haOpen1m < haClose1m))
                 {
-                    ExitLong(Position.Quantity - 1, "StopX", "V2_Core"); 
-                    ExitShort(Position.Quantity - 1, "StopX", "V2_Core");
+                    int exitQty = Position.Quantity - 1;
+                    if (Position.MarketPosition == MarketPosition.Long)
+                        ExitLong(exitQty, "StopX", "V2_Core");
+                    else if (Position.MarketPosition == MarketPosition.Short)
+                        ExitShort(exitQty, "StopX", "V2_Core");
                 }
             }
 
@@ -146,7 +149,10 @@ namespace NinjaTrader.NinjaScript.Strategies
                 bool hit = (Position.MarketPosition == MarketPosition.Long && Close[0] >= entry + (40 * TickSize)) ||
                            (Position.MarketPosition == MarketPosition.Short && Close[0] <= entry - (40 * TickSize));
                 if (hit) {
-                    ExitLong(2, "Safety", "V2_Core"); ExitShort(2, "Safety", "V2_Core");
+                    if (Position.MarketPosition == MarketPosition.Long)
+                        ExitLong(2, "Safety", "V2_Core");
+                    else if (Position.MarketPosition == MarketPosition.Short)
+                        ExitShort(2, "Safety", "V2_Core");
                     double slPrice = Position.MarketPosition == MarketPosition.Long ? entry + (4 * TickSize) : entry - (4 * TickSize);
                     SetStopLoss("V2_Core", CalculationMode.Price, slPrice, false);
                 }

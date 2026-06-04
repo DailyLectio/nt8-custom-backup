@@ -130,7 +130,10 @@ namespace NinjaTrader.NinjaScript.Strategies
                 if (currentPnL >= DailyProfitTarget || currentPnL <= -DailyLossLimit)
                 {
                     tradingHalted = true;
-                    if (Position.MarketPosition != MarketPosition.Flat) { ExitLong(); ExitShort(); }
+                    if (Position.MarketPosition == MarketPosition.Long)
+                        ExitLong();
+                    else if (Position.MarketPosition == MarketPosition.Short)
+                        ExitShort();
                 }
             }
 

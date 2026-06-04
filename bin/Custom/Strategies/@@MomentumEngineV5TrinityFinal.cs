@@ -216,7 +216,10 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (tradeType == "SCALP")
             {
                 if (Position.Quantity == 3 && profitTicks >= 25) {
-                    ExitLong(2, "Bank_Scalp", scalpSig); ExitShort(2, "Bank_Scalp", scalpSig);
+                    if (isLong)
+                        ExitLong(2, "Bank_Scalp", scalpSig);
+                    else
+                        ExitShort(2, "Bank_Scalp", scalpSig);
                     // FIXED: 4 Arguments
                     SetStopLoss(scalpSig, CalculationMode.Price, isLong ? entry + TickSize : entry - TickSize, false);
                 }
@@ -233,13 +236,19 @@ namespace NinjaTrader.NinjaScript.Strategies
                 double t1Dist = (t1Price > 0) ? Math.Abs(entry - t1Price) : 40 * TickSize;
                 
                 if (Position.Quantity == 4 && dist >= t1Dist) {
-                    ExitLong(2, "Bank_Mid", coreSig); ExitShort(2, "Bank_Mid", coreSig);
+                    if (isLong)
+                        ExitLong(2, "Bank_Mid", coreSig);
+                    else
+                        ExitShort(2, "Bank_Mid", coreSig);
                     // FIXED: 4 Arguments
                     SetStopLoss(coreSig, CalculationMode.Price, entry, false);
                 }
                 double t2Dist = (t2Price > 0) ? Math.Abs(entry - t2Price) : 80 * TickSize;
                 if (Position.Quantity == 2 && dist >= t2Dist) {
-                    ExitLong(1, "Bank_Level", coreSig); ExitShort(1, "Bank_Level", coreSig);
+                    if (isLong)
+                        ExitLong(1, "Bank_Level", coreSig);
+                    else
+                        ExitShort(1, "Bank_Level", coreSig);
                 }
                 if (Position.Quantity == 1) {
                     double trail = isLong ? Math.Min(Low[0], Low[1]) - 2*TickSize : Math.Max(High[0], High[1]) + 2*TickSize;

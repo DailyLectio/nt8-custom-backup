@@ -130,7 +130,13 @@ namespace NinjaTrader.NinjaScript.Strategies
             {
                 if ((Position.MarketPosition == MarketPosition.Long && haOpen1m > haClose1m) || 
                     (Position.MarketPosition == MarketPosition.Short && haOpen1m < haClose1m))
-                    ExitLong(Position.Quantity - 1, "StopX", "V3.4");
+                {
+                    int exitQty = Position.Quantity - 1;
+                    if (Position.MarketPosition == MarketPosition.Long)
+                        ExitLong(exitQty, "StopX", "V3.4");
+                    else if (Position.MarketPosition == MarketPosition.Short)
+                        ExitShort(exitQty, "StopX", "V3.4");
+                }
             }
             if (Position.Quantity >= 4)
             {
@@ -138,7 +144,10 @@ namespace NinjaTrader.NinjaScript.Strategies
                                  (Position.MarketPosition == MarketPosition.Short && Close[0] <= entry - (40 * TickSize));
                 if (targetHit)
                 {
-                    ExitLong(2, "Safety", "V3.4"); ExitShort(2, "Safety", "V3.4");
+                    if (Position.MarketPosition == MarketPosition.Long)
+                        ExitLong(2, "Safety", "V3.4");
+                    else if (Position.MarketPosition == MarketPosition.Short)
+                        ExitShort(2, "Safety", "V3.4");
                     double bePlus = Position.MarketPosition == MarketPosition.Long ? entry + (4 * TickSize) : entry - (4 * TickSize);
                     SetStopLoss("V3.4", CalculationMode.Price, bePlus, false);
                 }
@@ -149,7 +158,10 @@ namespace NinjaTrader.NinjaScript.Strategies
                 double gapPrior5m = Math.Abs(dm5m.DiPlus[1] - dm5m.DiMinus[1]);
                 if (chop5m[0] >= chop5m[1] || adx5m[0] <= adx5m[1] || gapNow5m < gapPrior5m)
                 {
-                    ExitLong(1, "Moon_Doom", "V3.4"); ExitShort(1, "Moon_Doom", "V3.4");
+                    if (Position.MarketPosition == MarketPosition.Long)
+                        ExitLong(1, "Moon_Doom", "V3.4");
+                    else if (Position.MarketPosition == MarketPosition.Short)
+                        ExitShort(1, "Moon_Doom", "V3.4");
                 }
             }
         }

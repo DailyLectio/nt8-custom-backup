@@ -802,10 +802,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 if (oppositeBrickCount >= WobbleBricks)
                 {
-                    if (Position.MarketPosition == MarketPosition.Long)
-                        ExitLong(Position.Quantity, "WobbleEject", Leg2L);
-                    else
-                        ExitShort(Position.Quantity, "WobbleEject", Leg2S);
+                    ExitOpenExpansionLegs("WobbleEject");
                     ClearLegState();
                     return;
                 }
@@ -879,5 +876,35 @@ namespace NinjaTrader.NinjaScript.Strategies
         private const string Leg2L = "ExpBL2";
         private const string Leg1S = "ExpBS1";
         private const string Leg2S = "ExpBS2";
+
+        private void ExitOpenExpansionLegs(string exitSignal)
+        {
+            int qty = Position.Quantity;
+            if (qty <= 0 || Position.MarketPosition == MarketPosition.Flat)
+                return;
+
+            int leg2Qty = Math.Min(Math.Max(0, currentLeg2Qty), qty);
+            int leg1Qty = Math.Max(0, qty - leg2Qty);
+
+            if (leg1Hit || leg1Qty == 0)
+            {
+                if (Position.MarketPosition == MarketPosition.Long)
+                    ExitLong(qty, exitSignal, Leg2L);
+                else if (Position.MarketPosition == MarketPosition.Short)
+                    ExitShort(qty, exitSignal, Leg2S);
+                return;
+            }
+
+            if (Position.MarketPosition == MarketPosition.Long)
+            {
+                if (leg1Qty > 0) ExitLong(leg1Qty, exitSignal, Leg1L);
+                if (leg2Qty > 0) ExitLong(leg2Qty, exitSignal, Leg2L);
+            }
+            else if (Position.MarketPosition == MarketPosition.Short)
+            {
+                if (leg1Qty > 0) ExitShort(leg1Qty, exitSignal, Leg1S);
+                if (leg2Qty > 0) ExitShort(leg2Qty, exitSignal, Leg2S);
+            }
+        }
     }
 }

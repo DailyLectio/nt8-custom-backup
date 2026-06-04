@@ -148,8 +148,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 // 1 UniRenko reversal brick is enough to kill a runner in thin liquidity
                 if (oppositeBrickCount >= 1) 
                 {
-                    if (Position.MarketPosition == MarketPosition.Long) ExitLong(Position.Quantity, "Wobble Eject", "Leg2");
-                    if (Position.MarketPosition == MarketPosition.Short) ExitShort(Position.Quantity, "Wobble Eject", "Leg2");
+                    ExitOpenExpansionLegs("Wobble Eject");
                     return;
                 }
 
@@ -185,6 +184,38 @@ namespace NinjaTrader.NinjaScript.Strategies
                     if (parts.Length >= 50) currentPlaybook = parts[parts.Length - 1].Trim(); 
                 }
             } catch { }
+        }
+
+        private void ExitOpenExpansionLegs(string exitSignal)
+        {
+            int qty = Position.Quantity;
+            if (qty <= 0 || Position.MarketPosition == MarketPosition.Flat)
+                return;
+
+            int legQty = Math.Max(1, TotalContracts / 2);
+
+            if (leg1Hit || qty <= legQty)
+            {
+                if (Position.MarketPosition == MarketPosition.Long)
+                    ExitLong(qty, exitSignal, "Leg2");
+                else if (Position.MarketPosition == MarketPosition.Short)
+                    ExitShort(qty, exitSignal, "Leg2");
+                return;
+            }
+
+            int leg2Qty = Math.Min(legQty, qty);
+            int leg1Qty = qty - leg2Qty;
+
+            if (Position.MarketPosition == MarketPosition.Long)
+            {
+                if (leg1Qty > 0) ExitLong(leg1Qty, exitSignal, "Leg1");
+                if (leg2Qty > 0) ExitLong(leg2Qty, exitSignal, "Leg2");
+            }
+            else if (Position.MarketPosition == MarketPosition.Short)
+            {
+                if (leg1Qty > 0) ExitShort(leg1Qty, exitSignal, "Leg1");
+                if (leg2Qty > 0) ExitShort(leg2Qty, exitSignal, "Leg2");
+            }
         }
     }
 }

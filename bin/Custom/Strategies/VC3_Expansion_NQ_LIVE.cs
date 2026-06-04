@@ -484,12 +484,7 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 if (oppositeBrickCount >= 1)
                 {
-                    // Exit from whichever leg is still open
-                    string fromSignal = awaitingLeg2 ? "Leg1" : "Leg2";
-                    if (Position.MarketPosition == MarketPosition.Long)
-                        ExitLong(Position.Quantity, "Wobble Eject", fromSignal);
-                    if (Position.MarketPosition == MarketPosition.Short)
-                        ExitShort(Position.Quantity, "Wobble Eject", fromSignal);
+                    ExitOpenExpansionLegs("Wobble Eject");
                     awaitingLeg2 = false;
                     return;
                 }
@@ -519,6 +514,47 @@ namespace NinjaTrader.NinjaScript.Strategies
                         if (candidate < leg2TrailingStop || leg2TrailingStop == 0) { leg2TrailingStop = candidate; SetStopLoss("Leg2", CalculationMode.Price, leg2TrailingStop, false); }
                     }
                 }
+            }
+        }
+
+        private void ExitOpenExpansionLegs(string exitSignal)
+        {
+            int qty = Position.Quantity;
+            if (qty <= 0 || Position.MarketPosition == MarketPosition.Flat)
+                return;
+
+            int legQty = Math.Max(1, TotalContracts / 2);
+
+            if (awaitingLeg2)
+            {
+                if (Position.MarketPosition == MarketPosition.Long)
+                    ExitLong(qty, exitSignal, "Leg1");
+                else if (Position.MarketPosition == MarketPosition.Short)
+                    ExitShort(qty, exitSignal, "Leg1");
+                return;
+            }
+
+            if (leg1Hit || qty <= legQty)
+            {
+                if (Position.MarketPosition == MarketPosition.Long)
+                    ExitLong(qty, exitSignal, "Leg2");
+                else if (Position.MarketPosition == MarketPosition.Short)
+                    ExitShort(qty, exitSignal, "Leg2");
+                return;
+            }
+
+            int leg2Qty = Math.Min(legQty, qty);
+            int leg1Qty = qty - leg2Qty;
+
+            if (Position.MarketPosition == MarketPosition.Long)
+            {
+                if (leg1Qty > 0) ExitLong(leg1Qty, exitSignal, "Leg1");
+                if (leg2Qty > 0) ExitLong(leg2Qty, exitSignal, "Leg2");
+            }
+            else if (Position.MarketPosition == MarketPosition.Short)
+            {
+                if (leg1Qty > 0) ExitShort(leg1Qty, exitSignal, "Leg1");
+                if (leg2Qty > 0) ExitShort(leg2Qty, exitSignal, "Leg2");
             }
         }
 

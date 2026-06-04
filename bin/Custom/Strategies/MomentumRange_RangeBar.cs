@@ -661,7 +661,10 @@ namespace NinjaTrader.NinjaScript.Strategies
             // ── Regime TRANSITION: immediate flat ────────────────────────
             if (finalRegime == "TRANSITION" && Position.MarketPosition != MarketPosition.Flat)
             {
-                ExitLong("TransitionExit", ""); ExitShort("TransitionExit", "");
+                if (Position.MarketPosition == MarketPosition.Long)
+                    ExitLong("TransitionExit", "");
+                else if (Position.MarketPosition == MarketPosition.Short)
+                    ExitShort("TransitionExit", "");
                 return;
             }
 
