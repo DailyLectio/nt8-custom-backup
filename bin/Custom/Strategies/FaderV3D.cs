@@ -74,6 +74,13 @@ using NinjaTrader.NinjaScript.Strategies;
 
 namespace NinjaTrader.NinjaScript.Strategies
 {
+    public enum FaderV3DTradeDirectionMode
+    {
+        LongAndShort,
+        LongOnly,
+        ShortOnly
+    }
+
     public class Fader_V3D : Strategy
     {
         // =====================================================================
@@ -145,6 +152,12 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name = "Bollinger StdDev", GroupName = "3. Signal", Order = 1)]
         public double BollingerDev { get; set; } = 2.0;
 
+        [NinjaScriptProperty]
+        [Display(Name = "Trade Direction",
+                 Description = "Long And Short = allow both entries. Long Only blocks shorts. Short Only blocks longs.",
+                 GroupName = "3b. Direction Filter", Order = 0)]
+        public FaderV3DTradeDirectionMode TradeDirection { get; set; } = FaderV3DTradeDirectionMode.LongOnly;
+
         // --- Guards ---
         [NinjaScriptProperty, Range(0, 10)]
         [Display(Name = "Max Consecutive Losses", GroupName = "4. Guards", Order = 0)]
@@ -185,12 +198,52 @@ namespace NinjaTrader.NinjaScript.Strategies
         public bool EnableTimeFilter { get; set; } = true;
 
         [NinjaScriptProperty]
-        [Display(Name = "Start Time (HHmmss)", GroupName = "5. Time", Order = 1)]
-        public int StartTime { get; set; } = 103500;
+        [Display(Name = "Enable Time Block 1", GroupName = "5. Time", Order = 1)]
+        public bool EnableTimeBlock1 { get; set; } = true;
 
         [NinjaScriptProperty]
-        [Display(Name = "End Time (HHmmss)", GroupName = "5. Time", Order = 2)]
-        public int EndTime { get; set; } = 155500;
+        [Display(Name = "Block 1 Start Time (HHmmss)", GroupName = "5. Time", Order = 2)]
+        public int StartTime { get; set; } = 103000;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Block 1 End Time (HHmmss)", GroupName = "5. Time", Order = 3)]
+        public int EndTime { get; set; } = 150000;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Enable Time Block 2", GroupName = "5. Time", Order = 4)]
+        public bool EnableTimeBlock2 { get; set; } = false;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Block 2 Start Time (HHmmss)", GroupName = "5. Time", Order = 5)]
+        public int StartTime2 { get; set; } = 0;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Block 2 End Time (HHmmss)", GroupName = "5. Time", Order = 6)]
+        public int EndTime2 { get; set; } = 0;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Enable Time Block 3", GroupName = "5. Time", Order = 7)]
+        public bool EnableTimeBlock3 { get; set; } = false;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Block 3 Start Time (HHmmss)", GroupName = "5. Time", Order = 8)]
+        public int StartTime3 { get; set; } = 0;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Block 3 End Time (HHmmss)", GroupName = "5. Time", Order = 9)]
+        public int EndTime3 { get; set; } = 0;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Enable Time Block 4", GroupName = "5. Time", Order = 10)]
+        public bool EnableTimeBlock4 { get; set; } = false;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Block 4 Start Time (HHmmss)", GroupName = "5. Time", Order = 11)]
+        public int StartTime4 { get; set; } = 0;
+
+        [NinjaScriptProperty]
+        [Display(Name = "Block 4 End Time (HHmmss)", GroupName = "5. Time", Order = 12)]
+        public int EndTime4 { get; set; } = 0;
 
         // =====================================================================
         // REGIME STATE
@@ -278,12 +331,14 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         private bool FadeLongAllowed()
         {
-            return IsBaselineMode() || allowFadeLong;
+            return TradeDirection != FaderV3DTradeDirectionMode.ShortOnly
+                && (IsBaselineMode() || allowFadeLong);
         }
 
         private bool FadeShortAllowed()
         {
-            return IsBaselineMode() || allowFadeShort;
+            return TradeDirection != FaderV3DTradeDirectionMode.LongOnly
+                && (IsBaselineMode() || allowFadeShort);
         }
 
         private string GetLeaderSymbol(string sym)
@@ -301,7 +356,20 @@ namespace NinjaTrader.NinjaScript.Strategies
         {
             if (!EnableTimeFilter) return true;
             int t = ToTime(Time[0]);
-            return t >= StartTime && t <= EndTime;
+            bool anyBlockEnabled = EnableTimeBlock1 || EnableTimeBlock2 || EnableTimeBlock3 || EnableTimeBlock4;
+            if (!anyBlockEnabled) return false;
+
+            return (EnableTimeBlock1 && IsTimeInBlock(t, StartTime, EndTime))
+                || (EnableTimeBlock2 && IsTimeInBlock(t, StartTime2, EndTime2))
+                || (EnableTimeBlock3 && IsTimeInBlock(t, StartTime3, EndTime3))
+                || (EnableTimeBlock4 && IsTimeInBlock(t, StartTime4, EndTime4));
+        }
+
+        private bool IsTimeInBlock(int currentTime, int startTime, int endTime)
+        {
+            if (startTime == endTime) return currentTime == startTime;
+            if (startTime < endTime) return currentTime >= startTime && currentTime <= endTime;
+            return currentTime >= startTime || currentTime <= endTime;
         }
 
         private int CalcMaxContracts()
