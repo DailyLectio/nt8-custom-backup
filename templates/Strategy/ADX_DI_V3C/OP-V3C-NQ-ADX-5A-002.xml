@@ -499,7 +499,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>NQ.ADX.DI- NQ 5A-001</Name>
+      <Name>NQ.ADX.DI- NQ 5A-002</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -589,9 +589,9 @@
       <PremktStartHHmm>800</PremktStartHHmm>
       <PremktEndHHmm>930</PremktEndHHmm>
       <AllowRthAm>true</AllowRthAm>
-      <RthAmStartHHmm>935</RthAmStartHHmm>
-      <RthAmEndHHmm>1145</RthAmEndHHmm>
-      <AllowRthPm>true</AllowRthPm>
+      <RthAmStartHHmm>10000</RthAmStartHHmm>
+      <RthAmEndHHmm>1159</RthAmEndHHmm>
+      <AllowRthPm>false</AllowRthPm>
       <RthPmStartHHmm>1225</RthPmStartHHmm>
       <RthPmEndHHmm>1545</RthPmEndHHmm>
       <BlockOpen>false</BlockOpen>

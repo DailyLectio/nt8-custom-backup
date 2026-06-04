@@ -499,7 +499,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>NQ.ADX.DI- NQ 5A-001</Name>
+      <Name>NQ.ADX.DI- NQ 5A</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
