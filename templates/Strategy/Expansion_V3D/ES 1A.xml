@@ -48,6 +48,15 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
+        <Max xsi:type="xsd:int">150</Max>
+        <Min xsi:type="xsd:int">150</Min>
+        <Name>MaxRowAgeSec</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>150</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
         <Max xsi:type="xsd:int">75</Max>
         <Min xsi:type="xsd:int">75</Min>
         <Name>BaselineSizePct</Name>
@@ -194,7 +203,7 @@
       <Calculate>OnBarClose</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-04-21T00:00:00</From>
+      <From>2026-05-10T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -203,7 +212,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-05-16T00:00:00</To>
+      <To>2026-06-04T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -224,7 +233,7 @@
       <DaysToLoad>5</DaysToLoad>
       <DefaultQuantity>1</DefaultQuantity>
       <DisconnectDelaySeconds>10</DisconnectDelaySeconds>
-      <EntriesPerDirection>2</EntriesPerDirection>
+      <EntriesPerDirection>3</EntriesPerDirection>
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>false</IncludeCommission>
@@ -244,7 +253,7 @@
       <OrderFillResolutionValue>1</OrderFillResolutionValue>
       <RestartsWithinMinutes>3</RestartsWithinMinutes>
       <SetOrderQuantity>Strategy</SetOrderQuantity>
-      <Slippage>0</Slippage>
+      <Slippage>2</Slippage>
       <StartBehavior>WaitUntilFlat</StartBehavior>
       <StopTargetHandling>PerEntryExecution</StopTargetHandling>
       <SupportsOptimizationGraph>true</SupportsOptimizationGraph>
@@ -254,7 +263,7 @@
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath>C:\Users\Valued Customer\NT8_Regimes\V3D</DataFolderPath>
       <PermissionMode>A_Baseline</PermissionMode>
-      <MaxRowAgeSec>1800</MaxRowAgeSec>
+      <MaxRowAgeSec>150</MaxRowAgeSec>
       <BaselineSizePct>75</BaselineSizePct>
       <SoftSizePctFloor>75</SoftSizePctFloor>
       <AccountNameFilter>SimV3D-NQ-1A;SimV3D-ES-1A</AccountNameFilter>

@@ -3,13 +3,13 @@
   <ChoppinessIndex>
     <ChoppinessIndex xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <IsVisible>true</IsVisible>
-      <calculate2>OnEachTick</calculate2>
+      <calculate2>OnBarClose</calculate2>
       <AreLinesConfigurable>true</AreLinesConfigurable>
       <ArePlotsConfigurable>true</ArePlotsConfigurable>
       <BarsPeriodSerializable>
         <BarsPeriodTypeSerialize>9</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>5</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>1</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
@@ -18,16 +18,16 @@
         <Value2>1</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
-      <Calculate>OnEachTick</Calculate>
+      <Calculate>OnBarClose</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-01-22T00:00:00</From>
+      <From>2026-06-01T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines>
         <Line>
           <IsOpacityVisible>false</IsOpacityVisible>
-          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFF0000&lt;/SolidColorBrush&gt;</BrushSerialize>
-          <DashStyleHelper>Solid</DashStyleHelper>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF008000&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <DashStyleHelper>Dash</DashStyleHelper>
           <Opacity>100</Opacity>
           <Width>2</Width>
           <Name>Lower</Name>
@@ -35,7 +35,7 @@
         </Line>
         <Line>
           <IsOpacityVisible>false</IsOpacityVisible>
-          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF00FF00&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FFFFFFFF&lt;/SolidColorBrush&gt;</BrushSerialize>
           <DashStyleHelper>Solid</DashStyleHelper>
           <Opacity>100</Opacity>
           <Width>2</Width>
@@ -43,13 +43,13 @@
           <Value>60</Value>
         </Line>
       </Lines>
-      <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name />
-      <Panel>1</Panel>
+      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
+      <Name>Choppiness index</Name>
+      <Panel>2</Panel>
       <Plots>
         <Plot>
           <IsOpacityVisible>false</IsOpacityVisible>
-          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF0000CD&lt;/SolidColorBrush&gt;</BrushSerialize>
+          <BrushSerialize>&lt;SolidColorBrush xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"&gt;#FF1E90FF&lt;/SolidColorBrush&gt;</BrushSerialize>
           <DashStyleHelper>Solid</DashStyleHelper>
           <Opacity>100</Opacity>
           <Width>1</Width>
@@ -62,7 +62,7 @@
       </Plots>
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-02-16T00:00:00</To>
+      <To>2026-06-04T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>false</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -73,9 +73,9 @@
       <DrawVerticalGridLines>true</DrawVerticalGridLines>
       <DrawOnPricePanel>true</DrawOnPricePanel>
       <ChartHashCodeDeserialized>0</ChartHashCodeDeserialized>
-      <IndicatorId>178</IndicatorId>
-      <InstrumentDeserialized>MNQ MAR26 Globex</InstrumentDeserialized>
-      <MaxSerialized>0</MaxSerialized>
+      <IndicatorId>8684</IndicatorId>
+      <InstrumentDeserialized>ES JUN25 Globex</InstrumentDeserialized>
+      <MaxSerialized>52.529907007438709</MaxSerialized>
       <MinSerialized>0</MinSerialized>
       <ZOrder>10004</ZOrder>
       <Period>14</Period>

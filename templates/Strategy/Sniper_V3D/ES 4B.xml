@@ -42,8 +42,17 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>PermissionMode</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.V3DPermissionMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.V3DPermissionMode, 8d523b124b384fab862b141508c31592, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>C_SoftTrinity</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:int">1800</Max>
+        <Min xsi:type="xsd:int">1800</Min>
+        <Name>MaxRowAgeSec</Name>
+        <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>1800</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -289,7 +298,7 @@
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
       <DataFolderPath>C:\Users\Valued Customer\NT8_Regimes\V3D</DataFolderPath>
-      <PermissionMode>C_SoftTrinity</PermissionMode>
+      <PermissionMode>B_FullTrinity</PermissionMode>
       <MaxRowAgeSec>1800</MaxRowAgeSec>
       <BaselineSizePct>50</BaselineSizePct>
       <SoftSizePctFloor>50</SoftSizePctFloor>
