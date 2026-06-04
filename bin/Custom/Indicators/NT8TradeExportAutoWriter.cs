@@ -47,11 +47,15 @@ namespace NinjaTrader.NinjaScript.Indicators
         public bool UseRegistryAccountFilter { get; set; }
 
         [NinjaScriptProperty]
-        [Display(Name = "Registry Path", Order = 4, GroupName = "EOD Export")]
+        [Display(Name = "Use Embedded Account Filter", Order = 4, GroupName = "EOD Export")]
+        public bool UseEmbeddedAccountFilter { get; set; }
+
+        [NinjaScriptProperty]
+        [Display(Name = "Registry Path", Order = 5, GroupName = "EOD Export")]
         public string RegistryPath { get; set; }
 
         [NinjaScriptProperty]
-        [Display(Name = "Refresh Seconds", Order = 5, GroupName = "EOD Export")]
+        [Display(Name = "Refresh Seconds", Order = 6, GroupName = "EOD Export")]
         public int RefreshSeconds { get; set; }
 
         protected override void OnStateChange()
@@ -71,6 +75,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                 OutputPath = @"C:\Users\Valued Customer\NT8_Regimes\Exports\DayTrades\trades_{date}.csv";
                 RegistryPath = DefaultRegistryPath;
                 UseRegistryAccountFilter = true;
+                UseEmbeddedAccountFilter = true;
                 RefreshSeconds = 30;
                 AccountFilter = "";
             }
@@ -192,15 +197,17 @@ namespace NinjaTrader.NinjaScript.Indicators
         private HashSet<string> BuildAllowedAccounts()
         {
             HashSet<string> accounts = ParseAccountFilter(AccountFilter);
-            foreach (string account in ParseAccountFilter(EmbeddedAccountFilter))
-                accounts.Add(account);
+            if (UseEmbeddedAccountFilter)
+                foreach (string account in ParseAccountFilter(EmbeddedAccountFilter))
+                    accounts.Add(account);
 
             string registry = string.IsNullOrWhiteSpace(RegistryPath)
                 ? DefaultRegistryPath
                 : RegistryPath;
 
-            foreach (string account in LoadRegistryAccounts(registry))
-                accounts.Add(account);
+            if (UseRegistryAccountFilter)
+                foreach (string account in LoadRegistryAccounts(registry))
+                    accounts.Add(account);
 
             return accounts;
         }
