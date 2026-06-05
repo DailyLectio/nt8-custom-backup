@@ -254,6 +254,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         // VERSION B: Leg2 runner state
         private bool   leg1Hit        = false;
         private int    currentLeg2Qty = 0;      // 0 = no Leg2 active this trade
+        private bool   pendingLeg2StopRearm = false;
 
         // =====================================================================
         // HELPERS
@@ -481,6 +482,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (v3dTradeLogger != null && !v3dTradeLogger.IsConfiguredAccount(execution))
                 return;
             v3dTradeLogger?.OnExecution(execution, price, quantity, marketPosition, time);
+            HandleProtectiveExecution(execution);
             int tc = SystemPerformance.AllTrades.Count;
             if (tc > lastTradeCount)
             {
@@ -491,6 +493,93 @@ namespace NinjaTrader.NinjaScript.Strategies
             }
         }
 
+        protected override void OnOrderUpdate(
+            Order order, double limitPrice, double stopPrice, int quantity, int filled,
+            double averageFillPrice, OrderState orderState, DateTime time, ErrorCode error,
+            string nativeError)
+        {
+            HandleProtectiveOrderUpdate(order, orderState);
+        }
+
+        private void HandleProtectiveExecution(Execution execution)
+        {
+            if (execution == null || execution.Order == null) return;
+
+            Order order = execution.Order;
+            if (order.OrderState != OrderState.Filled && order.OrderState != OrderState.PartFilled) return;
+
+            string signal = OrderSignal(order);
+            if (IsLeg1Signal(signal) && IsExitAction(order.OrderAction) && Position.MarketPosition != MarketPosition.Flat)
+            {
+                leg1Hit = true;
+                currentLeg2Qty = Math.Max(1, Position.Quantity);
+                RearmLeg2Stop("Leg1 fill");
+            }
+            else if (IsLeg2Signal(signal) && IsExitAction(order.OrderAction) && Position.MarketPosition == MarketPosition.Flat)
+            {
+                ClearLegState();
+            }
+        }
+
+        private void HandleProtectiveOrderUpdate(Order order, OrderState orderState)
+        {
+            if (order == null || Position.MarketPosition == MarketPosition.Flat) return;
+            if (!IsStopLossOrder(order) || !IsLeg2Signal(OrderSignal(order))) return;
+
+            if (orderState == OrderState.Cancelled || orderState == OrderState.Rejected)
+                pendingLeg2StopRearm = true;
+        }
+
+        private bool IsExitAction(OrderAction action)
+        {
+            return action == OrderAction.Sell || action == OrderAction.BuyToCover;
+        }
+
+        private string OrderSignal(Order order)
+        {
+            if (order == null) return "";
+            return string.IsNullOrEmpty(order.FromEntrySignal) ? order.Name : order.FromEntrySignal;
+        }
+
+        private bool IsLeg1Signal(string signal)
+        {
+            return signal == LEntry1 || signal == SEntry1;
+        }
+
+        private bool IsLeg2Signal(string signal)
+        {
+            return signal == LEntry2 || signal == SEntry2;
+        }
+
+        private bool IsStopLossOrder(Order order)
+        {
+            return order != null && !string.IsNullOrEmpty(order.Name)
+                && order.Name.IndexOf("stop", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private void RearmLeg2Stop(string reason)
+        {
+            if (Position.MarketPosition == MarketPosition.Flat || currentLeg2Qty <= 0) return;
+
+            double pivot = Position.MarketPosition == MarketPosition.Long
+                ? RT(Position.AveragePrice + 4 * TickSize)
+                : RT(Position.AveragePrice - 4 * TickSize);
+
+            if (Position.MarketPosition == MarketPosition.Long)
+                SetStopLoss(LEntry2, CalculationMode.Price, pivot, false);
+            else
+                SetStopLoss(SEntry2, CalculationMode.Price, pivot, false);
+
+            pendingLeg2StopRearm = false;
+            Print(string.Format("[Momentum_V3D-B] Leg2 stop re-armed | Reason:{0} | Stop:{1:F2}", reason, pivot));
+        }
+
+        private void ClearLegState()
+        {
+            leg1Hit = false;
+            currentLeg2Qty = 0;
+            pendingLeg2StopRearm = false;
+        }
         private void CheckSessionReset()
         {
             if (Bars.IsFirstBarOfSession)
@@ -499,6 +588,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 hystFailCount      = 0;
                 leg1Hit            = false;
                 currentLeg2Qty     = 0;
+                pendingLeg2StopRearm = false;
                 sessionStartProfit = SystemPerformance.AllTrades
                                          .TradesPerformance.Currency.CumProfit;
             }
@@ -565,13 +655,15 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             if (Position.MarketPosition != MarketPosition.Flat && finalRegime == "TRANSITION")
             {
-                if (Position.MarketPosition == MarketPosition.Long)  ExitLong ("TransitionExit", LEntry1);
-                else                                                  ExitShort("TransitionExit", SEntry1);
-                leg1Hit = false; currentLeg2Qty = 0;
+                ExitOpenMomentumLegs("TransitionExit");
+                ClearLegState();
                 return;
             }
 
             // ── VERSION B: Leg1 fill detection → free-trade pivot for Leg2 ─
+            if (pendingLeg2StopRearm)
+                RearmLeg2Stop("Stop order update");
+            
             if (Position.MarketPosition != MarketPosition.Flat && !leg1Hit && currentLeg2Qty > 0)
             {
                 if (Position.Quantity <= currentLeg2Qty)
@@ -594,6 +686,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             {
                 leg1Hit        = false;
                 currentLeg2Qty = 0;
+                pendingLeg2StopRearm = false;
 
                 if (circuitBreakerFiredThisBar)        return;
                 if (!IsRegimeAllowed())                return;
@@ -667,6 +760,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     hystFailCount  = 0;
                     leg1Hit        = false;
                     currentLeg2Qty = 0;
+                pendingLeg2StopRearm = false;
                 }
             }
         }
@@ -683,7 +777,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     ExitLong("CircuitBreaker", LEntry1);
                     if (currentLeg2Qty > 0) ExitLong(currentLeg2Qty, "CircuitBreaker2", LEntry2);
                     hystFailCount = 0; circuitBreakerFiredThisBar = true;
-                    leg1Hit = false; currentLeg2Qty = 0;
+                    ClearLegState();
                 }
             }
             else if (Position.MarketPosition == MarketPosition.Short)
@@ -693,7 +787,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     ExitShort("CircuitBreaker", SEntry1);
                     if (currentLeg2Qty > 0) ExitShort(currentLeg2Qty, "CircuitBreaker2", SEntry2);
                     hystFailCount = 0; circuitBreakerFiredThisBar = true;
-                    leg1Hit = false; currentLeg2Qty = 0;
+                    ClearLegState();
                 }
             }
         }
@@ -705,6 +799,42 @@ namespace NinjaTrader.NinjaScript.Strategies
         private const string LEntry2 = "MomoBL2";
         private const string SEntry1 = "MomoBS1";
         private const string SEntry2 = "MomoBS2";
+
+        private void ExitOpenMomentumLegs(string exitSignal)
+        {
+            int qty = Position.Quantity;
+            if (qty <= 0) return;
+
+            bool runnerOnly = leg1Hit || currentLeg2Qty <= 0 || qty <= currentLeg2Qty;
+            if (Position.MarketPosition == MarketPosition.Long)
+            {
+                if (runnerOnly)
+                {
+                    ExitLong(qty, exitSignal, LEntry2);
+                }
+                else
+                {
+                    int leg2Qty = Math.Min(currentLeg2Qty, qty);
+                    int leg1Qty = qty - leg2Qty;
+                    if (leg1Qty > 0) ExitLong(leg1Qty, exitSignal, LEntry1);
+                    if (leg2Qty > 0) ExitLong(leg2Qty, exitSignal, LEntry2);
+                }
+            }
+            else if (Position.MarketPosition == MarketPosition.Short)
+            {
+                if (runnerOnly)
+                {
+                    ExitShort(qty, exitSignal, SEntry2);
+                }
+                else
+                {
+                    int leg2Qty = Math.Min(currentLeg2Qty, qty);
+                    int leg1Qty = qty - leg2Qty;
+                    if (leg1Qty > 0) ExitShort(leg1Qty, exitSignal, SEntry1);
+                    if (leg2Qty > 0) ExitShort(leg2Qty, exitSignal, SEntry2);
+                }
+            }
+        }
 
         private void SubmitLongWithStops()
         {

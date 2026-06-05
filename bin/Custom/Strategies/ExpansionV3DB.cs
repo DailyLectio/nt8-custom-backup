@@ -190,6 +190,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private int    oppositeBrickCount = 0;
         private int    barsAfterLeg1      = 0;
         private int    currentLeg2Qty     = 1;
+        private bool   pendingLeg2StopRearm = false;
 
         // =====================================================================
         // HELPERS
@@ -228,6 +229,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             oppositeBrickCount = 0;
             barsAfterLeg1      = 0;
             currentLeg2Qty     = 1;
+            pendingLeg2StopRearm = false;
         }
         private V3DStrategyTradeLogger v3dTradeLogger;
 
@@ -389,6 +391,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (v3dTradeLogger != null && !v3dTradeLogger.IsConfiguredAccount(execution))
                 return;
             v3dTradeLogger?.OnExecution(execution, price, quantity, marketPosition, time);
+            HandleProtectiveExecution(execution);
             int tc = SystemPerformance.AllTrades.Count;
             if (tc > lastTradeCount)
             {
@@ -399,6 +402,97 @@ namespace NinjaTrader.NinjaScript.Strategies
             }
         }
 
+        protected override void OnOrderUpdate(
+            Order order, double limitPrice, double stopPrice, int quantity, int filled,
+            double averageFillPrice, OrderState orderState, DateTime time, ErrorCode error,
+            string nativeError)
+        {
+            HandleProtectiveOrderUpdate(order, orderState);
+        }
+
+        private void HandleProtectiveExecution(Execution execution)
+        {
+            if (execution == null || execution.Order == null) return;
+
+            Order order = execution.Order;
+            if (order.OrderState != OrderState.Filled && order.OrderState != OrderState.PartFilled) return;
+
+            string signal = OrderSignal(order);
+            if (IsLeg1Signal(signal) && IsExitAction(order.OrderAction) && Position.MarketPosition != MarketPosition.Flat)
+            {
+                leg1Hit = true;
+                barsAfterLeg1 = 0;
+                currentLeg2Qty = Math.Max(1, Position.Quantity);
+                RearmLeg2Stop("Leg1 fill");
+            }
+            else if (IsLeg2Signal(signal) && IsExitAction(order.OrderAction) && Position.MarketPosition == MarketPosition.Flat)
+            {
+                ClearLegState();
+            }
+        }
+
+        private void HandleProtectiveOrderUpdate(Order order, OrderState orderState)
+        {
+            if (order == null || Position.MarketPosition == MarketPosition.Flat) return;
+            if (!IsStopLossOrder(order) || !IsLeg2Signal(OrderSignal(order))) return;
+
+            if (orderState == OrderState.Cancelled || orderState == OrderState.Rejected)
+                pendingLeg2StopRearm = true;
+        }
+
+        private bool IsExitAction(OrderAction action)
+        {
+            return action == OrderAction.Sell || action == OrderAction.BuyToCover;
+        }
+
+        private string OrderSignal(Order order)
+        {
+            if (order == null) return "";
+            return string.IsNullOrEmpty(order.FromEntrySignal) ? order.Name : order.FromEntrySignal;
+        }
+
+        private bool IsLeg1Signal(string signal)
+        {
+            return signal == Leg1L || signal == Leg1S;
+        }
+
+        private bool IsLeg2Signal(string signal)
+        {
+            return signal == Leg2L || signal == Leg2S;
+        }
+
+        private bool IsStopLossOrder(Order order)
+        {
+            return order != null && !string.IsNullOrEmpty(order.Name)
+                && order.Name.IndexOf("stop", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private void RearmLeg2Stop(string reason)
+        {
+            if (Position.MarketPosition == MarketPosition.Flat) return;
+
+            double pivot = Position.MarketPosition == MarketPosition.Long
+                ? RT(Position.AveragePrice + 4 * TickSize)
+                : RT(Position.AveragePrice - 4 * TickSize);
+
+            if (Position.MarketPosition == MarketPosition.Long)
+            {
+                leg2TrailingStop = (leg2TrailingStop == 0.0 || double.IsNaN(leg2TrailingStop))
+                    ? pivot
+                    : Math.Max(leg2TrailingStop, pivot);
+                SetStopLoss(Leg2L, CalculationMode.Price, leg2TrailingStop, false);
+            }
+            else
+            {
+                leg2TrailingStop = (leg2TrailingStop == 0.0 || double.IsNaN(leg2TrailingStop))
+                    ? pivot
+                    : Math.Min(leg2TrailingStop, pivot);
+                SetStopLoss(Leg2S, CalculationMode.Price, leg2TrailingStop, false);
+            }
+
+            pendingLeg2StopRearm = false;
+            Print(string.Format("[Expansion_V3D-B] Leg2 stop re-armed | Reason:{0} | Stop:{1:F2}", reason, leg2TrailingStop));
+        }
         // =====================================================================
         // MAIN BAR UPDATE
         // =====================================================================
@@ -430,10 +524,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             // TRANSITION: immediate flat
             if (Position.MarketPosition != MarketPosition.Flat && finalRegime == "TRANSITION")
             {
-                if (Position.MarketPosition == MarketPosition.Long)
-                    ExitLong("TransitionExit", "");
-                else
-                    ExitShort("TransitionExit", "");
+                ExitOpenExpansionLegs("TransitionExit");
                 ClearLegState();
                 return;
             }
@@ -529,6 +620,9 @@ namespace NinjaTrader.NinjaScript.Strategies
             // ==================================================================
             if (Position.MarketPosition != MarketPosition.Flat)
             {
+                if (pendingLeg2StopRearm)
+                    RearmLeg2Stop("Stop order update");
+                
                 if (!leg1Hit && Position.Quantity <= currentLeg2Qty)
                 {
                     leg1Hit       = true;

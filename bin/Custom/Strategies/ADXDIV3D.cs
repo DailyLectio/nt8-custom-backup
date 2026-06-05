@@ -564,7 +564,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 EntryHandling                = EntryHandling.AllEntries;
                 IsExitOnSessionCloseStrategy = true;
                 ExitOnSessionCloseSeconds    = 30;
-                RealtimeErrorHandling        = RealtimeErrorHandling.IgnoreAllErrors;
+                RealtimeErrorHandling        = RealtimeErrorHandling.StopCancelClose;
                 TraceOrders                  = false;
                 IsOverlay                    = true;
                 IsAutoScale                  = false;

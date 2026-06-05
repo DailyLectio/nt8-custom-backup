@@ -292,6 +292,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private bool   leg1Hit          = false;
         private int    currentLeg2Qty   = 1;     // dynamic threshold for leg1 detection
         private string activeLeg2       = "";    // tracks which entry label is the runner
+        private bool   pendingLeg2StopRearm = false;
 
         // Leg2 trailing activation state
         private double leg2TargetPrice  = 0.0;   // VWAP target captured at entry
@@ -888,6 +889,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 return;
             v3dTradeLogger?.OnExecution(execution, price, quantity, marketPosition, time);
             HandleStage1TradeLogExecution(execution, price, quantity, marketPosition, time);
+            HandleProtectiveExecution(execution);
             int tc = SystemPerformance.AllTrades.Count;
             if (tc > lastTradeCount)
             {
@@ -898,6 +900,97 @@ namespace NinjaTrader.NinjaScript.Strategies
             }
         }
 
+        protected override void OnOrderUpdate(
+            Order order, double limitPrice, double stopPrice, int quantity, int filled,
+            double averageFillPrice, OrderState orderState, DateTime time, ErrorCode error,
+            string nativeError)
+        {
+            HandleProtectiveOrderUpdate(order, orderState);
+        }
+
+        private void HandleProtectiveExecution(Execution execution)
+        {
+            if (execution == null || execution.Order == null) return;
+
+            Order order = execution.Order;
+            if (order.OrderState != OrderState.Filled && order.OrderState != OrderState.PartFilled) return;
+
+            string signal = OrderSignal(order);
+            if (IsLeg1Signal(signal) && IsExitAction(order.OrderAction) && Position.MarketPosition != MarketPosition.Flat)
+            {
+                leg1Hit = true;
+                currentLeg2Qty = Math.Max(1, Position.Quantity);
+                activeLeg2 = Position.MarketPosition == MarketPosition.Long ? FadeLEntry2 : FadeSEntry2;
+                RearmLeg2Stop("Leg1 fill");
+            }
+            else if (IsLeg2Signal(signal) && IsExitAction(order.OrderAction) && Position.MarketPosition == MarketPosition.Flat)
+            {
+                leg1Hit = false;
+                activeLeg2 = "";
+                pendingLeg2StopRearm = false;
+            }
+        }
+
+        private void HandleProtectiveOrderUpdate(Order order, OrderState orderState)
+        {
+            if (order == null || Position.MarketPosition == MarketPosition.Flat) return;
+            if (!IsStopLossOrder(order) || !IsLeg2Signal(OrderSignal(order))) return;
+
+            if (orderState == OrderState.Cancelled || orderState == OrderState.Rejected)
+                pendingLeg2StopRearm = true;
+        }
+
+        private bool IsExitAction(OrderAction action)
+        {
+            return action == OrderAction.Sell || action == OrderAction.BuyToCover;
+        }
+
+        private string OrderSignal(Order order)
+        {
+            if (order == null) return "";
+            return string.IsNullOrEmpty(order.FromEntrySignal) ? order.Name : order.FromEntrySignal;
+        }
+
+        private bool IsLeg1Signal(string signal)
+        {
+            return signal == FadeLEntry1 || signal == FadeSEntry1;
+        }
+
+        private bool IsLeg2Signal(string signal)
+        {
+            return signal == FadeLEntry2 || signal == FadeSEntry2;
+        }
+
+        private bool IsStopLossOrder(Order order)
+        {
+            return order != null && !string.IsNullOrEmpty(order.Name)
+                && order.Name.IndexOf("stop", StringComparison.OrdinalIgnoreCase) >= 0;
+        }
+
+        private void RearmLeg2Stop(string reason)
+        {
+            if (Position.MarketPosition == MarketPosition.Flat) return;
+
+            double pivot = Position.MarketPosition == MarketPosition.Long
+                ? RT(Position.AveragePrice + 4 * TickSize)
+                : RT(Position.AveragePrice - 4 * TickSize);
+
+            if (Position.MarketPosition == MarketPosition.Long)
+            {
+                activeLeg2 = FadeLEntry2;
+                leg2TrailingStop = leg2TrailingStop == 0.0 ? pivot : Math.Max(leg2TrailingStop, pivot);
+                SetStopLoss(FadeLEntry2, CalculationMode.Price, leg2TrailingStop, false);
+            }
+            else
+            {
+                activeLeg2 = FadeSEntry2;
+                leg2TrailingStop = leg2TrailingStop == 0.0 ? pivot : Math.Min(leg2TrailingStop, pivot);
+                SetStopLoss(FadeSEntry2, CalculationMode.Price, leg2TrailingStop, false);
+            }
+
+            pendingLeg2StopRearm = false;
+            Print(string.Format("[Fader_V3D-A] Leg2 stop re-armed | Reason:{0} | Stop:{1:F2}", reason, leg2TrailingStop));
+        }
         // =====================================================================
         // MAIN BAR UPDATE
         // =====================================================================
@@ -914,6 +1007,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                 leg1Hit            = false;
                 currentLeg2Qty     = 1;
                 activeLeg2         = "";
+                pendingLeg2StopRearm = false;
                 leg2TargetPrice    = 0.0;
                 leg2TrailActive    = false;
                 leg2TrailingStop   = 0.0;
@@ -924,10 +1018,10 @@ namespace NinjaTrader.NinjaScript.Strategies
             // ── TRANSITION: immediate flat ─────────────────────────────────
             if (AllowRegimeManagedExit() && Position.MarketPosition != MarketPosition.Flat && finalRegime == "TRANSITION")
             {
-                if (Position.MarketPosition == MarketPosition.Long)  ExitLong ("TransitionExit", "");
-                else                                                  ExitShort("TransitionExit", "");
+                ExitOpenFaderLegs("TransitionExit");
                 leg1Hit          = false;
                 activeLeg2       = "";
+                pendingLeg2StopRearm = false;
                 leg2TrailActive  = false;
                 leg2TrailingStop = 0.0;
                 return;
@@ -944,6 +1038,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                     ExitOpenFaderLegs("IlliquidExit");
                     leg1Hit          = false;
                     activeLeg2       = "";
+                pendingLeg2StopRearm = false;
                     leg2TrailActive  = false;
                     leg2TrailingStop = 0.0;
                     return;
@@ -951,6 +1046,9 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 // ── Leg1 fill detection → free-trade pivot ─────────────────
                 // Uses currentLeg2Qty so the threshold is correct for any sz value.
+                if (pendingLeg2StopRearm)
+                    RearmLeg2Stop("Stop order update");
+                
                 if (!leg1Hit && Position.Quantity <= currentLeg2Qty && currentLeg2Qty > 0)
                 {
                     leg1Hit = true;
@@ -1016,6 +1114,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             leg1Hit        = false;
             currentLeg2Qty = 1;
             activeLeg2     = "";
+            pendingLeg2StopRearm = false;
 
             // Gate 1: data integrity
             if (!IsBaselineMode() && (parseFailed || staleDataFlag)) return;
