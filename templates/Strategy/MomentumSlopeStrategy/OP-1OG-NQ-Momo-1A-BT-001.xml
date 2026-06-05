@@ -576,16 +576,16 @@
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-06-01T00:00:00</From>
+      <From>2026-06-02T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-      <Name>MomentumSlopeStrategy v1.2</Name>
+      <Name>MomentumSlopeStrategy v1.2 BT NQ -001</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-06-04T00:00:00</To>
+      <To>2026-06-05T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -680,17 +680,17 @@
       <GuardsIgnoreHistorical>true</GuardsIgnoreHistorical>
       <EnableTimeFilter>true</EnableTimeFilter>
       <StartTime1>93000</StartTime1>
-      <EndTime1>120000</EndTime1>
+      <EndTime1>154500</EndTime1>
       <UseBlock1>true</UseBlock1>
       <Block1Start>95900</Block1Start>
       <Block1End>100600</Block1End>
-      <UseBlock2>false</UseBlock2>
-      <Block2Start>102800</Block2Start>
-      <Block2End>103500</Block2End>
+      <UseBlock2>true</UseBlock2>
+      <Block2Start>113000</Block2Start>
+      <Block2End>122500</Block2End>
       <UseBlock3>false</UseBlock3>
       <Block3Start>50000</Block3Start>
       <Block3End>70000</Block3End>
-      <FlattenNearEnd>false</FlattenNearEnd>
+      <FlattenNearEnd>true</FlattenNearEnd>
       <FlattenBufferSeconds>300</FlattenBufferSeconds>
     </MomentumSlopeStrategy>
   </Strategy>

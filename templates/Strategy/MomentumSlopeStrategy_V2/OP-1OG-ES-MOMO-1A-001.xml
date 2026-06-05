@@ -69,7 +69,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>Preset</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ChartPreset, 0decb4764ae34e83bce907571148acb3, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ChartPreset, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Custom</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -89,7 +89,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SideAnchor</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+AnchorMode, 0decb4764ae34e83bce907571148acb3, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+AnchorMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>None</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -158,11 +158,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">18</Max>
-        <Min xsi:type="xsd:double">18</Min>
+        <Max xsi:type="xsd:double">20</Max>
+        <Min xsi:type="xsd:double">20</Min>
         <Name>AdxEntryThreshold</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>18</ValueSerializable>
+        <ValueSerializable>20</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -229,14 +229,14 @@
       </Parameter>
       <Parameter>
         <EnumValuesSerializable>
-          <string>Simple</string>
+          <string>Hysteresis</string>
         </EnumValuesSerializable>
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ExitSlopeMode, 0decb4764ae34e83bce907571148acb3, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
-        <ValueSerializable>Simple</ValueSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.MomentumSlopeStrategy_V2+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ValueSerializable>Hysteresis</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -313,20 +313,20 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">0.5</Max>
-        <Min xsi:type="xsd:double">0.5</Min>
+        <Max xsi:type="xsd:double">0.7</Max>
+        <Min xsi:type="xsd:double">0.7</Min>
         <Name>HystAdxDropPerBar</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>0.5</ValueSerializable>
+        <ValueSerializable>0.7</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">0.75</Max>
-        <Min xsi:type="xsd:double">0.75</Min>
+        <Max xsi:type="xsd:double">0.9</Max>
+        <Min xsi:type="xsd:double">0.9</Min>
         <Name>AtrStopMult</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>0.75</ValueSerializable>
+        <ValueSerializable>0.9</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -340,20 +340,20 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">2</Max>
-        <Min xsi:type="xsd:int">2</Min>
+        <Max xsi:type="xsd:int">48</Max>
+        <Min xsi:type="xsd:int">48</Min>
         <Name>MinStopTicks</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>2</ValueSerializable>
+        <ValueSerializable>48</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:double">1.5</Max>
-        <Min xsi:type="xsd:double">1.5</Min>
+        <Max xsi:type="xsd:double">0.76</Max>
+        <Min xsi:type="xsd:double">0.76</Min>
         <Name>RiskReward</Name>
         <ParameterTypeSerializable>System.Double, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>1.5</ValueSerializable>
+        <ValueSerializable>0.76</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -439,11 +439,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">93500</Max>
-        <Min xsi:type="xsd:int">93500</Min>
+        <Max xsi:type="xsd:int">94000</Max>
+        <Min xsi:type="xsd:int">94000</Min>
         <Name>StartTime1</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>93500</ValueSerializable>
+        <ValueSerializable>94000</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -549,7 +549,7 @@
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-05-09T00:00:00</From>
+      <From>2026-05-31T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -558,7 +558,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-05-14T00:00:00</To>
+      <To>2026-06-05T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>

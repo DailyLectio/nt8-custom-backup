@@ -449,7 +449,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>true</IncludeCommission>
-      <InstrumentOrInstrumentList />
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -484,7 +484,7 @@
       <WaitBricks>4</WaitBricks>
       <Leg2ProfitGatePct>0.5</Leg2ProfitGatePct>
       <TradeDirection>LongOnly</TradeDirection>
-      <EnableTimeBlocks>true</EnableTimeBlocks>
+      <EnableTimeBlocks>false</EnableTimeBlocks>
       <Block1Start>1200</Block1Start>
       <Block1End>1459</Block1End>
       <Block2Start>0</Block2Start>

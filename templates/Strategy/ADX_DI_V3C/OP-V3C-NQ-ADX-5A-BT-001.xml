@@ -495,7 +495,7 @@
       <Calculate>OnPriceChange</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-05-30T00:00:00</From>
+      <From>2026-05-31T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -504,7 +504,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-06-04T00:00:00</To>
+      <To>2026-06-05T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -591,16 +591,16 @@
       <AllowRthAm>true</AllowRthAm>
       <RthAmStartHHmm>940</RthAmStartHHmm>
       <RthAmEndHHmm>1115</RthAmEndHHmm>
-      <AllowRthPm>false</AllowRthPm>
+      <AllowRthPm>true</AllowRthPm>
       <RthPmStartHHmm>1225</RthPmStartHHmm>
       <RthPmEndHHmm>1545</RthPmEndHHmm>
-      <BlockOpen>false</BlockOpen>
+      <BlockOpen>true</BlockOpen>
       <OpenBlockStartHHmm>955</OpenBlockStartHHmm>
       <OpenBlockEndHHmm>1025</OpenBlockEndHHmm>
       <BlockLunch>false</BlockLunch>
       <LunchStartHHmm>1130</LunchStartHHmm>
       <LunchEndHHmm>1250</LunchEndHHmm>
-      <CustomBlk1On>true</CustomBlk1On>
+      <CustomBlk1On>false</CustomBlk1On>
       <Blk1StartHHmm>1116</Blk1StartHHmm>
       <Blk1EndHHmm>1600</Blk1EndHHmm>
       <MaxSameDirTrades>0</MaxSameDirTrades>

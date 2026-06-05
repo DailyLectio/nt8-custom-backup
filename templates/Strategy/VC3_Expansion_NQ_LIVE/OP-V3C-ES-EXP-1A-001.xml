@@ -402,13 +402,13 @@
       <BarsPeriodSerializable>
         <BarsPeriodTypeSerialize>2018</BarsPeriodTypeSerialize>
         <BaseBarsPeriodType>Minute</BaseBarsPeriodType>
-        <BaseBarsPeriodValue>80</BaseBarsPeriodValue>
+        <BaseBarsPeriodValue>44</BaseBarsPeriodValue>
         <VolumetricDeltaType>BidAsk</VolumetricDeltaType>
         <MarketDataType>Last</MarketDataType>
         <PointAndFigurePriceType>Close</PointAndFigurePriceType>
         <ReversalType>Tick</ReversalType>
-        <Value>40</Value>
-        <Value2>120</Value2>
+        <Value>22</Value>
+        <Value2>66</Value2>
       </BarsPeriodSerializable>
       <BarsToLoad>0</BarsToLoad>
       <Calculate>OnBarClose</Calculate>
@@ -418,7 +418,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>VC3_Expansion_NQ_LIVE OP NQ-1A-003</Name>
+      <Name>VC3_Expansion_NQ_LIVE OP ES-1A-001</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -449,7 +449,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>true</IncludeCommission>
-      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
+      <InstrumentOrInstrumentList />
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -511,7 +511,7 @@
       <Leg2Step2ATR>1.5</Leg2Step2ATR>
       <Leg2BreakevenPlusTicks>5</Leg2BreakevenPlusTicks>
       <Leg2TrailAtrMult>1</Leg2TrailAtrMult>
-      <UseSlowStopX>false</UseSlowStopX>
+      <UseSlowStopX>true</UseSlowStopX>
       <SlowStopXMinutes>60</SlowStopXMinutes>
       <SlowStopXAdxPeriod>14</SlowStopXAdxPeriod>
       <SlowStopXAdxMinLevel>20</SlowStopXAdxMinLevel>
