@@ -418,7 +418,7 @@
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
-      <Name>VC3_Expansion_NQ_LIVE OP ES-1A-001</Name>
+      <Name>VC3_Expansion_NQ_LIVE OP NQ-1A-003</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
@@ -449,7 +449,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>true</IncludeCommission>
-      <InstrumentOrInstrumentList>ES JUN26</InstrumentOrInstrumentList>
+      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -477,14 +477,14 @@
       <DebugV3CGate>false</DebugV3CGate>
       <EnableHMMGate>false</EnableHMMGate>
       <HMMBlockedStates>TrendDown</HMMBlockedStates>
-      <AccountNameFilter>OP-V3C-ES-EXP-1A-BT-001</AccountNameFilter>
+      <AccountNameFilter>OP-V3C-NQ-EXP-1A-BT-001</AccountNameFilter>
       <TradeLogFolder />
       <TotalContracts>2</TotalContracts>
       <InitialRiskAtr>1.5</InitialRiskAtr>
       <WaitBricks>4</WaitBricks>
       <Leg2ProfitGatePct>0.5</Leg2ProfitGatePct>
       <TradeDirection>LongOnly</TradeDirection>
-      <EnableTimeBlocks>true</EnableTimeBlocks>
+      <EnableTimeBlocks>false</EnableTimeBlocks>
       <Block1Start>1030</Block1Start>
       <Block1End>1115</Block1End>
       <Block2Start>1225</Block2Start>
