@@ -59,6 +59,43 @@ namespace NinjaTrader.NinjaScript.Strategies
         [Display(Name="Trade Log Folder", GroupName="0b. Trade Logging", Order=1)]
         public string TradeLogFolder { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V3C\TradeLog";
 
+        // ===== 1. TRADING TIME BLOCKS =====
+        [NinjaScriptProperty]
+        [Display(Name="Enable Time Blocks", Description="When enabled, new entries are allowed only inside one of the configured time blocks.", GroupName="1. Trading Time Blocks", Order=0)]
+        public bool EnableTimeBlocks { get; set; } = false;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name="Block 1 Start", Description="HHmmss exchange time. Example: 093000.", GroupName="1. Trading Time Blocks", Order=1)]
+        public int TimeBlock1Start { get; set; } = 93000;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name="Block 1 Stop", Description="HHmmss exchange time. Example: 113000.", GroupName="1. Trading Time Blocks", Order=2)]
+        public int TimeBlock1Stop { get; set; } = 113000;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name="Block 2 Start", Description="HHmmss exchange time. Set start and stop to 0 to disable this block.", GroupName="1. Trading Time Blocks", Order=3)]
+        public int TimeBlock2Start { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name="Block 2 Stop", Description="HHmmss exchange time. Set start and stop to 0 to disable this block.", GroupName="1. Trading Time Blocks", Order=4)]
+        public int TimeBlock2Stop { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name="Block 3 Start", Description="HHmmss exchange time. Set start and stop to 0 to disable this block.", GroupName="1. Trading Time Blocks", Order=5)]
+        public int TimeBlock3Start { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name="Block 3 Stop", Description="HHmmss exchange time. Set start and stop to 0 to disable this block.", GroupName="1. Trading Time Blocks", Order=6)]
+        public int TimeBlock3Stop { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name="Block 4 Start", Description="HHmmss exchange time. Set start and stop to 0 to disable this block.", GroupName="1. Trading Time Blocks", Order=7)]
+        public int TimeBlock4Start { get; set; } = 0;
+
+        [NinjaScriptProperty, Range(0, 235959)]
+        [Display(Name="Block 4 Stop", Description="HHmmss exchange time. Set start and stop to 0 to disable this block.", GroupName="1. Trading Time Blocks", Order=8)]
+        public int TimeBlock4Stop { get; set; } = 0;
+
         // ===== 2. RISK MANAGEMENT =====
         [NinjaScriptProperty, Range(1, 100)]
         [Display(Name="Contracts", GroupName="2. Risk Management", Order=0)]
@@ -192,6 +229,12 @@ namespace NinjaTrader.NinjaScript.Strategies
                 return; // Skip entry logic this bar — orders are being re-armed
             }
 
+            if (!IsWithinTradingTimeBlock())
+            {
+                DebugGate($"Skipping: outside enabled time blocks ({ToTime(Time[0])})");
+                return;
+            }
+
             bool compressionAllowed = IsCompressionAllowed(out bool allowLong, out bool allowShort);
 
             // =========================================================================
@@ -306,6 +349,33 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (!allowLong && !allowShort)   { DebugGate("Blocked: direction not allowed"); return false; }
 
             return true;
+        }
+
+        private bool IsWithinTradingTimeBlock()
+        {
+            if (!EnableTimeBlocks)
+                return true;
+
+            int now = ToTime(Time[0]);
+
+            return IsWithinTimeRange(now, TimeBlock1Start, TimeBlock1Stop)
+                || IsWithinTimeRange(now, TimeBlock2Start, TimeBlock2Stop)
+                || IsWithinTimeRange(now, TimeBlock3Start, TimeBlock3Stop)
+                || IsWithinTimeRange(now, TimeBlock4Start, TimeBlock4Stop);
+        }
+
+        private bool IsWithinTimeRange(int now, int start, int stop)
+        {
+            if (start == 0 && stop == 0)
+                return false;
+
+            if (start == stop)
+                return now == start;
+
+            if (start < stop)
+                return now >= start && now <= stop;
+
+            return now >= start || now <= stop;
         }
 
         private Indicators.RegimeMatrixHUD_V3C GetV3CHud()
