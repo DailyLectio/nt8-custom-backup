@@ -414,7 +414,7 @@
       <Calculate>OnBarClose</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-05-30T00:00:00</From>
+      <From>2026-05-31T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
       <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
@@ -423,7 +423,7 @@
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-06-04T00:00:00</To>
+      <To>2026-06-05T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -449,7 +449,7 @@
       <EntryHandling>AllEntries</EntryHandling>
       <ExitOnSessionCloseSeconds>30</ExitOnSessionCloseSeconds>
       <IncludeCommission>true</IncludeCommission>
-      <InstrumentOrInstrumentList>NQ JUN26</InstrumentOrInstrumentList>
+      <InstrumentOrInstrumentList />
       <IsAggregated>false</IsAggregated>
       <IsExitOnSessionCloseStrategy>true</IsExitOnSessionCloseStrategy>
       <IsFillLimitOnTouch>false</IsFillLimitOnTouch>
@@ -484,11 +484,11 @@
       <WaitBricks>4</WaitBricks>
       <Leg2ProfitGatePct>0.5</Leg2ProfitGatePct>
       <TradeDirection>LongOnly</TradeDirection>
-      <EnableTimeBlocks>false</EnableTimeBlocks>
-      <Block1Start>1030</Block1Start>
-      <Block1End>1115</Block1End>
-      <Block2Start>1225</Block2Start>
-      <Block2End>1500</Block2End>
+      <EnableTimeBlocks>true</EnableTimeBlocks>
+      <Block1Start>1200</Block1Start>
+      <Block1End>1459</Block1End>
+      <Block2Start>0</Block2Start>
+      <Block2End>0</Block2End>
       <Block3Start>0</Block3Start>
       <Block3End>0</Block3End>
       <Block4Start>0</Block4Start>

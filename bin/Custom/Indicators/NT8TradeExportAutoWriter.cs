@@ -401,7 +401,7 @@ namespace NinjaTrader.NinjaScript.Indicators
                     return accounts;
 
                 string text = File.ReadAllText(path);
-                MatchCollection matches = Regex.Matches(text, "\"(?<account>Sim[^\"]+)\"\\s*:");
+                MatchCollection matches = Regex.Matches(text, "\"(?<account>(?:Sim|OP)[^\"]+)\"\\s*:");
                 foreach (Match match in matches)
                 {
                     string account = match.Groups["account"].Value.Trim();
@@ -431,7 +431,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 
                 string text = File.ReadAllText(path);
                 foreach (Match block in Regex.Matches(text,
-                    "\"(?<account>Sim[^\"]+)\"\\s*:\\s*\\{(?<body>[^{}]*)\\}", RegexOptions.Singleline))
+                    "\"(?<account>(?:Sim|OP)[^\"]+)\"\\s*:\\s*\\{(?<body>[^{}]*)\\}", RegexOptions.Singleline))
                 {
                     string account = block.Groups["account"].Value.Trim();
                     string body = block.Groups["body"].Value;
