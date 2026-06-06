@@ -618,6 +618,10 @@
     <Compile Include="Strategies\VC3_Expansion_NQ_LIVE.cs" />
     <Compile Include="Strategies\ExpansionV3DB_StopModes.cs" />
     <Compile Include="Strategies\MomentumOG_V3.cs" />
+    <Compile Include="Strategies\Expansion.cs" />
+    <Compile Include="Strategies\Momentum.cs" />
+    <Compile Include="Strategies\Expansionv4.cs" />
+    <Compile Include="Strategies\Momentumv4.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">
