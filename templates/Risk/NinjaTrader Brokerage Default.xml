@@ -47,8 +47,8 @@
       <string>RB|0|1000|True|11434|10|10|12578|1000</string>
       <string>QM|0|500|True|6087|10|10|6694|500</string>
       <string>QG|0|500|True|758|10|10|839|500</string>
-      <string>FDAX|0|2000|True|52570|10|10|52570|2000</string>
-      <string>FESX|0|1000|True|4849|25|25|4849|1000</string>
+      <string>FDAX|0|2000|True|52637|10|10|5637|2000</string>
+      <string>FESX|0|1000|True|4861|25|25|4861|1000</string>
       <string>FGBL|0|1000|True|2243|25|25|2243|1000</string>
       <string>FGBM|0|500|True|1240|25|25|1240|500</string>
       <string>FGBS|0|500|True|476|25|25|476|500</string>
@@ -65,8 +65,8 @@
       <string>XC|0|100|True|193|10|10|214|100</string>
       <string>XK|0|250|True|400|10|10|440|250</string>
       <string>XW|0|250|True|330|10|10|363|250</string>
-      <string>FGBX|0|1000|True|4382|25|25|4382|1000</string>
-      <string>FDXM|0|500|True|10513|25|25|10513|500</string>
+      <string>FGBX|0|1000|True|4393|25|25|4393|1000</string>
+      <string>FDXM|0|500|True|10543|25|25|10543|500</string>
       <string>BZ|0|1000|True|9547|10|10|10527|1000</string>
       <string>TN|0|500|True|2550|25|25|2805|500</string>
       <string>RTY|0|500|True|10638|50|50|11702|500</string>
@@ -115,8 +115,8 @@
       <string>XRPCME|0|2500|True|46056|10|10|50662|2500</string>
       <string>SIC|0|400|True|805|25|25|887|400</string>
       <string>1OZ|0|50|True|274|1|1|302|50</string>
-      <string>FXXP|0|1000|True|2464|25|25|2464|1000</string>
+      <string>FXXP|0|1000|True|2470|25|25|2470|1000</string>
     </MasterInstrumentsSerializable>
-    <Version>15549</Version>
+    <Version>15553</Version>
   </Risk>
 </NinjaTrader>
