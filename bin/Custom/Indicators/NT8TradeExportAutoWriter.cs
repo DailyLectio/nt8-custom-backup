@@ -14,6 +14,12 @@ using NinjaTrader.NinjaScript;
 
 namespace NinjaTrader.NinjaScript.Indicators
 {
+    public enum NT8TradeExportProfile
+    {
+        RegimeModel,
+        Leaderboard
+    }
+
     public class NT8TradeExportAutoWriter : Indicator
     {
         // Exit reason / Is code exit appended 2026-05-18: canonical exit-label taxonomy
@@ -22,6 +28,10 @@ namespace NinjaTrader.NinjaScript.Indicators
         private const string Header =
             "Trade number,Instrument,Account,Strategy,Market pos.,Qty,Entry price,Exit price,Entry time,Exit time,Entry name,Exit name,Profit,Cum. net profit,Commission,MAE,MFE,ETD,Bars,Exit reason,Is code exit";
         private const string DefaultRegistryPath = @"C:\Users\Valued Customer\NT8_Regimes\accounts_registry.json";
+        private const string RegimeModelOutputPath = @"C:\Users\Valued Customer\NT8_Regimes\Exports\DayTrades\trades_{date}.csv";
+        private const string RegimeModelRegistryPath = @"C:\Users\Valued Customer\NT8_Regimes\accounts_registry.json";
+        private const string LeaderboardOutputPath = @"C:\Users\Valued Customer\NT8_Regimes\Leaderboard\Exports\DayTrades\leaderboard_trades_{date}.csv";
+        private const string LeaderboardRegistryPath = @"C:\Users\Valued Customer\NT8_Regimes\Leaderboard\Config\leaderboard_accounts_registry.json";
         private const string EmbeddedAccountFilter =
             "Sim1OG-ES-ADX-1A;Sim1OG-ES-ADX-1B;Sim1OG-ES-Momo-1A;Sim1OG-ES-Momo-1B;Sim1OG-ES-Pine-1A;Sim1OG-ES-Pine-1B;Sim1OG-NQ-ADX-1A;Sim1OG-NQ-ADX-1B;Sim1OG-NQ-Momo-1A;Sim1OG-NQ-Momo-1B;Sim1OG-NQ-Pine-1A;Sim1OG-NQ-Pine-1B;SimMomoOG-ES-1A;SimMomoOG-ES-1B;SimMomoOG-NQ-1A;SimMomoOG-NQ-1B;SimV1A-ES-1A;SimV1A-ES-2A;SimV1A-ES-3A;SimV1A-NQ-1A;SimV1A-NQ-2A;SimV1A-NQ-3A;SimV1A-NQ-CompMomo-1A;SimV1A-NQ-CompMomo-1A1C;SimV1A-NQ-CompMomo-1B;SimV1A-NQ-KalmanFader-1A;SimV1A-NQ-KalmanFader-1B;SimV1A-NQ-KalmanFader-1C;SimV1A-NQ-VolFader-1A;SimV1A-NQ-VolFader-1B;SimV1A-NQ-VolFader-1C;SimV3C-ES-1A;SimV3C-ES-2A;SimV3C-ES-3A;SimV3C-ES-4A;SimV3C-ES-5A;SimV3C-NQ-1A;SimV3C-NQ-1B;SimV3C-NQ-1C;SimV3C-NQ-2A;SimV3C-NQ-2B;SimV3C-NQ-2C;SimV3C-NQ-2D;SimV3C-NQ-3A;SimV3C-NQ-3B;SimV3C-NQ-4A;SimV3C-NQ-4B;SimV3C-NQ-5A;SimV3C-NQ-5B;SimV3D-ES-1A;SimV3D-ES-1B;SimV3D-ES-1C;SimV3D-ES-1D;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-2C;SimV3D-ES-2D;SimV3D-ES-3A;SimV3D-ES-3B;SimV3D-ES-3C;SimV3D-ES-3D;SimV3D-ES-4A;SimV3D-ES-4B;SimV3D-ES-4C;SimV3D-ES-4D;SimV3D-ES-5A;SimV3D-ES-5B;SimV3D-ES-5C;SimV3D-ES-5D;SimV3D-NQ-1A;SimV3D-NQ-1B;SimV3D-NQ-1C;SimV3D-NQ-1D;SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-2C;SimV3D-NQ-2D;SimV3D-NQ-3A;SimV3D-NQ-3B;SimV3D-NQ-3C;SimV3D-NQ-3D;SimV3D-NQ-4A;SimV3D-NQ-4B;SimV3D-NQ-4C;SimV3D-NQ-4D;SimV3D-NQ-5A;SimV3D-NQ-5B;SimV3D-NQ-5C;SimV3D-NQ-5D";
 
@@ -35,11 +45,15 @@ namespace NinjaTrader.NinjaScript.Indicators
         private int lastFallbackTradeCount;
 
         [NinjaScriptProperty]
-        [Display(Name = "Output Path", Order = 1, GroupName = "EOD Export")]
+        [Display(Name = "Export Profile", Description = "RegimeModel writes to the main model EOD path. Leaderboard writes to the isolated OP candidate path.", Order = 0, GroupName = "EOD Export")]
+        public NT8TradeExportProfile ExportProfile { get; set; }
+
+        [NinjaScriptProperty]
+        [Display(Name = "Output Path", Description = "Optional/manual reference. The selected Export Profile supplies the canonical path at runtime.", Order = 1, GroupName = "EOD Export")]
         public string OutputPath { get; set; }
 
         [NinjaScriptProperty]
-        [Display(Name = "Account Filter", Order = 2, GroupName = "EOD Export")]
+        [Display(Name = "Account Filter", Description = "Optional extra allow-list. Leave blank when using the profile registry.", Order = 2, GroupName = "EOD Export")]
         public string AccountFilter { get; set; }
 
         [NinjaScriptProperty]
@@ -51,7 +65,7 @@ namespace NinjaTrader.NinjaScript.Indicators
         public bool UseEmbeddedAccountFilter { get; set; }
 
         [NinjaScriptProperty]
-        [Display(Name = "Registry Path", Order = 5, GroupName = "EOD Export")]
+        [Display(Name = "Registry Path", Description = "Optional/manual reference. The selected Export Profile supplies the canonical registry path at runtime.", Order = 5, GroupName = "EOD Export")]
         public string RegistryPath { get; set; }
 
         [NinjaScriptProperty]
@@ -68,12 +82,13 @@ namespace NinjaTrader.NinjaScript.Indicators
                 IsOverlay = true;
                 DisplayInDataBox = false;
                 IsSuspendedWhileInactive = false;
+                ExportProfile = NT8TradeExportProfile.RegimeModel;
                 // Writes the dated file the NT8_Regimes EOD pipeline expects.
                 // {date} is substituted with today's yyyy-MM-dd at write time
                 // (see ResolveOutputPath). Both nt_trade_export_reconcile.py and
                 // regime_daily_join.py read Exports\DayTrades\trades_<date>.csv.
-                OutputPath = @"C:\Users\Valued Customer\NT8_Regimes\Exports\DayTrades\trades_{date}.csv";
-                RegistryPath = DefaultRegistryPath;
+                OutputPath = RegimeModelOutputPath;
+                RegistryPath = RegimeModelRegistryPath;
                 UseRegistryAccountFilter = true;
                 UseEmbeddedAccountFilter = true;
                 RefreshSeconds = 30;
@@ -135,15 +150,39 @@ namespace NinjaTrader.NinjaScript.Indicators
         // ...\Exports\DayTrades\trades_2026-05-19.csv. Added 2026-05-19.
         private string ResolveOutputPath()
         {
-            string p = OutputPath ?? "";
+            string p = EffectiveOutputPath();
             return p.Replace("{date}", DateTime.Today.ToString("yyyy-MM-dd"));
+        }
+
+        private string EffectiveOutputPath()
+        {
+            if (ExportProfile == NT8TradeExportProfile.Leaderboard)
+                return LeaderboardOutputPath;
+            return RegimeModelOutputPath;
+        }
+
+        private string EffectiveRegistryPath()
+        {
+            if (ExportProfile == NT8TradeExportProfile.Leaderboard)
+                return LeaderboardRegistryPath;
+            return RegimeModelRegistryPath;
+        }
+
+        private bool EffectiveUseRegistryAccountFilter()
+        {
+            return true;
+        }
+
+        private bool EffectiveUseEmbeddedAccountFilter()
+        {
+            return ExportProfile == NT8TradeExportProfile.RegimeModel && UseEmbeddedAccountFilter;
         }
 
         private void WriteExport()
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(OutputPath))
+                if (string.IsNullOrWhiteSpace(EffectiveOutputPath()))
                     return;
 
                 string outputPath = ResolveOutputPath();
@@ -153,7 +192,7 @@ namespace NinjaTrader.NinjaScript.Indicators
 
                 HashSet<string> allowed = BuildAllowedAccounts();
                 strategyByAccount = LoadRegistryStrategies(
-                    string.IsNullOrWhiteSpace(RegistryPath) ? DefaultRegistryPath : RegistryPath);
+                    EffectiveRegistryPath());
                 List<TradeRow> rows = BuildTodayRows(allowed);
                 foreach (TradeRow tr in rows)
                     tr.Strategy = LookupStrategy(tr.Account);
@@ -197,15 +236,13 @@ namespace NinjaTrader.NinjaScript.Indicators
         private HashSet<string> BuildAllowedAccounts()
         {
             HashSet<string> accounts = ParseAccountFilter(AccountFilter);
-            if (UseEmbeddedAccountFilter)
+            if (EffectiveUseEmbeddedAccountFilter())
                 foreach (string account in ParseAccountFilter(EmbeddedAccountFilter))
                     accounts.Add(account);
 
-            string registry = string.IsNullOrWhiteSpace(RegistryPath)
-                ? DefaultRegistryPath
-                : RegistryPath;
+            string registry = EffectiveRegistryPath();
 
-            if (UseRegistryAccountFilter)
+            if (EffectiveUseRegistryAccountFilter())
                 foreach (string account in LoadRegistryAccounts(registry))
                     accounts.Add(account);
 
@@ -486,7 +523,7 @@ namespace NinjaTrader.NinjaScript.Indicators
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(OutputPath))
+                if (string.IsNullOrWhiteSpace(EffectiveOutputPath()))
                     return;
                 File.WriteAllText(ResolveOutputPath() + ".status.txt", message + Environment.NewLine, Encoding.UTF8);
             }
@@ -678,18 +715,18 @@ namespace NinjaTrader.NinjaScript.Indicators
 	public partial class Indicator : NinjaTrader.Gui.NinjaScript.IndicatorRenderBase
 	{
 		private NT8TradeExportAutoWriter[] cacheNT8TradeExportAutoWriter;
-		public NT8TradeExportAutoWriter NT8TradeExportAutoWriter(string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
+		public NT8TradeExportAutoWriter NT8TradeExportAutoWriter(NT8TradeExportProfile exportProfile, string outputPath, string accountFilter, bool useRegistryAccountFilter, bool useEmbeddedAccountFilter, string registryPath, int refreshSeconds)
 		{
-			return NT8TradeExportAutoWriter(Input, outputPath, accountFilter, useRegistryAccountFilter, registryPath, refreshSeconds);
+			return NT8TradeExportAutoWriter(Input, exportProfile, outputPath, accountFilter, useRegistryAccountFilter, useEmbeddedAccountFilter, registryPath, refreshSeconds);
 		}
 
-		public NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input, string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
+		public NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input, NT8TradeExportProfile exportProfile, string outputPath, string accountFilter, bool useRegistryAccountFilter, bool useEmbeddedAccountFilter, string registryPath, int refreshSeconds)
 		{
 			if (cacheNT8TradeExportAutoWriter != null)
 				for (int idx = 0; idx < cacheNT8TradeExportAutoWriter.Length; idx++)
-					if (cacheNT8TradeExportAutoWriter[idx] != null && cacheNT8TradeExportAutoWriter[idx].OutputPath == outputPath && cacheNT8TradeExportAutoWriter[idx].AccountFilter == accountFilter && cacheNT8TradeExportAutoWriter[idx].UseRegistryAccountFilter == useRegistryAccountFilter && cacheNT8TradeExportAutoWriter[idx].RegistryPath == registryPath && cacheNT8TradeExportAutoWriter[idx].RefreshSeconds == refreshSeconds && cacheNT8TradeExportAutoWriter[idx].EqualsInput(input))
+					if (cacheNT8TradeExportAutoWriter[idx] != null && cacheNT8TradeExportAutoWriter[idx].ExportProfile == exportProfile && cacheNT8TradeExportAutoWriter[idx].OutputPath == outputPath && cacheNT8TradeExportAutoWriter[idx].AccountFilter == accountFilter && cacheNT8TradeExportAutoWriter[idx].UseRegistryAccountFilter == useRegistryAccountFilter && cacheNT8TradeExportAutoWriter[idx].UseEmbeddedAccountFilter == useEmbeddedAccountFilter && cacheNT8TradeExportAutoWriter[idx].RegistryPath == registryPath && cacheNT8TradeExportAutoWriter[idx].RefreshSeconds == refreshSeconds && cacheNT8TradeExportAutoWriter[idx].EqualsInput(input))
 						return cacheNT8TradeExportAutoWriter[idx];
-			return CacheIndicator<NT8TradeExportAutoWriter>(new NT8TradeExportAutoWriter(){ OutputPath = outputPath, AccountFilter = accountFilter, UseRegistryAccountFilter = useRegistryAccountFilter, RegistryPath = registryPath, RefreshSeconds = refreshSeconds }, input, ref cacheNT8TradeExportAutoWriter);
+			return CacheIndicator<NT8TradeExportAutoWriter>(new NT8TradeExportAutoWriter(){ ExportProfile = exportProfile, OutputPath = outputPath, AccountFilter = accountFilter, UseRegistryAccountFilter = useRegistryAccountFilter, UseEmbeddedAccountFilter = useEmbeddedAccountFilter, RegistryPath = registryPath, RefreshSeconds = refreshSeconds }, input, ref cacheNT8TradeExportAutoWriter);
 		}
 	}
 }
@@ -698,14 +735,14 @@ namespace NinjaTrader.NinjaScript.MarketAnalyzerColumns
 {
 	public partial class MarketAnalyzerColumn : MarketAnalyzerColumnBase
 	{
-		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
+		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(Indicators.NT8TradeExportProfile exportProfile, string outputPath, string accountFilter, bool useRegistryAccountFilter, bool useEmbeddedAccountFilter, string registryPath, int refreshSeconds)
 		{
-			return indicator.NT8TradeExportAutoWriter(Input, outputPath, accountFilter, useRegistryAccountFilter, registryPath, refreshSeconds);
+			return indicator.NT8TradeExportAutoWriter(Input, exportProfile, outputPath, accountFilter, useRegistryAccountFilter, useEmbeddedAccountFilter, registryPath, refreshSeconds);
 		}
 
-		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input , string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
+		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input , Indicators.NT8TradeExportProfile exportProfile, string outputPath, string accountFilter, bool useRegistryAccountFilter, bool useEmbeddedAccountFilter, string registryPath, int refreshSeconds)
 		{
-			return indicator.NT8TradeExportAutoWriter(input, outputPath, accountFilter, useRegistryAccountFilter, registryPath, refreshSeconds);
+			return indicator.NT8TradeExportAutoWriter(input, exportProfile, outputPath, accountFilter, useRegistryAccountFilter, useEmbeddedAccountFilter, registryPath, refreshSeconds);
 		}
 	}
 }
@@ -714,14 +751,14 @@ namespace NinjaTrader.NinjaScript.Strategies
 {
 	public partial class Strategy : NinjaTrader.Gui.NinjaScript.StrategyRenderBase
 	{
-		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
+		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(Indicators.NT8TradeExportProfile exportProfile, string outputPath, string accountFilter, bool useRegistryAccountFilter, bool useEmbeddedAccountFilter, string registryPath, int refreshSeconds)
 		{
-			return indicator.NT8TradeExportAutoWriter(Input, outputPath, accountFilter, useRegistryAccountFilter, registryPath, refreshSeconds);
+			return indicator.NT8TradeExportAutoWriter(Input, exportProfile, outputPath, accountFilter, useRegistryAccountFilter, useEmbeddedAccountFilter, registryPath, refreshSeconds);
 		}
 
-		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input , string outputPath, string accountFilter, bool useRegistryAccountFilter, string registryPath, int refreshSeconds)
+		public Indicators.NT8TradeExportAutoWriter NT8TradeExportAutoWriter(ISeries<double> input , Indicators.NT8TradeExportProfile exportProfile, string outputPath, string accountFilter, bool useRegistryAccountFilter, bool useEmbeddedAccountFilter, string registryPath, int refreshSeconds)
 		{
-			return indicator.NT8TradeExportAutoWriter(input, outputPath, accountFilter, useRegistryAccountFilter, registryPath, refreshSeconds);
+			return indicator.NT8TradeExportAutoWriter(input, exportProfile, outputPath, accountFilter, useRegistryAccountFilter, useEmbeddedAccountFilter, registryPath, refreshSeconds);
 		}
 	}
 }

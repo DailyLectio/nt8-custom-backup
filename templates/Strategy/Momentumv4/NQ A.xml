@@ -789,7 +789,7 @@
       <TradingHoursSerializable />
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
-      <EnableTrinityFilter>false</EnableTrinityFilter>
+      <EnableTrinityFilter>true</EnableTrinityFilter>
       <DebugEntryFilters>false</DebugEntryFilters>
       <LongsOnly>true</LongsOnly>
       <EnableHMMTrendDownBlock>true</EnableHMMTrendDownBlock>

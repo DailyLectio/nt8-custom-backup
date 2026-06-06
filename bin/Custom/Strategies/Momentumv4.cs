@@ -3,6 +3,8 @@
 using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
+using System.IO;
 using NinjaTrader.Cbi;
 using NinjaTrader.Core.FloatingPoint;
 using NinjaTrader.Gui.Tools;
@@ -22,6 +24,35 @@ namespace NinjaTrader.NinjaScript.Strategies
         [NinjaScriptProperty]
         [Display(Name="Debug entry filters", Description="Print candidate entry blocks, including Trinity gate state.", GroupName="Trinity Command Center", Order=1)]
         public bool DebugEntryFilters { get; set; } = false;
+
+        // ===== Trade Export / Taxonomy =====
+        [NinjaScriptProperty]
+        [Display(Name="Enable Trade Export", Description="Writes one CSV row per closed trade using the V4 taxonomy fields below.", GroupName="Trade Export", Order=0)]
+        public bool EnableTradeExport { get; set; } = true;
+
+        [NinjaScriptProperty]
+        [Display(Name="Account Name Filter", Description="Exact account name or ; separated allow-list. Blank allows all accounts.", GroupName="Trade Export", Order=1)]
+        public string AccountNameFilter { get; set; } = "OP-V4-NQ-Momo-1A;OP-V4-NQ-Momo-1B";
+
+        [NinjaScriptProperty]
+        [Display(Name="Trade Log Folder", Description="Folder where Momentum V4 trade export CSVs are written.", GroupName="Trade Export", Order=2)]
+        public string TradeLogFolder { get; set; } = @"C:\Users\Valued Customer\NT8_Regimes\V4\TradeLog";
+
+        [NinjaScriptProperty]
+        [Display(Name="Model Version", GroupName="Trade Export", Order=3)]
+        public string ModelVersion { get; set; } = "V4";
+
+        [NinjaScriptProperty]
+        [Display(Name="Strategy Taxonomy Name", Description="Reporting label. Actual NT8 class remains Momentumv4.", GroupName="Trade Export", Order=4)]
+        public string StrategyTaxonomyName { get; set; } = "MomentumV4";
+
+        [NinjaScriptProperty]
+        [Display(Name="Mode / Variant", Description="A/B/C taxonomy label used by reporting.", GroupName="Trade Export", Order=5)]
+        public string ModeVariant { get; set; } = "A";
+
+        [NinjaScriptProperty]
+        [Display(Name="Template / Notes", GroupName="Trade Export", Order=6)]
+        public string TemplateNotes { get; set; } = "Momentum AM & PM time blocks Mode A";
 
         [NinjaScriptProperty]
         [Display(Name="Longs Only", GroupName="V4 Research Gates", Order=0)]
@@ -482,6 +513,16 @@ namespace NinjaTrader.NinjaScript.Strategies
 
         private double trailingStopLong = double.NaN;
         private double trailingStopShort = double.NaN;
+
+        private bool exportEntryOpen = false;
+        private DateTime exportEntryTime = DateTime.MinValue;
+        private double exportEntryPrice = 0.0;
+        private int exportEntryQty = 0;
+        private string exportDirection = "";
+        private string exportEntrySignal = "";
+        private string exportEntryHMM = "";
+        private string exportEntryRegime = "";
+        private double exportEntryConfidence = 0.0;
 
         private double RT(double p) => Instrument.MasterInstrument.RoundToTickSize(p);
 
@@ -1036,6 +1077,182 @@ namespace NinjaTrader.NinjaScript.Strategies
                         break;
                 }
             }
+        }
+
+        protected override void OnExecutionUpdate(Execution execution, string executionId,
+            double price, int quantity, MarketPosition marketPosition, string orderId,
+            DateTime time)
+        {
+            TrackTradeExport(execution, price, quantity, marketPosition, time);
+        }
+
+        private void TrackTradeExport(Execution execution, double price, int quantity, MarketPosition marketPosition, DateTime time)
+        {
+            if (!EnableTradeExport || execution == null || execution.Order == null || quantity <= 0)
+                return;
+
+            string accountName = execution.Account != null ? execution.Account.Name : (Account == null ? "" : Account.Name);
+            if (!IsExportAccountAllowed(accountName))
+                return;
+
+            Order order = execution.Order;
+            bool isEntry = order.OrderAction == OrderAction.Buy || order.OrderAction == OrderAction.SellShort;
+            bool isExit = order.OrderAction == OrderAction.Sell || order.OrderAction == OrderAction.BuyToCover;
+
+            if (isEntry)
+            {
+                string direction = order.OrderAction == OrderAction.Buy ? "LONG" : "SHORT";
+                if (!exportEntryOpen || exportDirection != direction)
+                {
+                    exportEntryOpen = true;
+                    exportEntryTime = time;
+                    exportEntryPrice = price;
+                    exportEntryQty = quantity;
+                    exportDirection = direction;
+                    exportEntrySignal = order.Name ?? "";
+
+                    Indicators.RegimeMatrixHUD_V3D hud;
+                    string baseSymbol;
+                    bool hasHud = TryGetTrinityState(out baseSymbol, out hud);
+                    exportEntryHMM = hasHud ? GetHudString(hud, "HMMRegime") : "NO_HUD";
+                    if (string.IsNullOrEmpty(exportEntryHMM) && hasHud)
+                        exportEntryHMM = GetHudString(hud, "HMMMicro");
+                    exportEntryRegime = hasHud ? hud.FinalRegime : "NO_HUD";
+                    exportEntryConfidence = hasHud ? GetHudConfidence(hud) : 0.0;
+                }
+                else
+                {
+                    double notional = exportEntryPrice * exportEntryQty + price * quantity;
+                    exportEntryQty += quantity;
+                    exportEntryPrice = notional / Math.Max(1, exportEntryQty);
+                }
+                return;
+            }
+
+            if (!isExit || !exportEntryOpen)
+                return;
+
+            if (marketPosition != MarketPosition.Flat && Position.MarketPosition != MarketPosition.Flat)
+                return;
+
+            WriteTradeExportRow(accountName, price, time, order.Name ?? "UNKNOWN");
+            exportEntryOpen = false;
+            exportEntryTime = DateTime.MinValue;
+            exportEntryPrice = 0.0;
+            exportEntryQty = 0;
+            exportDirection = "";
+            exportEntrySignal = "";
+            exportEntryHMM = "";
+            exportEntryRegime = "";
+            exportEntryConfidence = 0.0;
+        }
+
+        private void WriteTradeExportRow(string accountName, double exitPrice, DateTime exitTime, string exitReason)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(TradeLogFolder))
+                    return;
+
+                if (!Directory.Exists(TradeLogFolder))
+                    Directory.CreateDirectory(TradeLogFolder);
+
+                string path = Path.Combine(TradeLogFolder, SafeFileName(accountName) + "_TradeLog.csv");
+                bool writeHeader = !File.Exists(path) || new FileInfo(path).Length == 0;
+
+                string symbol = ResolveTrinitySymbol(Instrument.MasterInstrument.Name);
+                double sign = exportDirection == "LONG" ? 1.0 : -1.0;
+                double grossPnl = sign * (exitPrice - exportEntryPrice) * Math.Max(1, exportEntryQty) * Instrument.MasterInstrument.PointValue;
+                double netPnl = grossPnl;
+                double ticks = sign * (exitPrice - exportEntryPrice) / TickSize;
+                string winLoss = netPnl > 0.0 ? "WIN" : (netPnl < 0.0 ? "LOSS" : "SCRATCH");
+
+                Indicators.RegimeMatrixHUD_V3D hud;
+                string baseSymbol;
+                bool hasHud = TryGetTrinityState(out baseSymbol, out hud);
+                string exitHMM = hasHud ? GetHudString(hud, "HMMRegime") : "NO_HUD";
+                if (string.IsNullOrEmpty(exitHMM) && hasHud)
+                    exitHMM = GetHudString(hud, "HMMMicro");
+                string exitRegime = hasHud ? hud.FinalRegime : "NO_HUD";
+                double exitConfidence = hasHud ? GetHudConfidence(hud) : 0.0;
+
+                if (writeHeader)
+                {
+                    File.WriteAllText(path,
+                        "trade_date,entry_time,exit_time,model_version,account,strategy_name,bot_name,ab_mode,symbol,instrument,direction,contracts,entry_price,exit_price,gross_pnl,net_pnl,ticks,win_loss,exit_reason,entry_signal,entry_hmm,entry_regime,entry_confidence,exit_hmm,exit_regime,exit_confidence,template_notes,export_timestamp" + Environment.NewLine);
+                }
+
+                string[] fields = new string[]
+                {
+                    exportEntryTime.ToString("yyyy-MM-dd"),
+                    exportEntryTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    exitTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    ModelVersion,
+                    accountName,
+                    StrategyTaxonomyName,
+                    Name ?? "Momentumv4",
+                    ModeVariant,
+                    symbol,
+                    Instrument.FullName,
+                    exportDirection,
+                    exportEntryQty.ToString(CultureInfo.InvariantCulture),
+                    exportEntryPrice.ToString("F4", CultureInfo.InvariantCulture),
+                    exitPrice.ToString("F4", CultureInfo.InvariantCulture),
+                    grossPnl.ToString("F2", CultureInfo.InvariantCulture),
+                    netPnl.ToString("F2", CultureInfo.InvariantCulture),
+                    ticks.ToString("F1", CultureInfo.InvariantCulture),
+                    winLoss,
+                    exitReason,
+                    exportEntrySignal,
+                    exportEntryHMM,
+                    exportEntryRegime,
+                    exportEntryConfidence.ToString("F0", CultureInfo.InvariantCulture),
+                    exitHMM,
+                    exitRegime,
+                    exitConfidence.ToString("F0", CultureInfo.InvariantCulture),
+                    TemplateNotes,
+                    DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
+                };
+
+                File.AppendAllText(path, string.Join(",", Array.ConvertAll(fields, SafeCsv)) + Environment.NewLine);
+            }
+            catch (Exception ex)
+            {
+                Print("[Momentumv4 TradeExport] Write error: " + ex.Message);
+            }
+        }
+
+        private bool IsExportAccountAllowed(string accountName)
+        {
+            if (string.IsNullOrWhiteSpace(AccountNameFilter))
+                return true;
+
+            foreach (string raw in AccountNameFilter.Split(new char[] { ';', ',', '|' }, StringSplitOptions.RemoveEmptyEntries))
+            {
+                if (string.Equals(accountName, raw.Trim(), StringComparison.OrdinalIgnoreCase))
+                    return true;
+            }
+            return false;
+        }
+
+        private static string SafeFileName(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return "UNKNOWN";
+
+            foreach (char c in Path.GetInvalidFileNameChars())
+                value = value.Replace(c, '_');
+
+            return value.Replace(" ", "_");
+        }
+
+        private static string SafeCsv(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return "";
+            if (value.Contains(",") || value.Contains("\"") || value.Contains("\n") || value.Contains("\r"))
+                return "\"" + value.Replace("\"", "\"\"") + "\"";
+            return value;
         }
     }
 }

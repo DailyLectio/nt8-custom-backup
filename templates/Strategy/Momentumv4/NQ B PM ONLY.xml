@@ -57,6 +57,15 @@
         <Increment>1</Increment>
         <Max xsi:type="xsd:boolean">true</Max>
         <Min xsi:type="xsd:boolean">true</Min>
+        <Name>EnableTradeExport</Name>
+        <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
+        <ValueSerializable>True</ValueSerializable>
+      </Parameter>
+      <Parameter>
+        <EnumValuesSerializable />
+        <Increment>1</Increment>
+        <Max xsi:type="xsd:boolean">true</Max>
+        <Min xsi:type="xsd:boolean">true</Min>
         <Name>LongsOnly</Name>
         <ParameterTypeSerializable>System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
         <ValueSerializable>True</ValueSerializable>
@@ -114,7 +123,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>Preset</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentumv4+ChartPreset, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentumv4+ChartPreset, 3a1d1ce0fbb04a90937af20f8613f613, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Candle_1m</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -134,7 +143,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SideAnchor</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentumv4+AnchorMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentumv4+AnchorMode, 3a1d1ce0fbb04a90937af20f8613f613, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>None</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -280,7 +289,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>SlopeExit</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentumv4+ExitSlopeMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentumv4+ExitSlopeMode, 3a1d1ce0fbb04a90937af20f8613f613, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>Simple</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -408,7 +417,7 @@
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>StopModeSelection</Name>
-        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentumv4+StopMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
+        <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.Momentumv4+StopMode, 3a1d1ce0fbb04a90937af20f8613f613, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
         <ValueSerializable>AtrStatic</ValueSerializable>
       </Parameter>
       <Parameter>
@@ -791,6 +800,13 @@
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>false</EnableTrinityFilter>
       <DebugEntryFilters>false</DebugEntryFilters>
+      <EnableTradeExport>true</EnableTradeExport>
+      <AccountNameFilter>OP-V4-NQ-Momo-1A;OP-V4-NQ-Momo-1B</AccountNameFilter>
+      <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V4\TradeLog</TradeLogFolder>
+      <ModelVersion>V4</ModelVersion>
+      <StrategyTaxonomyName>MomentumV4</StrategyTaxonomyName>
+      <ModeVariant>A</ModeVariant>
+      <TemplateNotes>Momentum AM &amp; PM time blocks Mode A</TemplateNotes>
       <LongsOnly>true</LongsOnly>
       <EnableHMMTrendDownBlock>true</EnableHMMTrendDownBlock>
       <HMMBlockedStates>TrendDown</HMMBlockedStates>
@@ -808,7 +824,7 @@
       <AdxPeriod>14</AdxPeriod>
       <UseDiCrossEntry>true</UseDiCrossEntry>
       <UseAdxEntryThreshold>true</UseAdxEntryThreshold>
-      <AdxEntryThreshold>20</AdxEntryThreshold>
+      <AdxEntryThreshold>18</AdxEntryThreshold>
       <UseCiEntryThreshold>false</UseCiEntryThreshold>
       <CiEntryThreshold>60</CiEntryThreshold>
       <UseSlopeGateOnEntry>false</UseSlopeGateOnEntry>

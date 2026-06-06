@@ -362,7 +362,7 @@
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>true</EnableTrinityFilter>
       <DebugV3CGate>false</DebugV3CGate>
-      <AccountNameFilter />
+      <AccountNameFilter>OP-4A-NQ-EXP-1A</AccountNameFilter>
       <TradeLogFolder />
       <LongsOnly>true</LongsOnly>
       <EnableHMMTrendDownBlock>true</EnableHMMTrendDownBlock>
