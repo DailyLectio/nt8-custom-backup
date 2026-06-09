@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StrategyTemplate>
   <StrategyType>NinjaTrader.NinjaScript.Strategies.Expansion</StrategyType>
   <OptimizerType>NinjaTrader.NinjaScript.Optimizers.DefaultOptimizer</OptimizerType>
@@ -362,7 +362,7 @@
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>true</EnableTrinityFilter>
       <DebugV3CGate>false</DebugV3CGate>
-      <AccountNameFilter>OP-4A-ES-EXP-1B</AccountNameFilter>
+      <AccountNameFilter>SimOP-V4A-ES-EXP-1B</AccountNameFilter>
       <TradeLogFolder />
       <LongsOnly>true</LongsOnly>
       <EnableHMMTrendDownBlock>true</EnableHMMTrendDownBlock>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StrategyTemplate>
   <StrategyType>NinjaTrader.NinjaScript.Strategies.Expansion</StrategyType>
   <OptimizerType>NinjaTrader.NinjaScript.Optimizers.DefaultOptimizer</OptimizerType>
@@ -243,14 +243,14 @@
       </Parameter>
       <Parameter>
         <EnumValuesSerializable>
-          <string>FlattenBoth</string>
+          <string>Leg2Close_Leg1Runs_Protected</string>
         </EnumValuesSerializable>
         <Increment>1</Increment>
         <Max xsi:type="xsd:int">0</Max>
         <Min xsi:type="xsd:int">0</Min>
         <Name>WobbleHandler</Name>
         <ParameterTypeSerializable>NinjaTrader.NinjaScript.Strategies.ExpansionWobbleMode, NinjaTrader.Custom, Version=8.1.6.0, Culture=neutral, PublicKeyToken=null</ParameterTypeSerializable>
-        <ValueSerializable>FlattenBoth</ValueSerializable>
+        <ValueSerializable>Leg2Close_Leg1Runs_Protected</ValueSerializable>
       </Parameter>
       <Parameter>
         <EnumValuesSerializable />
@@ -273,11 +273,11 @@
       <Parameter>
         <EnumValuesSerializable />
         <Increment>1</Increment>
-        <Max xsi:type="xsd:int">5</Max>
-        <Min xsi:type="xsd:int">5</Min>
+        <Max xsi:type="xsd:int">3</Max>
+        <Min xsi:type="xsd:int">3</Min>
         <Name>CooldownMinutes</Name>
         <ParameterTypeSerializable>System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</ParameterTypeSerializable>
-        <ValueSerializable>5</ValueSerializable>
+        <ValueSerializable>3</ValueSerializable>
       </Parameter>
     </ArrayOfParameter>
   </OptimizationParameters>
@@ -302,16 +302,16 @@
       <Calculate>OnBarClose</Calculate>
       <Displacement>0</Displacement>
       <DisplayInDataBox>true</DisplayInDataBox>
-      <From>2026-06-02T00:00:00</From>
+      <From>2026-06-04T00:00:00</From>
       <IsAutoScale>true</IsAutoScale>
       <Lines />
-      <MaximumBarsLookBack>TwoHundredFiftySix</MaximumBarsLookBack>
-      <Name>Expansion NQ 1A</Name>
+      <MaximumBarsLookBack>Infinite</MaximumBarsLookBack>
+      <Name>Expansion NQ 4A-1C</Name>
       <Panel>-1</Panel>
       <Plots />
       <ScaleJustification>Right</ScaleJustification>
       <ShowTransparentPlotsInDataBox>false</ShowTransparentPlotsInDataBox>
-      <To>2026-06-07T00:00:00</To>
+      <To>2026-06-09T00:00:00</To>
       <IsDataSeriesRequired>true</IsDataSeriesRequired>
       <IsOverlay>true</IsOverlay>
       <SelectedValueSeries>0</SelectedValueSeries>
@@ -360,9 +360,9 @@
       <TradingHoursSerializable />
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
-      <EnableTrinityFilter>true</EnableTrinityFilter>
+      <EnableTrinityFilter>false</EnableTrinityFilter>
       <DebugV3CGate>false</DebugV3CGate>
-      <AccountNameFilter>OP-4A-NQ-EXP-1A</AccountNameFilter>
+      <AccountNameFilter>SimOP-V4A-NQ-EXP-1C</AccountNameFilter>
       <TradeLogFolder />
       <LongsOnly>true</LongsOnly>
       <EnableHMMTrendDownBlock>true</EnableHMMTrendDownBlock>
@@ -385,10 +385,10 @@
       <DailyLossCircuit>2650</DailyLossCircuit>
       <MaxSameDirTrades>2</MaxSameDirTrades>
       <MaxConsecutiveLossesIntraday>4</MaxConsecutiveLossesIntraday>
-      <WobbleHandler>FlattenBoth</WobbleHandler>
+      <WobbleHandler>Leg2Close_Leg1Runs_Protected</WobbleHandler>
       <AutoFlattenIfUnprotected>true</AutoFlattenIfUnprotected>
       <EnableEntryCooldown>true</EnableEntryCooldown>
-      <CooldownMinutes>5</CooldownMinutes>
+      <CooldownMinutes>3</CooldownMinutes>
     </Expansion>
   </Strategy>
 </StrategyTemplate>

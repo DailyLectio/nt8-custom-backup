@@ -789,8 +789,10 @@
       <TradingHoursSerializable />
       <DrawOnPricePanel>false</DrawOnPricePanel>
       <ZOrder>-2147483648</ZOrder>
-      <EnableTrinityFilter>true</EnableTrinityFilter>
+      <EnableTrinityFilter>false</EnableTrinityFilter>
       <DebugEntryFilters>false</DebugEntryFilters>
+      <AccountNameFilter>SimOP-V4-NQ-Momo-1A</AccountNameFilter>
+      <StrategyTaxonomyName>MomentumV4</StrategyTaxonomyName>
       <LongsOnly>true</LongsOnly>
       <EnableHMMTrendDownBlock>true</EnableHMMTrendDownBlock>
       <HMMBlockedStates>TrendDown</HMMBlockedStates>

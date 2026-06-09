@@ -801,7 +801,7 @@
       <EnableTrinityFilter>false</EnableTrinityFilter>
       <DebugEntryFilters>false</DebugEntryFilters>
       <EnableTradeExport>true</EnableTradeExport>
-      <AccountNameFilter>OP-V4-NQ-Momo-1A;OP-V4-NQ-Momo-1B</AccountNameFilter>
+      <AccountNameFilter>SimOP-V4-NQ-Momo-1B</AccountNameFilter>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\V4\TradeLog</TradeLogFolder>
       <ModelVersion>V4</ModelVersion>
       <StrategyTaxonomyName>MomentumV4</StrategyTaxonomyName>
