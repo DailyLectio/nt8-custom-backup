@@ -114,8 +114,8 @@ namespace NinjaTrader.NinjaScript.Indicators
                 Variant = "001";
                 OperatorOverride = false;
                 OperatorDecision = "WATCH";
-                NqMatrixPath = @"C:\Users\Valued Customer\NT8_Regimes\V3D\NQ_RegimeMatrix_Latest.csv";
-                EsMatrixPath = @"C:\Users\Valued Customer\NT8_Regimes\V3D\ES_RegimeMatrix_Latest.csv";
+                NqMatrixPath = @"C:\Users\Valued Customer\NT8_Regimes\V3D\History\NQ_RegimeMatrix_History.csv";
+                EsMatrixPath = @"C:\Users\Valued Customer\NT8_Regimes\V3D\History\ES_RegimeMatrix_History.csv";
                 DecisionLogPath = @"C:\Users\Valued Customer\NT8_Regimes\5A\Logs\GateDecisions\gate_decisions_{date}.csv";
                 RefreshSeconds = 15;
                 FreshnessMinutes = 7;
@@ -230,13 +230,26 @@ namespace NinjaTrader.NinjaScript.Indicators
             string p = profile.ToUpperInvariant();
 
             if (p.Contains("V3D_EXP"))
-                return isLong && InWindow(t, "12:00", "15:59") && (variant == "002" || ctx.AllowExpansion);
+            {
+                if (variant == "002")
+                    return (InWindow(t, "12:00", "13:29") || InWindow(t, "14:00", "15:59"))
+                        && !IsBlockedRegime(ctx, "TREND_EMERGING");
+                return isLong && InWindow(t, "12:30", "15:59") && ctx.AllowExpansion && !IsBlockedRegime(ctx, "TREND_EMERGING");
+            }
             if (p.Contains("V3C_ADX"))
                 return isLong && InWindow(t, "09:30", "12:00") && (variant == "002" || ctx.AllowAdxDi);
             if (p.Contains("1OG_MOMO"))
-                return InWindow(t, variant == "002" ? "11:30" : "12:30", "15:59") && !IsBlockedRegime(ctx, "TRANSITION", "ROTATION_LIQUID");
+                return InWindow(t, variant == "002" ? "11:30" : "12:30", "15:29")
+                    && !IsBlockedRegime(ctx, "TRANSITION", "ROTATION_LIQUID")
+                    && !(variant == "001" && !IsBlockedRegime(ctx, "TREND_COMPRESSION", "TREND_EXPANSION"));
             if (p.Contains("V3C_EXP"))
-                return InWindow(t, "12:00", "15:59") && !InWindow(t, "10:00", "11:59");
+            {
+                if (variant == "002")
+                    return InWindow(t, "09:30", "09:59")
+                        || InWindow(t, "12:00", "13:29")
+                        || InWindow(t, "15:00", "15:29");
+                return InWindow(t, "12:00", "14:59");
+            }
 
             return false;
         }
@@ -249,13 +262,25 @@ namespace NinjaTrader.NinjaScript.Indicators
             string p = profile.ToUpperInvariant();
 
             if (p.Contains("V3D_EXP"))
-                return !InWindow(t, "10:00", "11:59") && ctx.State != "OPEN_PRE_HMM" && !IsBlockedRegime(ctx, "TREND_EMERGING") && !(ctx.AllowExpansion && !isLong);
+                return !InWindow(t, "10:00", "11:59")
+                    && !InWindow(t, "13:00", "13:29")
+                    && ctx.State != "OPEN_PRE_HMM"
+                    && !IsBlockedRegime(ctx, "TREND_EMERGING", "ROTATION_ILLIQUID");
             if (p.Contains("V3C_ADX"))
-                return isLong && !InWindow(t, "12:00", "14:59") && !IsBlockedRegime(ctx, "ROTATION_LIQUID");
+                return isLong
+                    && !InWindow(t, "10:30", "10:59")
+                    && !InWindow(t, "12:00", "13:59")
+                    && !InWindow(t, "16:00", "23:59")
+                    && !IsBlockedRegime(ctx, "ROTATION_LIQUID");
             if (p.Contains("1OG_MOMO"))
-                return !InWindow(t, "09:30", "10:29") && !IsBlockedRegime(ctx, "TRANSITION", "ROTATION_LIQUID");
+                return !InWindow(t, "09:30", "11:29")
+                    && !InWindow(t, "15:30", "16:30")
+                    && !IsBlockedRegime(ctx, "TRANSITION", "ROTATION_LIQUID");
             if (p.Contains("V3C_EXP"))
-                return !InWindow(t, "10:00", "11:59") && !IsBlockedRegime(ctx, "BALANCE", "ROTATION_LIQUID_CHOP");
+                return !InWindow(t, "10:00", "11:59")
+                    && !InWindow(t, "14:30", "14:59")
+                    && !IsBlockedRegime(ctx, "TREND_EMERGING")
+                    && !(IsBlockedRegime(ctx, "TRENDDOWN") && isLong);
 
             return true;
         }

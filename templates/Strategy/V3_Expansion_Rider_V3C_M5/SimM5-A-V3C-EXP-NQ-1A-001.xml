@@ -268,10 +268,10 @@
       <WaitBricks>3</WaitBricks>
       <Leg2ProfitGatePct>0.5</Leg2ProfitGatePct>
       <EnableTimeBlocks>true</EnableTimeBlocks>
-      <Block1Start>1200</Block1Start>
-      <Block1End>1459</Block1End>
-      <Block2Start>0</Block2Start>
-      <Block2End>0</Block2End>
+      <Block1Start>930</Block1Start>
+      <Block1End>1159</Block1End>
+      <Block2Start>1500</Block2Start>
+      <Block2End>2359</Block2End>
       <Block3Start>0</Block3Start>
       <Block3End>0</Block3End>
       <EnableEntryCooldown>false</EnableEntryCooldown>
