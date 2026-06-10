@@ -6,12 +6,12 @@
     <ArrayOfParameterWrapper xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <ParameterWrapper>
         <DisplayName>IsStrategyGenerator</DisplayName>
-        <Name>V3C-ADX NQ 5A M5C baseline</Name>
+        <Name>V3C-ADX NQ 5A M5B blocklist</Name>
         <Value xsi:type="xsd:boolean">false</Value>
       </ParameterWrapper>
       <ParameterWrapper>
         <DisplayName>Keep best # results</DisplayName>
-        <Name>V3C-ADX NQ 5A M5C baseline</Name>
+        <Name>V3C-ADX NQ 5A M5B blocklist</Name>
         <Value xsi:type="xsd:int">10</Value>
       </ParameterWrapper>
       <ParameterWrapper>
@@ -556,7 +556,7 @@
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>false</EnableTrinityFilter>
       <SelectedHudLane>BracketSniper</SelectedHudLane>
-      <AccountNameFilter>SimM5-C-V3C-ADX-NQ-5A-001</AccountNameFilter>
+      <AccountNameFilter>SimM5-B-V3C-ADX-NQ-5A-001</AccountNameFilter>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\5A\TradeLog\V3C</TradeLogFolder>
       <Contracts>1</Contracts>
       <UseStopX>true</UseStopX>
@@ -565,7 +565,7 @@
       <LevelRange>20</LevelRange>
       <AtrPeriod>14</AtrPeriod>
       <AtrMultiplier>0.9</AtrMultiplier>
-      <TradeDirection>LongAndShort</TradeDirection>
+      <TradeDirection>LongOnly</TradeDirection>
       <StopModeSelection>AtrStatic</StopModeSelection>
       <EnableEntryFilters>true</EnableEntryFilters>
       <RequireAdxRising>true</RequireAdxRising>
@@ -580,7 +580,7 @@
       <Step2ATR>1</Step2ATR>
       <BreakevenPlusTicks>5</BreakevenPlusTicks>
       <TrailAtrMult>1</TrailAtrMult>
-      <EnableTimeFilters>false</EnableTimeFilters>
+      <EnableTimeFilters>true</EnableTimeFilters>
       <ClockOffsetMinutes>0</ClockOffsetMinutes>
       <AllowLondon>false</AllowLondon>
       <LondonStartHHmm>300</LondonStartHHmm>
@@ -590,19 +590,19 @@
       <PremktEndHHmm>930</PremktEndHHmm>
       <AllowRthAm>true</AllowRthAm>
       <RthAmStartHHmm>935</RthAmStartHHmm>
-      <RthAmEndHHmm>1145</RthAmEndHHmm>
+      <RthAmEndHHmm>1159</RthAmEndHHmm>
       <AllowRthPm>true</AllowRthPm>
-      <RthPmStartHHmm>1225</RthPmStartHHmm>
-      <RthPmEndHHmm>1545</RthPmEndHHmm>
+      <RthPmStartHHmm>1400</RthPmStartHHmm>
+      <RthPmEndHHmm>1559</RthPmEndHHmm>
       <BlockOpen>false</BlockOpen>
       <OpenBlockStartHHmm>955</OpenBlockStartHHmm>
       <OpenBlockEndHHmm>1025</OpenBlockEndHHmm>
-      <BlockLunch>false</BlockLunch>
-      <LunchStartHHmm>1130</LunchStartHHmm>
-      <LunchEndHHmm>1250</LunchEndHHmm>
+      <BlockLunch>true</BlockLunch>
+      <LunchStartHHmm>1030</LunchStartHHmm>
+      <LunchEndHHmm>1059</LunchEndHHmm>
       <CustomBlk1On>false</CustomBlk1On>
-      <Blk1StartHHmm>958</Blk1StartHHmm>
-      <Blk1EndHHmm>1005</Blk1EndHHmm>
+      <Blk1StartHHmm>0</Blk1StartHHmm>
+      <Blk1EndHHmm>0</Blk1EndHHmm>
       <MaxSameDirTrades>0</MaxSameDirTrades>
     </ADX_DI_V3C>
   </Strategy>

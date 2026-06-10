@@ -6,12 +6,12 @@
     <ArrayOfParameterWrapper xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <ParameterWrapper>
         <DisplayName>IsStrategyGenerator</DisplayName>
-        <Name>V3C-EXP NQ 1A M5O operator</Name>
+        <Name>V3C-EXP NQ 1A M5C baseline</Name>
         <Value xsi:type="xsd:boolean">false</Value>
       </ParameterWrapper>
       <ParameterWrapper>
         <DisplayName>Keep best # results</DisplayName>
-        <Name>V3C-EXP NQ 1A M5O operator</Name>
+        <Name>V3C-EXP NQ 1A M5C baseline</Name>
         <Value xsi:type="xsd:int">10</Value>
       </ParameterWrapper>
       <ParameterWrapper>
@@ -261,7 +261,7 @@
       <ZOrder>-2147483648</ZOrder>
       <EnableTrinityFilter>false</EnableTrinityFilter>
       <DebugV3CGate>false</DebugV3CGate>
-      <AccountNameFilter>SimM5-O-V3C-EXP-NQ-1A-001</AccountNameFilter>
+      <AccountNameFilter>SimM5-C-V3C-EXP-NQ-1A-001</AccountNameFilter>
       <TradeLogFolder>C:\Users\Valued Customer\NT8_Regimes\5A\TradeLog\V3C</TradeLogFolder>
       <TotalContracts>2</TotalContracts>
       <InitialRiskAtr>1.5</InitialRiskAtr>

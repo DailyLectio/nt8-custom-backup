@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StrategyTemplate>
   <StrategyType>NinjaTrader.NinjaScript.Strategies.V3_Expansion_Rider_V3C</StrategyType>
   <OptimizerType>NinjaTrader.NinjaScript.Optimizers.DefaultOptimizer</OptimizerType>
@@ -6,12 +6,12 @@
     <ArrayOfParameterWrapper xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <ParameterWrapper>
         <DisplayName>IsStrategyGenerator</DisplayName>
-        <Name>IsStrategyGenerator</Name>
+        <Name>V3C-EXP NQ 1A M5B blocklist</Name>
         <Value xsi:type="xsd:boolean">false</Value>
       </ParameterWrapper>
       <ParameterWrapper>
         <DisplayName>Keep best # results</DisplayName>
-        <Name>KeepBestResults</Name>
+        <Name>V3C-EXP NQ 1A M5B blocklist</Name>
         <Value xsi:type="xsd:int">10</Value>
       </ParameterWrapper>
       <ParameterWrapper>
@@ -267,13 +267,13 @@
       <InitialRiskAtr>1.5</InitialRiskAtr>
       <WaitBricks>3</WaitBricks>
       <Leg2ProfitGatePct>0.5</Leg2ProfitGatePct>
-      <EnableTimeBlocks>false</EnableTimeBlocks>
-      <Block1Start>1200</Block1Start>
-      <Block1End>1545</Block1End>
-      <Block2Start>0</Block2Start>
-      <Block2End>0</Block2End>
-      <Block3Start>0</Block3Start>
-      <Block3End>0</Block3End>
+      <EnableTimeBlocks>true</EnableTimeBlocks>
+      <Block1Start>930</Block1Start>
+      <Block1End>959</Block1End>
+      <Block2Start>1200</Block2Start>
+      <Block2End>1429</Block2End>
+      <Block3Start>1500</Block3Start>
+      <Block3End>1559</Block3End>
       <EnableEntryCooldown>false</EnableEntryCooldown>
       <CooldownMinutes>3</CooldownMinutes>
       <MaxSameDirTrades>0</MaxSameDirTrades>

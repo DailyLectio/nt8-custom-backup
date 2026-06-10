@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <StrategyTemplate>
   <StrategyType>NinjaTrader.NinjaScript.Strategies.ADX_DI_V3C</StrategyType>
   <OptimizerType>NinjaTrader.NinjaScript.Optimizers.DefaultOptimizer</OptimizerType>
@@ -6,12 +6,12 @@
     <ArrayOfParameterWrapper xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
       <ParameterWrapper>
         <DisplayName>IsStrategyGenerator</DisplayName>
-        <Name>IsStrategyGenerator</Name>
+        <Name>V3C-ADX NQ 5A M5A v001 tight</Name>
         <Value xsi:type="xsd:boolean">false</Value>
       </ParameterWrapper>
       <ParameterWrapper>
         <DisplayName>Keep best # results</DisplayName>
-        <Name>KeepBestResults</Name>
+        <Name>V3C-ADX NQ 5A M5A v001 tight</Name>
         <Value xsi:type="xsd:int">10</Value>
       </ParameterWrapper>
       <ParameterWrapper>
@@ -590,7 +590,7 @@
       <PremktEndHHmm>930</PremktEndHHmm>
       <AllowRthAm>true</AllowRthAm>
       <RthAmStartHHmm>935</RthAmStartHHmm>
-      <RthAmEndHHmm>1145</RthAmEndHHmm>
+      <RthAmEndHHmm>1159</RthAmEndHHmm>
       <AllowRthPm>false</AllowRthPm>
       <RthPmStartHHmm>1225</RthPmStartHHmm>
       <RthPmEndHHmm>1545</RthPmEndHHmm>
@@ -600,9 +600,9 @@
       <BlockLunch>false</BlockLunch>
       <LunchStartHHmm>1130</LunchStartHHmm>
       <LunchEndHHmm>1250</LunchEndHHmm>
-      <CustomBlk1On>true</CustomBlk1On>
-      <Blk1StartHHmm>958</Blk1StartHHmm>
-      <Blk1EndHHmm>1005</Blk1EndHHmm>
+      <CustomBlk1On>false</CustomBlk1On>
+      <Blk1StartHHmm>0</Blk1StartHHmm>
+      <Blk1EndHHmm>0</Blk1EndHHmm>
       <MaxSameDirTrades>0</MaxSameDirTrades>
     </ADX_DI_V3C>
   </Strategy>
