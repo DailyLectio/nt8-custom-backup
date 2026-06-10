@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Xml.Serialization;
 using System.Windows.Media;
+using NinjaTrader.Gui.Tools;
 using NinjaTrader.NinjaScript;
 using NinjaTrader.NinjaScript.DrawingTools;
 #endregion
@@ -195,13 +196,20 @@ namespace NinjaTrader.NinjaScript.Indicators
             FinalDirection = ctx.FinalDirection;
             HmmState = ctx.HmmState;
 
+            Brush textBrush = rec == "ON" ? Brushes.LimeGreen : (rec == "OFF" ? Brushes.OrangeRed : Brushes.Gold);
+            Brush backBrush = rec == "ON" ? Brushes.DarkGreen : (rec == "OFF" ? Brushes.Maroon : Brushes.DarkGoldenrod);
             Draw.TextFixed(this, "GateLiteM5Status",
-                "M5 " + mode + " " + rec + "\n" +
+                "GATELITE M5  " + mode + "  " + rec + "\n" +
                 "Acct: " + Clean(AccountName) + "\n" +
                 "Regime: " + Safe(ctx.FinalRegime, ctx.State) + " / " + Safe(ctx.HmmState, "-") + "\n" +
                 "Long: " + (allowLong ? "Y" : "N") + "  Short: " + (allowShort ? "Y" : "N") + "\n" +
                 reason,
-                TextPosition.TopLeft);
+                TextPosition.BottomLeft,
+                textBrush,
+                new SimpleFont("Consolas", 13),
+                Brushes.Black,
+                backBrush,
+                70);
 
             string stamp = Time[0].ToString("yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture) + "|" + mode + "|" + rec + "|" + ctx.State;
             if (stamp != lastLogStamp)
