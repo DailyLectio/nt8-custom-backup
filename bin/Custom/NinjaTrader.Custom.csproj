@@ -622,6 +622,7 @@
     <Compile Include="Strategies\Momentum.cs" />
     <Compile Include="Strategies\Expansionv4.cs" />
     <Compile Include="Strategies\Momentumv4.cs" />
+    <Compile Include="Indicators\GateLiteM5.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resource.resx">

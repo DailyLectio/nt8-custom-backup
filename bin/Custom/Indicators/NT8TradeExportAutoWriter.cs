@@ -17,7 +17,8 @@ namespace NinjaTrader.NinjaScript.Indicators
     public enum NT8TradeExportProfile
     {
         RegimeModel,
-        Leaderboard
+        Leaderboard,
+        Model5A
     }
 
     public class NT8TradeExportAutoWriter : Indicator
@@ -32,6 +33,8 @@ namespace NinjaTrader.NinjaScript.Indicators
         private const string RegimeModelRegistryPath = @"C:\Users\Valued Customer\NT8_Regimes\accounts_registry.json";
         private const string LeaderboardOutputPath = @"C:\Users\Valued Customer\NT8_Regimes\Leaderboard\Exports\DayTrades\leaderboard_trades_{date}.csv";
         private const string LeaderboardRegistryPath = @"C:\Users\Valued Customer\NT8_Regimes\Leaderboard\Config\leaderboard_accounts_registry.json";
+        private const string Model5AOutputPath = @"C:\Users\Valued Customer\NT8_Regimes\5A\Exports\DayTrades\5A_trades_{date}.csv";
+        private const string Model5ARegistryPath = @"C:\Users\Valued Customer\NT8_Regimes\5A\Config\model5_accounts_registry.json";
         private const string EmbeddedAccountFilter =
             "Sim1OG-ES-ADX-1A;Sim1OG-ES-ADX-1B;Sim1OG-ES-Momo-1A;Sim1OG-ES-Momo-1B;Sim1OG-ES-Pine-1A;Sim1OG-ES-Pine-1B;Sim1OG-NQ-ADX-1A;Sim1OG-NQ-ADX-1B;Sim1OG-NQ-Momo-1A;Sim1OG-NQ-Momo-1B;Sim1OG-NQ-Pine-1A;Sim1OG-NQ-Pine-1B;SimMomoOG-ES-1A;SimMomoOG-ES-1B;SimMomoOG-NQ-1A;SimMomoOG-NQ-1B;SimV1A-ES-1A;SimV1A-ES-2A;SimV1A-ES-3A;SimV1A-NQ-1A;SimV1A-NQ-2A;SimV1A-NQ-3A;SimV1A-NQ-CompMomo-1A;SimV1A-NQ-CompMomo-1A1C;SimV1A-NQ-CompMomo-1B;SimV1A-NQ-KalmanFader-1A;SimV1A-NQ-KalmanFader-1B;SimV1A-NQ-KalmanFader-1C;SimV1A-NQ-VolFader-1A;SimV1A-NQ-VolFader-1B;SimV1A-NQ-VolFader-1C;SimV3C-ES-1A;SimV3C-ES-2A;SimV3C-ES-3A;SimV3C-ES-4A;SimV3C-ES-5A;SimV3C-NQ-1A;SimV3C-NQ-1B;SimV3C-NQ-1C;SimV3C-NQ-2A;SimV3C-NQ-2B;SimV3C-NQ-2C;SimV3C-NQ-2D;SimV3C-NQ-3A;SimV3C-NQ-3B;SimV3C-NQ-4A;SimV3C-NQ-4B;SimV3C-NQ-5A;SimV3C-NQ-5B;SimV3D-ES-1A;SimV3D-ES-1B;SimV3D-ES-1C;SimV3D-ES-1D;SimV3D-ES-2A;SimV3D-ES-2B;SimV3D-ES-2C;SimV3D-ES-2D;SimV3D-ES-3A;SimV3D-ES-3B;SimV3D-ES-3C;SimV3D-ES-3D;SimV3D-ES-4A;SimV3D-ES-4B;SimV3D-ES-4C;SimV3D-ES-4D;SimV3D-ES-5A;SimV3D-ES-5B;SimV3D-ES-5C;SimV3D-ES-5D;SimV3D-NQ-1A;SimV3D-NQ-1B;SimV3D-NQ-1C;SimV3D-NQ-1D;SimV3D-NQ-2A;SimV3D-NQ-2B;SimV3D-NQ-2C;SimV3D-NQ-2D;SimV3D-NQ-3A;SimV3D-NQ-3B;SimV3D-NQ-3C;SimV3D-NQ-3D;SimV3D-NQ-4A;SimV3D-NQ-4B;SimV3D-NQ-4C;SimV3D-NQ-4D;SimV3D-NQ-5A;SimV3D-NQ-5B;SimV3D-NQ-5C;SimV3D-NQ-5D";
 
@@ -45,7 +48,7 @@ namespace NinjaTrader.NinjaScript.Indicators
         private int lastFallbackTradeCount;
 
         [NinjaScriptProperty]
-        [Display(Name = "Export Profile", Description = "RegimeModel writes to the main model EOD path. Leaderboard writes to the isolated OP candidate path.", Order = 0, GroupName = "EOD Export")]
+        [Display(Name = "Export Profile", Description = "RegimeModel writes to the main model EOD path. Leaderboard writes to the isolated OP candidate path. Model5A writes only Model 5 lab trades to the 5A folder.", Order = 0, GroupName = "EOD Export")]
         public NT8TradeExportProfile ExportProfile { get; set; }
 
         [NinjaScriptProperty]
@@ -158,6 +161,8 @@ namespace NinjaTrader.NinjaScript.Indicators
         {
             if (ExportProfile == NT8TradeExportProfile.Leaderboard)
                 return LeaderboardOutputPath;
+            if (ExportProfile == NT8TradeExportProfile.Model5A)
+                return Model5AOutputPath;
             return RegimeModelOutputPath;
         }
 
@@ -165,6 +170,8 @@ namespace NinjaTrader.NinjaScript.Indicators
         {
             if (ExportProfile == NT8TradeExportProfile.Leaderboard)
                 return LeaderboardRegistryPath;
+            if (ExportProfile == NT8TradeExportProfile.Model5A)
+                return Model5ARegistryPath;
             return RegimeModelRegistryPath;
         }
 
