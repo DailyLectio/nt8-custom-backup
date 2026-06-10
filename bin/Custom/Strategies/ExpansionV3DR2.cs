@@ -330,6 +330,7 @@ namespace NinjaTrader.NinjaScript.Strategies
         private int    barsAfterLeg1      = 0;
         private int    currentLeg2Qty     = 1;   // dynamic threshold for leg1 detection
         private bool   pendingLeg2StopRearm = false;
+        private bool   exitPending        = false;
 
         // =====================================================================
         // HELPERS
@@ -405,6 +406,7 @@ namespace NinjaTrader.NinjaScript.Strategies
             barsAfterLeg1      = 0;
             currentLeg2Qty     = 1;
             pendingLeg2StopRearm = false;
+            exitPending        = false;
         }
 
         // R2: Choppiness Index over `period` bars (0..100). High = chop, low = trending.
@@ -961,9 +963,56 @@ namespace NinjaTrader.NinjaScript.Strategies
                 && order.Name.IndexOf("stop", StringComparison.OrdinalIgnoreCase) >= 0;
         }
 
+        private double CurrentBidSafe()
+        {
+            double bid = GetCurrentBid();
+            return bid > 0 ? bid : Close[0];
+        }
+
+        private double CurrentAskSafe()
+        {
+            double ask = GetCurrentAsk();
+            return ask > 0 ? ask : Close[0];
+        }
+
+        private bool IsValidProtectiveStop(double stopPrice)
+        {
+            if (Position.MarketPosition == MarketPosition.Long)
+                return stopPrice < RT(Math.Min(Close[0], CurrentBidSafe()));
+            if (Position.MarketPosition == MarketPosition.Short)
+                return stopPrice > RT(Math.Max(Close[0], CurrentAskSafe()));
+            return false;
+        }
+
+        private bool TrySetLeg2Stop(double stopPrice, string reason)
+        {
+            if (exitPending || Position.MarketPosition == MarketPosition.Flat)
+                return false;
+
+            stopPrice = RT(stopPrice);
+            if (!IsValidProtectiveStop(stopPrice))
+            {
+                pendingLeg2StopRearm = false;
+                exitPending = true;
+                Print(string.Format(
+                    "[Expansion_V3D-R2] Leg2 stop crossed live market; flattening runner | Reason:{0} | Stop:{1:F2} | Close:{2:F2} | Bid:{3:F2} | Ask:{4:F2}",
+                    reason, stopPrice, Close[0], CurrentBidSafe(), CurrentAskSafe()));
+                ExitOpenExpansionLegs(reason + "StopCrossed");
+                return false;
+            }
+
+            leg2TrailingStop = stopPrice;
+            if (Position.MarketPosition == MarketPosition.Long)
+                SetStopLoss(Leg2L, CalculationMode.Price, leg2TrailingStop, false);
+            else
+                SetStopLoss(Leg2S, CalculationMode.Price, leg2TrailingStop, false);
+
+            return true;
+        }
+
         private void RearmLeg2Stop(string reason)
         {
-            if (Position.MarketPosition == MarketPosition.Flat) return;
+            if (exitPending || Position.MarketPosition == MarketPosition.Flat) return;
 
             double pivot = Position.MarketPosition == MarketPosition.Long
                 ? RT(Position.AveragePrice + 4 * TickSize)
@@ -971,17 +1020,17 @@ namespace NinjaTrader.NinjaScript.Strategies
 
             if (Position.MarketPosition == MarketPosition.Long)
             {
-                leg2TrailingStop = (leg2TrailingStop == 0.0 || double.IsNaN(leg2TrailingStop))
+                double nextStop = (leg2TrailingStop == 0.0 || double.IsNaN(leg2TrailingStop))
                     ? pivot
                     : Math.Max(leg2TrailingStop, pivot);
-                SetStopLoss(Leg2L, CalculationMode.Price, leg2TrailingStop, false);
+                if (!TrySetLeg2Stop(nextStop, reason)) return;
             }
             else
             {
-                leg2TrailingStop = (leg2TrailingStop == 0.0 || double.IsNaN(leg2TrailingStop))
+                double nextStop = (leg2TrailingStop == 0.0 || double.IsNaN(leg2TrailingStop))
                     ? pivot
                     : Math.Min(leg2TrailingStop, pivot);
-                SetStopLoss(Leg2S, CalculationMode.Price, leg2TrailingStop, false);
+                if (!TrySetLeg2Stop(nextStop, reason)) return;
             }
 
             pendingLeg2StopRearm = false;
@@ -1031,8 +1080,8 @@ namespace NinjaTrader.NinjaScript.Strategies
             // ── TRANSITION: immediate flat ─────────────────────────────────
             if (AllowRegimeManagedExit() && Position.MarketPosition != MarketPosition.Flat && finalRegime == "TRANSITION")
             {
+                exitPending = true;
                 ExitOpenExpansionLegs("TransitionExit");
-                ClearLegState();
                 return;
             }
 
@@ -1181,6 +1230,8 @@ namespace NinjaTrader.NinjaScript.Strategies
             // ==================================================================
             if (Position.MarketPosition != MarketPosition.Flat)
             {
+                if (exitPending) return;
+
                 // ── Leg1 fill detection ─────────────────────────────────────
                 // Uses currentLeg2Qty so the threshold is correct for any sz.
                 // Draft bug: hard-coded <= 1 failed when sz >= 4.
@@ -1197,11 +1248,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                         ? RT(Position.AveragePrice + 4 * TickSize)
                         : RT(Position.AveragePrice - 4 * TickSize);
 
-                    leg2TrailingStop = pivot;
-                    if (Position.MarketPosition == MarketPosition.Long)
-                        SetStopLoss(Leg2L, CalculationMode.Price, pivot, false);
-                    else
-                        SetStopLoss(Leg2S, CalculationMode.Price, pivot, false);
+                    TrySetLeg2Stop(pivot, "Leg1 fill threshold");
                 }
 
                 if (leg1Hit) barsAfterLeg1++;
@@ -1219,8 +1266,8 @@ namespace NinjaTrader.NinjaScript.Strategies
 
                 if (oppositeBrickCount >= WobbleBricks)
                 {
+                    exitPending = true;
                     ExitOpenExpansionLegs("WobbleEject");
-                    ClearLegState();
                     return;
                 }
 
@@ -1252,8 +1299,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                             double candidate = RT(nLow - TickSize);
                             if (candidate > leg2TrailingStop)
                             {
-                                leg2TrailingStop = candidate;
-                                SetStopLoss(Leg2L, CalculationMode.Price, leg2TrailingStop, false);
+                                TrySetLeg2Stop(candidate, "BarN trail");
                             }
                         }
                         else
@@ -1264,8 +1310,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                             double candidate = RT(nHigh + TickSize);
                             if (candidate < leg2TrailingStop || leg2TrailingStop == 0)
                             {
-                                leg2TrailingStop = candidate;
-                                SetStopLoss(Leg2S, CalculationMode.Price, leg2TrailingStop, false);
+                                TrySetLeg2Stop(candidate, "BarN trail");
                             }
                         }
                     }
@@ -1277,8 +1322,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                             double candidate = RT(High[0] - trailDist);
                             if (candidate > leg2TrailingStop)
                             {
-                                leg2TrailingStop = candidate;
-                                SetStopLoss(Leg2L, CalculationMode.Price, leg2TrailingStop, false);
+                                TrySetLeg2Stop(candidate, "Tick trail");
                             }
                         }
                         else
@@ -1286,8 +1330,7 @@ namespace NinjaTrader.NinjaScript.Strategies
                             double candidate = RT(Low[0] + trailDist);
                             if (candidate < leg2TrailingStop || leg2TrailingStop == 0)
                             {
-                                leg2TrailingStop = candidate;
-                                SetStopLoss(Leg2S, CalculationMode.Price, leg2TrailingStop, false);
+                                TrySetLeg2Stop(candidate, "Tick trail");
                             }
                         }
                     }

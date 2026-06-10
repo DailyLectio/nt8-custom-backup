@@ -1129,12 +1129,14 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (qty < 1) return;
 
             double risk = Math.Max(AtrStopMult * atrStop[0], MinStopTicks * TickSize);
-            double stp  = RT(Close[0] - risk);
-            double tgt  = RT(Close[0] + risk * RiskReward);
+            int riskTicks = Math.Max(1, (int)Math.Round(risk / TickSize));
+            int targetTicks = Math.Max(1, (int)Math.Round(riskTicks * RiskReward));
+            double stp  = RT(Close[0] - riskTicks * TickSize);
+            double tgt  = RT(Close[0] + targetTicks * TickSize);
 
-            SetStopLoss(LEntry, CalculationMode.Price, stp, false);
-            CaptureInitialStopForLog(stp, "LONG");
-            SetProfitTarget(LEntry, CalculationMode.Price, tgt);
+            SetStopLoss(LEntry, CalculationMode.Ticks, riskTicks, false);
+            CaptureInitialStopTicksForLog(riskTicks, "LONG");
+            SetProfitTarget(LEntry, CalculationMode.Ticks, targetTicks);
             EnterLong(qty, LEntry);
 
             Print(string.Format(
@@ -1161,12 +1163,14 @@ namespace NinjaTrader.NinjaScript.Strategies
             if (qty < 1) return;
 
             double risk = Math.Max(AtrStopMult * atrStop[0], MinStopTicks * TickSize);
-            double stp  = RT(Close[0] + risk);
-            double tgt  = RT(Close[0] - risk * RiskReward);
+            int riskTicks = Math.Max(1, (int)Math.Round(risk / TickSize));
+            int targetTicks = Math.Max(1, (int)Math.Round(riskTicks * RiskReward));
+            double stp  = RT(Close[0] + riskTicks * TickSize);
+            double tgt  = RT(Close[0] - targetTicks * TickSize);
 
-            SetStopLoss(SEntry, CalculationMode.Price, stp, false);
-            CaptureInitialStopForLog(stp, "SHORT");
-            SetProfitTarget(SEntry, CalculationMode.Price, tgt);
+            SetStopLoss(SEntry, CalculationMode.Ticks, riskTicks, false);
+            CaptureInitialStopTicksForLog(riskTicks, "SHORT");
+            SetProfitTarget(SEntry, CalculationMode.Ticks, targetTicks);
             EnterShort(qty, SEntry);
 
             Print(string.Format(
