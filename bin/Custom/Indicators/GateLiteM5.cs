@@ -1,11 +1,13 @@
 #region Using declarations
 using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Xml.Serialization;
 using System.Windows.Media;
 using NinjaTrader.NinjaScript;
 using NinjaTrader.NinjaScript.DrawingTools;
@@ -19,13 +21,36 @@ namespace NinjaTrader.NinjaScript.Indicators
         private DateTime lastRefreshUtc = DateTime.MinValue;
         private string lastLogStamp = "";
 
+        [Browsable(false)]
+        [XmlIgnore]
         public bool AllowLong { get; private set; }
+
+        [Browsable(false)]
+        [XmlIgnore]
         public bool AllowShort { get; private set; }
+
+        [Browsable(false)]
+        [XmlIgnore]
         public string GateRecommendation { get; private set; }
+
+        [Browsable(false)]
+        [XmlIgnore]
         public string ReasonCode { get; private set; }
+
+        [Browsable(false)]
+        [XmlIgnore]
         public string RegimeState { get; private set; }
+
+        [Browsable(false)]
+        [XmlIgnore]
         public string FinalRegime { get; private set; }
+
+        [Browsable(false)]
+        [XmlIgnore]
         public string FinalDirection { get; private set; }
+
+        [Browsable(false)]
+        [XmlIgnore]
         public string HmmState { get; private set; }
 
         [NinjaScriptProperty]
